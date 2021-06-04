@@ -30,12 +30,14 @@ public:
                 cur = cur->next;
             return cur->val;            
         }
-
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
-
+        Node *cur = new Node(val);
+        cur->next = head;
+        head = cur;
+        length++;
     }
     
     /** Append a node of value val to the last element of the linked list. */
@@ -55,6 +57,14 @@ public:
 };
 
 int main(){
+
+    MyLinkedList myLinkedList = new MyLinkedList();
+    myLinkedList.addAtHead(1);
+    myLinkedList.addAtTail(3);
+    myLinkedList.addAtIndex(1, 2);    // linked list becomes 1->2->3
+    myLinkedList.get(1);              // return 2
+    myLinkedList.deleteAtIndex(1);    // now the linked list is 1->3
+    myLinkedList.get(1);              // return 3
 
 }
 
