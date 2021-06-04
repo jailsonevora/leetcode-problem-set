@@ -8,12 +8,10 @@ public:
     MyLinkedList() {
         int val;
         MyLinkedList *next;
-       // MyLinkedList(int v, MyLinkedList *next){ val(v); next(NULL)}
     }
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
