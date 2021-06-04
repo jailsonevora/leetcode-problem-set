@@ -2,21 +2,40 @@
 
 using namespace std;
 
+struct Node {
+    int val;
+    Node *next;
+    Node(int x) : val(x), next(NULL) {}
+};
+
 class MyLinkedList {
 public:
+    int length;
+    Node *head;
+
     /** Initialize your data structure here. */
     MyLinkedList() {
-        int val;
-        MyLinkedList *next;
+        length = 0;
+        head = NULL;
     }
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
+
+        if(index < 0 && index > length)
+            return -1;
+        else{
+            Node *cur = head;
+            for (;index > 0; index--)
+                cur = cur->next;
+            return cur->val;            
+        }
+
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
-        
+
     }
     
     /** Append a node of value val to the last element of the linked list. */
