@@ -43,6 +43,19 @@ public:
     /** Append a node of value val to the last element of the linked list. */
     void addAtTail(int val) {
         
+        Node *temp = new Node(val);
+        
+        if(head != NULL){
+            Node *cur = head;
+
+            while (cur->next != NULL)
+                cur = cur->next;
+            
+            cur->next = temp;
+            length++;
+        }
+        else
+            head = temp;
     }
     
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
@@ -58,13 +71,13 @@ public:
 
 int main(){
 
-    MyLinkedList myLinkedList = new MyLinkedList();
-    myLinkedList.addAtHead(1);
-    myLinkedList.addAtTail(3);
-    myLinkedList.addAtIndex(1, 2);    // linked list becomes 1->2->3
-    myLinkedList.get(1);              // return 2
-    myLinkedList.deleteAtIndex(1);    // now the linked list is 1->3
-    myLinkedList.get(1);              // return 3
+    // MyLinkedList myLinkedList = new MyLinkedList();
+    // myLinkedList.addAtHead(1);
+    // myLinkedList.addAtTail(3);
+    // myLinkedList.addAtIndex(1, 2);    // linked list becomes 1->2->3
+    // myLinkedList.get(1);              // return 2
+    // myLinkedList.deleteAtIndex(1);    // now the linked list is 1->3
+    // myLinkedList.get(1);              // return 3
 
 }
 
