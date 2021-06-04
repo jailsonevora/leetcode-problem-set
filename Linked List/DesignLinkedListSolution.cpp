@@ -6,7 +6,9 @@ class MyLinkedList {
 public:
     /** Initialize your data structure here. */
     MyLinkedList() {
-        
+        int val;
+        MyLinkedList *next;
+       // MyLinkedList(int v, MyLinkedList *next){ val(v); next(NULL)}
     }
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
@@ -36,7 +38,7 @@ public:
 };
 
 int main(){
-    
+
 }
 
 /**
