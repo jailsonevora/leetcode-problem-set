@@ -60,6 +60,7 @@ public:
     
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
+        
         if(index > length) return;
         if(index < 0){
             addAtHead(val);
@@ -118,7 +119,7 @@ int main(){
     cin.sync_with_stdio();
     cin.tie(0);
     cout.tie(0);
-    
+
     int val, index;
     cin >> val >> index;
 
