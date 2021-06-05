@@ -44,7 +44,8 @@ public:
     /** Append a node of value val to the last element of the linked list. */
     void addAtTail(int val) {
         
-        Node *temp = new Node(val);
+        Node *temp = new Node(val);        
+        length++;
         
         if(head != NULL){
             Node *cur = head;
@@ -53,7 +54,6 @@ public:
                 cur = cur->next;
             
             cur->next = temp;
-            length++;
         }
         else
             head = temp;
@@ -67,16 +67,20 @@ public:
             addAtHead(val);
         }
         else{
-            Node *temp = new Node(val);
+            Node dmy = new Node(-1);
+            dmy.next = head;          
+            Node *cur = dmy;
 
-            Node *cur = head;
-
-            while(index-1 > 0){
+            while(index > 0){
                 cur = cur->next;
                 index--;
             }
-            temp->next = cur->next;
-            cur->next = temp;
+            Node newnode = new Node(val);
+            Node *temp = cur->next;
+            
+            cur->next = newnode;
+            newnode->next = temp;
+            head = dmy->next;
             length++;
         }
         
@@ -85,10 +89,6 @@ public:
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index) {
         
-        Node *temp = new Node(0);
-        temp->next = head;
-        Node *cur = head;
-
         if(index >= 0 && index < length){
 
             if(index == 0){
@@ -98,7 +98,11 @@ public:
             }
             else{
                 
-                while(index-1 > 0){
+                Node *temp = new Node(0);
+                temp->next = head;
+                Node *cur = temp;
+                
+                while(index > 0){
                     cur = cur->next;
                     index--;
                 }
@@ -110,36 +114,3 @@ public:
         }
     }
 };
-
-int main(){
-
-    /**
-     * Your MyLinkedList object will be instantiated and called as such:
-     * 
-     */
-    cin.sync_with_stdio();
-    cin.tie(0);
-    cout.tie(0);
-
-    int val, index;
-    cin >> val >> index;
-
-    MyLinkedList* obj = new MyLinkedList();
-    obj->addAtHead(val);
-    obj->addAtTail(val);
-    obj->addAtIndex(index,val);
-    int param_1 = obj->get(index);
-    obj->deleteAtIndex(index);
-
-
-}
-
-/**
- * Your MyLinkedList object will be instantiated and called as such:
- * MyLinkedList* obj = new MyLinkedList();
- * int param_1 = obj->get(index);
- * obj->addAtHead(val);
- * obj->addAtTail(val);
- * obj->addAtIndex(index,val);
- * obj->deleteAtIndex(index);
- */
