@@ -63,9 +63,8 @@ public:
     void addAtIndex(int index, int val) {
 
         if(index > length) return;
-        if(index < 0){
+        if(index == 0){
             addAtHead(val);
-            length++;
         }
         else{
             Node *temp = new Node(val);
