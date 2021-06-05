@@ -65,6 +65,7 @@ public:
         if(index > length) return;
         if(index < 0){
             addAtHead(val);
+            length++;
         }
         else{
             Node *temp = new Node(val);
@@ -87,7 +88,7 @@ public:
         
         Node *temp = new Node(0);
         temp->next = head;
-        Node *cur = temp;
+        Node *cur = head;
 
         if(index >= 0 && index < length){
 
@@ -98,7 +99,7 @@ public:
             }
             else{
                 
-                while(index > 0){
+                while(index-1 > 0){
                     cur = cur->next;
                     index--;
                 }
@@ -125,10 +126,10 @@ int main(){
     cin >> val >> index;
 
     MyLinkedList* obj = new MyLinkedList();
-    int param_1 = obj->get(index);
     obj->addAtHead(val);
     obj->addAtTail(val);
     obj->addAtIndex(index,val);
+    int param_1 = obj->get(index);
     obj->deleteAtIndex(index);
 
 
