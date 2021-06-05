@@ -34,6 +34,7 @@ public:
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
+
         Node *cur = new Node(val);
         cur->next = head;
         head = cur;
@@ -60,7 +61,7 @@ public:
     
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
-        
+
         if(index > length) return;
         if(index < 0){
             addAtHead(val);
