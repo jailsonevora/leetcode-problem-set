@@ -22,14 +22,13 @@ public:
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
 
-        if(index < 0 && index > length)
-            return -1;
-        else{
+        if(index < length && index >= 0){            
             Node *cur = head;
             for (;index > 0; index--)
                 cur = cur->next;
             return cur->val;            
-        }
+        }        
+        else return -1;
     }
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
@@ -67,15 +66,15 @@ public:
             addAtHead(val);
         }
         else{
-            Node dmy = new Node(-1);
-            dmy.next = head;          
+            Node *dmy = new Node(-1);
+            dmy->next = head;          
             Node *cur = dmy;
 
             while(index > 0){
                 cur = cur->next;
                 index--;
             }
-            Node newnode = new Node(val);
+            Node *newnode = new Node(val);
             Node *temp = cur->next;
             
             cur->next = newnode;
@@ -90,27 +89,51 @@ public:
     void deleteAtIndex(int index) {
         
         if(index >= 0 && index < length){
-
-            if(index == 0){
-                head = cur->next;
-                cur->next = NULL;                
-                length--;
-            }
-            else{
+            Node *temp = new Node(0);
+            temp->next = head;
+            Node *cur = temp;
                 
-                Node *temp = new Node(0);
-                temp->next = head;
-                Node *cur = temp;
-                
-                while(index > 0){
-                    cur = cur->next;
-                    index--;
-                }
-
-                cur->next = cur->next->next;
-                head = temp->next;
-                length--;
+            while(index > 0){
+                cur = cur->next;
+                index--;
             }
+
+            cur->next = cur->next->next;
+            head = temp->next;
+            length--;
         }
+        else
+            return;
     }
 };
+
+int main(){
+
+    /**
+     * Your MyLinkedList object will be instantiated and called as such:
+     * 
+     */
+    cin.sync_with_stdio();
+    cin.tie(0);
+    cout.tie(0);
+
+    int val, index;
+    cin >> val >> index;
+
+    MyLinkedList* obj = new MyLinkedList();
+    obj->addAtHead(val);
+    obj->addAtTail(val);
+    obj->addAtIndex(index,val);
+    int param_1 = obj->get(index);
+    obj->deleteAtIndex(index);
+}
+
+/**
+ * Your MyLinkedList object will be instantiated and called as such:
+ * MyLinkedList* obj = new MyLinkedList();
+ * int param_1 = obj->get(index);
+ * obj->addAtHead(val);
+ * obj->addAtTail(val);
+ * obj->addAtIndex(index,val);
+ * obj->deleteAtIndex(index);
+ */
