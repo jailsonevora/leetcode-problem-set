@@ -16,13 +16,12 @@ class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 
-        if (!head || !head->next)
+        if (!headA || !headA->next || !headB || !headB->next)
             return NULL;
         
-        ListNode *f = head, *s = head;
-        int si, fi = 0;
+        ListNode *f = headA, *s = headB;
         
-        while(f && f->next){
+        while(f && f->next && s && s->next){
             s = s->next;
             f = f->next->next;       
             if(s == f) break;
@@ -31,7 +30,7 @@ public:
         if (s != f)
             return NULL;
 
-        s = head;
+        s = headB;
         while (s != f) {
             s = s->next;
             f = f->next;

@@ -20,7 +20,6 @@ public:
             return NULL;
         
         ListNode *f = head, *s = head;
-        int si, fi = 0;
         
         while(f && f->next){
             s = s->next;
