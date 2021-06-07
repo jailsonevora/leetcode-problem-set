@@ -15,58 +15,49 @@ struct ListNode {
 class Solution {    
 public:
     ListNode *detectCycle(ListNode *head) {
-        
+
         if (!head || !head->next)
             return NULL;
         
         ListNode *f = head, *s = head;
+        int si, fi = 0;
         
         while(f && f->next){
             s = s->next;
-            f = f->next->next;            
+            f = f->next->next;
+            si++;
+            fi++;            
             if(s == f) break;
         }
         
-        if (s != f)
-            return NULL;
+        // if (s != f)
+        //     return NULL;
 
-        s = head;
-        while (s != f) {
-            s = s->next;
-            f = f->next;
-        }    
+        // s = head;
+        // while (s != f) {
+        //     s = s->next;
+        //     f = f->next;
+        // }    
         return s;
     }
 };
 
-// if (!head || !head->next)
-//             return NULL;
-
-//         ListNode *f = head, *s = head;
-
-//         s = s->next;
-//         f = f->next->next;
-
-//         while(f && f->next){
-//             if(s == f) break;
-//             s = s->next;
-//             f = f->next->next;            
-//         }
-//         // If loop does not exist
-//         if (s != f)
-//             return NULL;
-
-//         s = head;
-//         while (s != f) {
-//             s = s->next;
-//             f = f->next;
-//         }    
-//         return s;
-
 int main(){
-    ListNode *head = new ListNode(1);
     Solution s;
-    s.detectCycle(head);
+
+    ListNode *head = new ListNode(3);
+    head->next = new ListNode(2);
+    head->next->next = new ListNode(0);
+    head->next->next->next = new ListNode(-4);
+ 
+    /* Create a loop for testing */
+    head->next->next->next->next = head->next->next;
+ 
+    ListNode* res = s.detectCycle(head);
+    if (res == NULL)
+        cout << "Loop does not exist";
+    else
+        cout << "Loop starting node is " << res->val;
     return 0;
 }
 
