@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 
 using namespace std;
 
@@ -13,12 +14,23 @@ struct ListNode {
 
 class Solution {    
 public:
+    // ListNode *detectCycle(ListNode *head) {
+    //     ListNode *f = head, *s = head;
+    //     while(f && f->next){
+    //         s = s->next;
+    //         f = f->next->next;            
+    //         if(s == f) return f;
+    //     }
+    //     return NULL;
+    // }
+
     ListNode *detectCycle(ListNode *head) {
-        ListNode *f = head, *s = head;
-        while(f && f->next){
-            s = s->next;
-            f = f->next->next;            
-            if(s == f) return f;
+        std::set<ListNode> s;
+        ListNode *curr = head;
+        while(curr){         
+            if(s.find(head) != s.end()) 
+                return curr;
+            curr = curr->next;
         }
         return NULL;
     }
@@ -27,7 +39,7 @@ public:
 int main(){
     ListNode *head = new ListNode(1);
     Solution s;
-    s.hasCycle(head);
+    s.detectCycle(head);
     return 0;
 }
 
