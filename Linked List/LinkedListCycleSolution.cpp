@@ -14,12 +14,16 @@ struct ListNode {
 class Solution {    
 public:
     bool hasCycle(ListNode *head) {
+
+        if (head == NULL || head->next == NULL)
+        return false;
+
         ListNode *slowRunner = head, *fastRunner = head;
         
-        for(;slowRunner != fastRunner; slowRunner->next, fastRunner->next->next)
-            if(fastRunner->next == NULL)
-                return false;
-        return true;  
+        for(;fastRunner->next != NULL; slowRunner = slowRunner->next, fastRunner = fastRunner->next->next)
+            if(slowRunner == fastRunner)
+                return true;
+        return false;  
     }
 };
 
