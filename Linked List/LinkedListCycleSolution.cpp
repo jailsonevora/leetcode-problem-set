@@ -18,7 +18,13 @@ public:
         
         for(;slowRunner != fastRunner; slowRunner->next, fastRunner->next->next)
             if(fastRunner->next == NULL)
-                false;
+                return false;
         return true;  
     }
+    int main(){
+        ListNode *head = new ListNode(1);
+        hasCycle(head);
+        return 0;
+    }
 };
+
