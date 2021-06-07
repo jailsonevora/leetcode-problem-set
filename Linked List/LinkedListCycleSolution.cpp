@@ -17,7 +17,7 @@ public:
         ListNode *slowRunner = head, *fastRunner = head;
         
         for(;slowRunner != fastRunner; slowRunner->next, fastRunner->next->next)
-            if(fastRunner == NULL)
+            if(fastRunner->next == NULL)
                 false;
         return true;  
     }
