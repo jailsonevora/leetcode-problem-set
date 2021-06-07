@@ -15,6 +15,10 @@ struct ListNode {
 class Solution {    
 public:
     ListNode *detectCycle(ListNode *head) {
+
+        if (!head || !head->next)
+            return NULL;
+
         ListNode *f = head, *s = head;
 
         s = s->next;
@@ -31,8 +35,8 @@ public:
 
         s = head;
         while (s != f) {
-            s = f->next;
             f = f->next;
+            s = f->next;
         }    
         return s;
     }
