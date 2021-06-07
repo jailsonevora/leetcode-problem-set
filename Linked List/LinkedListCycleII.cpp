@@ -16,12 +16,25 @@ class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
         ListNode *f = head, *s = head;
+
+        s = s->next;
+        f = f->next->next;
+
         while(f && f->next){
+            if(s == f) break;
             s = s->next;
             f = f->next->next;            
-            if(s == f->next->next) return f;
         }
-        return NULL;
+        // If loop does not exist
+        if (s != f)
+            return NULL;
+
+        s = head;
+        while (s != f) {
+            s = f->next;
+            f = f->next;
+        }    
+        return s;
     }
 };
 
