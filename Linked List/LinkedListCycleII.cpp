@@ -24,20 +24,18 @@ public:
         
         while(f && f->next){
             s = s->next;
-            f = f->next->next;
-            si++;
-            fi++;            
+            f = f->next->next;       
             if(s == f) break;
         }
         
-        // if (s != f)
-        //     return NULL;
+        if (s != f)
+            return NULL;
 
-        // s = head;
-        // while (s != f) {
-        //     s = s->next;
-        //     f = f->next;
-        // }    
+        s = head;
+        while (s != f) {
+            s = s->next;
+            f = f->next;
+        }    
         return s;
     }
 };
@@ -51,7 +49,7 @@ int main(){
     head->next->next->next = new ListNode(-4);
  
     /* Create a loop for testing */
-    head->next->next->next->next = head->next->next;
+    head->next->next->next->next = head->next;
  
     ListNode* res = s.detectCycle(head);
     if (res == NULL)
