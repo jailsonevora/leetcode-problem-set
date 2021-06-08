@@ -39,6 +39,14 @@ public:
         temp->next = head;
         head = temp;
     }
+    void print()
+    {
+        struct ListNode* temp = head;
+        while (temp) {
+            std::cout << temp->val << " ";
+            temp = temp->next;
+        }
+    }
 };
 
 int main(){
