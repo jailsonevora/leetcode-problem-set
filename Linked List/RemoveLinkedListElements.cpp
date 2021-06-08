@@ -18,7 +18,16 @@ struct ListNode {
 
 class Solution {
 public:
+    ListNode *head;
     ListNode* removeElements(ListNode* head, int val) {
         
     }
+    
+    void push(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        temp->next = head;
+        head = temp;
+    }
 };
+
