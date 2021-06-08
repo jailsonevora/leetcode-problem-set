@@ -16,8 +16,8 @@ struct ListNode {
 };
 
 class Solution {
-    ListNode *head;
 public:
+    ListNode *head;
     ListNode* reverseList(ListNode* head) {
         
         ListNode *prev = NULL, *next = NULL, *curr = head;
@@ -47,4 +47,6 @@ int main(){
     ll.push(4);
     ll.push(15);
     ll.push(85);
+
+    ListNode *h = ll.reverseList(ll.head);
 }
