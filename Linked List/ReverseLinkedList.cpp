@@ -16,6 +16,7 @@ struct ListNode {
 };
 
 class Solution {
+    ListNode *head;
 public:
     ListNode* reverseList(ListNode* head) {
         
@@ -30,7 +31,12 @@ public:
         }
         
         head = prev;
-
         return head;
+    }
+    void push(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        temp->next = head;
+        head = temp;
     }
 };
