@@ -14,29 +14,18 @@ struct ListNode {
 
 class Solution {    
 public:
+
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
 
-        if (!headA || !headA->next || !headB || !headB->next)
-            return NULL;
+        ListNode *currA = headA, *currB = headB;
         
-        ListNode *f = headA, *s = headB;
-        
-        while(f && f->next && s && s->next){
-            s = s->next;
-            f = f->next->next;       
-            if(s == f) break;
+        while (currA != currB) {
+            currA = currA ? currA->next : headB;
+            currB = currB ? currB->next : headA;
         }
-        
-        if (s != f)
-            return NULL;
-
-        s = headB;
-        while (s != f) {
-            s = s->next;
-            f = f->next;
-        }    
-        return s;
+        return currA;        
     }
+
 };
 
 int main(){
