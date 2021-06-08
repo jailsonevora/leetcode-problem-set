@@ -40,3 +40,11 @@ public:
         head = temp;
     }
 };
+
+int main(){
+    Solution ll;
+    ll.push(20);
+    ll.push(4);
+    ll.push(15);
+    ll.push(85);
+}
