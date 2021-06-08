@@ -1,3 +1,4 @@
+#include<iostream>
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -18,7 +19,18 @@ class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
         
+        ListNode *prev = NULL, *next = NULL, *curr = head;
+
+        while (curr)
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
         
-        
+        head = prev;
+
+        return head;
     }
 };
