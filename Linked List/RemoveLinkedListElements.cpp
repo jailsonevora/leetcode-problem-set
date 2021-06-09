@@ -31,6 +31,7 @@ public:
                 curr->next = curr->next->next;
             curr = curr->next;
         }
+        return head;
     }
     
     void push(int data)
