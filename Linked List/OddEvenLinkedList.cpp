@@ -44,10 +44,10 @@ public:
             lenght++; 
             last = last->next;            
         }
-        
-        while (curr->next && lenght--)
+        int i = 1;
+        while (curr->next && i < lenght)
         {   
-            if ((lenght % 2 == 0)){
+            if ((i % 2 == 0)){
                 ListNode *headRemain = curr->next;
                 curr->next = curr->next->next;
                 
@@ -56,6 +56,7 @@ public:
             }
             else           
                 curr = curr->next;
+            i++;
         }
         return dummy->next;        
     }
