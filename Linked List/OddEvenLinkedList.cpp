@@ -39,10 +39,14 @@ public:
         dummy->next = head;
         ListNode *curr = dummy, *headRemain = curr, *last;
 
-        while(last && last->next) last = last->next;
+        int i = 0;
+        while(last && last->next){ 
+            last = last->next;            
+            i++;
+        }
 
-        int i = 1;
-        while (curr->next)
+        
+        while (curr->next && i--)
         {   
             if ((i % 2 == 0)){
                 ListNode *headRemain = curr->next;
@@ -51,9 +55,8 @@ public:
                 last->next = headRemain->next->next;
                 last = last->next;
             }
-            else {          
+            else           
                 curr = curr->next;
-            i++;
         }
         return dummy->next;
         
