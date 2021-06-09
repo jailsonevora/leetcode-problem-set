@@ -27,10 +27,9 @@ public:
 
         while (curr->next)
         {
-            if (curr->next->val == val){
-                //ListNode *next = curr->next;
+            if (curr->next->val == val)
                 curr->next = curr->next->next;
-            }else           
+            else           
                 curr = curr->next;
         }
         return dummy->next;
@@ -63,5 +62,5 @@ int main(){
     ll.pushBack(5);
     ll.pushBack(6);
 
-    ListNode *h = ll.removeElements(ll.head, 7);
+    ListNode *h = ll.removeElements(ll.head, 6);
 }
