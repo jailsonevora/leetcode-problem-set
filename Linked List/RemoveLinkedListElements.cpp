@@ -20,7 +20,17 @@ class Solution {
 public:
     ListNode *head;
     ListNode* removeElements(ListNode* head, int val) {
-        
+
+        ListNode *dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode *curr = dummy;
+
+        while (curr->next)
+        {
+            if (curr->val == val)
+                curr->next = curr->next->next;
+            curr = curr->next;
+        }
     }
     
     void push(int data)
