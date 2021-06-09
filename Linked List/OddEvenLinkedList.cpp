@@ -45,13 +45,15 @@ public:
             last = last->next;            
         }
         int i = 1;
-        while (curr->next && i < lenght)
+        while (curr->next && i <= lenght)
         {   
-            if ((i % 2 == 0)){
+            if ((i % 2 == 0) && curr->next->next){
                 ListNode *headRemain = curr->next;
                 curr->next = curr->next->next;
                 
-                last->next = headRemain->next->next;
+                headRemain->next = nullptr;
+                last->next = headRemain;                
+
                 last = last->next;
             }
             else           
@@ -59,6 +61,23 @@ public:
             i++;
         }
         return dummy->next;        
+    }
+
+    ListNode* oddEvenListT(ListNode* head) {
+        if (head==nullptr) return head;
+        ListNode* evenHead = head->next;
+        ListNode* odd = head;
+        ListNode* even = head->next;
+
+        while (even && even->next) {
+        odd->next = even->next;
+        odd = odd->next;
+        even->next = odd->next;
+        even = even->next;
+        }
+        odd->next = evenHead;
+        return head;
+    
     }
 
     void pushBack(int data)
@@ -84,7 +103,10 @@ int main(){
     ll.pushBack(2);
     ll.pushBack(3);
     ll.pushBack(4);
-    ll.pushBack(5);
+    ll.pushBack(5);    
+    ll.pushBack(6);
+    ll.pushBack(7);
+    ll.pushBack(8);
 
     ListNode *h = ll.oddEvenList(ll.head);
 }
