@@ -25,6 +25,9 @@ public:
         dummy->next = head;
         ListNode *curr = dummy;
 
+        if(!head)
+            return head->next;
+
         if(head == curr->next && curr->next->val == val){
             head = head->next;
             curr->next = head;
