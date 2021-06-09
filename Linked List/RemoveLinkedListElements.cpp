@@ -18,7 +18,7 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode *head;
+    ListNode *head = NULL;
     ListNode* removeElements(ListNode* head, int val) {
 
         ListNode *dummy = new ListNode(0);
@@ -26,7 +26,7 @@ public:
         ListNode *curr = dummy;
 
         if(!head)
-            return head->next;
+            return nullptr;
 
         if(head == curr->next && curr->next->val == val){
             head = head->next;
@@ -61,13 +61,13 @@ public:
 int main(){
 
     Solution ll;
-    ll.pushBack(1);
-    ll.pushBack(2);
-    ll.pushBack(6);
-    ll.pushBack(3);
-    ll.pushBack(4);
-    ll.pushBack(5);
-    ll.pushBack(6);
+    // ll.pushBack(1);
+    // ll.pushBack(2);
+    // ll.pushBack(6);
+    // ll.pushBack(3);
+    // ll.pushBack(4);
+    // ll.pushBack(5);
+    // ll.pushBack(6);
 
     ListNode *h = ll.removeElements(ll.head, 6);
 }
