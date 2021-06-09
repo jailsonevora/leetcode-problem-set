@@ -25,10 +25,15 @@ public:
         dummy->next = head;
         ListNode *curr = dummy;
 
+        if(head == curr->next && curr->val == val){
+            head = head->next;
+            curr->next = head;
+        }
+
         while (curr->next)
         {
             if (curr->val == val)
-                curr->next = curr->next->next;
+                curr->next = curr->next->next;            
             curr = curr->next;
         }
         return head;
