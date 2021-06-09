@@ -39,24 +39,32 @@ public:
         return head;
     }
     
-    void push(int data)
+    void pushBack(int data)
     {
         ListNode* temp = new ListNode(data);
-        temp->next = head;
-        head = temp;
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) curr = curr->next;
+
+        curr->next = temp;
     }
 };
 
 int main(){
 
     Solution ll;
-    ll.push(1);
-    ll.push(2);
-    ll.push(6);
-    ll.push(3);
-    ll.push(4);
-    ll.push(5);
-    ll.push(6);
+    ll.pushBack(1);
+    ll.pushBack(2);
+    ll.pushBack(6);
+    ll.pushBack(3);
+    ll.pushBack(4);
+    ll.pushBack(5);
+    ll.pushBack(6);
 
     ListNode *h = ll.removeElements(ll.head, 6);
 }
