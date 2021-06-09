@@ -17,7 +17,32 @@ struct ListNode {
 
 class Solution {
 public:
+    ListNode *head = NULL;
     ListNode* oddEvenList(ListNode* head) {
         
     }
+    void pushBack(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) curr = curr->next;
+
+        curr->next = temp;
+    }
 };
+
+int main(){
+    Solution ll;
+    ll.push(20);
+    ll.push(4);
+    ll.push(15);
+    ll.push(85);
+
+    ListNode *h = ll.reverseList(ll.head);
+}
