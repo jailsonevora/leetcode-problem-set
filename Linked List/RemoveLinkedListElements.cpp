@@ -25,21 +25,15 @@ public:
         dummy->next = head;
         ListNode *curr = dummy;
 
-        if(!head)
-            return nullptr;
-
-        while(head == curr->next && curr->next->val == val){
-            head = head->next;
-            curr->next = head;
-        }
-
-        while (curr)
+        while (curr->next)
         {
-            if (curr->next->val == val)
-                curr->next = curr->next->next;            
-            curr = curr->next;
+            if (curr->next->val == val){
+                //ListNode *next = curr->next;
+                curr->next = curr->next->next;
+            }else           
+                curr = curr->next;
         }
-        return head;
+        return dummy->next;
     }
     
     void pushBack(int data)
@@ -61,13 +55,13 @@ public:
 int main(){
 
     Solution ll;
-    ll.pushBack(7);
-    ll.pushBack(7);
-    ll.pushBack(7);
-    ll.pushBack(7);
-    // ll.pushBack(4);
-    // ll.pushBack(5);
-    // ll.pushBack(6);
+    ll.pushBack(1);
+    ll.pushBack(2);
+    ll.pushBack(6);
+    ll.pushBack(3);
+    ll.pushBack(4);
+    ll.pushBack(5);
+    ll.pushBack(6);
 
     ListNode *h = ll.removeElements(ll.head, 7);
 }
