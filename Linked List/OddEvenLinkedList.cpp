@@ -37,14 +37,19 @@ public:
 
         ListNode *dummy = new ListNode(0);
         dummy->next = head;
-        ListNode *curr = dummy, *headRemain;
+        ListNode *curr = dummy, *headRemain = curr, *last;
+
+        while(last && last->next) last = last->next;
 
         int i = 1;
         while (curr->next)
         {   
             if ((i % 2 == 0)){
+                ListNode *headRemain = curr->next;
                 curr->next = curr->next->next;
-                addAtTail(curr->next, headRemain);
+                
+                last->next = headRemain->next->next;
+                last = last->next;
             }
             else {          
                 curr = curr->next;
