@@ -30,7 +30,7 @@ public:
             curr->next = head;
         }
 
-        while (curr->next)
+        while (curr)
         {
             if (curr->val == val)
                 curr->next = curr->next->next;            
@@ -48,11 +48,15 @@ public:
 };
 
 int main(){
-    Solution ll;
-    ll.push(20);
-    ll.push(4);
-    ll.push(15);
-    ll.push(85);
 
-    ListNode *h = ll.removeElements(ll.head, 2);
+    Solution ll;
+    ll.push(1);
+    ll.push(2);
+    ll.push(6);
+    ll.push(3);
+    ll.push(4);
+    ll.push(5);
+    ll.push(6);
+
+    ListNode *h = ll.removeElements(ll.head, 6);
 }
