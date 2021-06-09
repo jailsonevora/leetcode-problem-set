@@ -37,18 +37,17 @@ public:
 
         ListNode *dummy = new ListNode(0);
         dummy->next = head;
-        ListNode *curr = dummy, *headRemain = curr, *last;
+        ListNode *curr = dummy, *headRemain = curr, *last = head;
 
-        int i = 0;
-        while(last && last->next){ 
+        int lenght = 1;
+        while(last && last->next){
+            lenght++; 
             last = last->next;            
-            i++;
         }
-
         
-        while (curr->next && i--)
+        while (curr->next && lenght--)
         {   
-            if ((i % 2 == 0)){
+            if ((lenght % 2 == 0)){
                 ListNode *headRemain = curr->next;
                 curr->next = curr->next->next;
                 
@@ -58,9 +57,9 @@ public:
             else           
                 curr = curr->next;
         }
-        return dummy->next;
-        
+        return dummy->next;        
     }
+
     void pushBack(int data)
     {
         ListNode* temp = new ListNode(data);
@@ -82,11 +81,9 @@ int main(){
     Solution ll;
     ll.pushBack(1);
     ll.pushBack(2);
-    ll.pushBack(6);
     ll.pushBack(3);
     ll.pushBack(4);
     ll.pushBack(5);
-    ll.pushBack(6);
 
     ListNode *h = ll.oddEvenList(ll.head);
 }
