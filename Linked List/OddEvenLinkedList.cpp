@@ -38,11 +38,15 @@ public:
 };
 
 int main(){
+    
     Solution ll;
-    ll.push(20);
-    ll.push(4);
-    ll.push(15);
-    ll.push(85);
+    ll.pushBack(1);
+    ll.pushBack(2);
+    ll.pushBack(6);
+    ll.pushBack(3);
+    ll.pushBack(4);
+    ll.pushBack(5);
+    ll.pushBack(6);
 
-    ListNode *h = ll.reverseList(ll.head);
+    ListNode *h = ll.oddEvenList(ll.head);
 }
