@@ -19,6 +19,25 @@ class Solution {
 public:
     ListNode *head = NULL;
     ListNode* oddEvenList(ListNode* head) {
+
+        ListNode *dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode *curr = dummy, *remain;
+
+        int i = 1;
+        while (curr->next)
+        {   
+            if ((i % 2 == 0)){
+                curr->next = curr->next->next;
+                remain->next->next = curr->next;
+            }
+            else {          
+                curr = curr->next;
+                remain = remain->next;
+            }
+            i++;
+        }
+        return dummy->next;
         
     }
     void pushBack(int data)
