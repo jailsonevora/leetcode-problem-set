@@ -42,10 +42,10 @@ public:
             first = first->next;
         }        
         //remove the odd midlle node;
-        first->next = NULL; 
+        first->next = NULL;
 
-
-        
+        // now we reverse the second linkedList
+                
 
 
         
