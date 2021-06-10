@@ -15,6 +15,20 @@ public:
     bool isPalindrome(ListNode* head) {
         
     }
+    void pushBack(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) curr = curr->next;
+
+        curr->next = temp;
+    }
 };
 
 
