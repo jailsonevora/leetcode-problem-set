@@ -47,5 +47,5 @@ int main(){
     ll.pushBack(2);
     ll.pushBack(1);
 
-    cout << isPalindrome(ll.head);
+    cout << ll.isPalindrome(ll.head);
 }
