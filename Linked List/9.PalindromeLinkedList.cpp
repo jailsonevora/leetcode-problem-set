@@ -22,6 +22,32 @@ class Solution {
 public:
     ListNode *head = NULL;
     bool isPalindrome(ListNode* head) {
+        ListNode *first = head, *last = head;
+        ListNode *headHalf = NULL;
+
+        while (1)
+        {
+            last = last->next->next;
+            //odd linkedList
+            if (last->next == NULL){
+                headHalf = first->next->next;
+                break;
+            }
+            //even linkedList
+            if (last == NULL)
+            {
+                headHalf = first->next;
+                break;
+            }         
+            first = first->next;
+        }        
+        //remove the odd midlle node;
+        first->next = NULL; 
+
+
+        
+
+
         
     }
     void pushBack(int data)
