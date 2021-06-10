@@ -1,5 +1,19 @@
+#include<iostream>
+
+using namespace std;
+
+struct Node {
+    int val;
+    Node *prev;
+    Node *next;
+    Node(int x) : val(x), prev(NULL), next(NULL) {}
+};
+
 class MyLinkedList {
 public:
+    
+    int length;
+    Node *head;
     /** Initialize your data structure here. */
     MyLinkedList() {
         
@@ -30,6 +44,22 @@ public:
         
     }
 };
+
+int main(){
+    cin.sync_with_stdio();
+    cin.tie(0);
+    cout.tie(0);
+
+    int val, index;
+    cin >> val >> index;
+
+    MyLinkedList* obj = new MyLinkedList();
+    obj->addAtHead(val);
+    obj->addAtTail(val);
+    obj->addAtIndex(index,val);
+    int param_1 = obj->get(index);
+    obj->deleteAtIndex(index);
+}
 
 /**
  * Your MyLinkedList object will be instantiated and called as such:
