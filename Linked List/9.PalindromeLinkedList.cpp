@@ -22,7 +22,7 @@ class Solution {
 public:
     ListNode *head = NULL;
 
-    void reverseList(ListNode* headHalf) {
+    ListNode *reverseList(ListNode *headHalf) {
         
         ListNode *prev = NULL, *next = NULL, *curr = headHalf;
 
@@ -35,23 +35,24 @@ public:
         }
         
         headHalf = prev;
+        return headHalf;
     }
 
     bool isPalindrome(ListNode* head) {
 
         ListNode *first = head, *last = head;
-        ListNode *headHalf = NULL;
+        ListNode *headHalf;
 
         while (1)
         {
             last = last->next->next;
             //odd linkedList
-            if (last->next == NULL){
+            if (last && !last->next){
                 headHalf = first->next->next;
                 break;
             }
             //even linkedList
-            if (last == NULL)
+            if (!last)
             {
                 headHalf = first->next;
                 break;
@@ -62,15 +63,17 @@ public:
         first->next = NULL;
 
         // now we reverse the second linkedList
-        reverseList(headHalf);
+        headHalf = reverseList(headHalf);
 
         //compare both head and headhalf
         ListNode *currHead = head, *currHeadHalf = headHalf;
 
-        while (currHead && currHeadHalf)
+        while (currHead && currHeadHalf){
             if(currHead->val != currHeadHalf->val)
                 return false;
-
+            currHead = currHead->next;
+            currHeadHalf = currHeadHalf->next;
+        }
         return true;
     }
     void pushBack(int data)
