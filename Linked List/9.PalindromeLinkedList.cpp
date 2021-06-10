@@ -21,7 +21,24 @@ struct ListNode {
 class Solution {
 public:
     ListNode *head = NULL;
+
+    void reverseList(ListNode* headHalf) {
+        
+        ListNode *prev = NULL, *next = NULL, *curr = headHalf;
+
+        while (curr)
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        
+        headHalf = prev;
+    }
+
     bool isPalindrome(ListNode* head) {
+
         ListNode *first = head, *last = head;
         ListNode *headHalf = NULL;
 
@@ -45,10 +62,16 @@ public:
         first->next = NULL;
 
         // now we reverse the second linkedList
-                
+        reverseList(headHalf);
 
+        //compare both head and headhalf
+        ListNode *currHead = head, *currHeadHalf = headHalf;
 
-        
+        while (currHead && currHeadHalf)
+            if(currHead->val != currHeadHalf)
+                return false;
+
+        return true;
     }
     void pushBack(int data)
     {
