@@ -9,6 +9,13 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 class Solution {
 public:
     ListNode *head = NULL;
