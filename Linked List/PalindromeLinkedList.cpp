@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    ListNode *head = NULL;
     bool isPalindrome(ListNode* head) {
         
     }
@@ -25,5 +26,5 @@ int main(){
     ll.pushBack(2);
     ll.pushBack(1);
 
-    ListNode *h = ll.isPalindrome(ll.head);
+    cout << isPalindrome(ll.head);
 }
