@@ -91,6 +91,7 @@ public:
         if(index >= 0 && index < length){
             Node *temp = new Node(0);
             temp->next = head;
+            
             Node *cur = temp;
                 
             while(index > 0){
