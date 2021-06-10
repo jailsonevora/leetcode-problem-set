@@ -26,6 +26,9 @@ public:
         
         ListNode *prev = NULL, *next = NULL, *curr = headHalf;
 
+        if(!headHalf->next)
+            return headHalf;
+
         while (curr)
         {
             next = curr->next;
@@ -42,6 +45,9 @@ public:
 
         ListNode *first = head, *last = head;
         ListNode *headHalf;
+
+        if(!head->next)
+            return true;
 
         while (1)
         {
@@ -76,6 +82,31 @@ public:
         }
         return true;
     }
+
+    bool isPalindromeLeetCode(ListNode* head) {
+        ListNode* fast = head;
+        ListNode* slow = head;
+        ListNode* prev = NULL;
+        ListNode* nex;
+        
+        while(fast && fast->next){
+            fast =fast->next->next;
+            nex = slow->next;
+            slow->next = prev;
+            prev = slow;
+            slow = nex;
+        }
+        slow = (fast ? slow->next : slow);
+        while(slow){
+            if(slow->val != prev->val)
+                return false;
+            slow = slow->next;
+            prev = prev->next;
+        }
+        return true;
+        
+    }
+
     void pushBack(int data)
     {
         ListNode* temp = new ListNode(data);
@@ -97,9 +128,9 @@ int main(){
     
     Solution ll;
     ll.pushBack(1);
-    ll.pushBack(2);
-    ll.pushBack(2);
-    ll.pushBack(1);
+    // ll.pushBack(2);
+    // ll.pushBack(2);
+    // ll.pushBack(1);
 
     cout << ll.isPalindrome(ll.head);
 }
