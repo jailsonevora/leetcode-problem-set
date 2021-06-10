@@ -68,7 +68,7 @@ public:
         ListNode *currHead = head, *currHeadHalf = headHalf;
 
         while (currHead && currHeadHalf)
-            if(currHead->val != currHeadHalf)
+            if(currHead->val != currHeadHalf->val)
                 return false;
 
         return true;
