@@ -22,7 +22,7 @@ public:
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        if(index < length && index > 0){
+        if(index <= length && index > 0){
             Node *dmy = new Node(-1);
             dmy->next = head;          
             Node *cur = dmy;
@@ -69,7 +69,7 @@ public:
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
 
-        if(index > 0 && index < length){
+        if(index > 0 && index <= length){
 
             Node *dmy = new Node(-1);
             dmy->next = head; 
@@ -82,8 +82,11 @@ public:
             Node *newnode = new Node(val);
 
             newnode->prev = cur->prev;
-            newnode->next = cur->next;;
-            cur->next->prev = newnode;
+            newnode->next = cur->next;
+
+            if (cur->next)
+                cur->next->prev = newnode;
+                
             dmy->next = newnode;
 
             head = dmy->next;
@@ -96,7 +99,7 @@ public:
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index) {
 
-        if(index > 0 && index < length){
+        if(index > 0 && index <= length){
 
             Node *dmy = new Node(-1);
             dmy->next = head; 
