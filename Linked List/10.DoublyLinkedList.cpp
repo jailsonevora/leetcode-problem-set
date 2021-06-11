@@ -22,8 +22,11 @@ public:
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        if(index < length && index >= 0){            
-            Node *cur = head;
+        if(index < length && index > 0){
+            Node *dmy = new Node(-1);
+            dmy->next = head;          
+            Node *cur = dmy;
+
             for (;index > 0; index--)
                 cur = cur->next;
             return cur->val;            
@@ -66,15 +69,14 @@ public:
 
         if(index > length) return;
 
-        if(index == 0){
+        if(index == 1){
             addAtHead(val);
         }
-        else{         
-            Node *cur = head;
+        else{
 
-            while(index-- > 0){
+            Node *cur = head;
+            while(index-- > 0)
                 cur = cur->next;
-            }
 
             if(!cur){
                 addAtTail(val);
@@ -95,31 +97,20 @@ public:
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index) {
 
-        if(index >= 0 && index < length){
+        if(index > 0 && index < length){
 
-            Node *temp = new Node(0);
-            temp->next = head;
-
-            Node *cur = temp;
-
-            // delete at head
-            if(index == 1){
-                head = NULL;
-                length--;
-                return;
-            }
+            Node *dmy = new Node(-1);
+            dmy->next = head; 
+            head->prev = dmy;         
+            Node *cur = dmy;
                 
-            while(index > 0){
+            while(index-- > 0)
                 cur = cur->next;
-                index--;
-            }
 
             cur->prev->next = cur->next;
             cur->next->prev = cur->prev;
-            cur->next = NULL;
-            cur->prev = NULL;
 
-            head = temp->next;
+            head = dmy->next;
             length--;
         }
         else
