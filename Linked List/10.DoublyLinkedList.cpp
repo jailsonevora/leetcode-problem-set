@@ -22,9 +22,10 @@ public:
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        if(index < length && index >= 0){      
+        
+        if(index < length && index >= 0){       
             Node *cur = head;
-            for (;index > 0; index--)
+            for (;index >= 0; index--)
                 cur = cur->next;
             return cur->val;            
         }        
@@ -97,6 +98,13 @@ public:
     void deleteAtIndex(int index) {
 
         if(index >= 0 && index < length){
+
+            if(index==0)
+            {
+                head=head->next;
+                length--;
+                return;
+            }
 
             Node *dmy = new Node(-1);
             dmy->next = head; 
