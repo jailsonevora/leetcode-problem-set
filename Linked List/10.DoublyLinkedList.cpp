@@ -128,6 +128,9 @@ public:
                 cur->prev->next = cur->next;
                 cur->next->prev = cur->prev;
             }
+            else{
+
+            }
 
             head = dmy->next;
             length--;
@@ -154,36 +157,36 @@ int main(){
     // param_1 = obj->get(1);
 
     //test 2
-    // MyLinkedList* obj = new MyLinkedList();
-    // obj->addAtHead(7);
-    // obj->addAtHead(2);
-    // obj->addAtHead(1);
+    MyLinkedList* obj = new MyLinkedList();
+    obj->addAtHead(7);
+    obj->addAtHead(2);
+    obj->addAtHead(1);
 
-    // obj->addAtIndex(3,0);
-    // obj->deleteAtIndex(2);
+    obj->addAtIndex(3,0);
+    obj->deleteAtIndex(4);
 
-    // obj->addAtHead(6);
-    // obj->addAtTail(4);
+    obj->addAtHead(6);
+    obj->addAtTail(4);
 
-    // int param_1 = obj->get(4);
+    int param_1 = obj->get(4);
 
-    // obj->addAtHead(4);
-    // obj->addAtIndex(5,0);
-    // obj->addAtHead(6);
+    obj->addAtHead(4);
+    obj->addAtIndex(5,0);
+    obj->addAtHead(6);
 
     //test 13
-    MyLinkedList* obj = new MyLinkedList();
-    obj->addAtHead(5);
-    obj->addAtIndex(1,2);
-    int param_1 = obj->get(1);
-    obj->addAtHead(6);
-    obj->addAtTail(2);    
-    param_1 = obj->get(3);    
-    obj->addAtTail(1);  
-    param_1 = obj->get(5);
-    obj->addAtHead(2);
-    param_1 = obj->get(2);
-    obj->addAtHead(6);    
+    // MyLinkedList* obj = new MyLinkedList();
+    // obj->addAtHead(5);
+    // obj->addAtIndex(1,2);
+    // int param_1 = obj->get(1);
+    // obj->addAtHead(6);
+    // obj->addAtTail(2);    
+    // param_1 = obj->get(3);    
+    // obj->addAtTail(1);  
+    // param_1 = obj->get(5);
+    // obj->addAtHead(2);
+    // param_1 = obj->get(2);
+    // obj->addAtHead(6);    
 }
 
 /**
