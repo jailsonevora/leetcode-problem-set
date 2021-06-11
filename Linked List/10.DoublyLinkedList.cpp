@@ -67,21 +67,15 @@ public:
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
 
-        if(index > length) return;
+        if(index > 0 && index < length){
 
-        if(index == 1){
-            addAtHead(val);
-        }
-        else{
+            Node *dmy = new Node(-1);
+            dmy->next = head; 
+            head->prev = dmy;  
+            Node *cur = dmy;
 
-            Node *cur = head;
             while(index-- > 0)
                 cur = cur->next;
-
-            if(!cur){
-                addAtTail(val);
-                return;
-            }
 
             Node *newnode = new Node(val);
             Node *temp = cur->next;
@@ -90,8 +84,12 @@ public:
             newnode->prev = cur;
             newnode->next = temp;
             temp->prev = newnode;
+            
+            head = dmy->next;
             length++;
-        }        
+        }
+        else
+            return;        
     }
     
     /** Delete the index-th node in the linked list, if the index is valid. */
