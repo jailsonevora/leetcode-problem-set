@@ -84,7 +84,6 @@ public:
                 cur = cur->next;
 
             Node *newnode = new Node(val);
-
             newnode->next = cur->next;
             newnode->prev = cur;
             
@@ -116,11 +115,7 @@ public:
                 return;
             }
 
-            // Node *dmy = new Node(-1);
-            // dmy->next = head; 
-            // head->prev = dmy;         
-            Node *cur = head;
-                
+            Node *cur = head;                
             while(index-- > 0)
                 cur = cur->next;
 
