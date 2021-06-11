@@ -69,6 +69,12 @@ public:
 
         if(index >= 0 && index <= length){
 
+            if(index==0)
+            {
+                addAtHead(val);
+                return;
+            }
+
             Node *dmy = new Node(-1);
             dmy->next = head; 
             head->prev = dmy;  
