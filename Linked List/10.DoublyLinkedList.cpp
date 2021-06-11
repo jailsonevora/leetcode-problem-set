@@ -86,7 +86,7 @@ public:
 
             if (cur->next)
                 cur->next->prev = newnode;
-                
+
             dmy->next = newnode;
 
             head = dmy->next;
@@ -109,8 +109,10 @@ public:
             while(index-- > 0)
                 cur = cur->next;
 
-            cur->prev->next = cur->next;
-            cur->next->prev = cur->prev;
+            if (cur && cur->next){
+                cur->prev->next = cur->next;
+                cur->next->prev = cur->prev;
+            }
 
             head = dmy->next;
             length--;
