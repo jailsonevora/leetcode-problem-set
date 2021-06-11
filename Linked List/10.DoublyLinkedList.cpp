@@ -36,7 +36,7 @@ public:
     
     /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
     void addAtHead(int val) {
-        
+
         Node *cur = new Node(val);
         
         if(head)
@@ -80,12 +80,10 @@ public:
                 cur = cur->next;
 
             Node *newnode = new Node(val);
-            Node *temp = cur->next;
-            
-            cur->next = newnode;
-            newnode->prev = cur;
-            newnode->next = temp;
-            temp->prev = newnode;
+
+            newnode->prev = cur->prev;
+            newnode->next = cur->next;;
+            cur->next->prev = newnode;
 
             head = dmy->next;
             length++;
