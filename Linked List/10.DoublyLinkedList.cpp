@@ -69,9 +69,7 @@ public:
         if(index == 0){
             addAtHead(val);
         }
-        else{
-            // Node *dmy = new Node(-1);
-            // dmy->next = head;          
+        else{         
             Node *cur = head;
 
             while(index-- > 0){
@@ -90,7 +88,6 @@ public:
             newnode->prev = cur;
             newnode->next = temp;
             temp->prev = newnode;
-            //head = dmy->next;
             length++;
         }        
     }
@@ -104,14 +101,24 @@ public:
             temp->next = head;
 
             Node *cur = temp;
+
+            // delete at head
+            if(index == 1){
+                head = NULL;
+                length--;
+                return;
+            }
                 
             while(index > 0){
                 cur = cur->next;
                 index--;
             }
 
-            cur->next = cur->next->next;
-            cur->next->next->prev = cur;
+            cur->prev->next = cur->next;
+            cur->next->prev = cur->prev;
+            cur->next = NULL;
+            cur->prev = NULL;
+
             head = temp->next;
             length--;
         }
@@ -129,11 +136,12 @@ int main(){
     cin >> val >> index;
 
     MyLinkedList* obj = new MyLinkedList();
-    obj->addAtHead(val);
-    obj->addAtTail(val);
-    obj->addAtIndex(index,val);
-    int param_1 = obj->get(index);
-    obj->deleteAtIndex(index);
+    obj->addAtHead(1);
+    obj->addAtTail(3);
+    obj->addAtIndex(1,2);
+    int param_1 = obj->get(1);
+    obj->deleteAtIndex(1);
+    param_1 = obj->get(1);
 }
 
 /**
