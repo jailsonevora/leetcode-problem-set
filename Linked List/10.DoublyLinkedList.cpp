@@ -132,8 +132,8 @@ int main(){
     cin.tie(0);
     cout.tie(0);
 
-    int val, index;
-    cin >> val >> index;
+    // int val, index;
+    // cin >> val >> index;
 
     MyLinkedList* obj = new MyLinkedList();
     obj->addAtHead(1);
