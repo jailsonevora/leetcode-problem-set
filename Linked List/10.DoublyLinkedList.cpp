@@ -22,11 +22,8 @@ public:
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        if(index < length && index >= 0){
-            Node *dmy = new Node(-1);
-            dmy->next = head;          
-            Node *cur = dmy;
-
+        if(index < length && index >= 0){      
+            Node *cur = head;
             for (;index > 0; index--)
                 cur = cur->next;
             return cur->val;            
