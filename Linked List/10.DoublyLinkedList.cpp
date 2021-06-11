@@ -25,7 +25,7 @@ public:
         
         if(index < length && index >= 0){       
             Node *cur = head;
-            for (;index >= 0; index--)
+            for (;index > 0; index--)
                 cur = cur->next;
             return cur->val;            
         }        
@@ -67,7 +67,7 @@ public:
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
 
-        if(index >= 0 && index < length){
+        if(index >= 0 && index <= length){
 
             Node *dmy = new Node(-1);
             dmy->next = head; 
@@ -85,6 +85,11 @@ public:
             if(cur->next){
                 cur->next->prev = newnode;
                 cur->next = newnode;
+            }
+            else{
+                addAtTail(val);
+                length++;
+                return;
             }            
 
             head = dmy->next;
@@ -133,33 +138,34 @@ int main(){
     cout.tie(0);
 
     // test 1
-    MyLinkedList* obj = new MyLinkedList();
-    obj->addAtHead(1);
-    obj->addAtTail(3);
+    // MyLinkedList* obj = new MyLinkedList();
+    // obj->addAtHead(1);
+    // obj->addAtTail(3);
 
-    obj->addAtIndex(1,2);
-    int param_1 = obj->get(1);
+    // obj->addAtIndex(1,2);
+    // int param_1 = obj->get(1);
     
-    obj->deleteAtIndex(1);
-    param_1 = obj->get(1);
+    // obj->deleteAtIndex(1);
+    // param_1 = obj->get(1);
 
     //test 2
-    // MyLinkedList* obj = new MyLinkedList();
-    // obj->addAtHead(7);
-    // obj->addAtHead(2);
-    // obj->addAtHead(1);
+    MyLinkedList* obj = new MyLinkedList();
+    obj->addAtHead(7);
+    obj->addAtHead(2);
+    obj->addAtHead(1);
 
-    // obj->addAtIndex(3,0);
-    // obj->deleteAtIndex(2);
+    obj->addAtIndex(3,0);
+    obj->deleteAtIndex(2);
 
-    // obj->addAtHead(6);
-    // obj->addAtTail(4);
+    obj->addAtHead(6);
+    obj->addAtTail(4);
 
-    // int param_1 = obj->get(4);
+    int param_1 = obj->get(4);
 
-    // obj->addAtHead(4);
-    // obj->addAtIndex(5,0);
-    // obj->addAtHead(6);
+    obj->addAtHead(4);
+    obj->addAtIndex(5,0);
+    obj->addAtHead(6);
+    
 }
 
 /**
