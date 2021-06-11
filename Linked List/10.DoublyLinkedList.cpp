@@ -22,7 +22,7 @@ public:
     
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
     int get(int index) {
-        if(index <= length && index > 0){
+        if(index < length && index >= 0){
             Node *dmy = new Node(-1);
             dmy->next = head;          
             Node *cur = dmy;
@@ -69,7 +69,7 @@ public:
     /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
     void addAtIndex(int index, int val) {
 
-        if(index > 0 && index <= length){
+        if(index >= 0 && index < length){
 
             Node *dmy = new Node(-1);
             dmy->next = head; 
@@ -81,13 +81,13 @@ public:
 
             Node *newnode = new Node(val);
 
-            newnode->prev = cur->prev;
             newnode->next = cur->next;
-
-            if (cur->next)
+            newnode->prev = cur;
+            
+            if(cur->next){
                 cur->next->prev = newnode;
-
-            dmy->next = newnode;
+                cur->next = newnode;
+            }            
 
             head = dmy->next;
             length++;
@@ -99,7 +99,7 @@ public:
     /** Delete the index-th node in the linked list, if the index is valid. */
     void deleteAtIndex(int index) {
 
-        if(index > 0 && index <= length){
+        if(index >= 0 && index < length){
 
             Node *dmy = new Node(-1);
             dmy->next = head; 
@@ -109,7 +109,7 @@ public:
             while(index-- > 0)
                 cur = cur->next;
 
-            if (cur && cur->next){
+            if (cur->next){
                 cur->prev->next = cur->next;
                 cur->next->prev = cur->prev;
             }
@@ -127,22 +127,34 @@ int main(){
     cin.tie(0);
     cout.tie(0);
 
+    // test 1
     MyLinkedList* obj = new MyLinkedList();
-    obj->addAtHead(7);
-    obj->addAtHead(2);
     obj->addAtHead(1);
+    obj->addAtTail(3);
 
-    obj->addAtIndex(3,0);
-    obj->deleteAtIndex(2);
+    obj->addAtIndex(1,2);
+    int param_1 = obj->get(1);
+    
+    obj->deleteAtIndex(1);
+    param_1 = obj->get(1);
 
-    obj->addAtHead(6);
-    obj->addAtTail(4);
+    //test 2
+    // MyLinkedList* obj = new MyLinkedList();
+    // obj->addAtHead(7);
+    // obj->addAtHead(2);
+    // obj->addAtHead(1);
 
-    int param_1 = obj->get(4);
+    // obj->addAtIndex(3,0);
+    // obj->deleteAtIndex(2);
 
-    obj->addAtHead(4);
-    obj->addAtIndex(5,0);
-    obj->addAtHead(4);
+    // obj->addAtHead(6);
+    // obj->addAtTail(4);
+
+    // int param_1 = obj->get(4);
+
+    // obj->addAtHead(4);
+    // obj->addAtIndex(5,0);
+    // obj->addAtHead(6);
 }
 
 /**
