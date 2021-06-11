@@ -116,10 +116,10 @@ public:
                 return;
             }
 
-            Node *dmy = new Node(-1);
-            dmy->next = head; 
-            head->prev = dmy;         
-            Node *cur = dmy;
+            // Node *dmy = new Node(-1);
+            // dmy->next = head; 
+            // head->prev = dmy;         
+            Node *cur = head;
                 
             while(index-- > 0)
                 cur = cur->next;
@@ -128,11 +128,15 @@ public:
                 cur->prev->next = cur->next;
                 cur->next->prev = cur->prev;
             }
+            // delete at tail
             else{
-
+                Node *prev = cur->prev;
+                cur->prev = NULL;
+                cur = prev;                
+                cur->next = NULL;
+                prev = NULL;
+                delete prev; 
             }
-
-            head = dmy->next;
             length--;
         }
         else
@@ -163,7 +167,7 @@ int main(){
     obj->addAtHead(1);
 
     obj->addAtIndex(3,0);
-    obj->deleteAtIndex(4);
+    obj->deleteAtIndex(3);
 
     obj->addAtHead(6);
     obj->addAtTail(4);
