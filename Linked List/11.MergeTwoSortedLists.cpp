@@ -22,7 +22,7 @@ class Solution {
 public:
     
     ListNode *head = NULL;
-    
+
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         
     }
@@ -45,11 +45,11 @@ public:
 
 int main(){
     
-    Solution ll;
-    ll.pushBack(1);
+    Solution lOne, lTwo;
+    lOne.pushBack(1);
     // ll.pushBack(2);
     // ll.pushBack(2);
     // ll.pushBack(1);
 
-    cout << ll.mergeTwoLists(ll.head);
+    cout << lOne.mergeTwoLists(lOne.head, lTwo.head);
 }
