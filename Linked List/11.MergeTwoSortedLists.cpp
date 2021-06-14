@@ -47,9 +47,12 @@ int main(){
     
     Solution lOne, lTwo;
     lOne.pushBack(1);
-    // ll.pushBack(2);
-    // ll.pushBack(2);
-    // ll.pushBack(1);
+    lOne.pushBack(2);
+    lOne.pushBack(4);
+
+    lTwo.pushBack(1);
+    lTwo.pushBack(3);
+    lTwo.pushBack(4);
 
     cout << lOne.mergeTwoLists(lOne.head, lTwo.head);
 }
