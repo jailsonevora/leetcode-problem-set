@@ -24,6 +24,12 @@ public:
     ListNode *head = NULL;
 
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+
+        while (l1)
+        {
+            /* code */
+        }
+        
         
     }
 
@@ -45,14 +51,14 @@ public:
 
 int main(){
     
-    Solution lOne, lTwo;
-    lOne.pushBack(1);
-    lOne.pushBack(2);
-    lOne.pushBack(4);
+    Solution L1, L2;
+    L1.pushBack(1);
+    L1.pushBack(2);
+    L1.pushBack(4);
 
-    lTwo.pushBack(1);
-    lTwo.pushBack(3);
-    lTwo.pushBack(4);
+    L2.pushBack(1);
+    L2.pushBack(3);
+    L2.pushBack(4);
 
-    cout << lOne.mergeTwoLists(lOne.head, lTwo.head);
+    cout << L1.mergeTwoLists(L1.head, L2.head);
 }
