@@ -54,14 +54,14 @@ public:
 
 int main(){
     
-    Solution L1, L2;
-    L1.pushBack(1);
-    L1.pushBack(2);
-    L1.pushBack(4);
+    Solution l1, l2;
+    l1.pushBack(1);
+    l1.pushBack(2);
+    l1.pushBack(4);
 
-    L2.pushBack(1);
-    L2.pushBack(3);
-    L2.pushBack(4);
+    l2.pushBack(1);
+    l2.pushBack(3);
+    l2.pushBack(4);
 
-    L1.mergeTwoLists(L1.head, L2.head);
+    l1.mergeTwoLists(l1.head, l2.head);
 }
