@@ -12,6 +12,13 @@
 
 using namespace std;
 
+struct Node {
+    int val;
+    Node *prev;
+    Node *next;
+    Node(int x) : val(x), prev(NULL), next(NULL) {}
+};
+
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
