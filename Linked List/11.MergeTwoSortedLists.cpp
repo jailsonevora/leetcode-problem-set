@@ -60,5 +60,5 @@ int main(){
     L2.pushBack(3);
     L2.pushBack(4);
 
-    cout << L1.mergeTwoLists(L1.head, L2.head);
+    L1.mergeTwoLists(L1.head, L2.head);
 }
