@@ -31,37 +31,36 @@ public:
         {
             if (headL1->val <= headL2->val)
             {
-                pushBack(&headTemp, &headL1);
+                pushBack(headTemp, headL1);
             }
             else{
-                pushBack(&headTemp, &headL2);
+                pushBack(headTemp, headL2);
             }            
         }
 
         while (headL1)
         {
-            pushBack(&headTemp, &headL1);
+            pushBack(headTemp, headL1);
             headL1 = headL1->next;
         }
 
         while (headL2)
         {
-            pushBack(&headTemp, &headL2);
+            pushBack(headTemp, headL2);
             headL2 = headL2->next;
         }
 
         return headTemp;
     }
 
-    void pushBack(ListNode **head, ListNode **tempNode)
+    void pushBack(ListNode *&head, ListNode *&tempNode)
     {
-        ListNode* curr = *head;
+        ListNode* curr = head;
 
         if (!head){  
             head = tempNode;
             tempNode = tempNode->next;
-            head->next = NULL; 
-            return head;
+            curr->next = NULL;
         }       
 
         while(curr && curr->next) 
@@ -70,7 +69,6 @@ public:
 
         tempNode = tempNode->next;
         curr->next = NULL;
-        return curr;
     }
 
     void pushBack(int data)
