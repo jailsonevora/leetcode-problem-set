@@ -31,31 +31,31 @@ public:
         {
             if (headL1->val <= headL2->val)
             {
-                headTemp = pushBack(headTemp, headL1);
+                pushBack(&headTemp, &headL1);
             }
             else{
-                headTemp = pushBack(headTemp, headL2);
+                pushBack(&headTemp, &headL2);
             }            
         }
 
         while (headL1)
         {
-            pushBack(headTemp, headL1);
+            pushBack(&headTemp, &headL1);
             headL1 = headL1->next;
         }
 
         while (headL2)
         {
-            pushBack(headTemp, headL2);
+            pushBack(&headTemp, &headL2);
             headL2 = headL2->next;
         }
 
         return headTemp;
     }
 
-    ListNode *pushBack(ListNode *head, ListNode *tempNode)
+    void pushBack(ListNode **head, ListNode **tempNode)
     {
-        ListNode* curr = head;
+        ListNode* curr = *head;
 
         if (!head){  
             head = tempNode;
