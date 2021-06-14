@@ -28,7 +28,7 @@ public:
         ListNode *headL1 = l1;
         ListNode *headL2 = l2;
 
-        while (l1 != )
+        while (headL1 && headL2)
         {
             /* code */
         }
@@ -46,8 +46,8 @@ public:
             return;
         }       
 
-        while(curr && curr->next) curr = curr->next;
-
+        while(curr && curr->next) 
+            curr = curr->next;
         curr->next = temp;
     }
 };
