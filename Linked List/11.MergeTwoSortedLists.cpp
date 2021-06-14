@@ -25,36 +25,52 @@ public:
 
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 
-        ListNode *headL1 = l1, *headL2 = l2, *headTemp;
+        ListNode *headL1 = l1, *headL2 = l2, *headTemp = NULL;
 
         while (headL1 && headL2)
         {
-            /* code */
-            if (headL2->val <= headL1->val)
+            if (headL1->val <= headL2->val)
             {
-                /* code */
-                pushBack(head, tempNode);
+                headTemp = pushBack(headTemp, headL1);
             }
             else{
-
-            }
-            
+                headTemp = pushBack(headTemp, headL2);
+            }            
         }
-                
+
+        while (headL1)
+        {
+            pushBack(headTemp, headL1);
+            headL1 = headL1->next;
+        }
+
+        while (headL2)
+        {
+            pushBack(headTemp, headL2);
+            headL2 = headL2->next;
+        }
+
+        return headTemp;
     }
 
-    void pushBack(ListNode *head, ListNode *tempNode)
+    ListNode *pushBack(ListNode *head, ListNode *tempNode)
     {
         ListNode* curr = head;
 
         if (!head){  
-            head = tempNode; 
-            return;
+            head = tempNode;
+            tempNode = tempNode->next;
+            head->next = NULL; 
+            return head;
         }       
 
         while(curr && curr->next) 
             curr = curr->next;
         curr->next = tempNode;
+
+        tempNode = tempNode->next;
+        curr->next = NULL;
+        return curr;
     }
 
     void pushBack(int data)
