@@ -25,8 +25,7 @@ public:
 
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 
-        ListNode *headL1 = l1;
-        ListNode *headL2 = l2;
+        ListNode *headL1 = l1, *headL2 = l2;
 
         while (headL1 && headL2)
         {
