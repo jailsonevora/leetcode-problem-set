@@ -25,3 +25,14 @@ public:
         
     }
 };
+
+int main(){
+    
+    Solution ll;
+    ll.pushBack(1);
+    // ll.pushBack(2);
+    // ll.pushBack(2);
+    // ll.pushBack(1);
+
+    cout << ll.mergeTwoLists(ll.head);
+}
