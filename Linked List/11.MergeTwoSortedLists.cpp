@@ -30,12 +30,9 @@ public:
         while (headL1 && headL2)
         {
             if (headL1->val <= headL2->val)
-            {
                 pushBack(headTemp, headL1);
-            }
-            else{
+            else
                 pushBack(headTemp, headL2);
-            }            
         }
 
         while (headL1)
@@ -60,15 +57,17 @@ public:
         if (!head){  
             head = tempNode;
             tempNode = tempNode->next;
-            curr->next = NULL;
-        }       
+            head->next = NULL;
+        } 
+        else{
 
-        while(curr && curr->next) 
-            curr = curr->next;
-        curr->next = tempNode;
+            while(curr && curr->next) 
+                curr = curr->next;
+            curr->next = tempNode;
 
-        tempNode = tempNode->next;
-        curr->next = NULL;
+            tempNode = tempNode->next;
+            curr->next->next = NULL;
+        }
     }
 
     void pushBack(int data)
