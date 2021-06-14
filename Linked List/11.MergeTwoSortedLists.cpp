@@ -12,11 +12,10 @@
 
 using namespace std;
 
-struct Node {
+struct ListNode {
     int val;
-    Node *prev;
-    Node *next;
-    Node(int x) : val(x), prev(NULL), next(NULL) {}
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
 };
 
 class Solution {
