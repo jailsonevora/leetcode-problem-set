@@ -20,6 +20,9 @@ struct ListNode {
 
 class Solution {
 public:
+    
+    ListNode *head = NULL;
+    
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         
     }
