@@ -27,10 +27,14 @@ public:
         ListNode *headL1 = l1, *headL2 = l2, *headTemp = NULL;
         ListNode *headRe;
 
+        int remainder = 0;
+
         while (headL1 || headL2)
         {
             /* code */
-            int res = headL1->val + headL2->val;
+            remainder = headL1->val + headL2->val + remainder;
+            int lastDigit = remainder%10;
+            remainder/=10;
             headRe
         }
         
