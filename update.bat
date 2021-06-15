@@ -27,41 +27,40 @@ ipconfig | findstr IPv6
 ::type of update = all, prod or test
 %type
 
-Set %sourceFolder
-Set %destinationFolderAppServer = \\10.4.2.167\c$\servicos
-Set %destinationFolderWebServerProd = \\10.4.2.169\c$\inetpub\wwwroot
-Set %destinationFolderWebServerTest = \\10.4.2.168\c$\inetpub\wwwroot
+Set sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes
+Set destinationFolderAppServer = \\10.4.2.167\c$\servicos
+Set destinationFolderWebServerProd = \\10.4.2.169\c$\inetpub\wwwroot
+Set destinationFolderWebServerTest = \\10.4.2.168\c$\inetpub\wwwroot
 
-if %type% == "test"
-    :: copy from local folder to
-    ::robocopy C:\Example1\ C:\Example2 /e /copyall
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\QueueService destinationFolderAppServer\QueueServiceTeste
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWFTeste\WFTeste
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWindowsService destinationFolderAppServer\WindowsServiceTeste
+if %type% == "test" goto test
+if %type% == "prod" goto prod
+if %type% == "all"  goto all
+
+:test
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueServiceTeste
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWFTeste\WFTeste
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsServiceTeste
     
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\SIJ destinationFolderWebServerTest\sij
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\DJE destinationFolderWebServerTest\dje
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\PN destinationFolderWebServerTest\pn
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\PJ destinationFolderWebServerTest\pj
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\SIJ %destinationFolderWebServerTest%\sij
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerTest%\dje
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PN %destinationFolderWebServerTest%\pn
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PJ %destinationFolderWebServerTest%\pj
+goto exit
 
-if %type% == "prod"
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\QueueService destinationFolderAppServer\QueueService
-    
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWF\WFInformatizacao
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWF\WFOutros
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWF\WFProcPenal
-    
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWindowsService destinationFolderAppServer\WindowsService\
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\SIJ destinationFolderWebServerTest\sij
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\DJE destinationFolderWebServerTest\dje
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\PN destinationFolderWebServerTest\pn
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\PJ destinationFolderWebServerTest\pj
+:prod
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueService    
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFInformatizacao
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFOutros
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFProcPenal    
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsService\
 
-if %type% == "all"
-    copy C:\dirA dirB
-    robocopy C:\Example1\ C:\Example2 /e /copyall
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\SIJ %destinationFolderWebServerTest%\sij
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerTest%\dje
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PN %destinationFolderWebServerTest%\pn
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PJ %destinationFolderWebServerTest%\pj
+goto exit
 
-:Display
-SET /A index = 2
-echo The value of type is %type%
-exit /B 0
+:all
+    goto test
+    goto prod
+goto exit
