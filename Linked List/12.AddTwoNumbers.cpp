@@ -31,13 +31,13 @@ public:
 
         while (headL1 || headL2)
         {
-            if(!headL1) headL1->val = 0; else headL1;
-            if(!headL2) headL2->val = 0; else headL2;
-
-            remainder = headL1->val + headL2->val + remainder;
+            remainder = ( (!headL1) ? 0 : headL1->val ) + ( (!headL2) ? 0 : headL2->val ) + remainder;
             int lastDigit = remainder%10;
             remainder/=10;
             pushBack(headResult, lastDigit);
+
+            headL1 = headL1->next;
+            headL2 = headL2->next;
         }
         return headResult;
     }
@@ -77,13 +77,18 @@ public:
 int main(){
     
     Solution l1, l2;
-    l1.pushBack(1);
-    l1.pushBack(2);
-    l1.pushBack(4);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
 
-    l2.pushBack(1);
-    l2.pushBack(3);
-    l2.pushBack(4);
+    l2.pushBack(9);
+    l2.pushBack(9);
+    l2.pushBack(9);
+    l1.pushBack(9);
 
     l1.addTwoNumbers(l1.head, l2.head);
 }
