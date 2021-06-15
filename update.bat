@@ -1,8 +1,8 @@
 @ECHO OFF 
-:: This batch file details Windows 10, hardware, and networking configuration.
+:: This batch file details Windows Server, hardware, and networking configuration, plus updating the SIJ enviroment
 TITLE My System Info
 ECHO Please wait... Checking system information.
-:: Section 1: Windows 10 information
+:: Section 1: Windows Server information
 ECHO ==========================
 ECHO WINDOWS INFO
 ECHO ============================
@@ -23,7 +23,6 @@ ECHO NETWORK INFO
 ECHO ============================
 ipconfig | findstr IPv4
 ipconfig | findstr IPv6
-START https://support.microsoft.com/en-us/windows/windows-10-system-requirements-6d4e9a79-66bf-7950-467c-795cf0386715
 
 ::type of update = all, prod or test
 %type
@@ -37,17 +36,22 @@ if %type% == "test"
     :: copy from local folder to
     ::robocopy C:\Example1\ C:\Example2 /e /copyall
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\QueueService destinationFolderAppServer\QueueServiceTeste
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWFTeste
+    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWFTeste\WFTeste
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWindowsService destinationFolderAppServer\WindowsServiceTeste
+    
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\SIJ destinationFolderWebServerTest\sij
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\DJE destinationFolderWebServerTest\dje
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\PN destinationFolderWebServerTest\pn
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\PJ destinationFolderWebServerTest\pj
 
 if %type% == "prod"
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\QueueService destinationFolderAppServer\QueueServiceTeste
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWFTeste
-    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWindowsService destinationFolderAppServer\WindowsServiceTeste
+    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\QueueService destinationFolderAppServer\QueueService
+    
+    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWF\WFInformatizacao
+    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWF\WFOutros
+    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWorkflowService destinationFolderAppServer\ServicosWF\WFProcPenal
+    
+    xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\MJCVWindowsService destinationFolderAppServer\WindowsService\
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\SIJ destinationFolderWebServerTest\sij
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\DJE destinationFolderWebServerTest\dje
     xcopy /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder\PN destinationFolderWebServerTest\pn
@@ -61,5 +65,3 @@ if %type% == "all"
 SET /A index = 2
 echo The value of type is %type%
 exit /B 0
-
-PAUSE
