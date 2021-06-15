@@ -39,7 +39,6 @@ public:
             remainder/=10;
             pushBack(headResult, lastDigit);
         }
-
         return headResult;
     }
 
