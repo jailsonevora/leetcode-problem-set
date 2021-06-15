@@ -14,24 +14,27 @@ using namespace std;
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
 class Solution {
 public:
 
-    ListNode *head = NULL;
+    ListNode *head = nullptr;
 
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 
         ListNode *headL1 = l1, *headL2 = l2;
-        ListNode *headResult = NULL;
+        ListNode *headResult = nullptr;
 
         int remainder = 0;
 
         while (headL1 || headL2)
         {
             /* code */
+            if(!headL1) headL1->val = 0; else headL1;
+            if(!headL2) headL2->val = 0; else headL2;
+
             remainder = headL1->val + headL2->val + remainder;
             int lastDigit = remainder%10;
             remainder/=10;
