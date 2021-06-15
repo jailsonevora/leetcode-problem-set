@@ -25,7 +25,7 @@ public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 
         ListNode *headL1 = l1, *headL2 = l2, *headTemp = NULL;
-        ListNode *headRe;
+        ListNode *headResult = NULL;
 
         int remainder = 0;
 
@@ -35,9 +35,10 @@ public:
             remainder = headL1->val + headL2->val + remainder;
             int lastDigit = remainder%10;
             remainder/=10;
-            headRe
+            pushBack(headResult, lastDigit);
         }
-        
+
+        return headResult;        
         
     }
 
