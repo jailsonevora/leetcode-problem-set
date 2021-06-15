@@ -39,7 +39,7 @@ public:
             if(headL1) headL1 = headL1->next;
             if(headL2) headL2 = headL2->next;
         }
-        pushBack(headResult, remainder);
+        if(remainder > 0) pushBack(headResult, remainder);
         return headResult;
     }
 
