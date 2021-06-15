@@ -19,8 +19,26 @@ struct ListNode {
 
 class Solution {
 public:
+
+    ListNode *head = NULL;
+
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         
+    }
+
+    void pushBack(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
     }
 };
 
@@ -36,5 +54,5 @@ int main(){
     l2.pushBack(3);
     l2.pushBack(4);
 
-    l1.mergeTwoLists(l1.head, l2.head);
+    l1.addTwoNumbers(l1.head, l2.head);
 }
