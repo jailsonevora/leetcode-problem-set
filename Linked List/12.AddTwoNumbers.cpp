@@ -31,7 +31,6 @@ public:
 
         while (headL1 || headL2)
         {
-            /* code */
             if(!headL1) headL1->val = 0; else headL1;
             if(!headL2) headL2->val = 0; else headL2;
 
@@ -41,8 +40,7 @@ public:
             pushBack(headResult, lastDigit);
         }
 
-        return headResult;        
-        
+        return headResult;
     }
 
     void pushBack(ListNode *&head, int data)
