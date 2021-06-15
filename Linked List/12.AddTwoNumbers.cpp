@@ -24,7 +24,7 @@ public:
 
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 
-        ListNode *headL1 = l1, *headL2 = l2, *headTemp = NULL;
+        ListNode *headL1 = l1, *headL2 = l2;
         ListNode *headResult = NULL;
 
         int remainder = 0;
