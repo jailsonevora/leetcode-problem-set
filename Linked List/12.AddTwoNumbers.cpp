@@ -23,6 +23,17 @@ public:
     ListNode *head = NULL;
 
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+
+        ListNode *headL1 = l1, *headL2 = l2, *headTemp = NULL;
+        ListNode *headRe;
+
+        while (headL1 || headL2)
+        {
+            /* code */
+            int res = headL1->val + headL2->val;
+            headRe
+        }
+        
         
     }
 
