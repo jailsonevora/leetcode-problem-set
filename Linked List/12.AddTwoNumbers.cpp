@@ -39,6 +39,7 @@ public:
             if(headL1) headL1 = headL1->next;
             if(headL2) headL2 = headL2->next;
         }
+        pushBack(headResult, remainder);
         return headResult;
     }
 
@@ -88,7 +89,7 @@ int main(){
     l2.pushBack(9);
     l2.pushBack(9);
     l2.pushBack(9);
-    l1.pushBack(9);
+    l2.pushBack(9);
 
     l1.addTwoNumbers(l1.head, l2.head);
 }
