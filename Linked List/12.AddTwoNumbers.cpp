@@ -41,7 +41,7 @@ public:
         
     }
 
-    void pushBack(int data)
+    void pushBack(ListNode *&head, int data)
     {
         ListNode* temp = new ListNode(data);
         ListNode* curr = head;
