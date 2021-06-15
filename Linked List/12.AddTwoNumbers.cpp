@@ -36,8 +36,8 @@ public:
             remainder/=10;
             pushBack(headResult, lastDigit);
 
-            headL1 = headL1->next;
-            headL2 = headL2->next;
+            if(headL1) headL1 = headL1->next;
+            if(headL2) headL2 = headL2->next;
         }
         return headResult;
     }
