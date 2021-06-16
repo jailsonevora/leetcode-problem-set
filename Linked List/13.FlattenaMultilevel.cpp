@@ -27,6 +27,9 @@ public:
 
     Node* flatten(Node* head) {
 
+        if (!head)
+            return nullptr;        
+
         Node *dumy = new Node(-1);
         dumy->next = head;
         head->prev = dumy;
@@ -40,30 +43,33 @@ public:
                 ptRemain = curr->next->next;                
                 pushAtHead(headRemain, ptRemain);
 
-
                 curr->next->next = curr->next->child;
                 curr->next->child->prev = curr->next;
 
                 Node *dumyTwo = new Node(-1);
                 dumyTwo->next = curr->next->child;
+                curr->next->child = nullptr;
 
                 curr = dumyTwo;
                 
-                // dumyTwo = nullptr;
-                // delete dumyTwo;
+                dumyTwo = nullptr;
+                delete dumyTwo;
             }
             else
                 curr = curr->next;
         }
 
-        curr->next = headRemain;
-        headRemain->prev = curr;
+        if (headRemain)
+        {
+            curr->next = headRemain;
+            headRemain->prev = curr;
+        }  
 
-        // headRemain = nullptr;
-        // delete headRemain;
+        headRemain = nullptr;
+        delete headRemain;
         
-        // dumy = nullptr;
-        // delete dumy;
+        dumy = nullptr;
+        delete dumy;
 
         head->prev = nullptr;
         return head;
@@ -71,6 +77,8 @@ public:
 
     void pushAtHead(Node *&head, Node *&remain)
     {
+        if (!remain) return;
+        
         Node* curr = remain;
 
         if (!head){  
