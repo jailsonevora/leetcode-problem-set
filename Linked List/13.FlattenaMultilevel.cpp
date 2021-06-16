@@ -26,18 +26,24 @@ public:
     ListNode *head = nullptr;
 
     ListNode* flatten(ListNode* head) {
+        ListNode *dumy = new ListNode(-1);
+        dumy->next = head;
+        head->prev = dumy;
+        ListNode *curr = dumy;
 
-        ListNode *curr = head;
-
-        while (curr)
+        while (curr->next)
         {
-            if(curr->child){
-                curr->next = curr->child;
-                curr->child->prev = curr; 
-                curr = curr->child;
-            }
+            if(curr->next->child){
+                curr->next->next = curr->next->child;
+                curr->next->child->prev = curr->next;
 
-            curr= curr->next;
+                ListNode *dumyTwo = new ListNode(-1);
+                dumyTwo->next = curr->next->child;
+
+                curr = dumyTwo;
+            }
+            else
+                curr= curr->next;
         }
         
         
