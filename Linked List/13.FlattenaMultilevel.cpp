@@ -43,21 +43,6 @@ public:
         
     }
 
-    void pushBack(ListNode *&head, int data)
-    {
-        ListNode* temp = new ListNode(data);
-        ListNode* curr = head;
-
-        if (!head){  
-            head = temp; 
-            return;
-        }       
-
-        while(curr && curr->next) 
-            curr = curr->next;
-        curr->next = temp;
-    }
-
     void pushBack(int data, ListNode *l)
     {
         ListNode* temp = new ListNode(data);
