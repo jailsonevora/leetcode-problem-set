@@ -12,18 +12,51 @@ public:
 
 using namespace std;
 
-struct Node {
+struct ListNode {
     int val;
-    Node *prev;
-    Node *next;
-    Node* child;
-    Node(int x) : val(x), prev(nullptr), next(nullptr), child(nullptr) {}
+    ListNode *prev;
+    ListNode *next;
+    ListNode* child;
+    ListNode(int x) : val(x), prev(nullptr), next(nullptr), child(nullptr) {}
 };
 
 class Solution {
 public:
-    Node* flatten(Node* head) {
+
+    ListNode *head = nullptr;
+
+    ListNode* flatten(ListNode* head) {
         
+    }
+
+    void pushBack(ListNode *&head, int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
+    }
+
+    void pushBack(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
     }
 };
 
