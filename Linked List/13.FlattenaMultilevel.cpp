@@ -28,7 +28,13 @@ public:
 };
 
 int main(){
-    cin.sync_with_stdio();
-    cin.tie(0);
-    cout.tie(0);
+
+    Solution l1;
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
+    l1.pushBack(9);
 }
