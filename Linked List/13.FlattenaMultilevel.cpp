@@ -32,13 +32,15 @@ public:
         head->prev = dumy;
         ListNode *curr = dumy;
 
-        ListNode *headRemain = nullptr;
+        ListNode *headRemain = nullptr, *ptRemain = nullptr;
 
         while (curr->next)
         {
             if(curr->next->child){
                 curr->next->next = nullptr;
-                pushAtHead(curr->next->next);
+                curr->next->prev = nullptr;
+                ptRemain = curr->next->next;
+                pushAtHead(headRemain, ptRemain);
 
 
                 curr->next->next = curr->next->child;
@@ -52,22 +54,26 @@ public:
             else
                 curr= curr->next;
         }
-        
+
+        curr->next = headRemain;
+        headRemain->prev = curr;        
         
     }
 
-    void pushAtHead(ListNode *&head)
+    void pushAtHead(ListNode *&head, ListNode *&remain)
     {
-        ListNode* curr = head;
+        ListNode* curr = remain;
 
         if (!head){  
-            head = temp; 
+            head = remain; 
             return;
         }       
 
         while(curr && curr->next) 
             curr = curr->next;
-        curr->next = temp;
+        curr->next = head;
+        head->prev = curr;
+        head = remain;
     }
 
     void pushBack(int data, ListNode *l)
