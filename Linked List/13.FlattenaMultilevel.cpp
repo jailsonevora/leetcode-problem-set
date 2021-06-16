@@ -37,4 +37,6 @@ int main(){
     l1.pushBack(9);
     l1.pushBack(9);
     l1.pushBack(9);
+
+    l1.flatten(l1.head);
 }
