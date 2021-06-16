@@ -26,6 +26,20 @@ public:
     ListNode *head = nullptr;
 
     ListNode* flatten(ListNode* head) {
+
+        ListNode *curr = head;
+
+        while (curr)
+        {
+            if(curr->child){
+                curr->next = curr->child;
+                curr->child->prev = curr; 
+                curr = curr->child;
+            }
+
+            curr= curr->next;
+        }
+        
         
     }
 
