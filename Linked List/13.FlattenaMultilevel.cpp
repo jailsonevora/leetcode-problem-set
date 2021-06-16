@@ -37,9 +37,10 @@ public:
         while (curr->next)
         {
             if(curr->next->child){
+                ptRemain = curr->next->next;
                 curr->next->next = nullptr;
                 curr->next->prev = nullptr;
-                ptRemain = curr->next->next;
+                
                 pushAtHead(headRemain, ptRemain);
 
 
@@ -56,7 +57,9 @@ public:
         }
 
         curr->next = headRemain;
-        headRemain->prev = curr;        
+        headRemain->prev = curr;
+
+        return head;        
         
     }
 
