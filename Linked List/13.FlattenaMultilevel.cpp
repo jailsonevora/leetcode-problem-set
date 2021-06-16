@@ -58,9 +58,10 @@ public:
         curr->next = temp;
     }
 
-    void pushBack(int data)
+    void pushBack(int data, ListNode *l)
     {
         ListNode* temp = new ListNode(data);
+        temp->child = l;
         ListNode* curr = head;
 
         if (!head){  
@@ -76,14 +77,13 @@ public:
 
 int main(){
 
-    Solution l1;
-    l1.pushBack(9);
-    l1.pushBack(9);
-    l1.pushBack(9);
-    l1.pushBack(9);
-    l1.pushBack(9);
-    l1.pushBack(9);
-    l1.pushBack(9);
+    Solution l1, l2, l3;
+    l1.pushBack(1, nullptr);
+    l1.pushBack(2, nullptr);
+    l1.pushBack(3, l2);
+    l1.pushBack(4, nullptr);
+    l1.pushBack(5, nullptr);
+    l1.pushBack(6, nullptr);
 
     l1.flatten(l1.head);
 }
