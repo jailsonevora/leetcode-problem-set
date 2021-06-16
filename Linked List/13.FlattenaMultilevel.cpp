@@ -26,14 +26,21 @@ public:
     ListNode *head = nullptr;
 
     ListNode* flatten(ListNode* head) {
+
         ListNode *dumy = new ListNode(-1);
         dumy->next = head;
         head->prev = dumy;
         ListNode *curr = dumy;
 
+        ListNode *headRemain = nullptr;
+
         while (curr->next)
         {
             if(curr->next->child){
+                curr->next->next = nullptr;
+                pushAtHead(curr->next->next);
+
+
                 curr->next->next = curr->next->child;
                 curr->next->child->prev = curr->next;
 
@@ -47,6 +54,20 @@ public:
         }
         
         
+    }
+
+    void pushAtHead(ListNode *&head)
+    {
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
     }
 
     void pushBack(int data, ListNode *l)
