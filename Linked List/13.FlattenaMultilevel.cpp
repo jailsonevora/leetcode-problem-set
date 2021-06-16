@@ -12,60 +12,66 @@ public:
 
 using namespace std;
 
-struct ListNode {
+struct Node {
     int val;
-    ListNode *prev;
-    ListNode *next;
-    ListNode* child;
-    ListNode(int x) : val(x), prev(nullptr), next(nullptr), child(nullptr) {}
+    Node *prev;
+    Node *next;
+    Node* child;
+    Node(int x) : val(x), prev(nullptr), next(nullptr), child(nullptr) {}
 };
 
 class Solution {
 public:
 
-    ListNode *head = nullptr;
+    Node *head = nullptr;
 
-    ListNode* flatten(ListNode* head) {
+    Node* flatten(Node* head) {
 
-        ListNode *dumy = new ListNode(-1);
+        Node *dumy = new Node(-1);
         dumy->next = head;
         head->prev = dumy;
-        ListNode *curr = dumy;
+        Node *curr = dumy;
 
-        ListNode *headRemain = nullptr, *ptRemain = nullptr;
+        Node *headRemain = nullptr, *ptRemain = nullptr;
 
         while (curr->next)
         {
             if(curr->next->child){
-                ptRemain = curr->next->next;
-                curr->next->next = nullptr;
-                curr->next->prev = nullptr;
-                
+                ptRemain = curr->next->next;                
                 pushAtHead(headRemain, ptRemain);
 
 
                 curr->next->next = curr->next->child;
                 curr->next->child->prev = curr->next;
 
-                ListNode *dumyTwo = new ListNode(-1);
+                Node *dumyTwo = new Node(-1);
                 dumyTwo->next = curr->next->child;
 
                 curr = dumyTwo;
+                
+                // dumyTwo = nullptr;
+                // delete dumyTwo;
             }
             else
-                curr= curr->next;
+                curr = curr->next;
         }
 
         curr->next = headRemain;
         headRemain->prev = curr;
 
-        return head;        
+        // headRemain = nullptr;
+        // delete headRemain;
         
+        // dumy = nullptr;
+        // delete dumy;
+
+        head->prev = nullptr;
+        return head;
     }
 
-    void pushAtHead(ListNode *&head, ListNode *&remain)
+    void pushAtHead(Node *&head, Node *&remain)
     {
-        ListNode* curr = remain;
+        Node* curr = remain;
 
         if (!head){  
             head = remain; 
@@ -79,20 +85,21 @@ public:
         head = remain;
     }
 
-    void pushBack(int data, ListNode *l)
+    void pushBack(int data, Node *l)
     {
-        ListNode* temp = new ListNode(data);
+        Node* temp = new Node(data);
         temp->child = l;
-        ListNode* curr = head;
+        Node* curr = head;
 
         if (!head){  
-            head = temp; 
+            head = temp;
             return;
         }       
 
         while(curr && curr->next) 
             curr = curr->next;
         curr->next = temp;
+        temp->prev = curr;
     }
 };
 
