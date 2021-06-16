@@ -1,3 +1,4 @@
+#include<iostream>
 /*
 // Definition for a Node.
 class Node {
@@ -8,6 +9,8 @@ public:
     Node* child;
 };
 */
+
+using namespace std;
 
 struct Node {
     int val;
