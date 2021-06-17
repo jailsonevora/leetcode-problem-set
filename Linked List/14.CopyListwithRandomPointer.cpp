@@ -26,8 +26,27 @@ struct Node {
 
 class Solution {
 public:
+
+    Node *head = nullptr;
+
     Node* copyRandomList(Node* head) {
         
+    }
+
+    void pushBack(int data, Node *l)
+    {
+        Node* temp = new Node(data);
+        temp->random = l;
+        Node* curr = head;
+
+        if (!head){  
+            head = temp;
+            return;
+        }       
+
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
     }
 };
 
