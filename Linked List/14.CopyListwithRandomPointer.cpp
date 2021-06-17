@@ -49,17 +49,21 @@ public:
         curr->next = temp;
     }
 
-    void random(int val, int index)
+    void random(int index, int indexRandom)
     {
-        Node* tempCurr = head;
-        if (index == -1){            
-            tempCurr->random = nullptr;
-            return;
-        }            
+        Node* curr = head;       
         
         while (index-- > 0)
-            tempCurr = tempCurr->next;
-        tempCurr->random = tempCurr;
+            curr = curr->next;
+
+        Node* tempCurr = head;
+        if (indexRandom == -1){            
+            curr->random = nullptr;
+            return;
+        }          
+        while (indexRandom-- > 0)
+            tempCurr = tempCurr->next;    
+        curr->random = tempCurr;
     }
 };
 
@@ -74,11 +78,11 @@ int main(){
     l1.pushBack(1);
 
     // fill ramdom pointer
-    l1.random(7, -1);
-    l1.random(13, 1);
-    l1.random(11, 5);
-    l1.random(10, 3);
-    l1.random(1, 1);
+    l1.random(1, -1);
+    l1.random(2, 1);
+    l1.random(3, 5);
+    l1.random(4, 3);
+    l1.random(5, 1);
 
     l1.copyRandomList(l1.head);
 }
