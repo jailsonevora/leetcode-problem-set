@@ -1,4 +1,5 @@
 #include<iostream>
+#include<map>
 /*
 // Definition for a Node.
 class Node {
@@ -30,10 +31,30 @@ public:
     Node *head = nullptr;
 
     Node* copyRandomList(Node* head) {
+
+        Node* curr = head;
+        std::map<Node*, Node*> oldToCopy;
+
+        while (curr)
+        {   
+            Node* cpy = new Node(curr->val);
+            oldToCopy[curr] = cpy;
+            curr = curr->next;
+        }
+
+        curr = head;
+        while (curr)
+        {   
+            Node* cpy = oldToCopy[curr];
+            cpy->next = oldToCopy[curr->next];
+            cpy->random = oldToCopy[curr->random];
+            curr = curr->next;
+        }
         
+        return oldToCopy[head];
     }
 
-    void pushBack(int data)
+    void pushBack(int data, Node *&head)
     {
         Node* temp = new Node(data);              
 
@@ -71,11 +92,11 @@ int main(){
 
     Solution l1;
 
-    l1.pushBack(7);
-    l1.pushBack(13);
-    l1.pushBack(11);
-    l1.pushBack(10);
-    l1.pushBack(1);
+    l1.pushBack(7,l1.head);
+    l1.pushBack(13,l1.head);
+    l1.pushBack(11,l1.head);
+    l1.pushBack(10,l1.head);
+    l1.pushBack(1,l1.head);
 
     // fill ramdom pointer
     l1.random(1, -1);
