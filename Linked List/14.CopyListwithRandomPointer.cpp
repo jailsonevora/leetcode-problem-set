@@ -61,5 +61,5 @@ int main(){
     l1.pushBack(5, nullptr);
     l1.pushBack(6, nullptr);
 
-    l1.flatten(l1.head);
+    l1.copyRandomList(l1.head);
 }
