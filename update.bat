@@ -24,13 +24,13 @@ ECHO ===========================================================
 ipconfig | findstr IPv4
 ipconfig | findstr IPv6
 
-SET sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes
-SET destinationFolderAppServer = \\10.4.2.167\c$\servicos
-SET destinationFolderWebServerProd = \\10.4.2.169\c$\inetpub\wwwroot
-SET destinationFolderWebServerTest = \\10.4.2.168\c$\inetpub\wwwroot
+SET /P sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes
+SET /P destinationFolderAppServer = \\10.4.2.167\c$\servicos
+SET /P destinationFolderWebServerProd = \\10.4.2.168\c$\inetpub\wwwroot
+SET /P destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot
 
 :start
-cls
+::cls
     ::The else needs to be on the same "line" (a) as the if.
     ECHO ===========================================================
     SET /p type=Please enter the system to update all, test or prod:
@@ -41,7 +41,7 @@ cls
     ) ELSE (echo input is incorrect! && PAUSE > nul && GOTO start)
 
 :test
-    ECHO Inside test.
+    ECHO Inside test %sourceFolder%.
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueServiceTeste
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWFTeste\WFTeste
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsServiceTeste
@@ -62,10 +62,10 @@ EXIT /B 0
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFProcPenal    
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsService\
 
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\SIJ %destinationFolderWebServerTest%\sij
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerTest%\dje
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PN %destinationFolderWebServerTest%\pn
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PJ %destinationFolderWebServerTest%\pj
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\SIJ %destinationFolderWebServerProd%\sij
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerProd%\dje
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PN %destinationFolderWebServerProd%\pn
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PJ %destinationFolderWebServerProd%\pj
     
     ::PAUSE > nul && GOTO start
 EXIT /B 0
