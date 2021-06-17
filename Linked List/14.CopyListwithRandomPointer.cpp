@@ -17,6 +17,13 @@ public:
 
 using namespace std;
 
+struct Node {
+    int val;
+    Node *next;
+    Node* random;
+    Node(int x) : val(x), random(nullptr), next(nullptr) {}
+};
+
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
