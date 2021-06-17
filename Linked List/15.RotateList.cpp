@@ -28,12 +28,16 @@ public:
 
         ListNode *second = head, *first = head;
         
-        while (k-- >= 0)
+        while (k-- > 0){
+            if(!first->next) first = head; 
             first = first->next;
+        }
 
-        //if (!first) return head->next;
+        if (!first) return head->next;
 
         while (first->next){
+            if(!first->next) first = head;
+            if(!second->next) second = head;
             first = first->next;
             second = second->next; 
         }
@@ -65,11 +69,10 @@ public:
 int main(){
     
     Solution l1;
+    
+    l1.pushBack(0);
     l1.pushBack(1);
     l1.pushBack(2);
-    l1.pushBack(3);
-    l1.pushBack(4);
-    l1.pushBack(5);
 
-    l1.rotateRight(l1.head, 2);
+    l1.rotateRight(l1.head, 4);
 }
