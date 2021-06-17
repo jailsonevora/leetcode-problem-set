@@ -1,3 +1,4 @@
+#include<iostream>
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -8,6 +9,9 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+using namespace std;
+
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
