@@ -30,3 +30,17 @@ public:
         
     }
 };
+
+int main(){
+
+    Solution l1;
+
+    l1.pushBack(1, nullptr);
+    l1.pushBack(2, nullptr);
+    l1.pushBack(3, l2.head);
+    l1.pushBack(4, nullptr);
+    l1.pushBack(5, nullptr);
+    l1.pushBack(6, nullptr);
+
+    l1.flatten(l1.head);
+}
