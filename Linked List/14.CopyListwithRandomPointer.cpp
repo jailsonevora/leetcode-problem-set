@@ -53,7 +53,7 @@ public:
     {
         Node* curr = head;       
         
-        while (index-- > 0)
+        while (index-- > 1)
             curr = curr->next;
 
         Node* tempCurr = head;
@@ -61,7 +61,7 @@ public:
             curr->random = nullptr;
             return;
         }          
-        while (indexRandom-- > 0)
+        while (indexRandom-- > 1)
             tempCurr = tempCurr->next;    
         curr->random = tempCurr;
     }
