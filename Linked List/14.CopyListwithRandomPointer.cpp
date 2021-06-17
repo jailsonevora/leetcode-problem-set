@@ -15,6 +15,8 @@ public:
 };
 */
 
+using namespace std;
+
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
