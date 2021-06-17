@@ -52,8 +52,10 @@ public:
     void random(int val, int index)
     {
         Node* tempCurr = head;
-        if (index == -1)            
-            tempCurr->random = nullptr;            
+        if (index == -1){            
+            tempCurr->random = nullptr;
+            return;
+        }            
         
         while (index-- > 0)
             tempCurr = tempCurr->next;
