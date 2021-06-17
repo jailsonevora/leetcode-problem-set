@@ -33,16 +33,9 @@ public:
         
     }
 
-    void pushBack(int data, int index)
+    void pushBack(int data)
     {
-        Node* temp = new Node(data);
-        if (index == -1)            
-            temp->random = nullptr;                
-
-        Node* curr = head;
-        while (index-- > 0)
-            curr = curr->next;
-        temp->random = curr;
+        Node* temp = new Node(data);              
 
         Node* curr = head;
 
@@ -55,17 +48,34 @@ public:
             curr = curr->next;
         curr->next = temp;
     }
+
+    void random(int val, int index)
+    {
+        Node* tempCurr = head;
+        if (index == -1)            
+            tempCurr->random = nullptr;            
+        
+        while (index-- > 0)
+            tempCurr = tempCurr->next;
+        tempCurr->random = tempCurr;
 };
 
 int main(){
 
     Solution l1;
 
-    l1.pushBack(7, -1);
-    l1.pushBack(13, 1);
-    l1.pushBack(11, 5);
-    l1.pushBack(10, 3);
-    l1.pushBack(1, 1);
+    l1.pushBack(7);
+    l1.pushBack(13);
+    l1.pushBack(11);
+    l1.pushBack(10);
+    l1.pushBack(1);
+
+    // fill ramdom pointer
+    l1.random(7, -1);
+    l1.random(13, 1);
+    l1.random(11, 5);
+    l1.random(10, 3);
+    l1.random(1, 1);
 
     l1.copyRandomList(l1.head);
 }
