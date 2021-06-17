@@ -21,8 +21,26 @@ struct ListNode {
 
 class Solution {
 public:
+
+    ListNode *head = nullptr;
+
     ListNode* rotateRight(ListNode* head, int k) {
         
+    }
+
+    void pushBack(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
     }
 };
 
@@ -35,5 +53,5 @@ int main(){
     l1.pushBack(4);
     l1.pushBack(5);
 
-    l1.rotateRight(l1.head);
+    l1.rotateRight(l1.head, 2);
 }
