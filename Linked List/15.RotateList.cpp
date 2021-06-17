@@ -25,7 +25,25 @@ public:
     ListNode *head = nullptr;
 
     ListNode* rotateRight(ListNode* head, int k) {
+
+        ListNode *second = head, *first = head;
         
+        while (k-- >= 0)
+            first = first->next;
+
+        //if (!first) return head->next;
+
+        while (first->next){
+            first = first->next;
+            second = second->next; 
+        }
+
+        ListNode *remain = second->next;
+        second->next = nullptr;
+
+        first->next = head;
+        head = remain;        
+        return head;
     }
 
     void pushBack(int data)
