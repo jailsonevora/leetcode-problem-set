@@ -24,17 +24,21 @@ ECHO ============================
 ipconfig | findstr IPv4
 ipconfig | findstr IPv6
 
-::type of update = all, prod or test
-%type
+SET sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes
+SET destinationFolderAppServer = \\10.4.2.167\c$\servicos
+SET destinationFolderWebServerProd = \\10.4.2.169\c$\inetpub\wwwroot
+SET destinationFolderWebServerTest = \\10.4.2.168\c$\inetpub\wwwroot
 
-::Set sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes
-::Set destinationFolderAppServer = \\10.4.2.167\c$\servicos
-::Set destinationFolderWebServerProd = \\10.4.2.169\c$\inetpub\wwwroot
-::Set destinationFolderWebServerTest = \\10.4.2.168\c$\inetpub\wwwroot
-
-if "%type%" == "test" goto test
-if "%type%" == "prod" goto prod
-if "%type%" == "all"  goto all
+:start
+cls
+    ::The else needs to be on the same "line" (a) as the if.
+    ECHO ===========================================================
+    SET /p type=Please enter the system to update all, test or prod:
+    ECHO ===========================================================
+    IF /i "%type%"=="test" GOTO test
+    IF  /i "%type%"=="prod" GOTO prod
+    IF /i "%type%"=="all" ( GOTO all 
+    ) ELSE (echo input is incorrect! && PAUSE > nul && GOTO start)
 
 :test
     ECHO Inside test.
@@ -46,7 +50,8 @@ if "%type%" == "all"  goto all
     rem xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerTest%\dje
     rem xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PN %destinationFolderWebServerTest%\pn
     rem xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PJ %destinationFolderWebServerTest%\pj
-goto exit
+    ::PAUSE > nul && GOTO start
+EXIT /B 0
 
 :prod
     ECHO Inside prod.
@@ -60,10 +65,12 @@ goto exit
     :: xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerTest%\dje
     :: xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PN %destinationFolderWebServerTest%\pn
     :: xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\PJ %destinationFolderWebServerTest%\pj
-goto exit
+    ::PAUSE > nul && GOTO start
+EXIT /B 0
 
 :all
     ECHO Inside All and I am going to call...
-    goto test
-    goto prod
-goto exit
+    call :test
+    call :prod
+    PAUSE > nul && GOTO start
+GOTO end
