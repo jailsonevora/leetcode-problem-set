@@ -24,10 +24,10 @@ ECHO ===========================================================
 ipconfig | findstr IPv4
 ipconfig | findstr IPv6
 
-SET /P sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes
-SET /P destinationFolderAppServer = \\10.4.2.167\c$\servicos
-SET /P destinationFolderWebServerProd = \\10.4.2.168\c$\inetpub\wwwroot
-SET /P destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot
+SET /A "sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes"
+SET /A "destinationFolderAppServer = \\10.4.2.167\c$\servicos"
+SET /A "destinationFolderWebServerProd = \\10.4.2.168\c$\inetpub\wwwroot"
+SET /A "destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot"
 
 :start
 ::cls
@@ -41,7 +41,7 @@ SET /P destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot
     ) ELSE (echo input is incorrect! && PAUSE > nul && GOTO start)
 
 :test
-    ECHO Inside test %sourceFolder%.
+    ECHO %sourceFolder%
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueServiceTeste
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWFTeste\WFTeste
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsServiceTeste
