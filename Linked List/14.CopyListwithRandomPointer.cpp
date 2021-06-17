@@ -58,6 +58,7 @@ public:
         while (index-- > 0)
             tempCurr = tempCurr->next;
         tempCurr->random = tempCurr;
+    }
 };
 
 int main(){
