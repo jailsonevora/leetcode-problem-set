@@ -25,53 +25,26 @@ public:
 
     ListNode* rotateRight(ListNode* head, int k) {
 
-        ListNode *second = head, *first = head;
+        if (!head || k == 0)
+            return head;
 
-        if (!head) return nullptr;
-
-        if (k == 0 || !head->next) return head;
-
-        if(!head->next->next && k%2==0) return  head;
-
-        if(!head->next->next && k%2!=0){
-
-            ListNode *temp = head->next;
-            head->next = nullptr;
-            temp->next = head;
-            head = temp;
-            
-            return  head; 
-        }   
+        ListNode *tail = head;
+        int lenght = 1;
                
-        while (k-- > 0){
-
-            if(!first->next) 
-                first = head;
-            else
-                first = first->next;
+        while (tail->next){
+            lenght++;            
+            tail = tail->next;
         }
+        tail->next = head;
 
-        while (first->next){
+        int rotatePoint = (lenght - k) % lenght;
 
-            if(!first->next) 
-                first = head;
-            else
-                first = first->next;
+        tail = head;
+        while (rotatePoint-- > 1)
+            tail = tail->next;
 
-            if(!second->next) 
-                second = head;
-            else
-                second = second->next; 
-        }
-
-        if(!second->next)
-            second->next = head;
-
-        ListNode *remain = second->next;
-        second->next = nullptr;
-
-        first->next = head; 
-        head = remain;        
+        head = tail->next;        
+        tail->next = nullptr; 
         return head;        
     }
 
