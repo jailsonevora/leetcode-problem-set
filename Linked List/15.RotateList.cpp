@@ -29,14 +29,14 @@ public:
             return head;
 
         ListNode *tail = head;
-        int lenght = 1;
+        int lenght = 0;
                
         while (tail->next){
             lenght++;            
             tail = tail->next;
         }
+        lenght++;
         tail->next = head;
-
         int rotatePoint = (lenght - k) % lenght;
 
         tail = head;
