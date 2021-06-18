@@ -25,14 +25,23 @@ public:
 
     ListNode* rotateRight(ListNode* head, int k) {
 
-        // ListNode *temp = new ListNode(-1);
-        // temp->next = head;
         ListNode *second = head, *first = head;
 
-        if (k == 0 || !head->next)
-            return head;
-        if (!head)
-            return nullptr;     
+        if (!head) return nullptr;
+
+        if (k == 0 || !head->next) return head;
+
+        if(!head->next->next && k%2==0) return  head;
+
+        if(!head->next->next && k%2!=0){
+
+            ListNode *temp = head->next;
+            head->next = nullptr;
+            temp->next = head;
+            head = temp;
+            
+            return  head; 
+        }   
                
         while (k-- > 0){
 
@@ -61,9 +70,9 @@ public:
         ListNode *remain = second->next;
         second->next = nullptr;
 
-        first->next = head;
+        first->next = head; 
         head = remain;        
-        return head;
+        return head;        
     }
 
     void pushBack(int data)
@@ -85,15 +94,16 @@ public:
 int main(){
     
     Solution l1;
+    // l1.pushBack(1);
+    // l1.pushBack(2);
+    // l1.pushBack(3);
+    // l1.pushBack(4);
+    // l1.pushBack(5);
+    
+    //l1.pushBack(0);
     l1.pushBack(1);
     l1.pushBack(2);
     l1.pushBack(3);
-    l1.pushBack(4);
-    l1.pushBack(5);
-    
-    // l1.pushBack(0);
-    // l1.pushBack(1);
-    // l1.pushBack(2);
 
-    l1.rotateRight(l1.head, 2);
+    l1.rotateRight(l1.head,2000000000);
 }
