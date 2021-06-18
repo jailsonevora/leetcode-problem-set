@@ -1,3 +1,4 @@
+::https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy
 @ECHO OFF 
 :: This batch file details Windows Server, hardware, and networking configuration, plus updating the SIJ enviroment
 TITLE My System Info
