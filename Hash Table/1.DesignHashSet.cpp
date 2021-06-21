@@ -35,14 +35,37 @@ public:
     bool contains(int key) {
         int i = hashFunction(key);
         if(find(buckets[i].begin(), buckets[i].end(), key) != buckets[i].end())
-            return false;
-        return true;  
+            return true;
+        return false;  
+    }
+};
+
+class MyHashSet2 {
+public:
+    vector<bool> hashSet;
+    
+    /** Initialize your data structure here. */
+    MyHashSet2() {
+        hashSet = vector<bool>(1000001, false);
+    }
+    
+    void add(int key) {
+        hashSet[key] = true;
+    }
+    
+    void remove(int key) {
+        hashSet[key] = false;
+    }
+    
+    /** Returns true if this set contains the specified element */
+    bool contains(int key) {
+        return hashSet[key];
     }
 };
 
 int main(){
 
-    cin.sync_with_stdio();
+    ios_base.sync_with_stdio();
     cin.tie();
     cout.tie();
 
