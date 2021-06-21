@@ -27,7 +27,12 @@ public:
 
 int main(){
 
-    ios_base.syn
+    ios::sync_with_stdio(false);
+    cin.tie();
+    cout.tie();
+
+    int key, value;
+    cin >> key >> value;
 /**
  * Your MyHashMap object will be instantiated and called as such:*/
     MyHashMap* obj = new MyHashMap();
