@@ -33,8 +33,8 @@ int main(){
 
     int key, value;
     cin >> key >> value;
-/**
- * Your MyHashMap object will be instantiated and called as such:*/
+    /**
+    * Your MyHashMap object will be instantiated and called as such:*/
     MyHashMap* obj = new MyHashMap();
     obj->put(key,value);
     int param_2 = obj->get(key);
