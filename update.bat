@@ -56,7 +56,7 @@ SET /A "destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot"
 EXIT /B 0
 
 :prod
-    ECHO Inside prod.
+    ::ECHO Inside prod.
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueService    
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFInformatizacao
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFOutros
