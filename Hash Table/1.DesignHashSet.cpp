@@ -1,3 +1,7 @@
+#include<iostream>
+
+using namespace std;
+
 class MyHashSet {
 public:
     /** Initialize your data structure here. */
@@ -18,6 +22,21 @@ public:
         
     }
 };
+
+int main(){
+
+    cin.sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    int key = -1;
+    cin >> key; 
+
+    MyHashSet* obj = new MyHashSet();
+    obj->add(key);
+    obj->remove(key);
+    bool param_3 = obj->contains(key);
+}
 
 /**
  * Your MyHashSet object will be instantiated and called as such:
