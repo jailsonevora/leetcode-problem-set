@@ -37,7 +37,7 @@ SET /A "destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot"
     SET /p type=Please enter the system to update all, test or prod:
     ECHO ===========================================================
     IF /i "%type%"=="test" GOTO test
-    IF  /i "%type%"=="prod" GOTO prod
+    IF /i "%type%"=="prod" GOTO prod
     IF /i "%type%"=="all" ( GOTO all 
     ) ELSE (echo input is incorrect! && PAUSE > nul && GOTO start)
 
