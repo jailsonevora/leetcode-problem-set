@@ -42,7 +42,7 @@ SET /A "destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot"
     ) ELSE (echo input is incorrect! && PAUSE > nul && GOTO start)
 
 :test
-    ECHO %sourceFolder%
+    ::ECHO %sourceFolder%
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueServiceTeste
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWFTeste\WFTeste
     xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsServiceTeste
