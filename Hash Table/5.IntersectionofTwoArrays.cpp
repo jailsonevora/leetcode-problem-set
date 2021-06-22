@@ -7,7 +7,23 @@ using namespace std;
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        
+        unordered_set<int> intersection, tempSetResult;
+        vector<int> temp;
+
+        for (int it : nums1)
+            intersection.insert(it);
+
+        for (int it2 : nums2)
+        {
+            if(intersection.count(it2))
+                tempSetResult.insert(it2);
+        }
+
+        for (int tp : tempSetResult)
+        {
+            temp.push_back(tp);
+        }
+        return temp;
     }
 };
 
