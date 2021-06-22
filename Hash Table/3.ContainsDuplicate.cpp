@@ -1,5 +1,5 @@
 #include<iostream>
-#include<set>
+#include<unordered_set>
 #include<vector>
 
 using namespace std;
@@ -7,10 +7,10 @@ using namespace std;
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        set<int> duplicate;
-        for (auto it : nums)
+        unordered_set<int> duplicate;
+        for (int it : nums)
         {
-            if(duplicate.count(it) > 0)
+            if(duplicate.count(it))
                 return true;
             duplicate.insert(it);
         }
@@ -27,8 +27,5 @@ int main(){
     vector<int> n = {2,4,3,2};
 
     Solution s;
-    s.containsDuplicate(n);
-
-
- 
+    s.containsDuplicate(n); 
 }
