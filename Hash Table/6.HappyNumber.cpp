@@ -14,13 +14,13 @@ public:
 
         while (n != 1)
         {   
-            int w = 0;     
+            int sum = 0;     
             while (n)
             {
-                w += (pow((n%10),2));
+                sum += (pow((n%10),2));
                 n/=10;
             }
-            n = w;
+            n = sum;
             if (happy.find(n) != happy.end())
                 return false;
 
