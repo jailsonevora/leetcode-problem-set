@@ -8,7 +8,10 @@ using namespace std;
 class Solution {
 public:
     bool isHappy(int n) {
-        
+
+        unordered_set<int> happy;
+        happy.insert(n);
+
         while (n != 1)
         {   
             int w = 0;     
@@ -18,6 +21,10 @@ public:
                 n/=10;
             }
             n = w;
+            if (happy.find(n) != happy.end())
+                return false;
+
+            happy.insert(n);            
         }
         return true;
     }
