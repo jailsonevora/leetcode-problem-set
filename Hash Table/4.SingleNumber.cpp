@@ -7,7 +7,15 @@ using namespace std;
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        
+        unordered_set<int> single;
+        for (int it : nums)
+        {   
+            if(single.count(it))
+                single.erase(it);
+            else
+                single.insert(it);
+        }
+        return *single.begin();
     }
 };
 
@@ -17,7 +25,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> n = {2,4,3,2};
+    vector<int> n = {4,1,2,1,2};
 
-    Solution s; 
+    Solution s;
+    cout << s.singleNumber(n);
 }
