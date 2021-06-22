@@ -33,8 +33,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> n1 = {1,2,2,1};
-    vector<int> n2 = {2,2};
+    vector<int> n1 = {4,9,5};
+    vector<int> n2 = {9,4,9,8,4};
 
     Solution s;
     s.intersection(n1, n2); 
