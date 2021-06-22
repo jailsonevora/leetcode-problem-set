@@ -1,7 +1,20 @@
+#include<iostream>
+#include<set>
+#include<vector>
+
+using namespace std;
+
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        
+        set<int> duplicate;
+        for (auto it : nums)
+        {
+            if(duplicate.count(it) > 0)
+                return true;
+            duplicate.insert(it);
+        }
+        return false;        
     }
 };
 
@@ -11,13 +24,11 @@ int main(){
     cin.tie();
     cout.tie();
 
-    int key, value;
-    cin >> key >> value;
-    /**
-    * Your MyHashMap object will be instantiated and called as such:*/
-    MyHashMap* obj = new MyHashMap();
-    obj->put(key,value);
-    int param_2 = obj->get(key);
-    obj->remove(key);
+    vector<int> n = {2,4,3,2};
+
+    Solution s;
+    s.containsDuplicate(n);
+
+
  
 }
