@@ -47,5 +47,5 @@ int main(){
     vector<int> n = {4,1,2,1,2};
 
     Solution s;
-    cout << s.singleNumberN(n);
+    cout << s.singleNumberN_SET(n);
 }
