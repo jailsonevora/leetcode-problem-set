@@ -18,7 +18,7 @@ int main(){
     cout.tie();
 
     vector<int> n1 = {2,4,3,2};
-    vector<int> n2 = {2,4,3,2};
+    int n2 = 9;
  
     Solution s;
     s.twoSum(n1,n2); 
