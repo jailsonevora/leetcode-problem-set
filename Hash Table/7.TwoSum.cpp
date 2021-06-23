@@ -21,5 +21,5 @@ int main(){
     int n2 = 9;
  
     Solution s;
-    s.twoSum(n1,n2); 
+    s.twoSum(n1,n2);
 }
