@@ -19,6 +19,6 @@ int main(){
 
     string s = "egg", t = "add";
  
-    Solution s;
-    s.isIsomorphic(s,t);
+    Solution sl;
+    sl.isIsomorphic(s,t);
 }
