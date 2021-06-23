@@ -19,7 +19,7 @@ int main(){
 
     vector<int> n1 = {2,4,3,2};
     vector<int> n2 = {2,4,3,2};
-
+ 
     Solution s;
     s.twoSum(n1,n2); 
 }
