@@ -30,10 +30,8 @@ public:
             }
             else{ 
                 for (unordered_map<char,char>::iterator it=mp.begin(); it!=mp.end(); ++it)
-                {
                     if(it->second == t[i])
-                        return false;
-                }                      
+                        return false;                  
                 mp.insert(make_pair(s[i],t[i]));
             }
         }
