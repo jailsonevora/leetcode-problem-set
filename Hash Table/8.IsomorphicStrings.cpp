@@ -9,9 +9,11 @@ public:
     bool isIsomorphic(string s, string t) {
         unordered_map<char,int> mp;
 
-        for (int i = 0; i < s.size(); i++)
-            mp.insert(make_pair(s[i],i));
-        
+        for (int i = 0; i < s.size() && i < t.size(); i++){
+            if(mp.count(s[i]) && mp[s[i]] == t[i] )
+                continue;
+            mp.insert(make_pair(s[i],t[i]));
+        }
         
     }
 };
