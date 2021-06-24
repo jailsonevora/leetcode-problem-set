@@ -10,9 +10,7 @@ public:
         unordered_map<char,int> mp;
 
         for (int i = 0; i < s.size(); i++)
-        {
-            mp.insert(s[i],i);
-        }
+            mp.insert(make_pair(s[i],i));
         
         
     }
