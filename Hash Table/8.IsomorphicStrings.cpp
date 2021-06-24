@@ -1,5 +1,6 @@
 #include<iostream>
 #include<unordered_map>
+#include<string>
 
 using namespace std;
 
@@ -7,6 +8,12 @@ class Solution {
 public:
     bool isIsomorphic(string s, string t) {
         unordered_map<string,int> mp;
+
+        for (size_t i = 0; i < count; i++)
+        {
+            /* code */
+        }
+        
         
     }
 
