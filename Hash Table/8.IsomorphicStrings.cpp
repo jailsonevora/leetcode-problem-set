@@ -9,14 +9,13 @@ public:
     bool isIsomorphic(string s, string t) {
         unordered_map<char,char> mp;
 
-        for (int i = 0; i < s.size() && i < t.size(); i++){
-            if(mp.count(s[i]) && mp[s[i]] )
+        for (int i = 0; i < s.size(); i++){
+            if(mp.count(s[i]) && mp[s[i]] != t[i] )
+                return false;
+            else
                 mp.insert(make_pair(s[i],t[i]));
-
-            if(mp.count(s[i]) && mp[s[i]] == t[i] )
-
         }
-        
+        return true;        
     }
 };
 
@@ -26,7 +25,9 @@ int main(){
     cin.tie();
     cout.tie();
 
-    string s = "egg", t = "add";
+    //string s = "egg", t = "add";
+    //string s = "foo", t = "bar";
+    string s = "paper", t = "title";
  
     Solution sl;
     sl.isIsomorphic(s,t);
