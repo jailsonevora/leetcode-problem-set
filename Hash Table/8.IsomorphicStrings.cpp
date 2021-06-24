@@ -7,11 +7,11 @@ using namespace std;
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        unordered_map<string,int> mp;
+        unordered_map<char,int> mp;
 
-        for (auto st : s)
+        for (int i = 0; i < s.size(); i++)
         {
-            /* code */
+            mp.insert(s[i],i);
         }
         
         
