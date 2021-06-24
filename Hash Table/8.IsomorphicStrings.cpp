@@ -9,14 +9,13 @@ public:
     bool isIsomorphic(string s, string t) {
         unordered_map<string,int> mp;
 
-        for (size_t i = 0; i < count; i++)
+        for (auto st : s)
         {
             /* code */
         }
         
         
     }
-
 };
 
 int main(){
