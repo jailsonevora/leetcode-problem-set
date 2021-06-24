@@ -7,12 +7,14 @@ using namespace std;
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        unordered_map<char,int> mp;
+        unordered_map<char,char> mp;
 
         for (int i = 0; i < s.size() && i < t.size(); i++){
+            if(mp.count(s[i]) && mp[s[i]] )
+                mp.insert(make_pair(s[i],t[i]));
+
             if(mp.count(s[i]) && mp[s[i]] == t[i] )
-                continue;
-            mp.insert(make_pair(s[i],t[i]));
+
         }
         
     }
