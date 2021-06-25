@@ -18,8 +18,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    //vector<int> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"};
-    vector<int> l1 = {"Shogun","Tapioca Express","Burger King","KFC"], l2 = {"KFC","Shogun","Burger King"};
+    //vector<string> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"};
+    vector<string> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"KFC","Shogun","Burger King"};
     
     Solution sl;
 }
