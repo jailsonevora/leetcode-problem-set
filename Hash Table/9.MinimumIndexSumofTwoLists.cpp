@@ -21,8 +21,8 @@ int main(){
     //vector<string> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"};
     //vector<string> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"KFC","Shogun","Burger King"};
     //vector<string> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"KFC","Burger King","Tapioca Express","Shogun"};
-    vector<string> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"KNN","KFC","Burger King","Tapioca Express","Shogun"};
-    
+    //vector<string> l1 = {"Shogun","Tapioca Express","Burger King","KFC"}, l2 = {"KNN","KFC","Burger King","Tapioca Express","Shogun"};
+    vector<string> l1 = {"KFC"}, list2 = {"KFC"};
 
     Solution sl;
 }
