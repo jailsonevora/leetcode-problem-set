@@ -24,7 +24,9 @@ public:
                 mp[list2[i]] = mp[list2[i]] + 1;
 
         vector<pair<string,int>> v(mp.begin(), mp.end());
-        sort(v.begin(), v.end(), cmp);
+        sort(v.begin(), v.end(), [](pair<string, int>& a, pair<string, int>& b)
+                                    {return a.second > b.second;}
+                                    );
         
         vector<string> result;
         for (auto& rlt : v){
