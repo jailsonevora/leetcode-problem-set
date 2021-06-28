@@ -7,6 +7,10 @@ using namespace std;
 
 class Solution {
 public:
+    bool cmp(pair<string, int>& a, pair<string, int>& b)
+    {
+        return a.second > b.second;
+    }
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
 
         unordered_map<string,int> mp;
@@ -18,7 +22,7 @@ public:
             if(mp.count(list2[i]))
                 mp[list2[i]] = mp[list2[i]] + 1;
 
-        sort
+        //std::sort(mp.begin(), mp.end(), cmp);
         
         return vector<string>{};
     }
