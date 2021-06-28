@@ -8,7 +8,23 @@ using namespace std;
 class Solution {
 public:
     int firstUniqChar(string s) {
-        
+        unordered_map<char,int> chrCount, chrPosition;
+        for (int i = 0; i < s.size(); i++)
+                chrCount[s[i]]  = chrCount[s[i]] + 1;
+
+        for (int i = 0; i < s.size(); i++){
+            //if(chrCount[s[i]] > 1){
+                chrCount[s[i]] = chrCount[s[i]] - 1;
+                chrPosition.insert(make_pair(s[i],i));
+            //}
+            }
+
+        pair<char,int> min = *min_element(chrPosition.begin(), chrPosition.end(), 
+            [](const pair<char,int>& lhs, const pair<char,int>& rhs) {
+            return lhs.second < rhs.second;    
+        });
+
+        return 0;
     }
 };
 
