@@ -18,6 +18,7 @@ public:
             if(mp.count(list2[i]))
                 mp[list2[i]] = mp[list2[i]] + 1;
         
+        return vector<string>{};
     }
 };
 
@@ -34,4 +35,5 @@ int main(){
     vector<string> l1 = {"KFC"}, l2 = {"KFC"};
 
     Solution sl;
+    sl.findRestaurant(l1,l2);
 }
