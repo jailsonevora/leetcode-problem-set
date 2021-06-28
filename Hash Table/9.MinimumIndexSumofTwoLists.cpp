@@ -7,11 +7,11 @@ using namespace std;
 
 class Solution {
 public:
-    bool cmp(pair<string, int>& a, pair<string, int>& b)
+    static int cmp(pair<string, int>& a, pair<string, int>& b)
     {
         return a.second > b.second;
     }
-    
+
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
 
         unordered_map<string,int> mp;
@@ -24,9 +24,13 @@ public:
                 mp[list2[i]] = mp[list2[i]] + 1;
 
         vector<pair<string,int>> v(mp.begin(), mp.end());
-        std::sort(v.begin(), v.end(), cmp);
+        sort(v.begin(), v.end(), cmp);
         
-        return vector<string>{v.begin(), v.end()};
+        vector<string> result;
+        for (auto& rlt : v){
+            result.push_back(rlt.first);
+        }
+        return result;
     }
 };
 
