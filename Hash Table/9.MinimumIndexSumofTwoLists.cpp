@@ -25,7 +25,9 @@ public:
             if(mp.count(list2[i]))
                 v.push_back(make_pair(list2[i], mp[list2[i]] + i));
 
-        pair<string,int> min = *min_element(v.begin(), v.end());
+        pair<string,int> min = *min_element(v.begin(), v.end(), [](const auto& lhs, const auto& rhs) {
+            return lhs.second < rhs.second;    
+        });
         
         vector<string> result;
         for (auto& rlt : v){
