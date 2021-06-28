@@ -22,7 +22,7 @@ public:
             if(mp.count(list2[i]))
                 mp[list2[i]] = mp[list2[i]] + 1;
 
-        //std::sort(mp.begin(), mp.end(), cmp);
+        std::sort(mp.begin(), mp.end(), cmp);
         
         return vector<string>{};
     }
