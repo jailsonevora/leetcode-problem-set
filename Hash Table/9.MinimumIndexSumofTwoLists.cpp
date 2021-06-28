@@ -2,6 +2,7 @@
 #include<unordered_map>
 #include<string>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -17,6 +18,8 @@ public:
         for (int i = 0; i < list2.size(); i++)
             if(mp.count(list2[i]))
                 mp[list2[i]] = mp[list2[i]] + 1;
+
+        sort
         
         return vector<string>{};
     }
