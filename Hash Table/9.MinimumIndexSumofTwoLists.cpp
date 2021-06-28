@@ -11,6 +11,7 @@ public:
     {
         return a.second > b.second;
     }
+    
     vector<string> findRestaurant(vector<string>& list1, vector<string>& list2) {
 
         unordered_map<string,int> mp;
@@ -22,9 +23,10 @@ public:
             if(mp.count(list2[i]))
                 mp[list2[i]] = mp[list2[i]] + 1;
 
-        std::sort(mp.begin(), mp.end(), cmp);
+        vector<pair<string,int>> v(mp.begin(), mp.end());
+        std::sort(v.begin(), v.end(), cmp);
         
-        return vector<string>{};
+        return vector<string>{v.begin(), v.end()};
     }
 };
 
