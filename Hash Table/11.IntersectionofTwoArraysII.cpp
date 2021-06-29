@@ -15,7 +15,7 @@ public:
 
         vector<int> result;
         for (int i = 0; i < nums2.size(); i++)
-            if(v.count(nums2[i]) && v[nums2[i]] != 0){
+            if(v[nums2[i]] != 0){
                 v[nums2[i]]--;
                 result.push_back(nums2[i]);
             }
