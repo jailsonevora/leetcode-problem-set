@@ -11,14 +11,11 @@ public:
         unordered_map<char,int> ch;
         for (int i = 0; i < s.size(); i++)
                 ch[s[i]]  = ch[s[i]] + 1;
-
-        int firstChar;
+        
         for (int i = 0; i < s.size(); i++)
-            if(ch.count(s[i]) && ch[s[i]] == 1){
-                firstChar = i;
-                break;
-            }
-        return firstChar;
+            if(ch[s[i]] == 1)
+                return i;
+        return -1;
     }
 };
 
