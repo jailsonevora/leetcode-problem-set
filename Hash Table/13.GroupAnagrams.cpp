@@ -7,6 +7,7 @@ using namespace std;
 
 class Solution {
 public:
+    //with sorted string
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
 
         unordered_map<string, vector<string>> mp;
@@ -14,7 +15,7 @@ public:
         for (int i = 0; i < strs.size(); i++)
         {
             string sortedStr = strs[i];
-            sort(sortedStr.begin(), sortedStr.end());
+            sort(strs[i].begin(), strs[i].end());
             mp[strs[i]].push_back(sortedStr);
         }
         
