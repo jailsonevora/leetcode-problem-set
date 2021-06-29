@@ -8,23 +8,17 @@ using namespace std;
 class Solution {
 public:
     int firstUniqChar(string s) {
-        unordered_map<char,int> chrCount, chrPosition;
+        unordered_map<char,int> ch;
         for (int i = 0; i < s.size(); i++)
-                chrCount[s[i]]  = chrCount[s[i]] + 1;
+                ch[s[i]]  = ch[s[i]] + 1;
 
-        for (int i = 0; i < s.size(); i++){
-            //if(chrCount[s[i]] > 1){
-                chrCount[s[i]] = chrCount[s[i]] - 1;
-                chrPosition.insert(make_pair(s[i],i));
-            //}
+        int firstChar;
+        for (int i = 0; i < s.size(); i++)
+            if(ch.count(s[i]) && ch[s[i]] == 1){
+                firstChar = i;
+                break;
             }
-
-        pair<char,int> min = *min_element(chrPosition.begin(), chrPosition.end(), 
-            [](const pair<char,int>& lhs, const pair<char,int>& rhs) {
-            return lhs.second < rhs.second;    
-        });
-
-        return 0;
+        return firstChar;
     }
 };
 
@@ -34,7 +28,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    string s = "leetcode";
+    //string s = "leetcode";
+    string s = "aabb";
 
     Solution sl;
     sl.firstUniqChar(s);
