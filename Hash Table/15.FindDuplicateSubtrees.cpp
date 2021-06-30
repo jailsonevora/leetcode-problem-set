@@ -31,20 +31,25 @@ class Solution {
 public:
 
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root){
-        unordered_set<int> st;
-        findDuplicateSubtrees(root,st);
+
+        unordered_set<string> st; vector<TreeNode*> result;
+        
+        if(!root)
+            return result;    
+        findDuplicateSubtrees(root,st,result);
+        return result;
     }
-    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root, unordered_set<int> &st){
-        if (root->left != nullptr)
-            findDuplicateSubtrees(root->left);
-            
-        if(!st.insert(root->val).second)
-            ....          
+    string findDuplicateSubtrees(TreeNode* root, unordered_set<string> &st, vector<TreeNode*> &result){
+        
+        if (!root) return "";
 
-        if(root->right != nullptr)
-            findDuplicateSubtrees(root->right);
-
-        return vector<TreeNode*>{};
+        string treeStr = "["+ findDuplicateSubtrees(root->left,st,result) 
+                            + to_string(root->val) 
+                            + findDuplicateSubtrees(root->right,st,result) 
+                            +"]";
+        if(!st.insert(treeStr).second)
+            result.push_back(root);
+        return treeStr;
     }
 };
 
@@ -54,7 +59,7 @@ int main(){
     cin.tie();
     cout.tie();
 
-    TreeNode node;
+    TreeNode node(1);
     node.left = new TreeNode(2);
     node.right = new TreeNode(3);
 
