@@ -10,19 +10,16 @@ class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
 
-        char c = '9';
-        unordered_map<int,int> mp;
-        unordered_set<char> se;
-        for (std::vector<char> row: board){
-            for (char val: row){
-                if(se.count(val))
-                    return false;
-                se.insert(val);
-            }
-        }
-        
-
-        
+        unordered_set<string> se;
+        for (int i = 0; i < board.size(); ++i){
+            for (int j = 0; j < board.size(); ++j){
+                if(board[i][j] != '.'){
+                    if(!se.insert(board[i][j] +" in row "+i).second ||
+                      !se.insert(board[i][j] +" in col "+j).second ||
+                      !se.insert(board[i][j] +" in box "+i/3+" "+j/3).second ||
+                      )
+                        return false;
+        return true;        
     }
 };
 
