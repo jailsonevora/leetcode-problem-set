@@ -29,13 +29,21 @@ struct TreeNode {
 
 class Solution {
 public:
-    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root){
 
-        if (root)
-        {
-            /* code */
-        }
-        
+    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root){
+        unordered_set<int> st;
+        findDuplicateSubtrees(root,st);
+    }
+    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root, unordered_set<int> &st){
+        if (root->left != nullptr)
+            findDuplicateSubtrees(root->left);
+            
+        if(!st.insert(root->val).second)
+            ....          
+
+        if(root->right != nullptr)
+            findDuplicateSubtrees(root->right);
+
         return vector<TreeNode*>{};
     }
 };
