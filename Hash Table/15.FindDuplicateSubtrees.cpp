@@ -33,3 +33,24 @@ public:
         
     }
 };
+
+int main(){
+
+    ios::sync_with_stdio(false);
+    cin.tie();
+    cout.tie();
+
+    TreeNode root;
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+
+    root.left->left = new TreeNode(4);
+    root.right->left = new TreeNode(2);
+    root.right->right = new TreeNode(4);
+    root.right->left->left = new TreeNode(4);
+    
+
+
+    Solution sl;
+    sl.findDuplicateSubtrees(root);
+}
