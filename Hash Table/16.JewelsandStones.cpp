@@ -15,8 +15,12 @@ public:
             mp.insert(make_pair(jewels[i],0));
 
         for (int i = 0; i < stones.size(); i++)
-            mp[stones[i]]++;        
-        return 0;
+            if(mp.count(stones[i]))
+                mp[stones[i]]++;
+        int sum;
+        for (auto& val : mp)
+            sum +=val.second;
+        return sum;
     }
 };
 
@@ -26,5 +30,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    
+    string jewels = {"aA"}, stones = {"aAAbbbb"};
+    Solution s;
+    s.numJewelsInStones(jewels,stones);
+
 }
