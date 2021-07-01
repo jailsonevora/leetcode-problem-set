@@ -32,22 +32,22 @@ public:
 
     vector<TreeNode*> findDuplicateSubtrees(TreeNode* root){
 
-        unordered_set<string> st; vector<TreeNode*> result;
+        unordered_set<string> st, dummy; vector<TreeNode*> result;
         
-        if(!root)
-            return result;    
-        findDuplicateSubtrees(root,st,result);
+        if(!root) return result;  
+          
+        findDuplicateSubtrees(root,st,dummy,result);
         return result;
     }
-    string findDuplicateSubtrees(TreeNode* root, unordered_set<string> &st, vector<TreeNode*> &result){
+    string findDuplicateSubtrees(TreeNode* root, unordered_set<string> &st, unordered_set<string> &dummy, vector<TreeNode*> &result){
         
         if (!root) return "";
 
-        string treeStr = "["+ findDuplicateSubtrees(root->left,st,result) 
+        string treeStr = "["+ findDuplicateSubtrees(root->left,st,dummy,result) 
                             + to_string(root->val) 
-                            + findDuplicateSubtrees(root->right,st,result) 
+                            + findDuplicateSubtrees(root->right,st,dummy,result) 
                             +"]";
-        if(!st.insert(treeStr).second)
+        if(!st.insert(treeStr).second && dummy.insert(treeStr).second)
             result.push_back(root);
         return treeStr;
     }
