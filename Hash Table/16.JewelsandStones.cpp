@@ -17,7 +17,7 @@ public:
         for (int i = 0; i < stones.size(); i++)
             if(mp.count(stones[i]))
                 mp[stones[i]]++;
-        int sum;
+        int sum = 0;
         for (auto& val : mp)
             sum +=val.second;
         return sum;
