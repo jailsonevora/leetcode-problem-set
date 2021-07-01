@@ -1,55 +1,49 @@
 #include<iostream>
-#include<unordered_set>
+#include<unordered_Map>
 #include<vector>
 #include<algorithm>
+#include<cmath>
 
 using namespace std;
 
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-
-        unordered_set<string> st;
         string lgstStr = {};
+
+        if(s.size() == 1)
+            return 1;
 
         for (int i = 0; i < s.size(); i++){
             string temp = {s[i]};
-            for (int j = i+1; j < s.size(); j++){
-                if(temp.find(s[j]) == string::npos)
+            for (int j = i+1; j < s.size(); j++){               
+                if(temp.find(s[j]) == string::npos){
                     temp += std::string(1,s[j]);
+                    if(temp.size() > lgstStr.size())
+                        lgstStr = temp; 
+                }
                 else{
                     if(temp.size() > lgstStr.size())
                         lgstStr = temp;
-                    i=j;
-                    temp = s[j];
-                    continue;
-                }                    
+                    break;
+                }                 
             }
         }
         return lgstStr.size();
     }
 
     int lengthOfLongestSubstring(string s) {
+        int ans = 0;
 
-        unordered_set<string> st;
-        string lgstStr = {};
-
-        if(s.size() == 1)
-            lgstStr = s.size();
-
-        string temp = {s[0]};
-        for (int i = 0, j = i+1; i < s.size(); ++i, j++){
-            if(temp.find(s[j]) == string::npos)
-                temp += std::string(1,s[j]);
-            else{
-                if(temp.size() > lgstStr.size())
-                    lgstStr = temp;
-                i=j;
-                temp = s[j];
-            }                    
+        unordered_map<char,int> mp;
+        for (int i = 0, j = 0; j < s.size(); i++, ++j){
+            if(mp.count(s[j]))
+                i = 
         }
-        return lgstStr.size();
+
     }
+
+
 };
 
 int main(){
@@ -60,7 +54,11 @@ int main(){
 
     //string s = {"abcabcbb"};
     //string s = {"bbbbb"};
-    string s = {"pwwkew"};
+    //string s = {"pwwkew"};
+    //string s = {"au"};
+    //string s = {"dvdf"};
+    string s = {"anviaj"};
+
 
     Solution sl;
     sl.lengthOfLongestSubstring(s);
