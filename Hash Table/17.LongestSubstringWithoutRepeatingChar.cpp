@@ -3,6 +3,8 @@
 #include<vector>
 #include<algorithm>
 
+using namespace std;
+
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
@@ -17,7 +19,7 @@ int main(){
     cout.tie();
 
     string s = {"abcabcbb"};
-    Solution s;
-    s.lengthOfLongestSubstring(s);
+    Solution sl;
+    sl.lengthOfLongestSubstring(s);
 
 }
