@@ -31,19 +31,18 @@ public:
         }
         return lgstStr.size();
     }
-
+    
     int lengthOfLongestSubstring(string s) {
         int ans = 0;
-
         unordered_map<char,int> mp;
-        for (int i = 0, j = 0; j < s.size(); i++, ++j){
+        for (int i = 0, j = 0; j < s.size(); ++j){
             if(mp.count(s[j]))
-                i = 
+                i = max(mp[s[j]],i);
+            ans = max(ans,j-i+1);
+            mp[s[j]] = j+1;
         }
-
+        return ans;
     }
-
-
 };
 
 int main(){
