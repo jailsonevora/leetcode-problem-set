@@ -8,6 +8,7 @@ using namespace std;
 
 class Solution {
 public:
+    //Brute Force
     int lengthOfLongestSubstring(string s) {
         string lgstStr = {};
 
@@ -31,7 +32,7 @@ public:
         }
         return lgstStr.size();
     }
-    
+    //Sliding Window Optimized
     int lengthOfLongestSubstring(string s) {
         int ans = 0;
         unordered_map<char,int> mp;
