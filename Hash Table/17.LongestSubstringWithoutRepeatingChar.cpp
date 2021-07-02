@@ -9,29 +9,29 @@ using namespace std;
 class Solution {
 public:
     //Brute Force
-    int lengthOfLongestSubstring(string s) {
-        string lgstStr = {};
+    // int lengthOfLongestSubstring(string s) {
+    //     string lgstStr = {};
 
-        if(s.size() == 1)
-            return 1;
+    //     if(s.size() == 1)
+    //         return 1;
 
-        for (int i = 0; i < s.size(); i++){
-            string temp = {s[i]};
-            for (int j = i+1; j < s.size(); j++){               
-                if(temp.find(s[j]) == string::npos){
-                    temp += std::string(1,s[j]);
-                    if(temp.size() > lgstStr.size())
-                        lgstStr = temp; 
-                }
-                else{
-                    if(temp.size() > lgstStr.size())
-                        lgstStr = temp;
-                    break;
-                }                 
-            }
-        }
-        return lgstStr.size();
-    }
+    //     for (int i = 0; i < s.size(); i++){
+    //         string temp = {s[i]};
+    //         for (int j = i+1; j < s.size(); j++){               
+    //             if(temp.find(s[j]) == string::npos){
+    //                 temp += std::string(1,s[j]);
+    //                 if(temp.size() > lgstStr.size())
+    //                     lgstStr = temp; 
+    //             }
+    //             else{
+    //                 if(temp.size() > lgstStr.size())
+    //                     lgstStr = temp;
+    //                 break;
+    //             }                 
+    //         }
+    //     }
+    //     return lgstStr.size();
+    // }
     //Sliding Window Optimized
     int lengthOfLongestSubstring(string s) {
         int ans = 0;
