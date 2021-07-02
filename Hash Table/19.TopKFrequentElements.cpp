@@ -39,9 +39,7 @@ public:
             ans.push_back(heap.top().key);
             heap.pop();
         }   
-        
-
-        return vector<int>{};
+        return ans;
     }
 };
 
