@@ -13,10 +13,13 @@ class Solution {
         node(int k, int v) : key(k), val(v) {}
     };
 
-    static int cmp(node const& a, node const& b)
-    {
-        return a.val < b.val;
-    }    
+    struct compare 
+    { 
+        bool operator()(node const& a, node const& b)
+        {
+            return a.val < b.val;
+        } 
+    };  
     
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
@@ -26,14 +29,16 @@ public:
         for(auto it: nums)
             mp[it]++;
 
-        priority
+        priority_queue<node,vector<node>,compare> heap;
+        for(auto it: mp)
+            heap.push(node(it.first,it.second));
         
         vector<int> ans;
-        for (int i = 0; i < k; ++i)
+        while (k--)
         {   
-            v.push_back(mp)
-        }
-        
+            ans.push_back(heap.top().key);
+            heap.pop();
+        }   
         
 
         return vector<int>{};
