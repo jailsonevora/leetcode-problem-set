@@ -21,7 +21,9 @@ public:
     
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     bool remove(int val) {
-        
+        auto it = find(hashSet.begin(), hashSet.end(), val);
+        if (it != hashSet.end())
+            hashSet.erase(it);  
     }
     
     /** Get a random element from the set. */
