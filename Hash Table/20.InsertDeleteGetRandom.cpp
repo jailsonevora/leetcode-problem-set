@@ -7,31 +7,6 @@
 
 using namespace std;
 
-class RandomizedSet {
-public:
-    unordered_set<int> hashSet;
-    /** Initialize your data structure here. */
-    RandomizedSet() {
-        hashSet.clear();
-    }
-    
-    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
-    bool insert(int val) {
-        return hashSet.insert(val).second;
-    }
-    
-    /** Removes a value from the set. Returns true if the set contained the specified element. */
-    bool remove(int val) {
-        return hashSet.erase(val);          
-    }
-    
-    /** Get a random element from the set. */
-    int getRandom() {
-        auto iter = hashSet.begin();
-        advance(iter, rand() % hashSet.size());
-        return *iter;
-    }
-};
 
 class RandomizedSet {    
     unordered_map<int,int> mp;
@@ -69,6 +44,32 @@ public:
     /** Get a random element from the set. */
     int getRandom() {
         return vec[rand()%vec.size()];
+    }
+};
+
+class RandomizedSet {
+public:
+    unordered_set<int> hashSet;
+    /** Initialize your data structure here. */
+    RandomizedSet() {
+        hashSet.clear();
+    }
+    
+    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    bool insert(int val) {
+        return hashSet.insert(val).second;
+    }
+    
+    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    bool remove(int val) {
+        return hashSet.erase(val);          
+    }
+    
+    /** Get a random element from the set. */
+    int getRandom() {
+        auto iter = hashSet.begin();
+        advance(iter, rand() % hashSet.size());
+        return *iter;
     }
 };
 
