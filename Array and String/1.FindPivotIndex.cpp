@@ -18,7 +18,7 @@ int main(){
     cout.tie();
 
     Solution sl;
-    int nums[] = {1,7,3,6,5,6};
+    vector<int> nums = {1,7,3,6,5,6};
 
     cout << sl.pivotIndex(nums);
 }
