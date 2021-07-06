@@ -2,13 +2,15 @@
 #include<vector>
 #include<algorithm>
 #include<cmath>
+#include <numeric>
 
 using namespace std;
 
 class Solution {
 public:
     int pivotIndex(vector<int>& nums) {
-
+        
+        int total = accumulate(nums.begin(), nums.end(), 0);
         
         
     }
