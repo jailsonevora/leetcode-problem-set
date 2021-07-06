@@ -12,3 +12,14 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+    vector<int> nums = {1,7,3,6,5,6};
+
+    cout << sl.dominantIndex(nums);
+}
