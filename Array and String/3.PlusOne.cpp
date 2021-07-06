@@ -9,7 +9,10 @@ using namespace std;
 class Solution {
 public:
     vector<int> plusOne(vector<int>& digits) {
-        
+        int num = digits[0];
+        for (int i = 1; i < digits.size(); i++)
+            num += (num*10) + digits[i];
+         
     }
 };
 
