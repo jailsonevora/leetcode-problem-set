@@ -19,7 +19,7 @@ int main(){
     cout.tie();
 
     Solution sl;
-    vector<int> nums = {3,6,1,0};
+    vector<int> nums = {1,2,3};
 
     sl.plusOne(nums);
 }
