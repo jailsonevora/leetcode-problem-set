@@ -9,7 +9,11 @@ using namespace std;
 class Solution {
 public:
     int dominantIndex(vector<int>& nums) {
-        
+        int maxDmy = -1;
+        for (int i = 0; i < nums.size(); i++)
+            if(maxDmy < nums[i] && maxDmy * 2 <= nums[i])
+                maxDmy = nums[i];
+        return maxDmy;
     }
 };
 
@@ -19,7 +23,8 @@ int main(){
     cout.tie();
 
     Solution sl;
-    vector<int> nums = {1,7,3,6,5,6};
+    //vector<int> nums = {3,6,1,0};
+    vector<int> nums = {1,2,3,4};
 
     cout << sl.dominantIndex(nums);
 }
