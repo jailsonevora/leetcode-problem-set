@@ -1,1 +1,7 @@
-Largest Number At Least Twice of Others
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include <numeric>
+
+using namespace std;
