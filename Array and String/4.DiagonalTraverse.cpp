@@ -9,7 +9,31 @@ using namespace std;
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
+        vector<int> v;
+        bool goingUp = true;
+        int i = 0;
         
+        for (int r = 0, c = 0; r < mat.size() && c < mat[0].size();){
+            if(goingUp){
+                while(r > 0 && c < mat[0].size()-1){
+                    v.push_back(mat[r][c]);
+                    --r, c++;
+                }
+                v.push_back(mat[r][c]);
+                (c == mat[0].size()-1) ?  ++r : ++c;                
+            }
+            else{
+                while(c > 0 && r < mat.size()-1){
+                    v.push_back(mat[r][c]);
+                    ++r, c--;
+                }
+                v.push_back(mat[r][c]);
+                (r == mat.size()-1) ?  ++c : ++r;   
+            }
+            // or down
+            goingUp = !goingUp;
+        }
+        return v;
     }
 };
 
