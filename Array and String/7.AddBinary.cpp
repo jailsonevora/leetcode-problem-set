@@ -20,5 +20,5 @@ int main(){
 
     Solution sl;
 
-    sl.addBinary(11,1;
+    sl.addBinary("11","1");
 }
