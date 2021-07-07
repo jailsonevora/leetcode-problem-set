@@ -9,7 +9,29 @@ using namespace std;
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> v;
+        bool goingUp = true;
+        int i = 0;
         
+        for (int r = 0, c = 0; r < matrix.size() && c < matrix[0].size();){
+            if(c == matrix[0].size()-1 && (r != matrix.size()-1)){
+                ++r;                
+                v.push_back(matrix[r][c]);
+            }
+            else if(c > 0 && r == matrix[0].size()-1){
+                --c;
+                v.push_back(matrix[r][c]);
+            }
+            else if(c == 0 && r == matrix[0].size()-1){
+                --r;
+                v.push_back(matrix[r][c]);
+            }
+            else{
+                v.push_back(matrix[r][c]);
+                c++;
+            }
+        }
+        return v;
     }
 };
 
