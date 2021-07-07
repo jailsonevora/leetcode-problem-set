@@ -13,3 +13,12 @@ public:
     }
 };
 
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+
+    sl.generate(5);
+}
