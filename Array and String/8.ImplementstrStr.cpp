@@ -9,6 +9,7 @@ using namespace std;
 
 class Solution {
 public:
+    //with substring
     int strStr(string haystack, string needle) {
 
         if(haystack.size() < needle.size()) return -1;
