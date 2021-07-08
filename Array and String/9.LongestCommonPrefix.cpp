@@ -23,9 +23,9 @@ public:
         {
             if(a.val >= b.val){
                 if(a.key.compare(b.key) > 0)
-                    return a.val < b.val;
+                    return a.val > b.val;
             } 
-            return a.val < b.val;
+            return a.val <= b.val;
         } 
     }; 
     string longestCommonPrefix(vector<string>& strs) {
