@@ -51,8 +51,8 @@ public:
 
         string pref = strs[0];
         for (int i = 0; i < strs.size(); i++){
-            for (; strs[i].find(pref) != string::npos;){
-                pref = pref.substr(0,pref.size());
+            for (; strs[i].find(pref) != 0;){
+                pref = pref.substr(0,pref.size()-1);
                 if(pref.empty())
                     return "";
             }
