@@ -18,7 +18,8 @@ public:
                 return i;
         return -1;
     }
-    
+
+    //with map
     int strStr(string haystack, string needle) {
 
         unordered_map<string, int> mp;
