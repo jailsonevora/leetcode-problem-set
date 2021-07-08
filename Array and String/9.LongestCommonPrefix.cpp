@@ -10,41 +10,54 @@ using namespace std;
 
 class Solution {
 public:
-    struct node
-    {
-        string key;
-        int val;
-        node(string k, int v) : key(k), val(v) {}
-    };
+    // struct node
+    // {
+    //     string key;
+    //     int val;
+    //     node(string k, int v) : key(k), val(v) {}
+    // };
 
-    struct compare 
-    { 
-        bool operator()(node const& a, node const& b)
-        {
-            if(a.val >= b.val){
-                if(a.key.compare(b.key) > 0)
-                    return a.val > b.val;
-            } 
-            return a.val <= b.val;
-        } 
-    }; 
+    // struct compare 
+    // { 
+    //     bool operator()(node const& a, node const& b)
+    //     {
+    //         if(a.val >= b.val){
+    //             if(a.key.compare(b.key) > 0)
+    //                 return a.val > b.val;
+    //         } 
+    //         return a.val <= b.val;
+    //     } 
+    // }; 
+    // string longestCommonPrefix(vector<string>& strs) {
+
+    //     unordered_map<string,int> mp;       
+        
+    //     for (int i = 0; i < strs.size() && !strs[i].empty(); i++){
+    //         for (int j = 1; j <= strs[i].size() && !strs[i].empty(); ++j)
+    //             mp[strs[i].substr(0,j)]++;
+    //     }
+    //     priority_queue<node,vector<node>,compare> heap;
+    //     for(auto it: mp)
+    //         heap.push(node(it.first,it.second));
+        
+    //     if(heap.empty())
+    //         return "";
+        
+    //     string ans = (heap.top().val == strs.size()) ? heap.top().key : "";
+    //     return ans;
+    // }
+
     string longestCommonPrefix(vector<string>& strs) {
 
-        unordered_map<string,int> mp;       
-        
-        for (int i = 0; i < strs.size() && !strs[i].empty(); i++){
-            for (int j = 1; j <= strs[i].size() && !strs[i].empty(); ++j)
-                mp[strs[i].substr(0,j)]++;
+        string pref = strs[0];
+        for (int i = 0; i < strs.size(); i++){
+            for (; strs[i].find(pref) != string::npos;){
+                pref = pref.substr(0,pref.size());
+                if(pref.empty())
+                    return "";
+            }
         }
-        priority_queue<node,vector<node>,compare> heap;
-        for(auto it: mp)
-            heap.push(node(it.first,it.second));
-        
-        if(heap.empty())
-            return "";
-        
-        string ans = (heap.top().val == strs.size()) ? heap.top().key : "";
-        return ans;
+        return pref;
     }
 };
 
