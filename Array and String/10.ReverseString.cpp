@@ -24,7 +24,7 @@ int main(){
     Solution sl;
 
     //vector<string> v = {"H","a","n","n","a","h"};
-    vector<char> v = {"h","e","l","l","o"};
+    vector<char> v = {'h','e','l','l','o'};
 
     sl.reverseString(v);
 }
