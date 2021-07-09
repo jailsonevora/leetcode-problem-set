@@ -27,4 +27,6 @@ int main(){
     vector<char> v = {'h','e','l','l','o'};
 
     sl.reverseString(v);
+    for(char c: v)
+        cout << c << "\n"; 
 }
