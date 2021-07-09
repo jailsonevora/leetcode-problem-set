@@ -22,10 +22,8 @@ int main(){
 
     Solution sl;
 
-    //vector<string> v = {"flower","flow","flight"};
-    //vector<string> v = {"dog","racecar","car"};
-    //vector<string> v = {""};
-    vector<string> v = {"flower","flawer","flvwer","flower"};
+    //vector<string> v = {"H","a","n","n","a","h"};
+    vector<char> v = {"h","e","l","l","o"};
 
-    cout << sl.longestCommonPrefix(v);
+    sl.reverseString(v);
 }
