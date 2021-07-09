@@ -11,7 +11,7 @@ using namespace std;
 class Solution {
 public:
     void reverseString(vector<char>& s) {
-        for(int i = s[0], j = s.size()-1; i < j; ++i,++j)
+        for(int i = s[0], j = s.size()-1; i < j; ++i,--j)
             std::swap(s[i],s[j]);
     }
 };
