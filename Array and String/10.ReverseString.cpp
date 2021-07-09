@@ -14,3 +14,18 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+
+    //vector<string> v = {"flower","flow","flight"};
+    //vector<string> v = {"dog","racecar","car"};
+    //vector<string> v = {""};
+    vector<string> v = {"flower","flawer","flvwer","flower"};
+
+    cout << sl.longestCommonPrefix(v);
+}
