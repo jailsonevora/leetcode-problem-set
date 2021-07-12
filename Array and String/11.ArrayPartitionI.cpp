@@ -14,3 +14,15 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+
+    vector<int> v = {1,4,3,2};
+
+    cout << sl.arrayPairSum(v);
+}
