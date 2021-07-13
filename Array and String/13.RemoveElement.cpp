@@ -10,6 +10,7 @@ using namespace std;
 
 class Solution {
 public:
+    //Two Pointers
     int removeElement(vector<int>& nums, int val) {
         int k = 0;
         for (int i = 0; i < nums.size(); ++i) {
@@ -21,6 +22,7 @@ public:
         return k;
     }
 
+    //Two Pointers - when elements to remove are rare
     int removeElement(vector<int>& nums, int val) {
         int i = 0, k = nums.size();
         while (i < k) {
