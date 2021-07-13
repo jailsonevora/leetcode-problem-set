@@ -10,19 +10,19 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        vector<int> ans;
-        for (int i = 0; i < numbers.size(); i++)
-        {         
-            auto it = find(numbers.begin(), numbers.end(),target-numbers[i]);  
-            if(it != numbers.end())
-                ans.push_back(i+1);
-        }
-        return ans;
-    }
+    // vector<int> twoSum(vector<int>& numbers, int target) {
+    //     vector<int> ans;
+    //     for (int i = 0; i < numbers.size(); i++)
+    //     {         
+    //         auto it = find(numbers.begin(), numbers.end(),target-numbers[i]);  
+    //         if(it != numbers.end())
+    //             ans.push_back(i+1);
+    //     }
+    //     return ans;
+    // }
 
     vector<int> twoSum(vector<int>& numbers, int target) {
-        int head = 0, tail = numbers.size();
+        int head = 0, tail = numbers.size()-1;
         for (; head < tail; )
         {   
             int sum = numbers[head]+numbers[tail];      
@@ -31,7 +31,7 @@ public:
             else if (sum < target)
                 head++;
             else
-                return vector<int>{head, tail};
+                return vector<int>{head+1, tail+1};
             
         }
         return vector<int>{head, tail};;
