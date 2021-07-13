@@ -20,6 +20,22 @@ public:
         }
         return ans;
     }
+
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int head = 0, tail = numbers.size();
+        for (; head < tail; )
+        {   
+            int sum = numbers[head]+numbers[tail];      
+            if (sum > target)
+                tail--;
+            else if (sum < target)
+                head++;
+            else
+                return vector<int>{head, tail};
+            
+        }
+        return vector<int>{head, tail};;
+    }
 };
 
 int main(){
