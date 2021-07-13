@@ -22,8 +22,8 @@ int main(){
 
     Solution sl;
 
-    // int target = 9;
-    // vector<int> v = {2,7,11,15};
+    // int val = 3;
+    // vector<int> v = {3,2,2,3};
     int val = 2; 
     vector<int> v = {0,1,2,2,3,0,4,2};
 
