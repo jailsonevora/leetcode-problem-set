@@ -24,7 +24,7 @@ public:
     int removeElement(vector<int>& nums, int val) {
         int i = 0;
         int k = nums.size();
-        while (i < n) {
+        while (i < k) {
             if (nums[i] == val) {
                 nums[i] = nums[k - 1];
                 // reduce array size by one
