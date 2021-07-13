@@ -20,6 +20,21 @@ public:
         }
         return k;
     }
+
+    int removeElement(vector<int>& nums, int val) {
+        int i = 0;
+        int k = nums.size();
+        while (i < n) {
+            if (nums[i] == val) {
+                nums[i] = nums[k - 1];
+                // reduce array size by one
+                k--;
+            } else {
+                i++;
+            }
+        }
+        return k;
+    }
 };
 
 int main(){
