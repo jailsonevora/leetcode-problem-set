@@ -37,6 +37,8 @@ int main(){
 
     int target = 7;
     vector<int> nums = {2,3,1,2,4,3};
+    // int target = 4;
+    // vector<int> nums = {1,4,4};
 
    cout << sl.minSubArrayLen(target, nums) << "\n";
 }
