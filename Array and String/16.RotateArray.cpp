@@ -13,12 +13,16 @@ public:
         int rotatePoint = nums.size() - k % nums.size();
         int head = 0, tail = rotatePoint;
 
-        while (tail < nums.size()){
-            swap(nums[head],nums[tail]);
-            head++,++tail;
-        }       
+        reverse(nums, 0, nums.size()-1);   
                 
         return;
+    }
+
+    void reverse(vector<int>& nums, int head, int tail){
+        while (head < tail){
+            swap(nums[head],nums[tail]);
+            head++,--tail;
+        } 
     }
 };
 
