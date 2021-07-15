@@ -13,8 +13,9 @@ public:
         int rotatePoint = nums.size() - k % nums.size();
         int head = 0, tail = nums[rotatePoint];
 
-        while (head < tail)
-            swap(nums[head],nums[tail]);       
+        while (tail < nums.size()){
+            swap(nums[head],nums[tail]);
+        }       
                 
         return;
     }
