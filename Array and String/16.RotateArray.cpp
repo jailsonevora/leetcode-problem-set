@@ -23,8 +23,8 @@ int main(){
 
     // int target = 7;
     // vector<int> nums = {2,3,1,2,4,3};
-    // int target = 4;
-    // vector<int> nums = {1,4,4};
+    // int k = 2;
+    // vector<int> nums = {-1,-100,3,99};
     int k = 3;
     vector<int> nums = {7,1,2,3,4,5,6};
 
