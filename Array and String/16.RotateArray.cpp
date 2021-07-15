@@ -30,7 +30,7 @@ int main(){
     // int k = 2;
     // vector<int> nums = {-1,-100,3,99};
     int k = 3;
-    vector<int> nums = {7,1,2,3,4,5,6};
+    vector<int> nums = {1,2,3,4,5,6,7};
 
    sl.rotate(nums,k);
 }
