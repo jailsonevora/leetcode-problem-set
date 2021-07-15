@@ -11,10 +11,11 @@ class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
         int rotatePoint = nums.size() - k % nums.size();
-        int head = 0, tail = nums[rotatePoint];
+        int head = 0, tail = rotatePoint-1;
 
         while (tail < nums.size()){
             swap(nums[head],nums[tail]);
+            head++,++tail;
         }       
                 
         return;
