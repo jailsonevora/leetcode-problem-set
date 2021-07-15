@@ -21,8 +21,6 @@ int main(){
 
     Solution sl;
 
-    // int target = 7;
-    // vector<int> nums = {2,3,1,2,4,3};
     // int k = 2;
     // vector<int> nums = {-1,-100,3,99};
     int k = 3;
