@@ -25,7 +25,7 @@ int main(){
     // vector<int> nums = {2,3,1,2,4,3};
     // int target = 4;
     // vector<int> nums = {1,4,4};
-    int target = 11;
+    int k = 11;
     vector<int> nums = {1,1,1,1,1,1,1,1};
 
    sl.rotate(nums,k);
