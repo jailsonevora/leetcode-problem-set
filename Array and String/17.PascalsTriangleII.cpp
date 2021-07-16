@@ -23,7 +23,7 @@ public:
                 if(r == rowIndex)
                     ans.push_back(result[r][c]);
             }
-            if(r == rowIndex)
+            if(r == rowIndex && r !=0)
                     ans.push_back(result[r][r]);
         }
         return ans;  
@@ -39,9 +39,9 @@ int main(){
     Solution sl;
 
    
-    int rowIndex = 3;
-    // int rowIndex = 0;
-    // int rowIndex = 1;
+    //int rowIndex = 3;
+    //int rowIndex = 0;
+    int rowIndex = 1;
 
    sl.getRow(rowIndex);
 }
