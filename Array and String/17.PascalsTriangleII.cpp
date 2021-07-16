@@ -22,8 +22,10 @@ int main(){
 
     Solution sl;
 
-    // int rowIndex = 0;
+   
     int rowIndex = 3;
+    // int rowIndex = 0;
+    // int rowIndex = 1;
 
    sl.getRow(rowIndex);
 }
