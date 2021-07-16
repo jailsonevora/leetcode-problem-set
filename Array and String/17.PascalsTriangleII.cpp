@@ -22,7 +22,7 @@ int main(){
 
     Solution sl;
 
-    // int k = 2;
+    // int rowIndex = 0;
     int rowIndex = 3;
 
    sl.getRow(rowIndex);
