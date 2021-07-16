@@ -10,12 +10,12 @@ using namespace std;
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        int rotatePoint = nums.size() - k % nums.size();
+        int rotatePoint = k % nums.size();
         int head = 0, tail = rotatePoint;
 
-        reverse(nums, 0, nums.size()-1);   
-                
-        return;
+        reverse(nums, head, nums.size()-1);
+        reverse(nums, head, rotatePoint-1); 
+        reverse(nums, rotatePoint, nums.size()-1);
     }
 
     void reverse(vector<int>& nums, int head, int tail){
