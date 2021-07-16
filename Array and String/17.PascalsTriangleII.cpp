@@ -10,7 +10,16 @@ using namespace std;
 class Solution {
 public:
     vector<int> getRow(int rowIndex) {
-        
+        int numRows = 5;
+        vector<vector<int>> result(numRows);
+        for (int r = 0; r < numRows; r++){
+            result[r].resize(r+1);
+            result[r][0] = result[r][r] = 1;
+            for (int c = 1; c < r; ++c){
+                result[r][c] = result[r-1][c-1] + result[r-1][c];
+                }
+        }
+        return result;  
     }
 };
 
