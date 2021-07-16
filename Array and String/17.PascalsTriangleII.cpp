@@ -23,7 +23,6 @@ int main(){
     Solution sl;
 
     // int k = 2;
-    // vector<int> nums = {-1,-100,3,99};
     int rowIndex = 3;
 
    sl.getRow(rowIndex);
