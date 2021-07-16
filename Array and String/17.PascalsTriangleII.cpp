@@ -16,11 +16,15 @@ public:
         for (int r = 0; r < numRows; r++){
             result[r].resize(r+1);
             result[r][0] = result[r][r] = 1;
+            if(r == rowIndex)
+                    ans.push_back(result[r][0]);
             for (int c = 1; c < r; ++c){
                 result[r][c] = result[r-1][c-1] + result[r-1][c];
-                if(c == rowIndex)
+                if(r == rowIndex)
                     ans.push_back(result[r][c]);
             }
+            if(r == rowIndex)
+                    ans.push_back(result[r][r]);
         }
         return ans;  
     }
