@@ -13,3 +13,16 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;   
+    string s = "the sky is blue";
+    //int rowIndex = 0;
+    //int rowIndex = 1;
+
+   sl.reverseWords(s);
+}
