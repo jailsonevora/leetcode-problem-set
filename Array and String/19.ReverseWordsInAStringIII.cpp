@@ -21,10 +21,7 @@ int main(){
 
     Solution sl;   
     string s = "Let's take LeetCode contest";
-    // string s = "  hello world  ";
-    // string s = "a good   example";
-    // string s = "  Bob    Loves  Alice   ";
-    // string s = "Alice does not even like bob";
+    // string s = "God Ding";
 
    sl.reverseWords(s);
 }
