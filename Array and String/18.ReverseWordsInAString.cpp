@@ -21,8 +21,11 @@ int main(){
 
     Solution sl;   
     string s = "the sky is blue";
-    //int rowIndex = 0;
-    //int rowIndex = 1;
+    // string s = "  hello world  ";
+    // string s = "the sky is blue";
+    // string s = "the sky is blue";
+    // string s = "the sky is blue";
+
 
    sl.reverseWords(s);
 }
