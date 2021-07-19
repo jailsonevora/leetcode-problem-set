@@ -17,17 +17,19 @@ public:
         {
             while (i < s.length() && s[i] == ' ')
                 ++i;
-            if (i >= s.length()) break;
+            if (i >= s.length()) 
+                break;
             int j = i+1;
             while (j < s.length() && s[j] != ' ')
                 ++j;
-                string subStr = s.substr(i, j-i);
-                if (ans.length() == 0)
-                    ans = subStr;
-                else
-                    ans = subStr + " " + ans;
-                i = j+1;
+            string subStr = s.substr(i, j-i);
+            if (ans.length() == 0)
+                ans = subStr;
+            else
+                ans = subStr + " " + ans;
+            i = j+1;
         }
+        return ans;
     }
 };
 
