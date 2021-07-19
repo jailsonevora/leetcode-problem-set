@@ -9,6 +9,7 @@ using namespace std;
 
 class Solution {
 public:
+    //+ O(space)
     string reverseWords(string s) {
         string ans;
         int i = 0;
@@ -31,7 +32,7 @@ public:
         }
         return ans;
     }
-
+    // In-place
     string reverseWords(string &s) {
         reverse(s.begin(), s.end());
         int before = 0;
