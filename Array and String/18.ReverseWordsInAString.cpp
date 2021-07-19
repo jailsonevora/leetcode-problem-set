@@ -60,7 +60,7 @@ public:
         }
         
         return s;
-}
+    }
 };
 
 int main(){
