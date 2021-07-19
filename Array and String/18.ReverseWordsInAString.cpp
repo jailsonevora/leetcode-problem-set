@@ -32,33 +32,26 @@ public:
         return ans;
     }
 
-    string reverseWords(string s) {
-        if (s.empty())  return s;
-        
-        while(s.back() == ' ')                      //remove the space at end, after reversing the string, there is no space at beginning
-            s.pop_back();
-        reverse(s.begin(), s.end());                
-        s.push_back(' ');                           //add a space at the end, space is used to identify a complete word.
-        
-        string::iterator start = s.begin();
-        for (string::iterator itr = s.begin(); itr != s.end(); itr++){                  //reverse each single word
-            if (*itr == ' '){
-                reverse(start, itr);
-                start = next(itr);                  //do not include space
+    string reverseWords(string &s) {
+        reverse(s.begin(), s.end());
+        int before = 0;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] == ' ') {
+                reverse(s.begin() + before, s.begin() + i);
+                before = i+1;
             }
         }
-    
-        while(s.back() == ' ')                      //remove all extra spaces
-            s.pop_back();  
-        int i=0;
-        while(i<s.size()){
-            if (s[i] == ' ' && s[i+1] == ' '){
-                s.erase(i+1, 1);
-                continue;
+        reverse(s.begin() + before, s.end());
+        int slen = 0;
+        for (int i = 0; i < s.size(); i++) {
+            if (s[i] != ' ') {
+                s[slen++] = s[i];
+                if (s[i+1] == ' ' || i == s.size()-1)
+                    s[slen++] = ' ';
             }
-            i++;
         }
-        
+        s = s.substr(0, slen == 0 ? 0 : slen-1);
+         
         return s;
     }
 };
