@@ -10,7 +10,24 @@ using namespace std;
 class Solution {
 public:
     string reverseWords(string s) {
-        
+        string ans;
+        int i = 0;
+
+        while (i < s.length())
+        {
+            while (i < s.length() && s[i] == ' ')
+                ++i;
+            if (i >= s.length()) break;
+            int j = i+1;
+            while (j < s.length() && s[j] != ' ')
+                ++j;
+                string subStr = s.substr(i, j-i);
+                if (ans.length() == 0)
+                    ans = subStr;
+                else
+                    ans = subStr + " " + ans;
+                i = j+1;
+        }
     }
 };
 
