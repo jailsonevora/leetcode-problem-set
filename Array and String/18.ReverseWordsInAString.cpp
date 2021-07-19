@@ -22,7 +22,7 @@ int main(){
     Solution sl;   
     string s = "the sky is blue";
     // string s = "  hello world  ";
-    // string s = "the sky is blue";
+    // string s = "a good   example";
     // string s = "the sky is blue";
     // string s = "the sky is blue";
 
