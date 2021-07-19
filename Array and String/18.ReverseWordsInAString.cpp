@@ -23,7 +23,7 @@ int main(){
     string s = "the sky is blue";
     // string s = "  hello world  ";
     // string s = "a good   example";
-    // string s = "the sky is blue";
+    // string s = "  Bob    Loves  Alice   ";
     // string s = "the sky is blue";
 
 
