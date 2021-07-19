@@ -24,7 +24,7 @@ int main(){
     // string s = "  hello world  ";
     // string s = "a good   example";
     // string s = "  Bob    Loves  Alice   ";
-    // string s = "the sky is blue";
+    // string s = "Alice does not even like bob";
 
 
    sl.reverseWords(s);
