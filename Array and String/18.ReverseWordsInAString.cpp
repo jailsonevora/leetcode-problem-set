@@ -26,6 +26,5 @@ int main(){
     // string s = "  Bob    Loves  Alice   ";
     // string s = "Alice does not even like bob";
 
-
    sl.reverseWords(s);
 }
