@@ -11,13 +11,24 @@ class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
         
-        int next = 1, i = 0;
+        int next = 0, i = 0;
+        while (next < nums.size()){
+            if(nums[next] != 0)
+                swap(nums[i++],nums[next]);
+        }
+    }
+
+    void moveZeroes(vector<int>& nums) {
+        
+        int next = 0, i = 0;
         while (next < nums.size()){
             if(nums[next] != 0){
-                nums[i] = nums[next];
-                i++;
-            }        
-            next++;          
+                swap(nums[i],nums[next]);
+                i++;   
+                next++; 
+            }
+            else
+                ++next;        
         }
     }
 };
@@ -29,8 +40,8 @@ int main(){
 
     Solution sl;
 
-    vector<int> v = {0,1,0,3,12};
-    //vector<int> v = {0};
+    //vector<int> v = {0,1,0,3,12};
+    vector<int> v = {0};
 
    sl.moveZeroes(v);
 }
