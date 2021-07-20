@@ -16,16 +16,13 @@ public:
 
         int next = 1, i = 0;
         while (next < nums.size()){
-            if(nums[next] == nums[i]){
-                i = next; 
-                while (nums[next] == nums[i])
-                    ++next;
-                nums[i] = nums[next];        
-            }else{
+            if(nums[next] != nums[i]){
                 i++;
-                next++;
-            }             
+                nums[i] = nums[next];
+            }        
+            next++;          
         }
+        return i + 1;
     }
 };
 
@@ -36,8 +33,8 @@ int main(){
 
     Solution sl;
 
-    vector<int> v = {1,1,2};
-    //vector<int> v = {0,0,1,1,1,2,2,3,3,4};
+    //vector<int> v = {1,1,2};
+    vector<int> v = {0,0,1,1,1,2,2,3,3,4};
 
    cout << sl.removeDuplicates(v) << "\n";
 }
