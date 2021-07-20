@@ -13,3 +13,16 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+
+    //vector<int> v = {1,1,2};
+    vector<int> v = {0,0,1,1,1,2,2,3,3,4};
+
+   sl.moveZeroes(v);
+}
