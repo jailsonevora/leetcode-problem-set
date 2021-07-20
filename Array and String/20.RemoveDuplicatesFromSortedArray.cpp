@@ -21,8 +21,7 @@ int main(){
 
     Solution sl;
 
-    // vector<int> v = {3,2,2,3};
-    vector<int> v = {0,1,2,2,3,0,4,2};
+    vector<int> v = {1,1,2};
 
    cout << sl.removeDuplicates(v) << "\n";
 }
