@@ -33,5 +33,3 @@ int main(){
 
    sl.reverseWords(s);
 }
-
-95.24%
