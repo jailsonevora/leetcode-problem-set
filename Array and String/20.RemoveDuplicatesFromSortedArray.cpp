@@ -13,3 +13,18 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+
+    // int val = 3;
+    // vector<int> v = {3,2,2,3};
+    int val = 2; 
+    vector<int> v = {0,1,2,2,3,0,4,2};
+
+   cout << sl.removeDuplicates(v) << "\n";
+}
