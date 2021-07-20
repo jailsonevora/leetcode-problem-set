@@ -30,7 +30,7 @@ int main(){
     Solution sl;
 
     vector<int> v = {0,1,0,3,12};
-    //vector<int> v = {0,0,1,1,1,2,2,3,3,4};
+    //vector<int> v = {0};
 
    sl.moveZeroes(v);
 }
