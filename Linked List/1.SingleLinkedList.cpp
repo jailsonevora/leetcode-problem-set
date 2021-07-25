@@ -70,10 +70,9 @@ public:
             dmy->next = head;          
             Node *cur = dmy;
 
-            while(index > 0){
+            while(index-- > 0)
                 cur = cur->next;
-                index--;
-            }
+
             Node *newnode = new Node(val);
             Node *temp = cur->next;
             
@@ -94,10 +93,8 @@ public:
             
             Node *cur = temp;
                 
-            while(index > 0){
+            while(index-- > 0)
                 cur = cur->next;
-                index--;
-            }
 
             cur->next = cur->next->next;
             head = temp->next;
