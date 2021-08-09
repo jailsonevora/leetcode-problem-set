@@ -8,12 +8,15 @@ using namespace std;
 
 class MyCircularQueue {
 public:
+    int head = 0, tail = 0;
+    int queue[];
     MyCircularQueue(int k) {
-        
+        queue[k];
     }
     
     bool enQueue(int value) {
-        
+        queue[tail] = value;
+        tail++;
     }
     
     bool deQueue() {
@@ -21,19 +24,21 @@ public:
     }
     
     int Front() {
-        
+        return queue[head];
     }
     
     int Rear() {
-        
+        return queue[tail];
     }
     
     bool isEmpty() {
-        
+        if(tail == head)
+            return true;
     }
     
     bool isFull() {
-        
+        if(tail != head)
+            return true;
     }
 };
 
