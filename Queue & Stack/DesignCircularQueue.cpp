@@ -17,10 +17,14 @@ public:
     bool enQueue(int value) {
         queue[tail] = value;
         tail++;
+        return true;
     }
     
     bool deQueue() {
-        
+        if(isEmpty())
+            return false;
+        head++;
+        return true;
     }
     
     int Front() {
