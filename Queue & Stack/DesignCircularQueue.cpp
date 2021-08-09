@@ -9,9 +9,9 @@ using namespace std;
 class MyCircularQueue {
 public:
     int head = -1, tail = -1, size;
-    int queue[];
+    vector<int> queue;
     MyCircularQueue(int k) {
-        queue[k];
+        queue.resize(k);
         size = k;
     }
     
