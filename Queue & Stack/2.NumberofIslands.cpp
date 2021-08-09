@@ -11,7 +11,12 @@ public:
             return;
         
         grid[x][y] = '2';
-        
+
+        //recursive call to 4 adjacent directions
+        islandBoundary(grid, x+1, y, r, c);
+        islandBoundary(grid, x, y+1, r, c);
+        islandBoundary(grid, x-1, y, r, c);
+        islandBoundary(grid, x, y-1, r, c);
     }
 
     int numIslands(vector<vector<char>>& grid) {
