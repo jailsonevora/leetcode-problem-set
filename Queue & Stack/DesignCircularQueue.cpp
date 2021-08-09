@@ -40,11 +40,13 @@ public:
     int Front() {
         if(!isEmpty())
             return queue[head];
+        return -1;
     }
     
     int Rear() {
         if(!isEmpty())
             return queue[tail];
+        return -1;
     }
     
     bool isEmpty() {
