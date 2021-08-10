@@ -24,6 +24,8 @@ public:
             ){
                 stck.pop();
             }
+            else
+                return false;
         }
         return stck.empty();
     }
@@ -35,11 +37,12 @@ int main(){
     cout.tie();
 
     Solution sl;
-    string s = "()";
+    //string s = "()";
     //string s = "()[]{}";
     //string s = "(]";
     //string s = "([)]";
     //string s = "{[]}";
+    string s = "([}}])";
     
     cout << sl.isValid(s) << "\n";
 }
