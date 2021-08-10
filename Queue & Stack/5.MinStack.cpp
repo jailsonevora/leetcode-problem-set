@@ -5,6 +5,37 @@
 using namespace std;
 
 class MinStack {
+public:
+    /** initialize your data structure here. */
+    MinStack() {
+        
+    }
+    
+    void push(int val) {
+        nums.push(val);
+        if (mins.empty()) mins.push(val);
+        else
+            if (val <= mins.top()) mins.push(val);
+    }
+    
+    void pop() {
+        if (mins.top() == nums.top()) mins.pop();
+        nums.pop();
+    }
+    
+    int top() {
+        return nums.top();
+    }
+    
+    int getMin() {
+        return mins.top();
+    }
+    
+    stack<int> nums;
+    stack<int> mins;
+};
+
+class MinStack {
     vector<int> data;
     int min[10000];
     int minPtr;
