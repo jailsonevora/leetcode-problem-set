@@ -6,7 +6,7 @@ using namespace std;
 
 class MinStack {
     vector<int> data;
-    vector<int> min;
+    int min[10000];
     int minPtr;
 public:
     /** initialize your data structure here. */
@@ -24,8 +24,9 @@ public:
                 minPtr += 1;
             }
         }
-        else
+        else{
             min[++minPtr] = val;
+        }
     }
     
     void pop() {
