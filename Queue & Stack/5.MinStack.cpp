@@ -21,11 +21,11 @@ public:
     }
     
     int top() {
-        data.back();
+        return data.back();
     }
     
     int getMin() {
-        data.back();
+        return data.back();
     }
 };
 
