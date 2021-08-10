@@ -18,3 +18,14 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+    string s = "()";
+
+   cout << sl.isValid(s) << "\n";
+}
