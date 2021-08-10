@@ -5,26 +5,27 @@
 using namespace std;
 
 class MinStack {
+    vector<int> data;
 public:
     /** initialize your data structure here. */
     MinStack() {
-        
     }
     
     void push(int val) {
-        
+        if(val < data.back())
+            data.push_back(val);
     }
     
     void pop() {
-        
+        data.pop_back();
     }
     
     int top() {
-        
+        data.back();
     }
     
     int getMin() {
-        
+        data.back();
     }
 };
 
