@@ -7,29 +7,30 @@ using namespace std;
 class MinStack {
     vector<int> data;
     vector<int> min;
-    int down = -1;
+    int minPtr;
 public:
     /** initialize your data structure here. */
     MinStack() {
+        minPtr = -1;
     }
     
     void push(int val) {
         data.push_back(val);
-        if(down >= 0){
-            if(min[down] > val)
-                min[++down] = val;
+        if(minPtr >= 0){
+            if(min[minPtr] > val)
+                min[++minPtr] = val;
             else{
-                min[down+1] = min[down];
-                down += 1;
+                min[minPtr+1] = min[minPtr];
+                minPtr += 1;
             }
         }
         else
-            min[++down] = val;
+            min[++minPtr] = val;
     }
     
     void pop() {
         data.pop_back();
-        down -=1;
+        minPtr -=1;
     }
     
     int top() {
@@ -37,7 +38,7 @@ public:
     }
     
     int getMin() {
-        return min[down];
+        return min[minPtr];
     }
 };
 
