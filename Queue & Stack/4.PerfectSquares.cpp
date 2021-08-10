@@ -13,7 +13,7 @@ class Solution {
             return dp[n];
 
         int ans = n;
-        for (int i = 0; i * i <= n; i++)
+        for (int i = 1; i * i <= n; i++)
             ans = min(ans, 1+solve(n-i*i));
         
         dp[n] = ans;
@@ -26,3 +26,17 @@ public:
         return ans;
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+
+    // int val = 3;
+    // vector<int> v = {3,2,2,3};
+    int n = 12;
+
+   cout << sl.numSquares(n) << "\n";
+}
