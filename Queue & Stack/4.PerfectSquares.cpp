@@ -34,9 +34,8 @@ int main(){
 
     Solution sl;
 
-    // int val = 3;
-    // vector<int> v = {3,2,2,3};
     int n = 12;
+    // int n = 13;
 
    cout << sl.numSquares(n) << "\n";
 }
