@@ -6,18 +6,30 @@ using namespace std;
 
 class MinStack {
     vector<int> data;
+    vector<int> min;
+    int down = -1;
 public:
     /** initialize your data structure here. */
     MinStack() {
     }
     
     void push(int val) {
-        if(val < data.back())
-            data.push_back(val);
+        data.push_back(val);
+        if(down >= 0){
+            if(min[down] > val)
+                min[++down] = val;
+            else{
+                min[down+1] = min[down];
+                down += 1;
+            }
+        }
+        else
+            min[++down] = val;
     }
     
     void pop() {
         data.pop_back();
+        down -=1;
     }
     
     int top() {
@@ -25,7 +37,7 @@ public:
     }
     
     int getMin() {
-        return data.back();
+        return min[down];
     }
 };
 
@@ -33,10 +45,15 @@ public:
  * Your MinStack object will be instantiated and called as such:
  * */
 int main(){
-    int val = -2;
     MinStack* obj = new MinStack();
-    obj->push(val);
+    obj->push(2);
+    obj->push(3);
     obj->pop();
-    int param_3 = obj->top();
-    int param_4 = obj->getMin();
+    obj->push(4);
+    obj->push(-1);
+    cout << obj->top();
+    obj->push(6);
+    cout << obj->getMin();
+    obj->pop();
+    cout << obj->getMin();
 }
