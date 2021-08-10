@@ -26,6 +26,7 @@ int main(){
 
     Solution sl;
     string s = "()";
+    //string s = "()[]{}";
 
    cout << sl.isValid(s) << "\n";
 }
