@@ -8,33 +8,18 @@ using namespace std;
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
-        stack<unordered_map<int,int>> stck;
-        int ans[temperatures.size()]{0};
+        stack<int> stck;
+        vector<int> ans(temperatures.size(),0);
 
-        unordered_map<int, int> mp;
-        mp.insert(make_pair(temperatures.size()-1,temperatures[temperatures.size()-1]));
-        stck.push(mp);
-
-        for (int i = temperatures.size()-2; i >= 0; --i)
+        for (int i = 0; i < temperatures.size(); ++i)
         {
-            unordered_map<int, int> sTop = stck.top();
-            for (unordered_map<int,int>::iterator it=sTop.begin(); it!=sTop.end(); ++it)
-            {
-
-                if( it->second < temperatures[i]){
+            while(!stck.empty() && temperatures[stck.top()] < temperatures[i]){
+                    ans[stck.top()] = i - stck.top();
                     stck.pop();
-                    unordered_map<int, int> mpTemp;
-                    mpTemp.insert(make_pair(i,temperatures[i]));
-                    stck.push(mpTemp);
-                }
-                else{
-                    ans[i] = it->first - i;
-                    unordered_map<int, int> mpTemp;
-                    mpTemp.insert(make_pair(i,temperatures[i]));
-                    stck.push(mpTemp);
-                }
-            }   
-        } 
+            }
+            stck.push(i);
+        }
+        return ans;
     }
 };
 
