@@ -2,7 +2,7 @@
 #include<vector>
 #include<stack>
 
-unsing namespace std;
+using namespace std;
 
 class Solution {
 public:
