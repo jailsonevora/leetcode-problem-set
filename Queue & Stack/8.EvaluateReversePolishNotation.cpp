@@ -8,13 +8,13 @@ using namespace std;
 class Solution {
     int eval(string operators, int pop1, int pop2){
         if(operators == "+")
-            return pop1 + pop2;
+            return pop2 + pop1;
         else if(operators == "-")
-            return pop1 - pop2;
+            return pop2 - pop1;
         else if(operators == "/")
-            return pop1 / pop2;
+            return pop2 / pop1;
         else if(operators == "*")
-            return pop1 * pop2;
+            return pop2 * pop1;
     }
 public:
     int evalRPN(vector<string>& tokens) {
@@ -44,8 +44,8 @@ int main(){
     cout.tie();
 
     Solution sl;
-    vector<string> tokens  {"2","1","+","3","*"};
-    //vector<string> tokens  {"4","13","5","/","+"};
+    //vector<string> tokens  {"2","1","+","3","*"};
+    vector<string> tokens  {"4","13","5","/","+"};
     //vector<string> tokens  {"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
 
     cout << sl.evalRPN(tokens);
