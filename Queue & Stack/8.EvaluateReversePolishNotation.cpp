@@ -13,7 +13,7 @@ class Solution {
             return pop2 - pop1;
         else if(operators == "/")
             return pop2 / pop1;
-        else if(operators == "*")
+        else
             return pop2 * pop1;
     }
 public:
