@@ -19,8 +19,8 @@ int main(){
 
     Solution sl;
     vector<string> tokens  {"2","1","+","3","*"};
-    //vector<int> s {30,40,50,60};
-    // vector<int> s {30,60,90};
+    //vector<string> tokens  {"4","13","5","/","+"};
+    //vector<string> tokens  {"10","6","9","3","+","-11","*","/","*","17","+","5","+"};
 
     cout << sl.evalRPN(tokens);
 }
