@@ -21,6 +21,6 @@ int main(){
     //vector<int> s {30,40,50,60};
     // vector<int> s {30,60,90};
 
-   for(auto& vec : sl.dailyTemperatures(s))
-    cout << vec << "\n";
+    for(auto& vec : sl.dailyTemperatures(s))
+        cout << vec << "\n";
 }
