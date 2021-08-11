@@ -1,13 +1,23 @@
 #include<iostream>
 #include<vector>
 #include<stack>
+#include<unordered_map>
 
 using namespace std;
 
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
+        stack<unordered_map<int,int>> stck;
+
+        for (int i = temperatures.size()-1; i >= 0; --i)
+        {
+            unordered_map<int, int> mp;
+            mp.insert(make_pair(i,temperatures[i]));
+            stck.push(mp);
+        }
         
+
     }
 };
 
