@@ -14,7 +14,8 @@ public:
         for (int i = 0; i < temperatures.size(); ++i)
         {
             while(!stck.empty() && temperatures[stck.top()] < temperatures[i]){
-                    ans[stck.top()] = i - stck.top();
+                    int indexStack = stck.top();
+                    ans[indexStack] = i - indexStack;
                     stck.pop();
             }
             stck.push(i);
