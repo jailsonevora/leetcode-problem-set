@@ -22,8 +22,7 @@ int main(){
     //string s = "(]";
     //string s = "([)]";
     //string s = "{[]}";
-    vector<int> s; 
-    //{73,74,75,71,69,72,76,73};
+    vector<int> s {73,74,75,71,69,72,76,73};
     
     sl.dailyTemperatures(s);
 }
