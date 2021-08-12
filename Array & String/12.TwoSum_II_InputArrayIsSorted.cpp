@@ -34,7 +34,7 @@ public:
                 return vector<int>{head+1, tail+1};
             
         }
-        return vector<int>{head, tail};;
+        return vector<int>{head, tail};
     }
 };
 
