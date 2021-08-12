@@ -22,38 +22,14 @@ class Solution {
     void DFS_Recursive(TreeNode* root, vector<int> &ans){
 
         if(root->left)
-            DFS_Recursive(root, ans);
+            DFS_Recursive(root->left, ans);
 
         ans.push_back(root->val);
 
         if(root->right)
-            DFS_Recursive(root, ans);
+            DFS_Recursive(root->right, ans);
 
     }
-
-    // void DFS_Iteratively(TreeNode* root){
-
-    //     stack<TreeNode*> stck;
-    //     set<TreeNode*> visited;
-    //     vector<int> ans;
-
-    //     stck.push(root);
-
-    //     while (!stck.empty())
-    //     {
-    //         TreeNode* cur = stck.top();
-    //         stck.pop();
-            
-    //         for (TreeNode* next: cur->left)
-    //         {
-    //             if(!visited.count(next)){
-    //                 visited.insert(next);
-    //                 stck.push(next);
-    //             }
-    //         }
-    //     }
-    //     return false;
-    // }
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         
@@ -83,9 +59,9 @@ public:
         return ans;
     }
 
-    vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> ans;
-        DFS_Recursive(root, ans);        
-        return ans;
-    }
+    // vector<int> inorderTraversal(TreeNode* root) {
+    //     vector<int> ans;
+    //     DFS_Recursive(root, ans);        
+    //     return ans;
+    // }
 };
