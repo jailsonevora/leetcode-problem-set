@@ -19,17 +19,17 @@ struct TreeNode {
 };
 
 class Solution {
-    void DFS_Recursive(TreeNode* root, vector<int> &ans){
+    void inorderTraversal_Recursive(TreeNode* root, vector<int> &ans){
         
         if(root){
 
             if(root->left)
-                DFS_Recursive(root->left, ans);
+                inorderTraversal_Recursive(root->left, ans);
 
             ans.push_back(root->val);
 
             if(root->right)
-                DFS_Recursive(root->right, ans);
+                inorderTraversal_Recursive(root->right, ans);
         }
     }
 public:
@@ -37,7 +37,7 @@ public:
     vector<int> inorderTraversal(TreeNode* root) {
         
         stack<TreeNode*> stck;
-        set<TreeNode*> visited;
+        //set<TreeNode*> visited;
         vector<int> ans;
 
         if(!root)
@@ -48,11 +48,11 @@ public:
         {
             while (cur)
             {
-                if(!visited.count(cur)){
-                    visited.insert(cur);
+                //if(!visited.count(cur)){
+                  //  visited.insert(cur);
                     stck.push(cur);
                     cur = cur->left;
-                }
+                //}
             }
             cur = stck.top();
             stck.pop();
@@ -65,7 +65,7 @@ public:
     //recursive
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> ans;
-        DFS_Recursive(root, ans);        
+        inorderTraversal_Recursive(root, ans);        
         return ans;
     }
 };
