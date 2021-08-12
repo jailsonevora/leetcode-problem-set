@@ -5,48 +5,48 @@
 using namespace std;
 
 //Backtracking / Recursion
-class Solution {
-    void backtrack(vector<int>& nums, int target, int sum, int pos, int& count){
-        if(pos == nums.size()){
-            if(sum == target) count++;
-            return;
-        }
-        backtrack(nums, target, sum + nums[pos], pos + 1, count);
-        backtrack(nums, target, sum - nums[pos], pos + 1, count);
-    }
-public:
-    int findTargetSumWays(vector<int>& nums, int target) {
-        int count = 0;
-        backtrack(nums, target, 0, 0, count);
-        return count;
-    }
-};
+// class Solution {
+//     void backtrack(vector<int>& nums, int target, int sum, int pos, int& count){
+//         if(pos == nums.size()){
+//             if(sum == target) count++;
+//             return;
+//         }
+//         backtrack(nums, target, sum + nums[pos], pos + 1, count);
+//         backtrack(nums, target, sum - nums[pos], pos + 1, count);
+//     }
+// public:
+//     int findTargetSumWays(vector<int>& nums, int target) {
+//         int count = 0;
+//         backtrack(nums, target, 0, 0, count);
+//         return count;
+//     }
+// };
 
 //Dynamic Programing
 class Solution {
 public:
-    int findTargetSumWays(vector<int>& nums, int S) {
+    int findTargetSumWays(vector<int>& nums, int target) {
         int sum = 0;
 
-        for(auto x: nums) sum += x;
+        for(auto num: nums) sum += num;
 
-        if(sum < S || -sum > S) return 0;
+        if(sum < target || -sum > target) return 0;
 
-        vector<int>cur(2 * sum + 1);
+        vector<int>dp(2 * sum + 1);
         vector<int>next(2 * sum + 1);
         
-        cur[sum] = 1;
+        dp[sum] = 1;
         for(int i = 0; i < nums.size(); i++){
             for(int j = 0; j < 2 * sum + 1; j++){
-                if(cur[j] != 0){
-                    next[j + nums[i]] += cur[j];
-                    next[j - nums[i]] += cur[j];
-                    cur[j] = 0;
+                if(dp[j] != 0){
+                    next[j + nums[i]] += dp[j];
+                    next[j - nums[i]] += dp[j];
+                    dp[j] = 0;
                 }
             }
-            swap(cur, next);
+            swap(dp, next);
         }
-        return cur[sum + S];
+        return dp[sum + target];
     }
 };
 
