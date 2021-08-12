@@ -28,7 +28,7 @@ class Solution {
         
         visited[destination->val] = destination;
         for (Node* child: source->neighbors){
-            if(visited[child->val] == NULL){
+            if(!visited[child->val]){
                 Node* newNode = new Node(child->val);
                 (destination->neighbors).push_back(newNode);
                 DFS(child, newNode, visited);
@@ -40,7 +40,7 @@ class Solution {
 public:
     Node* cloneGraph(Node* node) {
 
-        if(node == NULL)
+        if(!node)
             return NULL;
         
         vector<Node*> visited(1000,NULL);
@@ -48,7 +48,7 @@ public:
         visited[node->val] = copy;
         for (Node* child: node->neighbors){
             
-            if(visited[child->val] == NULL){
+            if(!visited[child->val]){
                 Node* newNode = new Node(child->val);
                 (copy->neighbors).push_back(newNode);
                 DFS(child, newNode, visited);
