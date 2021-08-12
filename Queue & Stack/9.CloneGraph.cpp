@@ -24,23 +24,38 @@ public:
 };
 
 class Solution {
-    bool DFS(Node* source, Node* destination, set<Node*> visited){
-        if(visited.count(source))
-            return false;
+    void DFS(Node* source, Node* destination, vector<Node*>& visited){
         
-        visited.insert(source);
-
-        if(source == destination)
-            return true;
-
-        for (Node* child: source->neighbors)
-            if(DFS(child, destination, visited))
-                return true;
-        
-        return false;
+        visited[destination->val] = destination;
+        for (Node* child: source->neighbors){
+            if(visited[child->val] == NULL){
+                Node* newNode = new Node(child->val);
+                (destination->neighbors).push_back(newNode);
+                DFS(child, newNode, visited);
+            }
+            else
+                (destination->neighbors).push_back(visited[child->val]);
+        }
     }
 public:
     Node* cloneGraph(Node* node) {
+
+        if(node == NULL)
+            return NULL;
         
+        vector<Node*> visited(1000,NULL);
+        Node* copy = new Node(node->val);
+        visited[node->val] = copy;
+        for (Node* child: node->neighbors){
+            
+            if(visited[child->val] == NULL){
+                Node* newNode = new Node(child->val);
+                (copy->neighbors).push_back(newNode);
+                DFS(child, newNode, visited);
+            }
+            else
+                (copy->neighbors).push_back(visited[child->val]);
+        }        
+        return copy;
     }
 };
