@@ -1,5 +1,6 @@
 #include<iostream>
 #include<set>
+#include<vector>
 
 using namespace std;
 
@@ -23,8 +24,20 @@ public:
 };
 
 class Solution {
-    bool DFS(Node source, Node destination, set<Node> visited){
+    bool DFS(Node* source, Node* destination, set<Node*> visited){
+        if(visited.count(source))
+            return false;
         
+        visited.insert(source);
+
+        if(source == destination)
+            return true;
+
+        for (Node* child: source->neighbors)
+            if(DFS(child, destination, visited))
+                return true;
+        
+        return false;
     }
 public:
     Node* cloneGraph(Node* node) {
