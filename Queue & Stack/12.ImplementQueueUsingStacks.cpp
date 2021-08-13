@@ -48,9 +48,7 @@ public:
     
     /** Returns whether the queue is empty. */
     bool empty() {
-        bool r;
-        (s1.empty()) ? r = true : r = false;
-        return r;
+        return s1.empty();
     }
 };
 
