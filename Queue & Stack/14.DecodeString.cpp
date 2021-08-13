@@ -21,7 +21,7 @@ public:
                 int count = 0;
                 while (isdigit(s[i]))
                 {
-                    count = (s[i]) - '0';
+                    count = 10 * count + ((s[i]) - '0');
                     i++;
                 }
                 nums.push(count);
