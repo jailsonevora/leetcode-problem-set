@@ -11,3 +11,15 @@ public:
         
     }
 };
+
+int main(){
+
+    ios::sync_with_stdio(false);
+    cin.tie();
+    cout.tie();
+
+    string s = {1,1,1,1,1};
+ 
+    Solution sl;
+    cout << sl.decodeString(s);
+}
