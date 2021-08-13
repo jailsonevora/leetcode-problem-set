@@ -17,8 +17,9 @@ public:
         int count = 0;
         for (int i = 0; i < s.size(); i++)
         {   
-            if(isdigit(s[i]))
+            if(isdigit(s[i])){
                 count = 10 * count + ((s[i]) - '0');
+            }
             else if (isalpha(s[i])) {
                 ans += s[i];
             }
@@ -29,15 +30,39 @@ public:
                 ans.clear();
             }
             else if(s[i] == ']'){
-                string topStr = ch.top();
-                ch.pop();
                 for (int j = 1; j < nums.top(); j++)
-                    topStr+=topStr;
+                    ch.top() += ans;
                 nums.pop();
-                ans = topStr;
+                ans = move(ch.top());
+                ch.pop();
             }
         }
         return ans;       
+    }
+    string decodeString(string s) {
+        string curr;
+        vector<int> nums;
+        vector<string> strs;
+        int n = 0;
+        for (const auto& c: s) {
+            if (isdigit(c)) {
+                n = n * 10 + c - '0';
+            } else if (isalpha(c)) {
+                curr += c;
+            } else if (c == '[') {
+                nums.emplace_back(n);
+                strs.emplace_back(curr);
+                n = 0;
+                curr.clear();
+            } else if (c == ']') {
+                for (; nums.back() > 0; --nums.back()) {
+                    strs.back() += curr;
+                }
+                nums.pop_back();
+                curr = move(strs.back()); strs.pop_back();
+            }
+        }
+        return curr;
     }
 };
 
