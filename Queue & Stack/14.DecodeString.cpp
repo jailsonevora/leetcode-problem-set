@@ -20,6 +20,8 @@ int main(){
 
     string s = "3[a]2[bc]";
     //string s = "3[a2[c]]";
+    //string s = "2[abc]3[cd]ef";
+
 
  
     Solution sl;
