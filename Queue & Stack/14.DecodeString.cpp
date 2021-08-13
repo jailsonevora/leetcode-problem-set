@@ -13,34 +13,31 @@ public:
         stack<int> nums;
         stack<string> ch;
 
-        string ans = "";
-
+        string ans = "";        
+        int count = 0;
         for (int i = 0; i < s.size(); i++)
         {   
-            if(isdigit(s[i])){
-                int count = 0;
-                while (isdigit(s[i]))
-                {
-                    count = 10 * count + ((s[i]) - '0');
-                    i++;
-                }
-                nums.push(count);
+            if(isdigit(s[i]))
+                count = 10 * count + ((s[i]) - '0');
+            else if (isalpha(s[i])) {
+                ans += s[i];
             }
             else if(s[i] == '['){
+                nums.push(count);
                 ch.push(ans);
-                ans = "";
+                count = 0;
+                ans.clear();
             }
             else if(s[i] == ']'){
                 string topStr = ch.top();
                 ch.pop();
-                for (int j = 0; j < nums.top(); j++)
+                for (int j = 1; j < nums.top(); j++)
                     topStr+=topStr;
                 nums.pop();
                 ans = topStr;
             }
-            else
-                ans += s[i];
-        }       
+        }
+        return ans;       
     }
 };
 
