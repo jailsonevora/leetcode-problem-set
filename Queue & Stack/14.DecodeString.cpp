@@ -19,6 +19,8 @@ int main(){
     cout.tie();
 
     string s = "3[a]2[bc]";
+    //string s = "3[a2[c]]";
+
  
     Solution sl;
     cout << sl.decodeString(s);
