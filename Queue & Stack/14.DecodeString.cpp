@@ -18,7 +18,7 @@ int main(){
     cin.tie();
     cout.tie();
 
-    string s = {1,1,1,1,1};
+    string s = "3[a]2[bc]";
  
     Solution sl;
     cout << sl.decodeString(s);
