@@ -11,7 +11,7 @@ public:
     //DFS with stack
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
 
-        bool seen[rooms.size()];
+        vector<bool> seen(rooms.size(),false);
         seen[0] = true;
 
         stack<int> stk;
@@ -19,10 +19,10 @@ public:
 
         while (!stk.empty())
         {
-            auto& keys = rooms[stk.top()];
+            int k = stk.top();
             stk.pop();
 
-            for (int newKey :keys)
+            for (int newKey :rooms[k])
                 if(!seen[newKey])
                     seen[newKey] = true, 
                         stk.push(newKey);
