@@ -2,33 +2,42 @@
 #include<set>
 #include<stack>
 #include<vector>
+#include<queue>
 
 using namespace std;
 
 class Solution {
-    void DFS(vector<vector<int>> &grid, int x, int y, int r, int c){
-        if (x < 0 || x >= r || y < 0 || y >= c || grid[x][y] != 1)
-            return;
-        
-        grid[x][y] +=1 ;
-
-        //recursive call to 4 adjacent directions
-        DFS(grid, x+1, y, r, c);
-        DFS(grid, x, y+1, r, c);
-        DFS(grid, x-1, y, r, c);
-        DFS(grid, x, y-1, r, c);
-    }
 public:
-    vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
-        int rows = mat.size();
-        int cols = mat[0].size();
-
-        for (int r = 0; r < rows; r++)
-            for (int c = 0; c < cols; c++)
-                if (mat[r][c] == 1)
-                {   
-                    DFS(mat, r,c, rows, cols);
+    vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
+        int rows = matrix.size();
+        if (rows == 0)
+            return matrix;
+        int cols = matrix[0].size();
+        vector<vector<int>> dist(rows, vector<int> (cols, INT_MAX));
+        queue<pair<int, int>> q;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] == 0) {
+                    dist[i][j] = 0;
+                    q.push({ i, j }); //Put all 0s in the queue.
                 }
-        return mat;    
+            }
+        }
+
+        int dir[4][2] = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
+        while (!q.empty()) {
+            pair<int, int> curr = q.front();
+            q.pop();
+            for (int i = 0; i < 4; i++) {
+                int new_r = curr.first + dir[i][0], new_c = curr.second + dir[i][1];
+                if (new_r >= 0 && new_c >= 0 && new_r < rows && new_c < cols) {
+                    if (dist[new_r][new_c] > dist[curr.first][curr.second] + 1) {
+                        dist[new_r][new_c] = dist[curr.first][curr.second] + 1;
+                        q.push({ new_r, new_c });
+                    }
+                }
+            }
+        }
+        return dist;
     }
 };
