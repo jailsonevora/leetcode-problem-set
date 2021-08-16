@@ -6,14 +6,14 @@
 using namespace std;
 
 class Solution {
-    void DFS(vector<vector<char>> &grid, int x, int y, int r, int c){
-        if (x < 0 || x >= r || y < 0 || y >= c || grid[x][y] != '1')
+    void DFS(vector<vector<int>> &image, int sr, int sc, int newColor, int r, int c, int source){
+        if (sr < 0 || sr >= r || sc < 0 || sc >= c)
             return;
         
-        grid[x][y] = '2';
+        image[sr][sc] = '2';
 
         //recursive call to 4 adjacent directions
-        DFS(grid, x+1, y, r, c);
+        DFS(image, x+1, y, r, c);
         DFS(grid, x, y+1, r, c);
         DFS(grid, x-1, y, r, c);
         DFS(grid, x, y-1, r, c);
