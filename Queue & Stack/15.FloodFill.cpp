@@ -13,10 +13,10 @@ class Solution {
         image[sr][sc] = '2';
 
         //recursive call to 4 adjacent directions
-        DFS(image, x+1, y, r, c);
-        DFS(grid, x, y+1, r, c);
-        DFS(grid, x-1, y, r, c);
-        DFS(grid, x, y-1, r, c);
+        DFS(image, sr - 1, sc, newColor, r, c, source);
+        DFS(image, sr + 1, sc, newColor, r, c, source);
+        DFS(image, sr, sc + 1, newColor,r, c, source);
+        DFS(image, sr, sc - 1, newColor,r, c, source);
     }
 public:
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int newColor) {
