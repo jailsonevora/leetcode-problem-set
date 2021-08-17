@@ -30,6 +30,10 @@ using namespace std;
             DFS_Recursive(root->right, ans);
 
     }
+
+    void DFS_Iteratively(TreeNode* root, vector<int>&ans){
+        
+    }
 public:
     vector<int> preorderTraversal(TreeNode* root) { 
         vector<int> ans;     
