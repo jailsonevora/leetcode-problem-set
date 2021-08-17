@@ -42,14 +42,15 @@ using namespace std;
             TreeNode* curr = stk.top();
             ans.push_back(curr->val);
             stk.pop();            
+                  
+            if(curr->left){
+                stk.push(curr->left);
+            }
             
             if(curr->right){
                 stk.push(curr->right);
             } 
-                     
-            if(curr->left){
-                stk.push(curr->left);
-            }
+               
         }
     }
 public:
