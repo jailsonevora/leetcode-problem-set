@@ -20,7 +20,14 @@ using namespace std;
      void DFS_Recursive(TreeNode* root, vector<int>&ans){
         if (!root)
             return;
-        
+
+        ans.push_back(root->val);
+
+        if (root->left)
+            DFS_Recursive(root->left, ans);
+
+        if (root->right)
+            DFS_Recursive(root->right, ans);
 
      }
 public:
