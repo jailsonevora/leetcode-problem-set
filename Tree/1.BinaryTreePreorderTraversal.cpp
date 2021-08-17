@@ -34,7 +34,7 @@ using namespace std;
 
     void DFS_Iteratively(TreeNode* root, vector<int>&ans){
 
-        unordered_set<TreeNode*> seen;
+        unordered_set<int> seen;
         stack<int> stk;
         stk.push(root->val);
 
@@ -44,16 +44,9 @@ using namespace std;
             stk.pop();
             ans.push_back(k);
 
-            for (int child: root)
-            {
-                /* code */
-            }
-            
-
+            if(root->left && !seen.count(root->val) || root->right && !seen.count(root->val))
+                stk.push(root->val), seen.insert(root->val);           
         }
-        
-
-
     }
 public:
     vector<int> preorderTraversal(TreeNode* root) { 
