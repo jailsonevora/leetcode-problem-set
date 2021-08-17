@@ -33,21 +33,26 @@ using namespace std;
     }
 
     void DFS_Iteratively(TreeNode* root, vector<int>&ans){
+        
+        stack<TreeNode*> stk;
+        stk.push(root);
 
-        unordered_set<int> seen;
-        stack<int> stk;
-        stk.push(root->val);
+        TreeNode* curr = root;
 
         while (!stk.empty())
         {
-            int k = stk.top();
+            TreeNode* temp = stk.top();
+            ans.push_back(temp->val);
             stk.pop();
-            ans.push_back(k);
 
-            if(root->left && !seen.count(root->val) || root->right && !seen.count(root->val))
-                stk.push(root->val), seen.insert(root->val);           
+            while(curr){
+                stk.push(curr);
+                curr = curr->left;
+            }          
+            curr = temp->right;
         }
     }
+    
 public:
     vector<int> preorderTraversal(TreeNode* root) { 
         vector<int> ans;     
