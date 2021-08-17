@@ -8,6 +8,7 @@ using namespace std;
 
 class Solution {
 public:
+    //BFS
     vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
         int rows = matrix.size();
         if (rows == 0)
