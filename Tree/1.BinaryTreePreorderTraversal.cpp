@@ -32,30 +32,32 @@ using namespace std;
 
     }
 
-    void DFS_Iteratively(TreeNode* root, vector<int>&ans){
+    void DFS_Iteratively_PreOrderTraversal(TreeNode* root, vector<int>&ans){
         
         stack<TreeNode*> stk;
         stk.push(root);
 
-        TreeNode* curr = root;
-
         while (!stk.empty())
         {
-            TreeNode* temp = stk.top();
-            ans.push_back(temp->val);
-            stk.pop();
-
-            while(curr){
-                stk.push(curr);
-                curr = curr->left;
-            }          
-            curr = temp->right;
+            TreeNode* curr = stk.top();
+            ans.push_back(curr->val);
+            stk.pop();            
+            
+            if(curr->right){
+                stk.push(curr->right);
+            } 
+                     
+            if(curr->left){
+                stk.push(curr->left);
+            }
         }
     }
-    
 public:
     vector<int> preorderTraversal(TreeNode* root) { 
-        vector<int> ans;     
+         vector<int> ans;
+        
+        if(!root)
+            return ans;    
         //DFS_Recursive(root, ans);
         DFS_Iteratively(root, ans);
         return ans;
