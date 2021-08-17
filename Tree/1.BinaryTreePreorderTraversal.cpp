@@ -18,17 +18,18 @@ using namespace std;
  };
 
  class Solution {
-    void DFS_Recursive(TreeNode* root, vector<int>&ans){
+    void DFS_Recursive_PreOrderTraversal(TreeNode* root, vector<int>&ans){
+
         if (!root)
             return;
 
         ans.push_back(root->val);
 
         if (root->left)
-            DFS_Recursive(root->left, ans);
+            DFS_Recursive_PreOrderTraversal(root->left, ans);
 
         if (root->right)
-            DFS_Recursive(root->right, ans);
+            DFS_Recursive_PreOrderTraversal(root->right, ans);
 
     }
 
@@ -46,7 +47,7 @@ using namespace std;
             if(curr->left){
                 stk.push(curr->left);
             }
-            
+
             if(curr->right){
                 stk.push(curr->right);
             } 
@@ -59,8 +60,8 @@ public:
         
         if(!root)
             return ans;    
-        //DFS_Recursive(root, ans);
-        DFS_Iteratively(root, ans);
+        //DFS_Recursive_PreOrderTraversal(root, ans);
+        DFS_Iteratively_PreOrderTraversal(root, ans);
         return ans;
     }
 };
