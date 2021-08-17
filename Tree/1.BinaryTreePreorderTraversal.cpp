@@ -17,7 +17,7 @@ using namespace std;
  };
 
  class Solution {
-     void DFS_Recursive(TreeNode* root, vector<int>&ans){
+    void DFS_Recursive(TreeNode* root, vector<int>&ans){
         if (!root)
             return;
 
@@ -29,7 +29,7 @@ using namespace std;
         if (root->right)
             DFS_Recursive(root->right, ans);
 
-     }
+    }
 public:
     vector<int> preorderTraversal(TreeNode* root) { 
         vector<int> ans;     
