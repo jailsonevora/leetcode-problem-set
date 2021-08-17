@@ -1,6 +1,7 @@
 #include<iostream>
 #include<queue>
 #include<stack>
+#include<unordered_set>
 
 using namespace std;
 
@@ -32,12 +33,16 @@ using namespace std;
     }
 
     void DFS_Iteratively(TreeNode* root, vector<int>&ans){
-        
+
+        unordered_set<TreeNode*> seen;
+
+
     }
 public:
     vector<int> preorderTraversal(TreeNode* root) { 
         vector<int> ans;     
-        DFS_Recursive(root, ans);
+        //DFS_Recursive(root, ans);
+        DFS_Iteratively(root, ans);
         return ans;
     }
 };
