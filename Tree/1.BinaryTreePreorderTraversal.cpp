@@ -40,7 +40,16 @@ using namespace std;
 
         while (!stk.empty())
         {
-            /* code */
+            int k = stk.top();
+            stk.pop();
+            ans.push_back(k);
+
+            for (int child: root)
+            {
+                /* code */
+            }
+            
+
         }
         
 
