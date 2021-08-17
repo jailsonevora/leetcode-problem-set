@@ -35,6 +35,14 @@ using namespace std;
     void DFS_Iteratively(TreeNode* root, vector<int>&ans){
 
         unordered_set<TreeNode*> seen;
+        stack<int> stk;
+        stk.push(root->val);
+
+        while (!stk.empty())
+        {
+            /* code */
+        }
+        
 
 
     }
