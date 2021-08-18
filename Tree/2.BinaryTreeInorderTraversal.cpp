@@ -40,12 +40,12 @@ using namespace std;
         while (!stk.empty())
         {
                        
-                  
+            TreeNode* curr = stk.top();
+                
             if(curr->left){
                 stk.push(curr->left);
             }
 
-            TreeNode* curr = stk.top();
             ans.push_back(curr->val);
             stk.pop(); 
 
