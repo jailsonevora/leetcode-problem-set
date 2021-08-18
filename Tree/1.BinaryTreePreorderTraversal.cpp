@@ -56,7 +56,7 @@ using namespace std;
     }
 public:
     vector<int> preorderTraversal(TreeNode* root) { 
-         vector<int> ans;
+        vector<int> ans;
         
         if(!root)
             return ans;    

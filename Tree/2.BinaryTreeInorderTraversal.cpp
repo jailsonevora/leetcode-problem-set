@@ -34,6 +34,12 @@ using namespace std;
     }
 public:
     vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
         
+        if(!root)
+            return ans;    
+        //DFS_Recursive_PreOrderTraversal(root, ans);
+        DFS_Recursive_InorderTraversal(root, ans);
+        return ans;
     }
 };
