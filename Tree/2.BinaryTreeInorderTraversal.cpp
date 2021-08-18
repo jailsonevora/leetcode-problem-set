@@ -35,24 +35,20 @@ using namespace std;
     void DFS_Iteratively_InOrderTraversal(TreeNode* root, vector<int>&ans){
         
         stack<TreeNode*> stk;
-        stk.push(root);
+        TreeNode* curr = root;
 
-        while (!stk.empty())
-        {
-                       
-            TreeNode* curr = stk.top();
-                
-            if(curr->left){
-                stk.push(curr->left);
+        while (curr || !stk.empty())
+        {               
+            while(curr){
+                stk.push(curr);
+                curr = curr->left;
             }
-
+            
+            curr = stk.top();
             ans.push_back(curr->val);
             stk.pop(); 
 
-            if(curr->right){
-                stk.push(curr->right);
-            } 
-               
+            curr = curr->right;               
         }
     }
 public:
