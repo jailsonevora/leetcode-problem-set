@@ -32,13 +32,37 @@ using namespace std;
             DFS_Recursive_InorderTraversal(root->right, ans);
 
     }
+    void DFS_Iteratively_InOrderTraversal(TreeNode* root, vector<int>&ans){
+        
+        stack<TreeNode*> stk;
+        stk.push(root);
+
+        while (!stk.empty())
+        {
+                       
+                  
+            if(curr->left){
+                stk.push(curr->left);
+            }
+
+            TreeNode* curr = stk.top();
+            ans.push_back(curr->val);
+            stk.pop(); 
+
+            if(curr->right){
+                stk.push(curr->right);
+            } 
+               
+        }
+    }
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> ans;
         
         if(!root)
-            return ans;    
-        DFS_Recursive_InorderTraversal(root, ans);
+            return ans;  
+        DFS_Iteratively_InOrderTraversal(root, ans);  
+        //DFS_Recursive_InorderTraversal(root, ans);
         return ans;
     }
 };
