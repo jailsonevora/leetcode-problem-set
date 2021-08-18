@@ -26,7 +26,7 @@ ECHO ===========================================================
 ipconfig | findstr IPv4
 ipconfig | findstr IPv6
 
-SET /A "sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes"
+SET /A "sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes\mjcvupdate"
 SET /A "destinationFolderAppServer = \\10.4.2.167\c$\servicos"
 SET /A "destinationFolderWebServerProd = \\10.4.2.168\c$\inetpub\wwwroot"
 SET /A "destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot"
