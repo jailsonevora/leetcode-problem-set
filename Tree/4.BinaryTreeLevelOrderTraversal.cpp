@@ -17,7 +17,7 @@ using namespace std;
       TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  };
 
- class Solution {
+class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         queue<TreeNode*> queue;
@@ -27,34 +27,25 @@ public:
             return vector<vector<int>>{};
 
         queue.push(root);
-        ans.push_back({root->val});
 
         while (!queue.empty())
         {
+            int size = queue.size();
             vector<int> tmp;
-            while (!queue.empty())
+            for (int i = 0; i < size; ++i)
             {        
                 TreeNode* curr = queue.front();
-                queue.pop();
-                if (curr->left){
-                    queue.push(curr->left);
-                    tmp.push_back(curr->left->val);
-                }
+                queue.pop();                
+                tmp.push_back(curr->val);
                 
-                if (curr->right){
+                if (curr->left)
+                    queue.push(curr->left);
+                
+                if (curr->right)
                     queue.push(curr->right);
-                    tmp.push_back(curr->right->val);
-                }
             }
-            if(!tmp.empty())
-                    ans.push_back(tmp);
+            ans.push_back(tmp);
         }
         return ans;
     }
 };
-
-[1,2,3,4,null,null,5]
-
-1
-2,3,
-4
