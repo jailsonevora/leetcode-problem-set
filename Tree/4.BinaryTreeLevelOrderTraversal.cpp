@@ -20,6 +20,28 @@ using namespace std;
  class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-        
+        queue<TreeNode*> queue;
+        vector<vector<int>> ans;
+
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            TreeNode* curr = queue.front();
+            vector<int> tmp;
+            queue.pop();
+
+            if (curr->left){
+                queue.push(curr->left);
+                tmp.push_back(curr->val);
+            }
+            
+            if (curr->right){
+                queue.push(curr->right);
+                tmp.push_back(curr->val);
+            }
+            ans.push_back(tmp);
+        }
+        return ans;
     }
 };
