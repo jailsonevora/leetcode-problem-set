@@ -23,27 +23,38 @@ public:
         queue<TreeNode*> queue;
         vector<vector<int>> ans;
 
+        if(!root)
+            return vector<vector<int>>{};
+
         queue.push(root);
         ans.push_back({root->val});
 
         while (!queue.empty())
         {
-            TreeNode* curr = queue.front();
             vector<int> tmp;
-            queue.pop();
-
-            if (curr->left){
-                queue.push(curr->left);
-                tmp.push_back(curr->left->val);
-            }
-            
-            if (curr->right){
-                queue.push(curr->right);
-                tmp.push_back(curr->right->val);
+            while (!queue.empty())
+            {        
+                TreeNode* curr = queue.front();
+                queue.pop();
+                if (curr->left){
+                    queue.push(curr->left);
+                    tmp.push_back(curr->left->val);
+                }
+                
+                if (curr->right){
+                    queue.push(curr->right);
+                    tmp.push_back(curr->right->val);
+                }
             }
             if(!tmp.empty())
-                ans.push_back(tmp);
+                    ans.push_back(tmp);
         }
         return ans;
     }
 };
+
+[1,2,3,4,null,null,5]
+
+1
+2,3,
+4
