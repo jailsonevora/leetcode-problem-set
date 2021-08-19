@@ -24,6 +24,7 @@ public:
         vector<vector<int>> ans;
 
         queue.push(root);
+        ans.push_back({root->val});
 
         while (!queue.empty())
         {
@@ -33,14 +34,15 @@ public:
 
             if (curr->left){
                 queue.push(curr->left);
-                tmp.push_back(curr->val);
+                tmp.push_back(curr->left->val);
             }
             
             if (curr->right){
                 queue.push(curr->right);
-                tmp.push_back(curr->val);
+                tmp.push_back(curr->right->val);
             }
-            ans.push_back(tmp);
+            if(!tmp.empty())
+                ans.push_back(tmp);
         }
         return ans;
     }
