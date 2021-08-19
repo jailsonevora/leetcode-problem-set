@@ -40,18 +40,20 @@ using namespace std;
         {
             TreeNode* curr = stk.top();
                         
-                  
             if(curr->left){
                 stk.push(curr->left);
+                curr->left = NULL;
+                continue;
             }
 
             if(curr->right){
                 stk.push(curr->right);
+                curr->right = NULL;
+                continue;
             } 
 
             ans.push_back(curr->val);
-            stk.pop();
-               
+            stk.pop();               
         }
     }
 public:
