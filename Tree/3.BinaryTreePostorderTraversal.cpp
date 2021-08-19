@@ -32,6 +32,25 @@ using namespace std;
         ans.push_back(root->val);
 
     }
+    void DFS_Iteratively_PostOrderTraversal(TreeNode* root, vector<int>&ans){
+        
+        // stack<TreeNode*> stk;
+        // TreeNode* curr = root;
+
+        // while (curr || !stk.empty())
+        // {               
+        //     while(curr){
+        //         stk.push(curr);
+        //         curr = curr->left;
+        //     }
+            
+        //     curr = stk.top();
+        //     ans.push_back(curr->val);
+        //     stk.pop(); 
+
+        //     curr = curr->right;               
+        // }
+    }
 public:
     vector<int> postorderTraversal(TreeNode* root) {
         vector<int> ans;
