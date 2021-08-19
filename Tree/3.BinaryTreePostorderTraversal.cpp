@@ -18,16 +18,16 @@ using namespace std;
  };
 
  class Solution {
-     void DFS_Recursive_PostorderTraversal(TreeNode* root, vector<int>&ans){
+     void DFS_Recursive_PostOrderTraversal(TreeNode* root, vector<int>&ans){
 
         if (!root)
             return;
 
         if (root->left)
-            DFS_Recursive_PostorderTraversal(root->left, ans);
+            DFS_Recursive_PostOrderTraversal(root->left, ans);
 
         if (root->right)
-            DFS_Recursive_PostorderTraversal(root->right, ans);
+            DFS_Recursive_PostOrderTraversal(root->right, ans);
 
         ans.push_back(root->val);
     }
@@ -56,7 +56,7 @@ public:
         
         if(!root)
             return ans;  
-        DFS_Recursive_PostorderTraversal(root, ans);
+        DFS_Recursive_PostOrderTraversal(root, ans);
         return ans;
     }
 };
