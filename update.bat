@@ -1,4 +1,4 @@
-https://we.tl/t-1hRuj9Kx76
+https://we.tl/t-c8xqF8lfDO
 https://docs.jexusmanager.com/getting-started/install.html
 ::https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy
 @ECHO OFF 
