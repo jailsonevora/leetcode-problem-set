@@ -29,6 +29,6 @@ class Solution {
 public:
     int maxDepth(TreeNode* root) {
         int ans = 0;
-
+        sum(root, ans);
     }
 };
