@@ -20,6 +20,10 @@ using namespace std;
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
+        if(!root)
+            return;
         
+        if(!root->left || !root->right)
+            
     }
 };
