@@ -21,6 +21,7 @@ class Solution {
     int maxDepth(TreeNode* root) {
         
         // BFS-LevelOrder aproach Iteratively
+        //BFS_Iteratively_levelOrder_maxDepth(root);
         
         // Bottom-Up aproach recrusively
         if(!root)
@@ -32,7 +33,8 @@ class Solution {
         return std::max(left,right)+1;
     }
 
-    int BFS_levelOrder(TreeNode* root) {
+    // BFS-LevelOrder aproach Iteratively
+    int BFS_Iteratively_levelOrder_maxDepth(TreeNode* root) {
         queue<TreeNode*> queue;
         int ans;
 
@@ -58,5 +60,31 @@ class Solution {
             ans++;
         }
         return ans;
+    }
+
+    void DFS_Iteratively_PostOrderTraversal_maxDepth(TreeNode* root, vector<int>&ans){
+        
+        stack<TreeNode*> stk;
+        stk.push(root);
+
+        while (!stk.empty())
+        {
+            TreeNode* curr = stk.top();
+                        
+            if(curr->left){
+                stk.push(curr->left);
+                curr->left = NULL;
+                continue;
+            }
+
+            if(curr->right){
+                stk.push(curr->right);
+                curr->right = NULL;
+                continue;
+            } 
+
+            ans.push_back(curr->val);
+            stk.pop();               
+        }
     }
 };
