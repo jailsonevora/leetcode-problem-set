@@ -19,6 +19,9 @@ using namespace std;
 
 class Solution {
     int maxDepth(TreeNode* root) {
+        
+        
+        // Bottom-Up aproach recrusively
         if(!root)
             return 0;        
         
