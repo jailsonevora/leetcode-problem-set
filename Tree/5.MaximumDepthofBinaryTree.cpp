@@ -23,13 +23,14 @@ class Solution {
             return;        
         
         if(!root->left && !root->right)
-            ans = max_depth(root, depth);
+            return max_depth(root, depth);
         max_depth(root->left, ++depth);
         max_depth(root->right, ++depth);
     }
 public:
     int maxDepth(TreeNode* root) {
-        int ans = 0;
-        max_depth(root, ans);
+        int depth = 0;
+        int ans = max_depth(root, depth);
+        return ans;
     }
 };
