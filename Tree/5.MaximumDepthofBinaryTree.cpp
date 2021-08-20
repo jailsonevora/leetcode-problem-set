@@ -61,30 +61,4 @@ class Solution {
         }
         return ans;
     }
-
-    void DFS_Iteratively_PostOrderTraversal_maxDepth(TreeNode* root, vector<int>&ans){
-        
-        stack<TreeNode*> stk;
-        stk.push(root);
-
-        while (!stk.empty())
-        {
-            TreeNode* curr = stk.top();
-                        
-            if(curr->left){
-                stk.push(curr->left);
-                curr->left = NULL;
-                continue;
-            }
-
-            if(curr->right){
-                stk.push(curr->right);
-                curr->right = NULL;
-                continue;
-            } 
-
-            ans.push_back(curr->val);
-            stk.pop();               
-        }
-    }
 };
