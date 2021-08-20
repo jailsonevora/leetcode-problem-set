@@ -20,7 +20,7 @@ using namespace std;
 class Solution {
     int max_depth(TreeNode* root, int& depth) {
         if(!root)
-            return;        
+            return 0;        
         
         if(!root->left && !root->right)
             return max_depth(root, depth);
