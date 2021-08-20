@@ -18,17 +18,18 @@ using namespace std;
  };
 
 class Solution {
-    int sum(TreeNode* root, int& ans) {
+    int max_depth(TreeNode* root, int& depth) {
         if(!root)
-            return;
+            return;        
         
-        
-        if(!root->left || !root->right)
-
+        if(!root->left && !root->right)
+            ans = max_depth(root, depth);
+        max_depth(root->left, ++depth);
+        max_depth(root->right, ++depth);
     }
 public:
     int maxDepth(TreeNode* root) {
         int ans = 0;
-        sum(root, ans);
+        max_depth(root, ans);
     }
 };
