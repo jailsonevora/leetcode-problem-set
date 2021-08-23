@@ -28,7 +28,7 @@ using namespace std;
 
         if(rootL->val != rootR->val)
             return false;
-        else if ( rootL->val != rootR->val && DFS_Recursive_PreOrderTraversal(rootL->left,rootR->right) && DFS_Recursive_PreOrderTraversal(rootL->right,rootR->left) )
+        else if ( rootL->val == rootR->val && DFS_Recursive_PreOrderTraversal(rootL->left,rootR->right) && DFS_Recursive_PreOrderTraversal(rootL->right,rootR->left) )
             return true;
     }
 public:
