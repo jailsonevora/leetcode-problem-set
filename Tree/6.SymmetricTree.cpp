@@ -18,23 +18,21 @@ using namespace std;
  };
 
  class Solution {
-    bool DFS_Recursive_PreOrderTraversal(TreeNode* root){
+    bool DFS_Recursive_PreOrderTraversal(TreeNode* rootL, TreeNode* rootR){
 
-        if (!root)
+        if (!rootL || !rootR)
             return false;
+        
+        if (!rootL && !rootR)
+            return true;
 
-        if(root->left->val != root->right->val)
+        if(rootL->val != rootR->val)
             return false;
-
-        if (root->left)
-            DFS_Recursive_PreOrderTraversal(root->left);
-
-        if (root->right)
-            DFS_Recursive_PreOrderTraversal(root->right);
-
+        else if ( rootL->val != rootR->val && DFS_Recursive_PreOrderTraversal(rootL->left,rootR->right) && DFS_Recursive_PreOrderTraversal(rootL->right,rootR->left) )
+            return true;
     }
 public:
     bool isSymmetric(TreeNode* root) {
-        
+        DFS_Recursive_PreOrderTraversal(root, root);
     }
 };
