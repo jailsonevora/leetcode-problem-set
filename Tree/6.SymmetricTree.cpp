@@ -28,11 +28,15 @@ using namespace std;
 
         if(rootL->val != rootR->val)
             return false;
-        else if ( rootL->val == rootR->val && DFS_Recursive_PreOrderTraversal(rootL->left,rootR->right) && DFS_Recursive_PreOrderTraversal(rootL->right,rootR->left) )
-            return true;
+
+        return ( 
+            rootL->val == rootR->val 
+            && DFS_Recursive_PreOrderTraversal(rootL->left,rootR->right) 
+            && DFS_Recursive_PreOrderTraversal(rootL->right,rootR->left) 
+            );
     }
 public:
     bool isSymmetric(TreeNode* root) {
-        DFS_Recursive_PreOrderTraversal(root, root);
+        return DFS_Recursive_PreOrderTraversal(root, root);
     }
 };
