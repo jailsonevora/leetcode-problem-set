@@ -20,6 +20,13 @@ using namespace std;
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
+        int ans;
         
+        if(!root)
+            return ans;
+
+        DFS_Iteratively_PreOrderTraversal(root, ans);
+        
+        return ans;
     }
 };
