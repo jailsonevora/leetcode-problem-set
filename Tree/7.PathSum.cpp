@@ -33,6 +33,7 @@ class Solution {
     }
 
 public:
+    //top-down aproach
     bool hasPathSum(TreeNode* root, int targetSum) {
         bool ans = false;
         
