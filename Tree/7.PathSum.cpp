@@ -18,23 +18,35 @@ using namespace std;
  };
 
 class Solution {
-    void DFS_Recursive_PreOrderTraversal(TreeNode* root, int &ans, int targetSum){
+    // void DFS_Recursive_PreOrderTraversal(TreeNode* root, int &ans, int targetSum){
 
-        if (!root || ans == targetSum)
+    //     if (!root || ans == targetSum)
+    //         return;
+
+    //     ans +=root->val;
+
+    //     if (root->left && (ans+=root->left->val <= targetSum))
+    //         DFS_Recursive_PreOrderTraversal(root->left, ans, targetSum);
+
+    //     if (root->right && (ans+=root->right->val <= targetSum))
+    //         DFS_Recursive_PreOrderTraversal(root->right, ans, targetSum);
+    // }
+    
+    void DFS_Recursive_PreOrderTraversal(TreeNode* root, bool &ans, int targetSum){
+
+        if (!root)
             return;
 
-        ans +=root->val;
-
-        if (root->left && (ans+=root->left->val <= targetSum))
-            DFS_Recursive_PreOrderTraversal(root->left, ans, targetSum);
-
-        if (root->right && (ans+=root->right->val <= targetSum))
-            DFS_Recursive_PreOrderTraversal(root->right, ans, targetSum);
-
+        if (!root->left && !root->right && targetSum - root->val == 0)
+            ans = true;
+        
+        DFS_Recursive_PreOrderTraversal(root->left, ans, targetSum - root->val);
+        DFS_Recursive_PreOrderTraversal(root->right, ans, targetSum - root->val);
     }
+
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
-        int ans;
+        bool ans = false;
         
         if(!root)
             return ans;
