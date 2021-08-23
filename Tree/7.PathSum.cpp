@@ -18,14 +18,14 @@ using namespace std;
  };
 
 class Solution {
-    void DFS_Recursive_PreOrderTraversal(TreeNode* root, int &ans){
+    void DFS_Recursive_PreOrderTraversal(TreeNode* root, int &ans, int targetSum){
 
         if (!root)
             return;
 
-        ans.push_back(root->val);
+        ans +=root->val;
 
-        if (root->left)
+        if (root->left && (ans+=root->val > targetSum))
             DFS_Recursive_PreOrderTraversal(root->left, ans);
 
         if (root->right)
@@ -39,7 +39,7 @@ public:
         if(!root)
             return ans;
 
-        DFS_Recursive_PreOrderTraversal(root, ans);
+        DFS_Recursive_PreOrderTraversal(root, ans, targetSum);
 
         return ans;
     }
