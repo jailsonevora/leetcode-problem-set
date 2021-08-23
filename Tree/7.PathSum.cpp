@@ -18,6 +18,20 @@ using namespace std;
  };
 
 class Solution {
+    void DFS_Recursive_PreOrderTraversal(TreeNode* root, int &ans){
+
+        if (!root)
+            return;
+
+        ans.push_back(root->val);
+
+        if (root->left)
+            DFS_Recursive_PreOrderTraversal(root->left, ans);
+
+        if (root->right)
+            DFS_Recursive_PreOrderTraversal(root->right, ans);
+
+    }
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
         int ans;
@@ -25,8 +39,8 @@ public:
         if(!root)
             return ans;
 
-        DFS_Iteratively_PreOrderTraversal(root, ans);
-        
+        DFS_Recursive_PreOrderTraversal(root, ans);
+
         return ans;
     }
 };
