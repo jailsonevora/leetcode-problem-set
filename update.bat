@@ -1,5 +1,3 @@
-https://we.tl/t-1bbBNqEJ2m
-https://docs.jexusmanager.com/getting-started/install.html
 ::https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy
 @ECHO OFF 
 :: This batch file details Windows Server, hardware, and networking configuration, plus updating the SIJ enviroment
@@ -27,7 +25,7 @@ ECHO ===========================================================
 ipconfig | findstr IPv4
 ipconfig | findstr IPv6
 
-SET /A "sourceFolder = C:\Users\sqlsijadmin\Documents\atualizacoes\mjcvupdate"
+SET /A "sourceFolder = C:\Users\Sqlsijadmin\Documents\atualizacoes\mjcvupdate"
 SET /A "destinationFolderAppServer = \\10.4.2.167\c$\servicos"
 SET /A "destinationFolderWebServerProd = \\10.4.2.168\c$\inetpub\wwwroot"
 SET /A "destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot"
@@ -45,13 +43,13 @@ SET /A "destinationFolderWebServerTest = \\10.4.2.169\c$\inetpub\wwwroot"
 
 :test
     ::ECHO %sourceFolder%
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueServiceTeste
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWFTeste\WFTeste
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsServiceTeste
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueServiceTeste
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWFTeste\WFTeste
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsServiceTeste
 
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVAPI %destinationFolderWebServerTest%\MJCVAPI
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\IdentityServer %destinationFolderWebServerTest%\IdentityServer
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWebMVC %destinationFolderWebServerTest%\MJCVWebMVC
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt C:\Users\Sqlsijadmin\Documents\atualizacoes\mjcvupdate\MJCVAPI \\10.4.2.169\c$\inetpub\wwwroot\MJCVAPI
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt C:\Users\Sqlsijadmin\Documents\atualizacoes\mjcvupdate\IdentityServer \\10.4.2.169\c$\inetpub\wwwroot\IdentityServer
+    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt C:\Users\Sqlsijadmin\Documents\atualizacoes\mjcvupdate\MJCVWebMVC \\10.4.2.169\c$\inetpub\wwwroot\MJCVWebMVC
     
     ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\SIJ %destinationFolderWebServerTest%\sij
     ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerTest%\dje
@@ -63,15 +61,15 @@ EXIT /B 0
 
 :prod
     ::ECHO Inside prod.
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueService    
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFInformatizacao
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFOutros
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFProcPenal    
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsService\
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\QueueService %destinationFolderAppServer%\QueueService    
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFInformatizacao
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFOutros
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWorkflowService %destinationFolderAppServer%\ServicosWF\WFProcPenal    
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWindowsService %destinationFolderAppServer%\WindowsService\
 
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVAPI %destinationFolderWebServerProd%\MJCVAPI
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\IdentityServer %destinationFolderWebServerProd%\IdentityServer
-    xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWebMVC %destinationFolderWebServerProd%\MJCVWebMVC
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVAPI %destinationFolderWebServerProd%\MJCVAPI
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\IdentityServer %destinationFolderWebServerProd%\IdentityServer
+    ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\MJCVWebMVC %destinationFolderWebServerProd%\MJCVWebMVC
 
     ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\SIJ %destinationFolderWebServerProd%\sij
     ::xcopy /v /f /r /d /i /s /y /exclude:excludedfileslist.txt %sourceFolder%\DJE %destinationFolderWebServerProd%\dje
