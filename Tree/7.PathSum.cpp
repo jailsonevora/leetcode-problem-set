@@ -18,19 +18,6 @@ using namespace std;
  };
 
 class Solution {
-    // void DFS_Recursive_PreOrderTraversal(TreeNode* root, int &ans, int targetSum){
-
-    //     if (!root || ans == targetSum)
-    //         return;
-
-    //     ans +=root->val;
-
-    //     if (root->left && (ans+=root->left->val <= targetSum))
-    //         DFS_Recursive_PreOrderTraversal(root->left, ans, targetSum);
-
-    //     if (root->right && (ans+=root->right->val <= targetSum))
-    //         DFS_Recursive_PreOrderTraversal(root->right, ans, targetSum);
-    // }
 
     //top-dowm aproach
     void DFS_Recursive_PreOrderTraversal(TreeNode* root, bool &ans, int targetSum){
