@@ -18,6 +18,21 @@ using namespace std;
  };
 
  class Solution {
+    bool DFS_Recursive_PreOrderTraversal(TreeNode* root){
+
+        if (!root)
+            return false;
+
+        if(root->left->val != root->right->val)
+            return false;
+
+        if (root->left)
+            DFS_Recursive_PreOrderTraversal(root->left);
+
+        if (root->right)
+            DFS_Recursive_PreOrderTraversal(root->right);
+
+    }
 public:
     bool isSymmetric(TreeNode* root) {
         
