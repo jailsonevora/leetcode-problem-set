@@ -31,7 +31,8 @@ class Solution {
     //     if (root->right && (ans+=root->right->val <= targetSum))
     //         DFS_Recursive_PreOrderTraversal(root->right, ans, targetSum);
     // }
-    
+
+    //top-dowm aproach
     void DFS_Recursive_PreOrderTraversal(TreeNode* root, bool &ans, int targetSum){
 
         if (!root)
