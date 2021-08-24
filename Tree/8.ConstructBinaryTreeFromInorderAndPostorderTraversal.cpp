@@ -25,6 +25,7 @@ using namespace std;
         TreeNode *root = new treeNode(postorder[p2-1]);
         auto it = find(inorder.begin() + i1, inorder.begin() + i2, postorder[p2-1]);
         int diff = it - inorder.begin() - i1;
+        root->left = buildTree(inorder, 0, n, postorder, 0 n);
     }
 
 public:
