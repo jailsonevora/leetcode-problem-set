@@ -27,6 +27,7 @@ using namespace std;
         int diff = it - inorder.begin() - i1;
         root->left = buildTree(inorder, i1, i1 + diff, postorder, p1, p1 + diff);
         root->right = buildTree(inorder, i1 + diff + 1, i2, postorder, p1 + diff,  p2 - 1);
+        return root;
     }
 
 public:
