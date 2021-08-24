@@ -22,7 +22,8 @@ using namespace std;
         if(i1 >= i2 || p1 >= p2)
             return nullptr;
         
-        Tre
+        TreeNode *root = new treeNode(postorder[p2-1]);
+        auto it = find(inorder.begin() + i1, inorder.begin() + i2, postorder[p2-1]);
     }
 
 public:
