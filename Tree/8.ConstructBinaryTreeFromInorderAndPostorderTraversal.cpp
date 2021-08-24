@@ -26,7 +26,7 @@ using namespace std;
         auto it = find(inorder.begin() + i1, inorder.begin() + i2, postorder[p2-1]);
         int diff = it - inorder.begin() - i1;
         root->left = buildTree(inorder, i1, i1 + diff, postorder, p1, p1 + diff);
-        root->right = buildTree(inorder, i1 + diff + 1, i2, postorder, p1 + diff,  n);
+        root->right = buildTree(inorder, i1 + diff + 1, i2, postorder, p1 + diff,  p2 - 1);
     }
 
 public:
