@@ -19,7 +19,10 @@ using namespace std;
 
  class Solution {
     TreeNode* buildTree(vector<int>& inorder, int i1, int i2, vector<int>& postorder, int p1, int p2) {
-
+        if(i1 >= i2 || p1 >= p2)
+            return nullptr;
+        
+        Tre
     }
 
 public:
