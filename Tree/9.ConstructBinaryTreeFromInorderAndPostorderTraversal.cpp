@@ -20,7 +20,9 @@ using namespace std;
 class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        
+        if(!inorder.size())
+            return nullptr;
+        return buildTree(inorder, 0, preorder.size(), inorder, 0, preorder.size());
     }
 };
 
