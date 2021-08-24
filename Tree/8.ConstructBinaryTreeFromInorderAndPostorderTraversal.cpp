@@ -18,8 +18,14 @@ using namespace std;
  };
 
  class Solution {
+    TreeNode* buildTree(vector<int>& inorder, int i1, int i2, vector<int>& postorder, int p1, int p2) {
+
+    }
+
 public:
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        
+        if(!inorder.size())
+            return nullptr;
+        return buildTree(inorder, 0, inorder.size(), postorder, 0, inorder.size());        
     }
 };
