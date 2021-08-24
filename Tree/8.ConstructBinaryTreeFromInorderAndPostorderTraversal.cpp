@@ -23,7 +23,7 @@ using namespace std;
             return nullptr;
         
         TreeNode *root = new TreeNode(postorder[p2-1]);
-        auto it = find(inorder.begin() + i1, inorder.begin() + i2, postorder[p2-1] );
+        auto it = find(inorder.begin() + i1, inorder.begin() + i2, postorder[p2-1]);
         int diff = it - inorder.begin() - i1;
         
         root->left = buildTree(inorder, i1, i1 + diff, postorder, p1, p1 + diff);
