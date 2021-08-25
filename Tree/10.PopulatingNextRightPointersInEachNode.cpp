@@ -44,11 +44,14 @@ public:
 
                 Node* prevRight = curr->right;
 
-                if(curr->left)
+                if(curr->left){
                     curr->left->next = prevRight;
+                    queue.push(curr->left);
+                }
                 
-                if (curr->right)
+                if (curr->right){
                     curr->right->next = prevRight;
+                }
                 
 
             }
