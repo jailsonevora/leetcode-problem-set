@@ -27,38 +27,30 @@ class Solution {
 public:
     Node* connect(Node* root) {
 
-        queue<Node*> queue;
-
         if(!root)
             return nullptr;
 
+        queue<Node*> queue;
         queue.push(root);
 
         while (!queue.empty())
         {
             int size = queue.size();
-            for (int i = 0; i < size; i++)
+            while (size--)
             {
                 Node* curr = queue.front();
                 queue.pop();
 
-                Node* prevRight = curr->right;
+                if(!size)
+                    curr->next = nullptr;
+                else
+                    curr->next = queue.front();
 
-                if(curr->left){
-                    curr->left->next = prevRight;
+                if(curr->left)
                     queue.push(curr->left);
-                }
-                else{
-                    curr->left->next = nullptr;
-                }
                 
-                if (curr->right){
-                    curr->right->next = prevRight;
+                if (curr->right)
                     queue.push(curr->right);
-                }                
-                else{
-                    curr->right->next = nullptr;
-                }               
             }            
         }
         return root;        
