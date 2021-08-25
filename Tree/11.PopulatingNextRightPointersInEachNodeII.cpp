@@ -72,7 +72,7 @@ public:
         return root;        
     }
 
-    // recursive top-down
+    // recursive top-down DFS
     Node* connect(Node* root) {
 
         if(!root)
