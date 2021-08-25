@@ -26,6 +26,19 @@ public:
 class Solution {
 public:
     Node* connect(Node* root) {
+
+        queue<Node*> queue;
+
+        if(!root)
+            return nullptr;
+
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            /* code */
+        }
+        
         
     }
 };
