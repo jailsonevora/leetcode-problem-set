@@ -37,9 +37,15 @@ public:
         while (!queue.empty())
         {
             int size = queue.size();
-            for (size_t i = 0; i < count; i++)
+            for (int i = 0; i < size; i++)
             {
-                /* code */
+                Node* curr = queue.front();
+                queue.pop();
+
+                Node* prevRight = curr->right;
+
+                if()
+
             }
             
         }
