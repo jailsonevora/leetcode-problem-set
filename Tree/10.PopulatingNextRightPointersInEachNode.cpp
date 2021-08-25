@@ -36,7 +36,12 @@ public:
 
         while (!queue.empty())
         {
-            /* code */
+            int size = queue.size();
+            for (size_t i = 0; i < count; i++)
+            {
+                /* code */
+            }
+            
         }
         
         
