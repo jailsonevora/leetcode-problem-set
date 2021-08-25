@@ -24,20 +24,6 @@ public:
 };
 
 class Solution {
-    void connectRecursive(Node *root)
-    {
-        if (!root)
-            return;
-        
-        if (root->left)
-            root->left->next = root->right;
-
-        if (root->right)
-            root->right->next = root->next ? root->next->left : NULL;
-        
-        connectRecursive(root->left);
-        connectRecursive(root->right);
-    }
 public:
     Node* connect(Node* root) {
 

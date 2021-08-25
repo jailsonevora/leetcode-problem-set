@@ -23,22 +23,7 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 
-
 class Solution {
-    void connectRecursive(Node *root)
-    {
-        if (!root)
-            return;
-        
-        if (root->left)
-            root->left->next = root->right;
-
-        if (root->right)
-            root->right->next = root->next ? root->next->left : NULL;
-        
-        connectRecursive(root->left);
-        connectRecursive(root->right);
-    }
 public:
     // BFS with queue
     Node* connect(Node* root) {
@@ -69,15 +54,6 @@ public:
                     queue.push(curr->right);
             }            
         }
-        return root;        
-    }
-
-    // recursive top-down DFS
-    Node* connect(Node* root) {
-
-        if(!root)
-            return nullptr;
-        connectRecursive(root);        
         return root;        
     }
 };
