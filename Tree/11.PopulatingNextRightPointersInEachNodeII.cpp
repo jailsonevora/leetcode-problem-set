@@ -40,6 +40,7 @@ class Solution {
         connectRecursive(root->right);
     }
 public:
+    // BFS with queue
     Node* connect(Node* root) {
 
         if(!root)
