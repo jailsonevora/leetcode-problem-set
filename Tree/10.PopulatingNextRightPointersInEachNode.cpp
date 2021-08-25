@@ -51,9 +51,8 @@ public:
                 
                 if (curr->right){
                     curr->right->next = prevRight;
-                }
-                
-
+                    queue.push(curr->right);
+                }               
             }
             
         }
