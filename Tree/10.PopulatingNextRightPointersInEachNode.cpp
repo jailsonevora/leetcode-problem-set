@@ -44,7 +44,14 @@ public:
 
                 Node* prevRight = curr->right;
 
-                if()
+                if(curr->left)
+                    curr->left->next = prevRight;
+                
+                if ()
+                {
+                    /* code */
+                }
+                
 
             }
             
