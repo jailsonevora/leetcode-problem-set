@@ -47,10 +47,8 @@ public:
                 if(curr->left)
                     curr->left->next = prevRight;
                 
-                if ()
-                {
-                    /* code */
-                }
+                if (curr->right)
+                    curr->right->next = prevRight;
                 
 
             }
