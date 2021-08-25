@@ -48,15 +48,16 @@ public:
                     curr->left->next = prevRight;
                     queue.push(curr->left);
                 }
+                else{
+                    curr->left->next = nullptr;
+                }
                 
                 if (curr->right){
                     curr->right->next = prevRight;
                     queue.push(curr->right);
                 }               
-            }
-            
+            }            
         }
-        
-        
+        return root;        
     }
 };
