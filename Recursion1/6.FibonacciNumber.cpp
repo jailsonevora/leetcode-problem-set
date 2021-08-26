@@ -4,6 +4,9 @@
 #include<cmath>
 #include<numeric>
 #include<cmath>
+#include<string>
+#include<array>
+#include <string.h>
 
 using namespace std;
 
@@ -15,9 +18,10 @@ public:
         if(n < 2)
             return n;
 
-        if(!memo[n])
-            return fibMemo(n-1, memo) + fibMemo(n-2, memo);
-        return n;       
+        if(memo[n] > 0)
+            return memo[n];
+
+        return memo[n] = fibMemo(n-1, memo) + fibMemo(n-2, memo);
     }
     int fib(int n) {
 
@@ -34,7 +38,8 @@ int main(){
     cout.tie();
 
     int n = 3;
-    int memo[n];
+    int memo[31] = {0};
+    //memset(m, -1, sizeof(m));
 
     Solution sl;
     cout << sl.fibMemo(n, memo);
