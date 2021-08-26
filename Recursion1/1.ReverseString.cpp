@@ -4,12 +4,16 @@
 using namespace std;
 
 class Solution {
+    void reverseString(vector<char>& s, int i) {
+        if(i == s.size()/2)
+            return;
+        swap(s[i], s[s.size() - i - 1]);
+        reverseString(s, i + 1);
+    }
 public:
     void reverseString(vector<char>& s) {
-        if(!s.size())
-            return;
-        reverseString(s);
-        //putchar(s[1]);
+        int i;
+        reverseString(s, i = 0);
     }
 };
 
