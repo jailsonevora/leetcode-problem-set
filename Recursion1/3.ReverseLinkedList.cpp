@@ -13,3 +13,24 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+
+        if(!head || !head->next)
+            return head;
+
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+
+        ListNode* next = reverseList(curr->next);
+
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+
+        head = prev;
+        return head;        
+    }
+};
