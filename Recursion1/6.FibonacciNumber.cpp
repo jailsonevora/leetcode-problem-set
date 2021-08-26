@@ -8,6 +8,17 @@
 using namespace std;
 
 class Solution {
+    //with memoization
+    int fibMemo(int n, int memo[]) {
+
+        if(n < 2)
+            return n;
+
+        if(!memo[n])
+            return fib(n-1, memo) + fib(n-2, memo);
+
+        return n;       
+    }
 public:
     int fib(int n) {
 
@@ -15,6 +26,11 @@ public:
             return n;
 
         return fib(n-1) + fib(n-2);       
+    }    
+
+    int fibM(int n) {
+        int memo[n];
+        fibMemo(n, memo);       
     }
     
 };
