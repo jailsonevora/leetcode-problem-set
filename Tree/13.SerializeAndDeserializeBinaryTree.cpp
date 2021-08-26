@@ -22,8 +22,7 @@ public:
         if(!root)
             return "#";
         return ""+ to_string(root->val) + "," + serialize(root->left) + "," + serialize(root->right);
-     }
-    
+    }    
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
         return pointer_deser(data);
