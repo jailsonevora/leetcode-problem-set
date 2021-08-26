@@ -22,3 +22,18 @@ public:
         return res;
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+
+   
+    int rowIndex = 3;
+    //int rowIndex = 0;
+    //int rowIndex = 1;
+
+   sl.getRow(rowIndex);
+}
