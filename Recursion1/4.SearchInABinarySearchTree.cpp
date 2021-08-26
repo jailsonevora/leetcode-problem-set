@@ -17,6 +17,16 @@ struct TreeNode {
 class Solution {
 public:
     TreeNode* searchBST(TreeNode* root, int val) {
-        
+        if(!root)
+            return root;
+
+        if(root->val == val)
+            return root;
+
+        if(root->left)
+            searchBST(root->left, val);
+
+        if (root->right)
+            searchBST(root->right, val);        
     }
 };
