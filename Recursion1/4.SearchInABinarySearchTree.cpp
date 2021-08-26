@@ -22,11 +22,9 @@ public:
 
         if(root->val == val)
             return root;
-
-        if(root->left)
-            searchBST(root->left, val);
-
-        if (root->right)
-            searchBST(root->right, val);        
+        else if(root->val > val)
+            return searchBST(root->left, val);
+        else
+            return searchBST(root->right, val);        
     }
 };
