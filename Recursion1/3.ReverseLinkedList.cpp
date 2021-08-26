@@ -14,23 +14,17 @@ struct ListNode {
 };
 
 class Solution {
+    ListNode* reverseList(ListNode* prev, ListNode* curr) {
+
+        if(!curr)
+            return prev;
+
+        ListNode* next = curr->next;
+        curr->next = prev;
+        return reverseList( prev = curr, curr = next);       
+    }
 public:
     ListNode* reverseList(ListNode* head) {
-
-        if(!head || !head->next)
-            return head;
-
-        ListNode* prev = nullptr;
-        ListNode* curr = head;
-
-        ListNode* next = reverseList(curr->next);
-
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-
-        head = prev;
-        return head;        
+        return reverseList(nullptr, head);       
     }
 };
