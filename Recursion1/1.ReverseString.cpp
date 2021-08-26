@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 
 using namespace std;
 
@@ -7,6 +8,7 @@ public:
     void reverseString(vector<char>& s) {
         if(!s)
             return;
-        
+        reverseString(s + 1);
+        putchar(s);
     }
 };
