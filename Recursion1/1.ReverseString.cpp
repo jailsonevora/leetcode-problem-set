@@ -11,8 +11,12 @@ public:
         reverseString(s + 1);
         putchar(s);
     }
-
-    int main(){
-        
-    }
 };
+
+int main(){
+    vector<char> s = {"h","e","l","l","o"};
+
+    Solution sl;
+    sl.reverseString(s);
+
+}
