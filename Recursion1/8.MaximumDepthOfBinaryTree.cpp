@@ -25,13 +25,13 @@ using namespace std;
 // both dfs algorithm
 class Solution {
     // 1 - Bottom-Up aproach recrusively tail recursion
-    int help(TreeNode* root, int n = 1){
+    int dfs_recursion_tail1(TreeNode* root, int n = 1){
         if(!root)
             return 0;
         else if (!root->left && !root->right)
             return n;
         else 
-            return std::max(help(root->left, n+1), help(root->right, n+1));
+            return std::max(dfs_recursion_tail1(root->left, n+1), dfs_recursion_tail1(root->right, n+1));
         n = 1;
         return n; 
     }
@@ -45,7 +45,7 @@ class Solution {
     }
 public:
     int maxDepth(TreeNode* root) {
-        return help(root, 1);
+        return dfs_recursion_tail1(root, 1);
     }
     int maxDepth(TreeNode* root) {
         return dfs_recursion_tail2(root, 0);
