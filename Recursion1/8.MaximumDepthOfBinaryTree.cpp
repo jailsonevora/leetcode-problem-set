@@ -36,12 +36,12 @@ class Solution {
         return n; 
     }
     // 2 - tail recursion too
-    int dfs(TreeNode* root, int acc) {
+    int dfs(TreeNode* root, int n) {
         if (!root) 
-            return acc;
-        acc++;
-        acc = max(dfs(root->left, acc), dfs(root->right, acc));
-        return acc;
+            return n;
+        n++;
+        n = max(dfs(root->left, n), dfs(root->right, n));
+        return n;
     }
 public:
     int maxDepth(TreeNode* root) {
