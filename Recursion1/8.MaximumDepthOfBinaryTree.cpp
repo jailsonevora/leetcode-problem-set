@@ -23,16 +23,19 @@ using namespace std;
  };
 
 class Solution {
-public:
-    int maxDepth(TreeNode* root) {
-        
+    int help(TreeNode* root, int n = 0){
         // Bottom-Up aproach recrusively
         if(!root)
-            return 0;        
-        
-        int left = maxDepth(root->left);
-        int right = maxDepth(root->right);
-        
-        return std::max(left,right)+1;
+            return 0;
+        else if (!root->left && !root->right)
+            return n;
+        else 
+            return std::max(help(root->left, n+1), help(root->right, n+1));
+        n = 1;
+        return n; 
+    }
+public:
+    int maxDepth(TreeNode* root) {
+        help(root, 0);
     }
 };
