@@ -34,6 +34,7 @@ class Solution {
         n = 1;
         return n; 
     }
+    // 2 - tail recursion too
     int dfs(TreeNode* root, int acc) {
         if (!root) return acc;
         acc++;
@@ -42,7 +43,7 @@ class Solution {
     }
 public:
     int maxDepth(TreeNode* root) {
-        return help(root, 0);
+        return help(root, 1);
     }
     int maxDepth(TreeNode* root) {
         return dfs(root, 0);
