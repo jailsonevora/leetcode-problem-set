@@ -37,7 +37,8 @@ class Solution {
     }
     // 2 - tail recursion too
     int dfs(TreeNode* root, int acc) {
-        if (!root) return acc;
+        if (!root) 
+            return acc;
         acc++;
         acc = max(dfs(root->left, acc), dfs(root->right, acc));
         return acc;
