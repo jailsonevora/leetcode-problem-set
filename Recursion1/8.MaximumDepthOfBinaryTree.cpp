@@ -34,8 +34,17 @@ class Solution {
         n = 1;
         return n; 
     }
+    int dfs(TreeNode* root, int acc) {
+        if (!root) return acc;
+        acc++;
+        acc = max(dfs(root->left, acc), dfs(root->right, acc));
+        return acc;
+    }
 public:
     int maxDepth(TreeNode* root) {
         return help(root, 0);
+    }
+    int maxDepth(TreeNode* root) {
+        return dfs(root, 0);
     }
 };
