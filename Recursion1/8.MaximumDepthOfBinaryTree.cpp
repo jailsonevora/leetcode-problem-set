@@ -24,7 +24,7 @@ using namespace std;
 
 class Solution {
     int help(TreeNode* root, int n = 0){
-        // Bottom-Up aproach recrusively
+        // Bottom-Up aproach recrusively tail recursion
         if(!root)
             return 0;
         else if (!root->left && !root->right)
