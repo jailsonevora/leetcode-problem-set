@@ -22,6 +22,7 @@ using namespace std;
       TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  };
 
+// both dfs algorithm
 class Solution {
     // 1 - Bottom-Up aproach recrusively tail recursion
     int help(TreeNode* root, int n = 0){
