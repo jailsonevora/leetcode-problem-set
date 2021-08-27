@@ -25,7 +25,7 @@ using namespace std;
 // both dfs algorithm
 class Solution {
     // 1 - Bottom-Up aproach recrusively tail recursion
-    int help(TreeNode* root, int n = 0){
+    int help(TreeNode* root, int n = 1){
         if(!root)
             return 0;
         else if (!root->left && !root->right)
