@@ -36,6 +36,6 @@ class Solution {
     }
 public:
     int maxDepth(TreeNode* root) {
-        help(root, 0);
+        return help(root, 0);
     }
 };
