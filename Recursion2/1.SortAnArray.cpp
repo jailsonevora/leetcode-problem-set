@@ -40,7 +40,12 @@ class Solution {
             }
             index++;
         }
-        
+
+        for (int i = 0; i < nums.size(); i++)
+        {
+            tmp[index] = nums[i];
+            index++;
+        }
     } 
 
     void mergesort(vector<int>& nums,vector<int>& tmp, int leftStart, int rightEnd){
@@ -56,5 +61,6 @@ public:
     vector<int> sortArray(vector<int>& nums) {
         vector<int> tmp;
         mergesort(nums, tmp, 0, nums.size() -1);
+        return tmp;
     }
 };
