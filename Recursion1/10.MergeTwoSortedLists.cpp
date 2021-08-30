@@ -24,45 +24,22 @@ public:
     ListNode *head = NULL;
 
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-
-        ListNode *headL1 = l1, *headL2 = l2, *headTemp = NULL;
-
-        while (headL1 && headL2)
-        {
-            if (headL1->val <= headL2->val)
-                pushBack(headTemp, headL1);
-            else
-                pushBack(headTemp, headL2);
-        }
-
-        while (headL1)
-            pushBack(headTemp, headL1);
-
-        while (headL2)
-            pushBack(headTemp, headL2);
         
-        return headTemp;
-    }
+        if(!l1)
+            return l2;
+        if(!l2)
+            return l1;
 
-    void pushBack(ListNode *&head, ListNode *&tempNode)
-    {
-        ListNode* curr = head;
-
-        if (!head){  
-            head = tempNode;
-            tempNode = tempNode->next;
-            head->next = NULL;
-        } 
-        else{
-
-            while(curr && curr->next) 
-                curr = curr->next;
-            curr->next = tempNode;
-
-            tempNode = tempNode->next;
-            curr->next->next = NULL;
+        if(l1->val >= l2->val)
+            l2->next = mergeTwoLists(l1,l2->next);
+        else
+        {
+            l1->next=mergeTwoLists(l1->next,l2);
+            l2=l1;
         }
+        return l2;
     }
+
     void pushBack(int data)
     {
         ListNode* temp = new ListNode(data);
