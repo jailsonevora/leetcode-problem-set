@@ -63,3 +63,18 @@ public:
             curr->next->next = NULL;
         }
     }
+};
+
+int main(){
+    
+    Solution l1, l2;
+    l1.pushBack(1);
+    l1.pushBack(2);
+    l1.pushBack(4);
+
+    l2.pushBack(1);
+    l2.pushBack(3);
+    l2.pushBack(4);
+
+    l1.mergeTwoLists(l1.head, l2.head);
+}
