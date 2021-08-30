@@ -16,6 +16,7 @@ class Solution {
     }
 public:
     vector<int> sortArray(vector<int>& nums) {
-        mergesort(vector<int>& nums,vector<int>& tmp, int leftStart, int rightEnd);
+        vector<int> tmp;
+        mergesort(nums, tmp, 0, nums.size() -1);
     }
 };
