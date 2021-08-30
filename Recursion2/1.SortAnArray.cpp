@@ -5,49 +5,62 @@
 using namespace std;
 
 class Solution {
-    void mergeHalves(vector<int>& nums,vector<int>& tmp, int leftStart, int rightEnd){
-        int leftEnd = (rightEnd + leftStart) / 2;
-        int rightStart = leftEnd + 1;
-        int size = rightStart - leftStart + 1;
+    void mergeHalves(vector<int>& nums,vector<int>& tmp, vector<int>& tmp2){
+        int left = 0;
+        int right = 0;
 
-        int left = leftStart;
-        int right = rightStart;
-        int index = leftStart;
-
-        while (left <= leftEnd && right <= rightEnd)
+        while (left < tmp.size() && right < tmp2.size())
         {
-            if(nums[left] <= nums[right]){
-                tmp[index] = nums[left];
+            if(tmp[left] <= tmp2[right]){
+                nums.push_back(tmp[left]);
                 left++;
             }else{
-                tmp[index] = nums[right];
+                nums.push_back(tmp2[right]);
                 right++;
             }
-            index++;
         }
 
-        for (int i = 0; i < nums.size(); i++)
+        while(left < tmp.size())
         {
-            if(nums[i]){
-                tmp[index] = nums[i];
-                index++;
-            }
+            nums.push_back(tmp[left]);
+            left++;
+        }
+
+        while(right < tmp2.size())
+        {
+            nums.push_back(tmp2[right]);
+            right++;
         }
     } 
 
-    void mergesort(vector<int>& nums,vector<int>& tmp, int leftStart, int rightEnd){
-        if(leftStart >= rightEnd)
+    void mergesort(vector<int>& nums){
+        
+        if(nums.size() < 2)
             return;
 
-        int middle = (leftStart + rightEnd) / 2;
-        mergesort(nums, tmp, leftStart, middle);
-        mergesort(nums, tmp, middle + 1, rightEnd);
-        mergeHalves(nums, tmp, leftStart, rightEnd);
+        vector<int> sub1, sub2;
+        int middle = nums.size() / 2;
+
+        for (int i = 0; i < middle; i++)
+            sub1.push_back(nums[i]);
+
+        for (int i = middle; i < nums.size(); i++)
+            sub2.push_back(nums[i]);
+
+        mergesort(sub1);
+        mergesort(sub2);
+        nums.clear();
+        mergeHalves(nums, sub1, sub2);
     }
 public:
     vector<int> sortArray(vector<int>& nums) {
-        vector<int> tmp;
-        mergesort(nums, tmp, 0, nums.size() -1);
-        return tmp;
+        mergesort(nums);
+        return nums;   
     }
 };
+
+int main(){
+    vector<int> nums = {5,2,3,1};
+    Solution sl;
+    sl.sortArray(nums);
+}
