@@ -49,5 +49,8 @@ class Solution {
 public:
     vector<TreeNode*> generateTrees(int n) {
         
+        map<pair<int,int>,vector<TreeNode*>> dp;
+       
+        return help(1,n,dp);
     }
 };
