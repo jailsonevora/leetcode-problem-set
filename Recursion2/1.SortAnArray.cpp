@@ -5,21 +5,6 @@
 using namespace std;
 
 class Solution {
-    // vector<int> mergeHalves(vector<int>& nums, int i, vector<int>& tmp, int j){
-    //     if(!nums.size())
-    //         return tmp;
-    //     if(!tmp.size())
-    //         return nums;
-
-    //     if(nums[i] >= tmp[j])
-    //         tmp[j+1] = mergeHalves(nums, i, tmp, j + 1);
-    //     else
-    //     {
-    //         nums[i+1]=mergeHalves(nums,i + 1, tmp, i);
-    //         tmp=nums;
-    //     }
-    //     return tmp;
-    // }
     void mergeHalves(vector<int>& nums,vector<int>& tmp, int leftStart, int rightEnd){
         int leftEnd = (rightEnd + leftStart) / 2;
         int rightStart = leftEnd + 1;
@@ -43,8 +28,10 @@ class Solution {
 
         for (int i = 0; i < nums.size(); i++)
         {
-            tmp[index] = nums[i];
-            index++;
+            if(nums[i]){
+                tmp[index] = nums[i];
+                index++;
+            }
         }
     } 
 
