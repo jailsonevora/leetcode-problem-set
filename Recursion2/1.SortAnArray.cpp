@@ -5,8 +5,11 @@
 using namespace std;
 
 class Solution {
+    void mergeHalves(vector<int>& nums,vector<int>& tmp, int leftStart, int rightEnd){
+
+    }
     void mergesort(vector<int>& nums,vector<int>& tmp, int leftStart, int rightEnd){
-        if(leftStart >= right)
+        if(leftStart >= rightEnd)
             return;
 
         int middle = (leftStart + rightEnd) / 2;
