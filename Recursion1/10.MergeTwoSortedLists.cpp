@@ -19,6 +19,20 @@ struct ListNode {
 };
 
 class Solution {
+    void pushBack(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
+    }
 public:
 
     ListNode *head = NULL;
@@ -38,21 +52,6 @@ public:
             l2=l1;
         }
         return l2;
-    }
-
-    void pushBack(int data)
-    {
-        ListNode* temp = new ListNode(data);
-        ListNode* curr = head;
-
-        if (!head){  
-            head = temp; 
-            return;
-        }       
-
-        while(curr && curr->next) 
-            curr = curr->next;
-        curr->next = temp;
     }
 };
 
