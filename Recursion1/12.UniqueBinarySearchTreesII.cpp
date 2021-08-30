@@ -17,10 +17,9 @@ struct TreeNode {
 
 class Solution {
      //with dp using ordered_map
-    vector<TreeNode*> help(int start,int end,map<pair<int,int>,vector<TreeNode*>> &dp){
+    vector<TreeNode*> help(int start, int end, map<pair<int,int>, vector<TreeNode*>> &dp){
         if(start>end){
-            //return NULL;
-           vector<TreeNode*> ans;
+            vector<TreeNode*> ans;
             ans.push_back(NULL);
             return ans;
         }
@@ -29,8 +28,7 @@ class Solution {
             return dp[{start,end}];
          
         vector<TreeNode*> ans;
-        for(int i=start;i<=end;i++){
-            //TreeNode* root = new TreeNode(i);
+        for(int i=start; i<=end; i++){
             vector<TreeNode*> left = help(start,i-1,dp);
             vector<TreeNode*> right = help(i+1,end,dp);
             for(TreeNode* l:left){
