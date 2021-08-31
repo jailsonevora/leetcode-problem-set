@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution {
 public:
-    // iterativelly
+    // iteratively
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
 
         int row = 0, col = matrix[0].size() - 1;
