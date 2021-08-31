@@ -29,6 +29,6 @@ int main(){
         {'.','.','.','.','8','.','.','7','9'}
     };
 
-    // recursive
+    // recursive backtracking
     sl.solveSudoku(board);
 }
