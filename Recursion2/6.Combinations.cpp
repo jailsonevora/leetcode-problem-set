@@ -26,3 +26,16 @@ public:
             }
         }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    int n, k;
+
+    Solution sl;
+
+    // recursive backtracking
+    sl.combine(n = 1, k = 2);
+}
