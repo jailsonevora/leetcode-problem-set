@@ -5,6 +5,7 @@
 using namespace std;
 
 class Solution {
+    //backtracking
     int dfs(bool columns[], bool d1[], bool d2[], int n, int r){
         if(r==n){
             return 1;
@@ -31,7 +32,7 @@ public:
         memset(columns,0,sizeof(columns));
         memset(d1,0,sizeof(d1));
         memset(d2,0,sizeof(d2));
-        
+
         return dfs(columns,d1,d2,n,0);
     }
 };
