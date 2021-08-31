@@ -5,6 +5,7 @@ using namespace std;
 
 class Solution {
 public:
+    // iterativelly
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
 
         int row = 0, col = matrix[0].size() - 1;
@@ -20,6 +21,22 @@ public:
         }
         return false;        
     }
+
+    //recursive
+    bool searchMatrix(vector<vector<int>>& matrix, int target, int row, int col) {
+
+        if(row >= matrix.size() || col < 0)
+            return false;
+        
+        if(matrix[row][col] == target)
+                return true;
+
+        if(matrix[row][col] > target)
+            return searchMatrix(matrix, target, row, col - 1);
+        else
+            return searchMatrix(matrix, target, row + 1, col);
+    }
+
 };
 
 int main(){
