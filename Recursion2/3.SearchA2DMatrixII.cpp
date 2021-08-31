@@ -36,7 +36,6 @@ public:
         else
             return searchMatrix(matrix, target, row + 1, col);
     }
-
 };
 
 int main(){
@@ -52,6 +51,10 @@ int main(){
         {10,13,14,17,24},
         {18,21,23,26,30}
     };
+    
+    // iterativelly
+    //cout << sl.searchMatrix(mat, 5);
 
-    cout << sl.searchMatrix(mat, 5);
+    // recursive
+    cout << sl.searchMatrix(mat, 5, 0, mat[0].size() - 1);
 }
