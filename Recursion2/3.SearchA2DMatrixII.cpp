@@ -36,5 +36,5 @@ int main(){
         {18,21,23,26,30}
     };
 
-    sl.searchMatrix(mat, 5);
+    cout << sl.searchMatrix(mat, 5);
 }
