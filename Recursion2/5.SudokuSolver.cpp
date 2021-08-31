@@ -17,7 +17,7 @@ int main(){
     cout.tie();
 
     Solution sl;
-    vector<vector<int>> board = {
+    vector<vector<char>> board = {
         {1,4,7,11,15},
         {2,5,8,12,19},
         {3,6,9,16,22},
