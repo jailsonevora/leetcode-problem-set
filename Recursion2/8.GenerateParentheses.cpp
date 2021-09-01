@@ -25,3 +25,15 @@ public:
         return ans;
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    Solution sl;
+    int n;
+    
+    // recursive backtracking
+    sl.generateParenthesis(n = 3);
+}
