@@ -6,6 +6,7 @@
 using namespace std;
 
 class Solution {
+    //using backtracking
     void permute(vector<int> nums, int i, vector<vector<int>>& perms) {
         if (i == nums.size()) {
             perms.push_back(nums);
