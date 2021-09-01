@@ -7,7 +7,7 @@
 using namespace std;
 
 class Solution {
-    
+    // using backtracking
     void backtracking(map<int,vector<char> > &table, vector<string>& res, string& local, int index, const string& digits) {
         if(index==digits.size())
             res.push_back(local);
