@@ -10,9 +10,9 @@ public:
         
         int head = 0, tail = nums.size() - 1;
 
-        while(head < tail)
+        while(head <= tail)
         {
-            int middle = head + (tail + head) / 2;
+            int middle = head + (tail - head) / 2;
             if(nums[middle] == target)
                 return middle;
             else if(nums[middle] < target)
