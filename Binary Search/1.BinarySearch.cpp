@@ -8,18 +8,19 @@ class Solution {
 public:
     int search(vector<int>& nums, int target) {
         
-        //sort(nums.begin(), nums.end());
-
         int head = 0, tail = nums.size() - 1;
-        
 
         while(head < tail)
         {
-            int midle = head + (tail + head) / 2;
-        }
-        
-
-        
+            int middle = head + (tail + head) / 2;
+            if(nums[middle] == target)
+                return middle;
+            else if(nums[middle] < target)
+                head = middle + 1;
+            else
+                tail = middle - 1;
+        }       
+        return -1;        
     }
 };
 
