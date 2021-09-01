@@ -35,5 +35,5 @@ int main(){
     int n;
     
     // recursive backtracking
-    sl.generateParenthesis(n = 1);
+    sl.generateParenthesis(n = 3);
 }
