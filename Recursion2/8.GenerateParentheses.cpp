@@ -18,6 +18,9 @@ class Solution {
         if(closeParentheses < openParentheses)
             backtracking(ans, cur+")", openParentheses, closeParentheses+1, n);
     }
+
+
+    
 public:
     vector<string> generateParenthesis(int n) {
         vector<string> ans;
