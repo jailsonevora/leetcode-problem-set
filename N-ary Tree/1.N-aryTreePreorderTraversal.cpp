@@ -26,7 +26,7 @@ public:
 };
 
 class Solution {
-    // recursive
+    // recursive DFS
     void preorder(Node* root, vector<int>& ans){
         if(!root)
             return;
@@ -36,7 +36,7 @@ class Solution {
         for (auto child :root->children)
             preorder(child, ans);        
     }
-
+    // iterativelly DFS
     void preorder_iteratively(Node* root, vector<int>& ans){
 
         if(!root)
