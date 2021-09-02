@@ -25,7 +25,15 @@ public:
 };
 
 class Solution {
-    
+    void preorder(Node* root, vector<int>& ans){
+        if(!root)
+            return;
+        
+        ans.push_back(root->val);
+
+        for (auto child :root->children)
+            preorder(child, ans);        
+    }
 public:
     vector<int> preorder(Node* root) {
 
