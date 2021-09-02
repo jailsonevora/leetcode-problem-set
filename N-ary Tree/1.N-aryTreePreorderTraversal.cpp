@@ -39,6 +39,9 @@ class Solution {
 
     void preorder_iteratively(Node* root, vector<int>& ans){
 
+        if(!root)
+            return;
+
         stack<Node*> st;
         st.push(root);
 
