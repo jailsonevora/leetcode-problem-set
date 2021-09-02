@@ -50,12 +50,11 @@ class Solution {
         while (!st.empty())
         {
             Node* tmp = st.top();
-
-            for (auto child : tmp->children)
-                st.push(child);
-
             ans.push_back(tmp->val);
             st.pop();
+
+            for (auto child : tmp->children)
+                st.push(child);            
         }  
         reverse(ans.begin(), ans.end());     
     }
