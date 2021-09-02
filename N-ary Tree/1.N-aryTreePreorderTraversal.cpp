@@ -50,13 +50,8 @@ class Solution {
             ans.push_back(tmp->val);
 
             for (auto child : tmp->children)
-            {
-                /* code */
-            }
-            
-        }
-        
-
+                st.push(child);            
+        }       
     }
 public:
     vector<int> preorder(Node* root) {
