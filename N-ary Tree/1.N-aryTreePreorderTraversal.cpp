@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<stack>
 
 using namespace std;
 
@@ -37,7 +38,25 @@ class Solution {
     }
 
     void preorder_iteratively(Node* root, vector<int>& ans){
+
+        stack<Node*> st;
+        st.push(root);
+
+        while (!st.empty())
+        {
+            Node* tmp = st.top();
+            st.pop();
+
+            ans.push_back(tmp->val);
+
+            for (auto child : tmp->children)
+            {
+                /* code */
+            }
+            
+        }
         
+
     }
 public:
     vector<int> preorder(Node* root) {
