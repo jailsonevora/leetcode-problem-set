@@ -36,7 +36,7 @@ class Solution {
     // BFS-LevelOrder aproach Iteratively
     int BFS_Iteratively_levelOrder_maxDepth(TreeNode* root) {
         queue<TreeNode*> queue;
-        int ans;
+        int ans = 0;
 
         if(!root)
             return 0;
