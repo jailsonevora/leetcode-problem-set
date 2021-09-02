@@ -30,7 +30,7 @@ public:
     vector<vector<int>> levelOrder(Node* root) {
 
         if(!root)
-           return{{}};
+           return{};
 
         queue<Node*> queue;
         vector<vector<int>> ans;
