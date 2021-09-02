@@ -25,6 +25,7 @@ public:
 };
 
 class Solution {
+    // recursive
     void preorder(Node* root, vector<int>& ans){
         if(!root)
             return;
