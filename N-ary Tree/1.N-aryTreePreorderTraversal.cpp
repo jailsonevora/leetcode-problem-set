@@ -35,6 +35,10 @@ class Solution {
         for (auto child :root->children)
             preorder(child, ans);        
     }
+
+    void preorder_iteratively(Node* root, vector<int>& ans){
+        
+    }
 public:
     vector<int> preorder(Node* root) {
 
