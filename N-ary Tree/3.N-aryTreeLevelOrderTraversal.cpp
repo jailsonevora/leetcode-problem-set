@@ -26,11 +26,17 @@ public:
 };
 
 class Solution {
-    //recursive
+    //recursive BFS level order
     void helper(Node* root, vector<vector<int>>&res,int level){
-        if(!root)    return;
-        if(res.size()==level)res.push_back({});
+        
+        if(!root)
+            return;
+        
+        if(res.size() == level)
+            res.push_back({});
+
         res[level].push_back(root->val);
+
         for(Node* node:root->children){
             helper(node,res,level+1);
         }
