@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-#include<stack>
+#include<queue>
 
 using namespace std;
 
@@ -28,6 +28,30 @@ public:
 class Solution {
 public:
     vector<vector<int>> levelOrder(Node* root) {
-        
+
+        if(!root)
+            return;
+
+        queue<Node*> queue;
+        vector<vector<int>> ans;
+
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            int size = queue.size();
+            vector<int> tmp;
+            for (int i = 0; i < size; i++)
+            {
+                Node* curr = queue.front();
+                queue.pop();
+                tmp.push_back(curr->val);
+
+                for(auto child: curr->children)
+                    queue.push(child);                
+            }
+            ans.push_back(tmp);            
+        }
+        return ans;        
     }
 };
