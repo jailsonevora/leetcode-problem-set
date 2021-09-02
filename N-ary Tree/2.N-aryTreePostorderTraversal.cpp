@@ -58,6 +58,26 @@ class Solution {
         }  
         reverse(ans.begin(), ans.end());     
     }
+    // iterativelly DFS without Reverse
+    // C++ 17
+    // vector<int> postorder(Node* root) {
+    //     if (!root) {
+    //         return {};
+    //     }
+    //     std::stack<std::pair<Node *, int>> s;
+    //     std::vector<int> res;
+    //     s.emplace(root, 0);
+    //     while (!s.empty()) {
+    //         auto &[node, index] = s.top();
+    //         if (index == node->children.size()) {
+    //             res.push_back(node->val);
+    //             s.pop();
+    //         } else {
+    //             s.emplace(node->children[index++], 0);
+    //         }
+    //     }
+    //     return res;
+    // }
 public:
     vector<int> postorder(Node* root) {
         vector<int> ans;
