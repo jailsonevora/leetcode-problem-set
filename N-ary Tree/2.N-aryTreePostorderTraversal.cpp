@@ -25,3 +25,9 @@ public:
     }
 };
 
+class Solution {
+public:
+    vector<int> postorder(Node* root) {
+        
+    }
+};
