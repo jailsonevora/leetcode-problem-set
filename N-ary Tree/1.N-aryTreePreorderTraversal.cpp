@@ -28,6 +28,7 @@ public:
 class Solution {
     // recursive DFS
     void preorder(Node* root, vector<int>& ans){
+        
         if(!root)
             return;
         
@@ -58,10 +59,8 @@ class Solution {
     }
 public:
     vector<int> preorder(Node* root) {
-
         vector<int> ans;
         preorder(root, ans);
         return ans;
-        
     }
 };

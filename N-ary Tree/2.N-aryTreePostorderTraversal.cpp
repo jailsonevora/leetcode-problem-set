@@ -26,8 +26,43 @@ public:
 };
 
 class Solution {
+    // recursive DFS
+    void postorder(Node* root, vector<int>& ans){
+        
+        if(!root)
+            return;
+
+        for (auto child :root->children)
+            postorder(child, ans);
+
+        ans.push_back(root->val);        
+    }
+
+    // iterativelly DFS
+    void postorder_iteratively(Node* root, vector<int>& ans){
+
+        if(!root)
+            return;
+
+        stack<Node*> st;
+        st.push(root);
+
+        while (!st.empty())
+        {
+            Node* tmp = st.top();
+
+            for (auto child : tmp->children)
+                st.push(child);
+
+            ans.push_back(tmp->val);
+            st.pop();
+        }  
+        reverse(ans.begin(), ans.end());     
+    }
 public:
     vector<int> postorder(Node* root) {
-        
+        vector<int> ans;
+        postorder(root, ans);
+        return ans;
     }
 };
