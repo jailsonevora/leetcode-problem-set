@@ -26,7 +26,7 @@ public:
 };
 
 class Solution {
-    //recursive BFS level order
+    //recursive BFS level order helper
     void helper(Node* root, vector<vector<int>>&res,int level){
         
         if(!root)
@@ -42,6 +42,7 @@ class Solution {
         }
     }
 public:
+    //iteratively BFS level order
     vector<vector<int>> levelOrder(Node* root) {
 
         if(!root)
@@ -68,8 +69,9 @@ public:
             ans.push_back(tmp);            
         }
         return ans;        
-    }
-    // recursive
+    }    
+    
+    //recursive BFS level order main
     vector<vector<int>> levelOrder(Node* root) {
         vector<vector<int>>res;
         helper(root,res,0);
