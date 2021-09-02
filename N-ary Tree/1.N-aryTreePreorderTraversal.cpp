@@ -49,8 +49,8 @@ class Solution {
 
             ans.push_back(tmp->val);
 
-            for (auto child : tmp->children)
-                st.push(child);            
+            for(int i = tmp->children.size()-1; i>=0; i--)
+                st.push(tmp->children[i]);         
         }       
     }
 public:
