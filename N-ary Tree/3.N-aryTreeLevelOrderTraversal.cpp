@@ -26,6 +26,15 @@ public:
 };
 
 class Solution {
+    //recursive
+    void helper(Node* root, vector<vector<int>>&res,int level){
+        if(!root)    return;
+        if(res.size()==level)res.push_back({});
+        res[level].push_back(root->val);
+        for(Node* node:root->children){
+            helper(node,res,level+1);
+        }
+    }
 public:
     vector<vector<int>> levelOrder(Node* root) {
 
@@ -53,5 +62,11 @@ public:
             ans.push_back(tmp);            
         }
         return ans;        
+    }
+    // recursive
+    vector<vector<int>> levelOrder(Node* root) {
+        vector<vector<int>>res;
+        helper(root,res,0);
+        return res;
     }
 };
