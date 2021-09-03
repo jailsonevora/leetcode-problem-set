@@ -18,12 +18,16 @@ using namespace std;
 
 class Solution {
     //Binary Search
-    TreeNode* binarySearch(vector<int>& nums, int start, int end){
-        if (start >= end) return NULL;
-        int mid = (start + end) / 2;
+    TreeNode* binarySearch(vector<int>& nums, int head, int tail){
+        
+        if (head >= tail) 
+            return nullptr;
+            
+        int mid = (head + tail) / 2;
         TreeNode* node = new TreeNode(nums[mid]);
-        node->left = binarySearch(nums, start, mid);
-        node->right = binarySearch(nums, mid+1, end);
+        node->left = binarySearch(nums, head, mid);
+        node->right = binarySearch(nums, mid+1, tail);
+        
         return node;
     }
 public:
