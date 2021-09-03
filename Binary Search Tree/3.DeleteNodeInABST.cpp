@@ -37,8 +37,10 @@ public:
             }
         }
         else{
-            if (root->val>key)  root->left = deleteNode(root->left,key);
-            else    root->right = deleteNode(root->right,key);
+            if (root->val > key)
+                root->left = deleteNode(root->left,key);
+            else
+                root->right = deleteNode(root->right,key);
         }
         return root;
     }
