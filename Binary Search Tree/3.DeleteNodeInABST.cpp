@@ -26,13 +26,14 @@ public:
         if (root->val == key){
             if(!root->left)
                 return root->right;    //if only right child exist
-            if(!root->right) return root->left;     //if only left child exist
-            if(root->right!=NULL && root->left!=NULL){        //if both child exist then find min from right
+            if(!root->right) 
+                return root->left;     //if only left child exist
+            if(root->right && root->left){        //if both child exist then find min from right
                 TreeNode *temp = root->right;
-                while(temp->left!=NULL) temp = temp->left;
+                while(temp->left) 
+                    temp = temp->left;
                 root->val = temp->val;
-                root->right = deleteNode(root->right,root->val);
-                
+                root->right = deleteNode(root->right,root->val);                
             }
         }
         else{
