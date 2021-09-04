@@ -45,7 +45,7 @@ class Solution {
     }
     
     // recursive
-    /*void dfs_inorder(TreeNode* root, int low, int high, int& ans){
+    void dfs_inorder(TreeNode* root, int low, int high, int& ans){
         
         if(!root)
             return;
@@ -55,7 +55,7 @@ class Solution {
         
         dfs_inorder(root->left, low, high, ans);
         dfs_inorder(root->right, low, high, ans);
-    }*/
+    }
 public:
     int rangeSumBST(TreeNode* root, int low, int high) {
         int ans = 0;
