@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <unordered_set>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ public:
 
 
 // Perform BFS on the graph starting from vertex `v`
-void BFS(Graph const &graph, int v, vector<bool> &discovered)
+bool BFS(Graph const &graph, int v, vector<bool> &discovered, int N, int vu)
 {
     // create a queue for doing BFS
     queue<int> q;
@@ -62,8 +63,14 @@ void BFS(Graph const &graph, int v, vector<bool> &discovered)
                 discovered[u] = true;
                 q.push(u);
             }
+            vu++;
         }
     }
+
+    if(vu == N-1)
+        return true;
+    else
+        return false;
 }
 
 int main()
@@ -83,17 +90,21 @@ int main()
  
     // to keep track of whether a vertex is discovered or not
     vector<bool> discovered(N, false);
+    
+    
  
     // Perform BFS traversal from all undiscovered nodes to
     // cover all unconnected components of a graph
     for (int i = 0; i < N; i++)
     {
+        //bucket
+        int vu = 0;
         if (discovered[i] == false)
         {
             // start BFS traversal from vertex `i`
-            BFS(graph, i, discovered);
+            if(BFS(graph, i, discovered, N, vu))
+                break;
         }
-    }
- 
+    } 
     return 0;
 }
