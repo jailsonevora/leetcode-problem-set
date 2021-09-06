@@ -75,7 +75,8 @@ int main()
     };
  
     // total number of nodes in the graph
-    int N = edges.size()+1;
+    // number of node + zero index in c++
+    int N = 5;
  
     // build a graph from the given edges
     Graph graph(edges, N);
