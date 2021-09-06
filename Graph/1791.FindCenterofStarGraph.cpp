@@ -71,11 +71,10 @@ int main()
     // vector of graph edges as per the above diagram
     vector<Edge> edges = {
         {1, 2}, {2, 3}, {4, 2}
-        // vertex 0, 13, and 14 are single nodes
     };
  
     // total number of nodes in the graph
-    int N = 4;
+    int N = 3;
  
     // build a graph from the given edges
     Graph graph(edges, N);
