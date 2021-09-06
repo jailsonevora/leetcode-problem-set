@@ -31,3 +31,35 @@ public:
         }
     }
 };
+
+int main()
+{
+    // vector of graph edges as per the above diagram
+    vector<Edge> edges = {
+        {1, 2}, {1, 3}, {1, 4}, {2, 5}, {2, 6}, {5, 9},
+        {5, 10}, {4, 7}, {4, 8}, {7, 11}, {7, 12}
+        // vertex 0, 13, and 14 are single nodes
+    };
+ 
+    // total number of nodes in the graph
+    int N = 15;
+ 
+    // build a graph from the given edges
+    Graph graph(edges, N);
+ 
+    // to keep track of whether a vertex is discovered or not
+    vector<bool> discovered(N, false);
+ 
+    // Perform BFS traversal from all undiscovered nodes to
+    // cover all unconnected components of a graph
+    for (int i = 0; i < N; i++)
+    {
+        if (discovered[i] == false)
+        {
+            // start BFS traversal from vertex `i`
+            BFS(graph, i, discovered);
+        }
+    }
+ 
+    return 0;
+}
