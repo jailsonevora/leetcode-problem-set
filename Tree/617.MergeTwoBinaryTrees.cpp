@@ -38,18 +38,19 @@ public:
 
         if (!root1 && !root2)
             return nullptr;
+        
         if (!root1 || !root2) 
-        return root1 ? root1 : root2;
+            return root1 ? root1 : root2;
 
         stack<TreeNode*> st1, st2;
 
-        st1.push(root1);
-        st2.push(root2);
+        st1.push(root1), st2.push(root2);
 
         while(!st1.empty()){
             
             TreeNode* tmp1 = st1.top();
             TreeNode* tmp2 = st2.top();
+            
             st1.pop(), st2.pop();
 
             tmp1->val += tmp2->val;
