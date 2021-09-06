@@ -34,6 +34,39 @@ public:
     }
 
     //iteratively with stack
+    TreeNode* dfs_stack(TreeNode* root1, TreeNode* root2){
+
+        stack<TreeNode*> st1, st2;
+
+        if(root1)
+
+        st1.push(root1);
+        st2.push(root2);
+
+        while(!st1.empty() || st2.empty()){
+            
+            TreeNode* tmp1 = st1.top();
+            TreeNode* tmp2 = st2.top();
+            st1.pop(), st2.pop();
+
+            tmp1->val += tmp2->val;
+            
+            if(!tmp1->left && tmp2->left)
+                tmp1->left = tmp2->left;                
+            else if (!tmp1->left && tmp2->left){
+                st1.push(tmp1->left);
+                st1.push(tmp2->left);
+            }
+
+            if(!tmp1->right && tmp2->right)
+                tmp1->right = tmp2->right;                
+            else if (!tmp1->right && tmp2->right){
+                st1.push(tmp1->right);
+                st1.push(tmp2->right);
+            }
+        }
+        return root1;
+    }
 
 
 };
