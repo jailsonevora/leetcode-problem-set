@@ -19,6 +19,7 @@ using namespace std;
 
 class Solution {
 public:
+    //recursively
     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
         
         if (!root1 || !root2) 
