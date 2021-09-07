@@ -33,7 +33,7 @@ public:
 };
 
 class Solution {
-    bool bfs(int n, vector<vector<int>>& edges, int start, int end, int node, vector<bool> &discovered){
+    bool bfs(int n, vector<vector<int>>& edges, int start, int end, vector<bool> &discovered){
 
 
 
@@ -46,12 +46,7 @@ public:
         // to keep track of whether a vertex is discovered or not
         vector<bool> discovered(n, false);
         
-        // Perform BFS traversal from all undiscovered nodes to
-        // cover all unconnected components of a graph
-        for (int node = 0; node < n; node++)
-            // start BFS traversal from vertex `i`
-            if(bfs(n, edges, start, end, node, discovered))
-                    break;
+        bfs(n, edges, start, end, discovered);
     }
 };
 
@@ -71,8 +66,5 @@ int main()
     Graph graph(edges, N);
     
     Solution sl;
-    sl.validPath(N, graph.adjList, 0, 2);
-    
-    
-    return 0;
+    cout << sl.validPath(N, graph.adjList, 0, 2);
 }
