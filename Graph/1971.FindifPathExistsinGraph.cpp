@@ -37,13 +37,13 @@ int main()
 {
     // vector of graph edges as per the above diagram
     vector<Edge> edges = {
-        {1, 2}, {2, 3}, {4, 2}
+        {0, 1}, {1, 2}, {2, 0}
         // vertex 0, 13, and 14 are single nodes
     };
  
     // total number of nodes in the graph
     // number of node + zero index in c++
-    int N = 5;
+    int N = 3;
  
     // build a graph from the given edges
     Graph graph(edges, N);
@@ -52,6 +52,19 @@ int main()
     vector<bool> discovered(N, false);
     
     //Solution sl;
+    // Perform BFS traversal from all undiscovered nodes to
+    // cover all unconnected components of a graph
+    for (int i = 0; i < N; i++)
+    {
+        //bucket
+        int vu = 0;
+        if (discovered[i] == false)
+        {
+            // start BFS traversal from vertex `i`
+            if(BFS(graph, i, discovered, N, vu))
+                break;
+        }
+    } 
     
     return 0;
 }
