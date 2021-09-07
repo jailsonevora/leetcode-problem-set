@@ -34,8 +34,14 @@ public:
 
 class Solution {
 public:
+    //bfs
     bool validPath(int n, vector<vector<int>>& edges, int start, int end) {
-        
+        // Perform BFS traversal from all undiscovered nodes to
+        // cover all unconnected components of a graph
+        for (int i = 0; i < N; i++)
+            // start BFS traversal from vertex `i`
+            if(bfs(N, edges, start, end, i))
+                    break;
     }
 };
 
@@ -57,20 +63,8 @@ int main()
     // to keep track of whether a vertex is discovered or not
     vector<bool> discovered(N, false);
     
-    //Solution sl;
-    // Perform BFS traversal from all undiscovered nodes to
-    // cover all unconnected components of a graph
-    for (int i = 0; i < N; i++)
-    {
-        //bucket
-        int vu = 0;
-        if (discovered[i] == false)
-        {
-            // start BFS traversal from vertex `i`
-            if(BFS(graph, i, discovered, N, vu))
-                break;
-        }
-    } 
+    Solution sl;
+    
     
     return 0;
 }
