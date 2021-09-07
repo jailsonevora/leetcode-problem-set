@@ -64,7 +64,7 @@ public:
         // to keep track of whether a vertex is discovered or not
         vector<bool> discovered(n, false);
         
-        bfs(n, edges, start, end, discovered);
+        return bfs(n, edges, start, end, discovered);
     }
 };
 
