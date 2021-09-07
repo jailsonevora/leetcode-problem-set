@@ -60,7 +60,6 @@ public:
     //bfs
     bool validPath(int n, vector<vector<int>>& edges, int start, int end) {
         
-        
         // to keep track of whether a vertex is discovered or not
         vector<bool> discovered(n, false);
         
@@ -87,5 +86,5 @@ int main()
     Graph graph(edges, N);
     
     Solution sl;
-    cout << sl.validPath(N, graph.adjList, 0, 2);
+    std::cout << sl.validPath(N, graph.adjList, 0, 2);
 }
