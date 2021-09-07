@@ -37,12 +37,19 @@ class Solution {
 public:
     int findCenter(vector<vector<int>>& edges) 
     {
-        if(edges[0][0]==edges[1][0])
-            return edges[0][0];
-        else if(edges[0][0]==edges[1][1])
-            return edges[0][0];
-        else
-            return edges[0][1];
+        unordered_set<int> node;
+        for (auto edge : edges)
+        {
+            if (node.count(edge[0])) 
+                return edge[0];
+            if (node.count(edge[1])) 
+                return edge[1];
+            
+            node.insert(edge[0]);
+            node.insert(edge[1]);
+        }
+        
+        return -1;
     }
 };
 
@@ -64,7 +71,9 @@ int main()
     // to keep track of whether a vertex is discovered or not
     vector<bool> discovered(N, false);
     
- 
+    Solution sl;
+
+    cout << sl.findCenter(graph.adjList);
     
     return 0;
 }
