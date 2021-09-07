@@ -51,9 +51,7 @@ int main()
     // to keep track of whether a vertex is discovered or not
     vector<bool> discovered(N, false);
     
-    Solution sl;
-
-    cout << sl.findCenter(graph.adjList);
+    //Solution sl;
     
     return 0;
 }
