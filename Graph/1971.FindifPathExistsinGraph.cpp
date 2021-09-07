@@ -80,11 +80,11 @@ int main()
  
     // total number of nodes in the graph
     // number of node + zero index in c++
-    int N = 3;
+    int N = 6;
  
     // build a graph from the given edges
     Graph graph(edges, N);
     
     Solution sl;
-    std::cout << sl.validPath(N, graph.adjList, 0, 2);
+    std::cout << sl.validPath(N, graph.adjList, 0, 5);
 }
