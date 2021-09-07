@@ -1,7 +1,6 @@
 #include <iostream>
 #include <queue>
 #include <vector>
-#include <unordered_set>
 
 using namespace std;
 
@@ -35,8 +34,27 @@ public:
 class Solution {
     bool bfs(int n, vector<vector<int>>& edges, int start, int end, vector<bool> &discovered){
 
+        queue<int> queue;
 
+        discovered[start] = true;
 
+        queue.push(start);
+
+        while (!queue.empty())
+        {
+            start = queue.front();
+            queue.pop();
+
+            for (int u: edges[start])
+                if (!discovered[u])
+                {
+                    discovered[u] = true;
+                    queue.push(u);
+                    if (u == end)
+                        return true;
+                }
+        }
+        return false;
     }
 public:
     //bfs
