@@ -12,8 +12,7 @@ struct Edge {
 };
 
 // A class to represent a graph object
-class Graph
-{
+class Graph {
 public:
     // a vector of vectors to represent an adjacency list
     vector<vector<int>> adjList;
@@ -30,6 +29,13 @@ public:
             adjList[edge.src].push_back(edge.dest);
             adjList[edge.dest].push_back(edge.src);
         }
+    }
+};
+
+class Solution {
+public:
+    bool validPath(int n, vector<vector<int>>& edges, int start, int end) {
+        
     }
 };
 
