@@ -33,45 +33,18 @@ public:
     }
 };
 
-
-// Perform BFS on the graph starting from vertex `v`
-bool BFS(Graph const &graph, int v, vector<bool> &discovered, int N, int vu)
-{
-    // create a queue for doing BFS
-    queue<int> q;
- 
-    // mark the source vertex as discovered
-    discovered[v] = true;
- 
-    // enqueue source vertex
-    q.push(v);
- 
-    // loop till queue is empty
-    while (!q.empty())
+class Solution {
+public:
+    int findCenter(vector<vector<int>>& edges) 
     {
-        // dequeue front node and print it
-        v = q.front();
-        q.pop();
-        cout << v << " ";
- 
-        // do for every edge `v —> u`
-        for (int u: graph.adjList[v])
-        {
-            if (!discovered[v])
-            {
-                // mark it as discovered and enqueue it
-                discovered[v] = true;
-                q.push(u);
-            }
-            vu++;
-        }
+        if(edges[0][0]==edges[1][0])
+            return edges[0][0];
+        else if(edges[0][0]==edges[1][1])
+            return edges[0][0];
+        else
+            return edges[0][1];
     }
-
-    if(vu == N-2)
-        return true;
-    else
-        return false;
-}
+};
 
 int main()
 {
@@ -91,20 +64,7 @@ int main()
     // to keep track of whether a vertex is discovered or not
     vector<bool> discovered(N, false);
     
-    
  
-    // Perform BFS traversal from all undiscovered nodes to
-    // cover all unconnected components of a graph
-    for (int i = 0; i < N; i++)
-    {
-        //bucket
-        int vu = 0;
-        if (discovered[i] == false)
-        {
-            // start BFS traversal from vertex `i`
-            if(BFS(graph, i, discovered, N, vu))
-                break;
-        }
-    } 
+    
     return 0;
 }
