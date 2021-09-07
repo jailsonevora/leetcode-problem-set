@@ -71,9 +71,12 @@ public:
 int main()
 {
     // vector of graph edges as per the above diagram
+    // vector<Edge> edges = {
+    //     {0, 1}, {1, 2}, {2, 0}
+    // };
+
     vector<Edge> edges = {
-        {0, 1}, {1, 2}, {2, 0}
-        // vertex 0, 13, and 14 are single nodes
+        {0,1},{0,2},{3,5},{5,4},{4,3}
     };
  
     // total number of nodes in the graph
