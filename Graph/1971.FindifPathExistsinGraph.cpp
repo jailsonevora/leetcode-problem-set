@@ -34,6 +34,17 @@ public:
 class Solution {
     bool bfs(int n, vector<vector<int>>& edges, int start, int end, vector<bool> &discovered){
 
+        if (start == end)
+            return true;
+
+        // to use in leetcode
+        // vector<vector<int>> graph(n);
+        // for (auto &edge: edges)
+        // {
+        //     graph[edge[0]].push_back(edge[1]);
+        //     graph[edge[1]].push_back(edge[0]);
+        // }
+
         queue<int> queue;
 
         discovered[start] = true;
