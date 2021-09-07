@@ -33,14 +33,17 @@ public:
 };
 
 class Solution {
+    bool bfs(int n, vector<vector<int>>& edges, int start, int end, int node){
+
+    }
 public:
     //bfs
     bool validPath(int n, vector<vector<int>>& edges, int start, int end) {
         // Perform BFS traversal from all undiscovered nodes to
         // cover all unconnected components of a graph
-        for (int i = 0; i < N; i++)
+        for (int node = 0; node < n; node++)
             // start BFS traversal from vertex `i`
-            if(bfs(N, edges, start, end, i))
+            if(bfs(N, edges, start, end, node))
                     break;
     }
 };
