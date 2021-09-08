@@ -31,6 +31,12 @@ public:
 };
 
 class Solution {
+    //iteratively
+    bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
+
+        
+    }
+    // recursive
     bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
 
         if(discovered[v] == 1) // viseted
