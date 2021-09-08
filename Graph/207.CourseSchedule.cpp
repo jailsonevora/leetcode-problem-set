@@ -70,3 +70,25 @@ public:
         return true;
     }   
 };
+
+int main()
+{
+    // vector of graph edges as per the above diagram
+    // vector<Edge> edges = {
+    //     {0, 1}, {1, 2}, {2, 0}
+    // };
+
+    vector<Edge> edges = {
+        {0,1},{0,2},{3,5},{5,4},{4,3}
+    };
+ 
+    // total number of nodes in the graph
+    // number of node + zero index in c++
+    int N = 6;
+ 
+    // build a graph from the given edges
+    Graph graph(edges, N);
+    
+    Solution sl;
+    std::cout << sl.validPath(N, graph.adjList, 0, 5);
+}
