@@ -38,26 +38,35 @@ class Solution {
         stack<int> stack;
     
         stack.push(v);
+
+        discovered[v] = 1;
         
         while (!stack.empty())
         {
             int node = stack.top();
             stack.pop();
 
-            discovered[node] = 1;
-            
+            int countChildren = 0;
+
             // reverse
             for (auto it = graph[node].rbegin(); it != graph[node].rend(); it++)
             {
                 int u = *it;
-                if (!discovered[u])
-                    stack.push(u);
                 
-                if ((discovered[v] && u == v) || (discovered[node] && u == node) || v == node )
-                    return true;
+                if(discovered[u] == 1)
+                    return false;
+
+                if (discovered[u] == 2)
+                    countChildren++;
+                else{
+                    stack.push(u);
+                    discovered[u] = 1;
+                }
             }
+            if(countChildren == graph[node].size())
+                stack.pop(), discovered[node] = 2;
         }
-        return false;
+        return true;
     }
     // recursive
     bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
@@ -100,17 +109,17 @@ public:
 int main()
 {
     // vector of graph edges as per the above diagram
-    // vector<Edge> edges = {
-    //     {0, 1}, {1, 2}, {2, 0}
-    // };
+    vector<Edge> edges = {
+        {0, 1}, {1, 2}, {2, 0}
+    };
 
     // vector<Edge> edges = {
     //     {1,0},{0,1}
     // };
 
-    vector<Edge> edges = {
-        {0,1},{3,1},{1,3},{3,2}
-    };
+    // vector<Edge> edges = {
+    //     {0,1},{3,1},{1,3},{3,2}
+    // };
  
     // total number of nodes in the graph
     // number of node + zero index in c++
