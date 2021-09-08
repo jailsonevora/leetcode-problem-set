@@ -45,24 +45,18 @@ class Solution {
         {
             int node = stack.top();
             stack.pop();
-
-            int countChildren = 0;
-
-            // reverse
+            
             for (int u : graph[node])
             {
                 
                 if(discovered[u] == 2)
                     return true;
 
-                if (discovered[u] == 1){
+                if (!discovered[u])
                     stack.push(u);
-                    discovered[u] = 2;
-                }
-            }
-            // if(countChildren == graph[node].size())
-            //     stack.pop(), discovered[node] = 2;
+            };
         }
+        discovered[v] = 1;
         return false;
     }
     // recursive
@@ -95,7 +89,7 @@ public:
         vector<int> discovered(numCourses, 0);
 
         for(int node = 0; node < numCourses; node++)
-            if (!discovered[node])
+            //if (!discovered[node])
                 //if(dfs(node, graph, discovered))
                     if(dfs_iteratively(node, prerequisites, discovered))
                         return false;
