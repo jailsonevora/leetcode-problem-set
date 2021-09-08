@@ -25,7 +25,7 @@ public:
         for (auto &edge: edges)
         {
             adjList[edge.src].push_back(edge.dest);
-            adjList[edge.dest].push_back(edge.src);
+            //adjList[edge.dest].push_back(edge.src);
         }
     }
 };
@@ -45,14 +45,16 @@ class Solution {
             stack.pop();
 
             discovered[node] = 1;
-
+            
+            // reverse
             for (auto it = graph[node].rbegin(); it != graph[node].rend(); it++)
             {
                 int u = *it;
-                if (discovered[u] == 1 && u == v)
-                    return true;
-                else if (!discovered[u])
+                if (!discovered[u])
                     stack.push(u);
+                
+                if ((discovered[u] && u == v) || discovered[u] && u == node )
+                    return true;
             }
         }
         return false;
@@ -79,18 +81,17 @@ class Solution {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         
-        vector<vector<int>> graph(numCourses);
-        
         //to convert edge list to adjacent list
-        for (auto &edge: prerequisites)
-            graph[edge[0]].push_back(edge[1]);
+        //vector<vector<int>> graph(numCourses);
+        /*for (auto &edge: prerequisites)
+            graph[edge[0]].push_back(edge[1]);*/
         
         vector<int> discovered(numCourses, 0);
 
         for(int node = 0; node < numCourses; node++)
             if (!discovered[node])
                 //if(dfs(node, graph, discovered))
-                    if(dfs_iteratively(node, graph, discovered))
+                    if(dfs_iteratively(node, prerequisites, discovered))
                         return false;
         return true;
     }   
@@ -113,7 +114,7 @@ int main()
  
     // total number of nodes in the graph
     // number of node + zero index in c++
-    int N = 3;
+    int N = 4;
  
     // build a graph from the given edges
     Graph graph(edges, N);
