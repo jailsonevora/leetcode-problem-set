@@ -1,5 +1,5 @@
 #include <iostream>
-#include <queue>
+#include <stack>
 #include <vector>
 
 using namespace std;
@@ -34,7 +34,36 @@ class Solution {
     //iteratively
     bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
 
-        
+        // create a stack used to do iterative DFS
+        stack<int> stack;
+    
+        // push the source node into the stack
+        stack.push(v);
+ 
+        // loop till stack is empty
+        while (!stack.empty())
+        {
+            // Pop a vertex from the stack
+            int node = stack.top();
+            stack.pop();
+
+            // we will reach here if the popped vertex `v`
+            // is not discovered yet; print it and process
+            // its undiscovered adjacent nodes into the stack
+            discovered[node] = true;
+
+            // do for every edge `v —> u`
+            // we are using reverse iterator (Why?)
+            for (auto it = graph[node].rbegin(); it != graph[node].rend(); it++)
+            {
+                int u = *it;
+                if (discovered[node] && u == node) {
+                    return true;
+                if (!discovered[u])
+                    stack.push(u);
+            }
+        }
+        return false;
     }
     // recursive
     bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
@@ -60,7 +89,7 @@ public:
         
         vector<vector<int>> graph(numCourses);
         
-        //to convert adjacent list to adjacent matrix
+        //to convert edge list to adjacent list
         for (auto &edge: prerequisites)
             graph[edge[0]].push_back(edge[1]);
         
