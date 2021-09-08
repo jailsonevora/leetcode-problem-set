@@ -37,29 +37,21 @@ class Solution {
         // create a stack used to do iterative DFS
         stack<int> stack;
     
-        // push the source node into the stack
         stack.push(v);
- 
-        // loop till stack is empty
+        
         while (!stack.empty())
         {
-            // Pop a vertex from the stack
             int node = stack.top();
             stack.pop();
 
-            // we will reach here if the popped vertex `v`
-            // is not discovered yet; print it and process
-            // its undiscovered adjacent nodes into the stack
-            discovered[node] = true;
+            discovered[node] = 1;
 
-            // do for every edge `v —> u`
-            // we are using reverse iterator (Why?)
             for (auto it = graph[node].rbegin(); it != graph[node].rend(); it++)
             {
                 int u = *it;
-                if (discovered[node] && u == node) {
+                if (discovered[u] == 1 && u == v)
                     return true;
-                if (!discovered[u])
+                else if (!discovered[u])
                     stack.push(u);
             }
         }
@@ -111,13 +103,17 @@ int main()
     //     {0, 1}, {1, 2}, {2, 0}
     // };
 
+    // vector<Edge> edges = {
+    //     {1,0},{0,1}
+    // };
+
     vector<Edge> edges = {
-        {1,0},{0,1}
+        {0,1},{3,1},{1,3},{3,2}
     };
  
     // total number of nodes in the graph
     // number of node + zero index in c++
-    int N = 2;
+    int N = 3;
  
     // build a graph from the given edges
     Graph graph(edges, N);
