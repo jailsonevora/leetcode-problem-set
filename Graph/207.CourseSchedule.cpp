@@ -31,14 +31,14 @@ public:
 };
 
 class Solution {
-    bool dfs(int v, vector<vector<int>>& graph, vector<bool> &discovered){
+    bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
 
         if(discovered[v] == 1) // viseted
             return false;
-        if(discovered[v] == 2) //processed
+        if(discovered[v] == 2) // processing
             return true;
         
-        // mark the current node as discovered
+        // mark the current node as processing
         discovered[v] = 2;
 
         // do for every edge `v —> u`
@@ -46,25 +46,22 @@ class Solution {
             if(dfs(u, graph, discovered))
                 return true;
         
-        discovered[v] = 1; //processed
+        discovered[v] = 1; // viseted
         return false;
     }
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         
-        
         vector<vector<int>> graph(numCourses);
+        
+        //to convert leet code adjacent list to adjacent matrix
         for (auto &edge: prerequisites)
-        {
-             graph[edge[0]].push_back(edge[1]);
-             //graph[edge[1]].push_back(edge[0]);
-        }
+            graph[edge[0]].push_back(edge[1]);
         
-        vector<bool> discovered(numCourses, 0);
+        vector<int> discovered(numCourses, 0);
 
-        
-        for(int node = 0; node < numCourses; ++node)
-            if (discovered[node] == 0)
+        for(int node = 0; node < numCourses; node++)
+            if (!discovered[node])
                 if(dfs(node, graph, discovered))
                     return false;
         return true;
