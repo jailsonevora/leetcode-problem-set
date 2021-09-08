@@ -54,7 +54,7 @@ public:
         
         vector<vector<int>> graph(numCourses);
         
-        //to convert leet code adjacent list to adjacent matrix
+        //to convert adjacent list to adjacent matrix
         for (auto &edge: prerequisites)
             graph[edge[0]].push_back(edge[1]);
         
