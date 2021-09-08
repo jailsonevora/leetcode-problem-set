@@ -79,16 +79,16 @@ int main()
     // };
 
     vector<Edge> edges = {
-        {0,1},{0,2},{3,5},{5,4},{4,3}
+        {1,0},{0,1}
     };
  
     // total number of nodes in the graph
     // number of node + zero index in c++
-    int N = 6;
+    int N = 2;
  
     // build a graph from the given edges
     Graph graph(edges, N);
     
     Solution sl;
-    std::cout << sl.validPath(N, graph.adjList, 0, 5);
+    std::cout << sl.canFinish(N, graph.adjList);
 }
