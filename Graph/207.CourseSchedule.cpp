@@ -4,6 +4,10 @@
 
 using namespace std;
 
+// Data structure to store a graph edge
+struct Edge {
+    int src, dest;
+};
 
 class Solution {
     bool dfs(int v, vector<vector<int>>& graph, vector<bool> &discovered){
