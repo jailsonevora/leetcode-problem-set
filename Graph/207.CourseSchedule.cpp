@@ -53,7 +53,7 @@ class Solution {
                 if (!discovered[u])
                     stack.push(u);
                 
-                if ((discovered[u] && u == v) || discovered[u] && u == node )
+                if ((discovered[v] && u == v) || (discovered[node] && u == node) || v == node )
                     return true;
             }
         }
