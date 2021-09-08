@@ -39,7 +39,7 @@ class Solution {
     
         stack.push(v);
 
-        discovered[v] = 1;
+        discovered[v] = 2;
         
         while (!stack.empty())
         {
@@ -49,24 +49,21 @@ class Solution {
             int countChildren = 0;
 
             // reverse
-            for (auto it = graph[node].rbegin(); it != graph[node].rend(); it++)
+            for (int u : graph[node])
             {
-                int u = *it;
                 
-                if(discovered[u] == 1)
-                    return false;
+                if(discovered[u] == 2)
+                    return true;
 
-                if (discovered[u] == 2)
-                    countChildren++;
-                else{
+                if (discovered[u] == 1){
                     stack.push(u);
-                    discovered[u] = 1;
+                    discovered[u] = 2;
                 }
             }
-            if(countChildren == graph[node].size())
-                stack.pop(), discovered[node] = 2;
+            // if(countChildren == graph[node].size())
+            //     stack.pop(), discovered[node] = 2;
         }
-        return true;
+        return false;
     }
     // recursive
     bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
