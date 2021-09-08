@@ -32,7 +32,7 @@ public:
 
 class Solution {
     //iteratively
-    bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
+    bool dfs_iteratively(int v, vector<vector<int>>& graph, vector<int> &discovered){
 
         // create a stack used to do iterative DFS
         stack<int> stack;
@@ -97,8 +97,9 @@ public:
 
         for(int node = 0; node < numCourses; node++)
             if (!discovered[node])
-                if(dfs(node, graph, discovered))
-                    return false;
+                //if(dfs(node, graph, discovered))
+                    if(dfs_iteratively(node, graph, discovered))
+                        return false;
         return true;
     }   
 };
