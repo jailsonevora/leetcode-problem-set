@@ -71,8 +71,7 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         int min = INT_MAX;
-        vector<int> result;
-        queue<int> queue;
+        vector<int> tmp(n);
 
         //for each unvisited node traverse and push to global stack
         for(int node = 0; node < n; node++)
@@ -80,16 +79,18 @@ public:
             int ans = bfs(node, graph);
             if(ans <= min){
                 min = ans;
-                queue.push(make_pair(node,ans));
+                tmp.insert(node,ans);
             }
-            for(auto r: queue)
-                if(r >= ans)
-                    result[]
-
+            for(int i=0; i < tmp.size(); ++i)
+                if(tmp[i] >= ans)
+                    tmp[i] = INT_MAX;
         }
+        vector<int> result;
+        for(int i=0; i < tmp.size(); ++i)
+            if(tmp[i] != INT_MAX)
+                result.push_back(i);
 
         return result;
-        
     }
 };
 
