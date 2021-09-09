@@ -107,8 +107,10 @@ public:
         
         // reverse global stack
         vector<int> revereStack;
-        for (int i = 0; i < stack.size(); i++)
-            revereStack.push_back(stack.top()), stack.pop();
+        while (!stack.empty()){
+            revereStack.push_back(stack.top());
+            stack.pop();
+        }
 
         return revereStack;         
     }  
@@ -120,7 +122,7 @@ int main()
     vector<Edge> edges = {
         {1, 0}
     };
-    int N = 4;
+    int N = 2;
 
     // vector<Edge> edges = {
     //      {1,0},{2,0},{3,1},{3,2}
