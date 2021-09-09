@@ -27,7 +27,7 @@ public:
             for (auto &edge: edges)
             {
                 adjList[edge.src].push_back(edge.dest);
-                //adjList[edge.dest].push_back(edge.src);
+                adjList[edge.dest].push_back(edge.src);
             }
         }
     }
@@ -40,12 +40,13 @@ class Solution {
     //         _dfs(v, graph, min, ans+1);
     //     ans = std::min(ans, min);
     // }
-    int _bfs(int u, vector<vector<int>>& graph){
+    int _bfs(int u, vector<vector<int>>& graph, vector<int>& discovery){
 
         queue<int> queue;
-        int ans;
+        int ans = 0;
 
-        queue.push(root);
+        queue.push(u);        
+        dicovery[u] = 2;
 
         while (!queue.empty())
         {
@@ -55,31 +56,40 @@ class Solution {
                 int node = queue.front();
                 queue.pop();
 
-                for(auto child: graph[node])
-                    queue.push(child);                
+                for(auto v: graph[node]){
+                    if (discovered[v] != 1){
+                        queue.push(v);
+                        if (!(discovered[v] == 2))
+                            discovered[v] = 1;
+                    }
+                }                
             }
             ans++;            
         }
         return ans;        
     }
 public:
-    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& graph) {
 
         //to convert edge list to adjacent list
-        vector<vector<int>> graph(n);
-        for (auto &edge: edges)
-            graph[edge[0]].push_back(edge[1]);
+        // vector<vector<int>> graph(n);
+        // for (auto &edge: edges)
+        //     graph[edge[0]].push_back(edge[1]);
+        //     graph[edge[1]].push_back(edge[0]);
 
         int min = INT_MAX;
-        vector<int> tmp(n);
+        vector<int> tmp(n), dicovery(n, 0);
 
         //for each unvisited node traverse and push to global stack
         for(int node = 0; node < n; node++)
         {
-            int ans = bfs(node, graph);
+            if(discovery[node] == 2)
+                continue;
+
+            int ans = _bfs(node, graph, dicovery);
             if(ans <= min){
                 min = ans;
-                tmp.insert(node,ans);
+                tmp.insert(tmp.begin()+node,ans);
             }
             for(int i=0; i < tmp.size(); ++i)
                 if(tmp[i] >= ans)
@@ -99,19 +109,23 @@ int main()
 {
     // vector of graph edges as per the above diagram
     // vector<Edge> edges = {
-    //     {1, 0}
-    // };
-    // int N = 2;
-
-    // vector<Edge> edges = {
-    //      {1,0},{2,0},{3,1},{3,2}
+    //     {1,0},{1,2},{1,3}
     // };
     // int N = 4;
 
+    // vector<Edge> edges = {
+    //      {3,0},{3,1},{3,2},{3,4},{5,4}
+    // };
+    // int N = 6;
+
+    // vector<Edge> edges = {        
+    // };
+    // int N = 1;
+
     vector<Edge> edges = {
-        
+        {0, 1}        
     };
-    int N = 1;
+    int N = 2;
  
     // build a graph from the given edges
     Graph graph(edges, N);
