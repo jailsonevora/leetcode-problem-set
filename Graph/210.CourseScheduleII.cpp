@@ -100,10 +100,12 @@ public:
         stack<int> stack;
         vector<int> discovered(numCourses, 0);
 
+        //for each unvised node traverse and push to global stack
         for(int node = 0; node < numCourses; node++)
             if(!discovered[node])
                 dfs_iteratively(node, prerequisites, discovered, stack);      
         
+        // reverse global stack
         vector<int> revereStack;
         for (int i = 0; i < stack.size(); i++)
             revereStack.push_back(stack.top()), stack.pop();
@@ -135,5 +137,6 @@ int main()
     Graph graph(edges, N);
     
     Solution sl;
-    std::cout << sl.canFinish(N, graph.adjList);
+    for(auto v: sl.findOrder(N, graph.adjList))
+        cout << v << "\n";
 }
