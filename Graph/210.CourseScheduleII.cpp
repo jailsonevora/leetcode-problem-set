@@ -59,9 +59,42 @@ class Solution {
                 if(dfs(node, prerequisites, discovered))
                         return false;
         return true;
-    } 
+    }
+    //iteratively
+    bool dfs_iteratively(int v, vector<vector<int>>& graph, vector<int> &discovered){
+
+        // create a stack used to do iterative DFS
+        stack<int> stack;
+    
+        stack.push(v);
+
+        discovered[v] = 2;
+        
+        while (!stack.empty())
+        {
+            int node = stack.top();
+            stack.pop();
+            
+            for (int u : graph[node])
+            {
+                
+                if(discovered[u] == 2)
+                    return true;
+
+                if (!discovered[u])
+                    stack.push(u);
+            };
+        }
+        discovered[v] = 1;
+        return false;
+    }
 public:    
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+
+        if(!canFinish(numCourses, prerequisites))
+            return vector<int>{};
+        
+        
         
     }  
 };
