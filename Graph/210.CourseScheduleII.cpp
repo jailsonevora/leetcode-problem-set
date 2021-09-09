@@ -51,12 +51,7 @@ class Solution {
         return false;
     }
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        
-        //to convert edge list to adjacent list
-        //vector<vector<int>> graph(numCourses);
-        /*for (auto &edge: prerequisites)
-            graph[edge[0]].push_back(edge[1]);*/
-        
+                
         vector<int> discovered(numCourses, 0);
 
         for(int node = 0; node < numCourses; node++)
@@ -65,8 +60,7 @@ class Solution {
                         return false;
         return true;
     } 
-public:
-    
+public:    
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
         
     }  
