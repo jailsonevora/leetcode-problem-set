@@ -46,7 +46,7 @@ class Solution {
         int ans = 0;
 
         queue.push(u);        
-        dicovery[u] = 2;
+        discovery[u] = 2;
 
         while (!queue.empty())
         {
@@ -57,10 +57,10 @@ class Solution {
                 queue.pop();
 
                 for(auto v: graph[node]){
-                    if (discovered[v] != 1){
+                    if (discovery[v] != 1){
                         queue.push(v);
-                        if (!(discovered[v] == 2))
-                            discovered[v] = 1;
+                        if (!(discovery[v] == 2))
+                            discovery[v] = 1;
                     }
                 }                
             }
@@ -78,7 +78,7 @@ public:
         //     graph[edge[1]].push_back(edge[0]);
 
         int min = INT_MAX;
-        vector<int> tmp(n), dicovery(n, 0);
+        vector<int> tmp(n), discovery(n, 0);
 
         //for each unvisited node traverse and push to global stack
         for(int node = 0; node < n; node++)
@@ -86,7 +86,7 @@ public:
             if(discovery[node] == 2)
                 continue;
 
-            int ans = _bfs(node, graph, dicovery);
+            int ans = _bfs(node, graph, discovery);
             if(ans <= min){
                 min = ans;
                 tmp.insert(tmp.begin()+node,ans);
