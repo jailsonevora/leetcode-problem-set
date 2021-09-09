@@ -61,9 +61,8 @@ public:
         vector<int> discovered(numCourses, 0);
 
         for(int node = 0; node < numCourses; node++)
-            //if (!discovered[node])
-                //if(dfs(node, graph, discovered))
-                    if(dfs_iteratively(node, prerequisites, discovered))
+            if (!discovered[node])
+                if(dfs(node, prerequisites, discovered))
                         return false;
         return true;
     }   
