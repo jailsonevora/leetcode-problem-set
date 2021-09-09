@@ -34,7 +34,7 @@ public:
 };
 
 class Solution {
-    // recursive
+    // recursive check cycle
     bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
 
         if(discovered[v] == 1) // viseted
@@ -75,13 +75,12 @@ public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
 
         //to convert edge list to adjacent list
-        // vector<vector<int>> graph(numCourses);
-        // if(!prerequisites.empty())
-        //     for (auto &edge: prerequisites)
-        //         graph[edge[0]].push_back(edge[1]);
+        vector<vector<int>> graph(numCourses);
+        for (auto &edge: prerequisites)
+            graph[edge[1]].push_back(edge[0]);
         
         //check cycle
-        if(!canFinish(numCourses, prerequisites))
+        if(!canFinish(numCourses, graph))
             return vector<int>{};
 
         stack<int> stack;
@@ -90,7 +89,7 @@ public:
         //for each unvisited node traverse and push to global stack
         for(int node = 0; node < numCourses; node++)
             if(!discovered[node])
-                _dfs(node, prerequisites, discovered, stack);      
+                _dfs(node, graph, discovered, stack);      
         
         
         // reverse global stack when using dfs recursively
@@ -100,7 +99,7 @@ public:
             stack.pop();
         }
 
-        return revereStack;         
+        return revereStack;     
     }  
 };
 
@@ -108,25 +107,19 @@ int main()
 {
     // vector of graph edges as per the above diagram
     // vector<Edge> edges = {
-    //     {0, 1}
-    // };
-    // int N = 2;
-
-    // vector of graph edges as per the above diagram
-    // vector<Edge> edges = {
     //     {1, 0}
     // };
     // int N = 2;
 
-    vector<Edge> edges = {
-         {1,0},{2,0},{3,1},{3,2}
-    };
-    int N = 4;
-
     // vector<Edge> edges = {
-        
+    //      {1,0},{2,0},{3,1},{3,2}
     // };
-    // int N = 1;
+    // int N = 4;
+
+    vector<Edge> edges = {
+        
+    };
+    int N = 1;
  
     // build a graph from the given edges
     Graph graph(edges, N);
