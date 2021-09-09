@@ -23,10 +23,12 @@ public:
         adjList.resize(N);
  
         // add edges to the undirected graph
-        for (auto &edge: edges)
-        {
-            adjList[edge.src].push_back(edge.dest);
-            //adjList[edge.dest].push_back(edge.src);
+        if(!edges.empty()){
+            for (auto &edge: edges)
+            {
+                adjList[edge.src].push_back(edge.dest);
+                //adjList[edge.dest].push_back(edge.src);
+            }
         }
     }
 };
@@ -62,7 +64,7 @@ class Solution {
         return true;
     }
     //iteratively
-    void dfs_iteratively(int u, vector<vector<int>>& graph, vector<int> &discovered, stack<int> &stackGlobal){
+    void dfs_iteratively(int u, vector<vector<int>>& graph, vector<int> &discovered, vector<int> &ans){
 
         // create a stack used to do iterative DFS
         stack<int> stack;
@@ -82,7 +84,7 @@ class Solution {
             for (int v : graph[node])
                 if (!discovered[v])
                     stack.push(v);
-            stackGlobal.push(node);
+            ans.push_back(node);
         }
     }
 public:    
@@ -97,37 +99,37 @@ public:
         if(!canFinish(numCourses, prerequisites))
             return vector<int>{};
 
-        stack<int> stack;
+        vector<int> ans;
         vector<int> discovered(numCourses, 0);
 
         //for each unvised node traverse and push to global stack
         for(int node = 0; node < numCourses; node++)
             if(!discovered[node])
-                dfs_iteratively(node, prerequisites, discovered, stack);      
+                dfs_iteratively(node, prerequisites, discovered, ans);      
         
         // reverse global stack
-        vector<int> revereStack;
-        while (!stack.empty()){
-            revereStack.push_back(stack.top());
-            stack.pop();
-        }
+        // vector<int> revereStack;
+        // while (!stack.empty()){
+        //     revereStack.push_back(stack.top());
+        //     stack.pop();
+        // }
 
-        return revereStack;         
+        return ans;         
     }  
 };
 
 int main()
 {
     // vector of graph edges as per the above diagram
-    vector<Edge> edges = {
-        {1, 0}
-    };
-    int N = 2;
-
     // vector<Edge> edges = {
-    //      {1,0},{2,0},{3,1},{3,2}
+    //     {1, 0}
     // };
-    // int N = 4;
+    // int N = 2;
+
+    vector<Edge> edges = {
+         {1,0},{2,0},{3,1},{3,2}
+    };
+    int N = 4;
 
     // vector<Edge> edges = {
     //     
