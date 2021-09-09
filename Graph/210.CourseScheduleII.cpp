@@ -50,7 +50,6 @@ class Solution {
         discovered[v] = 1; // viseted
         return false;
     }
-public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         
         //to convert edge list to adjacent list
@@ -65,7 +64,12 @@ public:
                 if(dfs(node, prerequisites, discovered))
                         return false;
         return true;
-    }   
+    } 
+public:
+    
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        
+    }  
 };
 
 int main()
