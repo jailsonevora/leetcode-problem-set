@@ -91,10 +91,13 @@ class Solution {
 public:    
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
 
+        //check cycle
         if(!canFinish(numCourses, prerequisites))
             return vector<int>{};
+
         
         
+
         
     }  
 };
