@@ -63,63 +63,55 @@ class Solution {
                         return false;
         return true;
     }
-    //iteratively
-    void dfs_iteratively(int u, vector<vector<int>>& graph, vector<int> &discovered, vector<int> &ans){
+    void _dfs(int u, vector<vector<int>>& graph, vector<int> &discovered, stack<int> &ans){
 
-        // create a stack used to do iterative DFS
-        stack<int> stack;
-    
-        stack.push(u);
-        
-        while (!stack.empty())
-        {
-            int node = stack.top();
-            stack.pop();
-
-            if (discovered[u])
-                continue;
-
-            discovered[node] = 1;
-            
-            for (int v : graph[node])
-                if (!discovered[v])
-                    stack.push(v);
-            ans.push_back(node);
-        }
+        discovered[u] = 1;
+        for (int v : graph[u])
+            if (!discovered[v])
+                _dfs(v, graph, discovered, ans);
+        ans.push(u);
     }
 public:    
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
 
         //to convert edge list to adjacent list
-        //vector<vector<int>> graph(numCourses);
-        /*for (auto &edge: prerequisites)
-            graph[edge[0]].push_back(edge[1]);*/
+        // vector<vector<int>> graph(numCourses);
+        // if(!prerequisites.empty())
+        //     for (auto &edge: prerequisites)
+        //         graph[edge[0]].push_back(edge[1]);
         
         //check cycle
         if(!canFinish(numCourses, prerequisites))
             return vector<int>{};
 
-        vector<int> ans;
+        stack<int> stack;
         vector<int> discovered(numCourses, 0);
 
-        //for each unvised node traverse and push to global stack
+        //for each unvisited node traverse and push to global stack
         for(int node = 0; node < numCourses; node++)
             if(!discovered[node])
-                dfs_iteratively(node, prerequisites, discovered, ans);      
+                _dfs(node, prerequisites, discovered, stack);      
         
-        // reverse global stack
-        // vector<int> revereStack;
-        // while (!stack.empty()){
-        //     revereStack.push_back(stack.top());
-        //     stack.pop();
-        // }
+        
+        // reverse global stack when using dfs recursively
+        vector<int> revereStack;
+        while (!stack.empty()){
+            revereStack.push_back(stack.top());
+            stack.pop();
+        }
 
-        return ans;         
+        return revereStack;         
     }  
 };
 
 int main()
 {
+    // vector of graph edges as per the above diagram
+    // vector<Edge> edges = {
+    //     {0, 1}
+    // };
+    // int N = 2;
+
     // vector of graph edges as per the above diagram
     // vector<Edge> edges = {
     //     {1, 0}
@@ -132,9 +124,9 @@ int main()
     int N = 4;
 
     // vector<Edge> edges = {
-    //     
+        
     // };
-    //int N = 1;
+    // int N = 1;
  
     // build a graph from the given edges
     Graph graph(edges, N);
