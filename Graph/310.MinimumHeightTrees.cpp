@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stack>
+#include <queue>
 #include <vector>
 #include <algorithm>
 
@@ -33,6 +33,65 @@ public:
     }
 };
 
+class Solution {
+    // void _dfs(int u, vector<vector<int>>& graph, int& min, int ans = 1){
+
+    //     for (int v : graph[u])
+    //         _dfs(v, graph, min, ans+1);
+    //     ans = std::min(ans, min);
+    // }
+    int _bfs(int u, vector<vector<int>>& graph){
+
+        queue<int> queue;
+        int ans;
+
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            int size = queue.size();
+            for (int i = 0; i < size; i++)
+            {
+                int node = queue.front();
+                queue.pop();
+
+                for(auto child: graph[node])
+                    queue.push(child);                
+            }
+            ans++;            
+        }
+        return ans;        
+    }
+public:
+    vector<int> findMinHeightTrees(int n, vector<vector<int>>& edges) {
+
+        //to convert edge list to adjacent list
+        vector<vector<int>> graph(n);
+        for (auto &edge: edges)
+            graph[edge[0]].push_back(edge[1]);
+
+        int min = INT_MAX;
+        vector<int> result;
+        queue<int> queue;
+
+        //for each unvisited node traverse and push to global stack
+        for(int node = 0; node < n; node++)
+        {
+            int ans = bfs(node, graph);
+            if(ans <= min){
+                min = ans;
+                queue.push(make_pair(node,ans));
+            }
+            for(auto r: queue)
+                if(r >= ans)
+                    result[]
+
+        }
+
+        return result;
+        
+    }
+};
 
 
 int main()
@@ -57,6 +116,6 @@ int main()
     Graph graph(edges, N);
     
     Solution sl;
-    for(auto v: sl.findOrder(N, graph.adjList))
+    for(auto v: sl.findMinHeightTrees(N, graph.adjList))
         cout << v << "\n";
 }
