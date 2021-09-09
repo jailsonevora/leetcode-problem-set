@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -61,7 +62,7 @@ class Solution {
         return true;
     }
     //iteratively
-    bool dfs_iteratively(int v, vector<vector<int>>& graph, vector<int> &discovered){
+    bool dfs_iteratively(int v, vector<vector<int>>& graph, vector<int> &discovered, stack<int> &stackGlobal){
 
         // create a stack used to do iterative DFS
         stack<int> stack;
@@ -91,14 +92,27 @@ class Solution {
 public:    
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
 
+        //to convert edge list to adjacent list
+        //vector<vector<int>> graph(numCourses);
+        /*for (auto &edge: prerequisites)
+            graph[edge[0]].push_back(edge[1]);*/
+        
         //check cycle
         if(!canFinish(numCourses, prerequisites))
             return vector<int>{};
 
-        
-        
+        stack<int> stack;
+        vector<int> discovered(numCourses, 0);
 
+        for(int node = 0; node < numCourses; node++)
+            if(!discovered[node])
+                dfs_iteratively(node, prerequisites, discovered, stack);      
         
+        vector<int> revereStack;
+        for (int i = 0; i < stack.size(); i++)
+            revereStack.push_back(stack.top()), stack.pop();
+
+        return revereStack;         
     }  
 };
 
