@@ -7,9 +7,21 @@ using namespace std;
 
 class Solution {
 public:
+    // Using Unordered Map - Effectively
+    int numIdenticalPairs(vector<int>& nums) {
+		
+        unordered_map<int, int> mp;
+		int ans = 0;
+
+		for(int num : nums)
+			ans += mp[num]++;
+
+		return ans;
+    }
 
     //Using Frequency Array
     int numIdenticalPairs(vector<int>& nums) {
+        
         int ans = 0;
         int count[101] = {};
         
