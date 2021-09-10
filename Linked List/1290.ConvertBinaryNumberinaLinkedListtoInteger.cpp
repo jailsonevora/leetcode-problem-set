@@ -12,9 +12,26 @@ using namespace std;
 };
 
 class Solution {
+    
 public:
+    ListNode *head = NULL;
+
     int getDecimalValue(ListNode* head) {
         
+    }
+    static void pushBack(int data)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }       
+
+        while(curr && curr->next) curr = curr->next;
+
+        curr->next = temp;
     }
 };
 
