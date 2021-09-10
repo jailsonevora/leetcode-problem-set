@@ -11,3 +11,13 @@ public:
         
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    string s = "";
+    Solution sl;
+    cout << sl.areOccurrencesEqual(s);
+}
