@@ -17,12 +17,25 @@ class Solution {
 public:
     ListNode *head = NULL;
 
+    // Binary Representation
     int getDecimalValue(ListNode* head) {
         
         ListNode* curr = head;
         long long binary = 0;
         while (curr){
             binary = (2 * binary) + curr->val;
+            curr = curr->next;
+        }
+        return binary; 
+    }
+
+    // Bit Manipulation
+    int getDecimalValue(ListNode* head) {
+        
+        ListNode* curr = head;
+        long long binary = 0;
+        while (curr){
+            binary = (binary << 1) | curr->val;
             curr = curr->next;
         }
         return binary; 
