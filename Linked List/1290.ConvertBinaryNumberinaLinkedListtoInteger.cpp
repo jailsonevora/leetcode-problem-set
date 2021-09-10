@@ -37,8 +37,8 @@ int main(){
     
     Solution ll;
     ll.pushBack(1);
-    // ll.pushBack(2);
-    // ll.pushBack(2);
+    ll.pushBack(0);
+    ll.pushBack(1);
     // ll.pushBack(1);
 
     cout << ll.getDecimalValue(ll.head);
