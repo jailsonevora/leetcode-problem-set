@@ -16,6 +16,22 @@ class Solution {
 public:
     ListNode *head = NULL;
 
+    long long binaryToDecimal(long long n)
+    {
+        long long temp = n, base = 1, decimal = 0;
+        while (temp) {
+    
+            long long lastD = temp % 10;
+            temp = temp / 10;
+
+            decimal += lastD * base;
+
+            base = base * 2;
+        }
+        
+        return decimal;
+    }
+
     int getDecimalValue(ListNode* head) {
         
     }
