@@ -17,33 +17,15 @@ class Solution {
 public:
     ListNode *head = NULL;
 
-    int binaryToDecimal(int n)
-    {
-        int temp = n, base = 1, decimal = 0;
-        while (temp) {
-    
-            int lastD = temp % 10;
-            temp = temp / 10;
-
-            decimal += lastD * base;
-
-            base = base * 2;
-        }
-        
-        return decimal;
-    }
-
     int getDecimalValue(ListNode* head) {
-
         
         ListNode* curr = head;
-        int binary = 1;
+        long long binary = 0;
         while (curr){
-            binary = 10 * binary + curr->val;
+            binary = (2 * binary) + curr->val;
             curr = curr->next;
         }
-
-        return binaryToDecimal(binary); 
+        return binary; 
     }
 
     void pushBack(int data)
