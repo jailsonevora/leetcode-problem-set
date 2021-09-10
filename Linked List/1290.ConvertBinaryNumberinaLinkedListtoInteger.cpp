@@ -19,7 +19,7 @@ public:
     int getDecimalValue(ListNode* head) {
         
     }
-    static void pushBack(int data)
+    void pushBack(int data)
     {
         ListNode* temp = new ListNode(data);
         ListNode* curr = head;
