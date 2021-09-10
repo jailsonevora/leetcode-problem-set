@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 
 using namespace std;
 
@@ -32,7 +33,43 @@ public:
         return decimal;
     }
 
+    long long binaryToDecimalVec(vector<int> n)
+    {
+        long long base = 1, decimal = 0;
+        for (auto& lastD : n) {
+
+            decimal += lastD * base;
+            base = base * 2;
+        }        
+        return decimal;
+    }
+
+    long long binaryToDecimal(int n)
+    {
+        long long temp = n, base = 1, decimal = 0;
+        while (temp) {
+    
+            long long lastD = temp % 10;
+            temp = temp / 10;
+
+            decimal += lastD * base;
+
+            base = base * 2;
+        }
+        
+        return decimal;
+    }
+
     int getDecimalValue(ListNode* head) {
+
+        if(!head)
+            return 0;
+
+        ListNode* curr = head;
+        while (curr)
+        {
+            /* code */
+        }       
         
     }
     void pushBack(int data)
