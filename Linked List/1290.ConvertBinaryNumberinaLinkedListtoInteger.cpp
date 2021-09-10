@@ -11,6 +11,13 @@ using namespace std;
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        
+    }
+};
+
 int main(){
     
     Solution ll;
@@ -19,5 +26,5 @@ int main(){
     // ll.pushBack(2);
     // ll.pushBack(1);
 
-    cout << ll.isPalindrome(ll.head);
+    cout << ll.getDecimalValue(ll.head);
 }
