@@ -27,10 +27,8 @@ public:
         if (!head){  
             head = temp; 
             return;
-        }       
-
+        }     
         while(curr && curr->next) curr = curr->next;
-
         curr->next = temp;
     }
 };
