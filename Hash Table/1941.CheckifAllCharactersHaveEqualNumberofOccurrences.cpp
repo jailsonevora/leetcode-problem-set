@@ -11,17 +11,14 @@ public:
 
         unordered_map<char, int> tmp;
 
-        for(auto& str: s){
-            if(s.find(str))
-                ++tmp[str];
-            else
-                --tmp[str];
-        }
+        for(auto str: s)
+            tmp[str]++;
 
-        if (!tmp.size())
-            return true;
-        else
-            return false;
+        int val = tmp[s[0]];
+        for (auto [key, value] : tmp) 
+            if (value != val) 
+                return false;
+        return true; 
     }
 };
 
@@ -30,8 +27,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    string s = "abacbc";
-    // string s = "aaabb";
+    //string s = "abacbc";
+    string s = "aaabb";
 
     Solution sl;
     cout << sl.areOccurrencesEqual(s);
