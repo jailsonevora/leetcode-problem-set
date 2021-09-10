@@ -31,6 +31,8 @@ int main(){
     cout.tie();
 
     string s = "abacbc";
+    // string s = "aaabb";
+
     Solution sl;
     cout << sl.areOccurrencesEqual(s);
 }
