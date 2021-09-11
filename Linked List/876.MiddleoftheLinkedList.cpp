@@ -48,5 +48,5 @@ int main(){
     ll.pushBack(0);
     ll.pushBack(1);
 
-    cout << ll.getDecimalValue(ll.head);
+    cout << ll.middleNode(ll.head);
 }
