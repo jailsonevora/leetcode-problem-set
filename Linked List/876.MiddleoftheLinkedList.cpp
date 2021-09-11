@@ -12,6 +12,20 @@ using namespace std;
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        
+        ListNode* fast = head, *slow = head;
+        
+        while(slow && slow->next){
+            fast = fast->next;
+            slow = slow->next->next;
+        }
+        return fast;        
+    }
+};
+
 int main(){
     
     Solution ll;
