@@ -14,6 +14,8 @@ using namespace std;
 
 class Solution {
 public:
+    ListNode *head = NULL;
+
     ListNode* middleNode(ListNode* head) {
         
         ListNode* fast = head, *slow = head;
