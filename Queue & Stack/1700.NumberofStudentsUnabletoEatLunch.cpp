@@ -12,22 +12,29 @@ public:
         stack<int> stack;
         queue<int> queue;
 
-        for(auto s: sandwiches)
-            stack.push(s);
+        for(int s = sandwiches.size() - 1; s >= 0; s--)
+            stack.push(sandwiches[s]);
 
-        for(auto q: sandwiches)
+        for(auto q: students)
             queue.push(q);
+
+        int count = 0;
 
         while (!stack.empty())
         {
             if(queue.front() == stack.top()){
                 queue.pop();
                 stack.pop();
+                count = 0;
             }
             else{
                 queue.push(queue.front());
                 queue.pop();
+                count++;
             }
+
+            if(count == queue.size())
+                break;
         }
         return queue.size();        
     }
@@ -38,6 +45,7 @@ int main(){
     cin.tie();
     cout.tie();
 
+    //vector<int> students {1,1,1,0,0,1}, sandwiches {1,0,0,0,1,1};
     vector<int> students {1,1,1,0,0,1}, sandwiches {1,0,0,0,1,1};
 
     Solution sl;
