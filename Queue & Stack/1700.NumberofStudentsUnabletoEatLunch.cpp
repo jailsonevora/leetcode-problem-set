@@ -38,6 +38,30 @@ public:
         }
         return queue.size();        
     }
+
+    // using array as queue and stack
+    int countStudents(vector<int>& students, vector<int>& sandwiches) {
+        
+        int count = 0;
+
+        while (!sandwiches.empty())
+        {
+            if(students.front() == sandwiches.front()){
+                students.erase(students.begin());
+                sandwiches.erase(sandwiches.begin());
+                count = 0;
+            }
+            else{
+                students.push_back(students.front());
+                students.erase(students.begin());
+                count++;
+            }
+
+            if(count == students.size())
+                break;
+        }
+        return students.size();        
+    }
 };
 
 int main(){
