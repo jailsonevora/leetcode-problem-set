@@ -6,6 +6,7 @@ using namespace std;
 
 class Solution {
 public:
+    // with queue and stack
     int countStudents(vector<int>& students, vector<int>& sandwiches) {
         
         stack<int> stack;
@@ -28,7 +29,7 @@ public:
                 queue.pop();
             }
         }
-        
+        return queue.size();        
     }
 };
 
