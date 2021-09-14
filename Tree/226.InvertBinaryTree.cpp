@@ -45,10 +45,21 @@ public:
 };
 
 class Solution {
+    void preOderTraversal(TreeNode* root1, TreeNode* root2){
+
+        if (!root1 || !root2)
+            return;
+        
+        swap(root1->left, root2->right);
+        preOderTraversal(root1->left, root2->right);
+
+    }
 
 public:
     TreeNode* invertTree(TreeNode* root) {
         
+        TreeNode* root2 = root;
+        preOderTraversal(root, root2);
     }
 };
 
@@ -63,5 +74,7 @@ int main(){
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder, inOrder);
 
+    Solution sl;
+    sl.invertTree(root);
 
 }
