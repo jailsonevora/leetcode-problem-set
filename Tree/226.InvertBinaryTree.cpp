@@ -60,25 +60,6 @@ public:
     }
 };
 
-class Solution {
-    void inorderTraversal(TreeNode* root, int& ans){(
-        
-        if(!root)
-            return;
-
-        ans += root->val * 10;
-        inorderTraversal(root->left, ans);
-        inorderTraversal(root->right, ans);
-    }
-public:
-    int sumRootToLeaf(TreeNode* root) {
-
-        int ans = 0;
-        inorderTraversal(root, ans);
-        return ans;        
-    }
-};
-
 int main(){
     ios_base::sync_with_stdio();
     cin.tie();
