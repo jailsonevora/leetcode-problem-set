@@ -45,26 +45,23 @@ public:
 };
 
 class Solution {
-    void preOderTraversal(TreeNode* root1, TreeNode* root2){
-
-        if (!root1 || !root2)
-            return;
-        
-        swap(root1->left, root2->right);
-        preOderTraversal(root1->left, root2->right);
-
-    }
-
 public:
     TreeNode* invertTree(TreeNode* root) {
         
-        TreeNode* root2 = root;
-        preOderTraversal(root, root2);
+        if (!root)
+            return nullptr;
+
+        TreeNode* left = root->left, *right = root->right; 
+
+        root->left = invertTree(right);
+        root->right = invertTree(left);
+
+        return root;
     }
 };
 
 int main(){
-    iostream::sync_with_stdio();
+    ios_base::sync_with_stdio();
     cin.tie();
     cout.tie();
 
@@ -76,5 +73,4 @@ int main(){
 
     Solution sl;
     sl.invertTree(root);
-
 }
