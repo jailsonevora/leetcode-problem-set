@@ -22,12 +22,18 @@ public:
         if(!root)
             return root;
 
-        TreeNode* node = new TreeNode(root->val);
+        TreeNode* node;
 
         if(root->left)
-            node->right = increasingBST(root->left);
+            increasingBST(root->left);
+
+        if(!node)
+            node = new TreeNode(root->val);
+        else if (!node->right)
+            node->right = new TreeNode(root->val);
+        
         if(root->right)
-            node->right = increasingBST(root->right);
+            increasingBST(root->right);
 
         return node;        
     }
