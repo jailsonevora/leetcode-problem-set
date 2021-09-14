@@ -45,12 +45,13 @@ public:
 };
 
 class Solution {
-    void inorderTraversal(TreeNode* root, int& ans){(
+    void inorderTraversal(TreeNode* root, int& ans){
         
         if(!root)
             return;
 
-        ans += root->val * 10;
+        ans = (2 * ans) + root->val;
+
         inorderTraversal(root->left, ans);
         inorderTraversal(root->right, ans);
     }
@@ -68,12 +69,22 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> preOrder = {4,2,1,3,7,6,9};
-    vector<int> inOrder = {0,1,0,1,0,1,1};
+    // vector<int> preOrder = {1,0,0,1,1,0,1};
+    // vector<int> inOrder = {0,1,0,1,0,1,1};
 
-    BuildTreeFromPreOrderArray bl;
-    TreeNode* root = bl.buildTree(preOrder, inOrder);
+    // BuildTreeFromPreOrderArray bl;
+    // TreeNode* root = bl.buildTree(preOrder, inOrder);
+
+    TreeNode* root = new TreeNode(1);
+    root->left = new TreeNode(0);
+    root->right = new TreeNode(1);
+
+    root->left->left = new TreeNode(0);
+    root->left->right = new TreeNode(1);
+
+    root->right->right = new TreeNode(1);
+    root->right->left = new TreeNode(0);
 
     Solution sl;
-    sl.sumRootToLeaf(root);
+    cout << sl.sumRootToLeaf(root);
 }
