@@ -16,26 +16,51 @@ struct TreeNode {
 };
 
 class Solution {
+     
+    TreeNode* newroot, *curr;
+
+    void inorder(TreeNode* root, TreeNode*& newNode){
+        
+        if(!root)
+            return;
+
+        inorder(root->left, newNode);
+
+        newNode->right = new TreeNode(root->val);
+        newNode = newNode->right;
+        
+        inorder(root->right, newNode);
+    }
 public:
+
+    TreeNode* increasingBST(TreeNode* root) {
+        
+        if (!root) 
+            return nullptr;
+
+        increasingBST(root->left);
+        
+        if (!newroot) { 
+            newroot = new TreeNode(root->val);
+            curr = newroot;
+        }
+        else {
+            curr->right = new TreeNode(root->val);
+            curr = curr->right;
+        }
+        
+        increasingBST(root->right);
+        
+        return newroot;
+    }
+
     TreeNode* increasingBST(TreeNode* root) {
 
-        if(!root)
-            return root;
-
-        TreeNode* node;
-
-        if(root->left)
-            increasingBST(root->left);
-
-        if(!node)
-            node = new TreeNode(root->val);
-        else if (!node->right)
-            node->right = new TreeNode(root->val);
-        
-        if(root->right)
-            increasingBST(root->right);
-
-        return node;        
+        TreeNode* tmp, *newNode;
+        newNode = new TreeNode();
+        tmp = newNode;
+        inorder(root, newNode);
+        return tmp->right;                
     }
 };
 
