@@ -60,6 +60,13 @@ public:
     }
 };
 
+class Solution {
+public:
+    int sumRootToLeaf(TreeNode* root) {
+        
+    }
+};
+
 int main(){
     ios_base::sync_with_stdio();
     cin.tie();
@@ -72,5 +79,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder, inOrder);
 
     Solution sl;
-    sl.invertTree(root);
+    sl.sumRootToLeaf(root);
 }
