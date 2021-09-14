@@ -18,6 +18,17 @@ struct TreeNode {
 class Solution {
 public:
     TreeNode* increasingBST(TreeNode* root) {
-        
+
+        if(!root)
+            return root;
+
+        TreeNode* node = new TreeNode(root->val);
+
+        if(root->left)
+            node->right = increasingBST(root->left);
+        if(root->right)
+            node->right = increasingBST(root->right);
+
+        return node;        
     }
 };
