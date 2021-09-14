@@ -50,4 +50,6 @@ int main(){
     root->right->right->left = new TreeNode(7);
     root->right->right->right = new TreeNode(9);
 
+    Solution sl;
+    sl.increasingBST(root);
 }
