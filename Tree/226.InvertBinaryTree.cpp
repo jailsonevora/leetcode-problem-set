@@ -58,4 +58,10 @@ int main(){
     cout.tie();
 
     vector<int> preOrder = {4,2,7,1,3,6,9};
+    vector<int> inOrder = {1,2,3,4,6,7,9};
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder, inOrder);
+
+
 }
