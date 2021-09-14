@@ -32,7 +32,17 @@ class Solution {
         inorder(root->right, newNode);
     }
 public:
+    //solution 1 reusing the root
+    TreeNode* increasingBST(TreeNode* root, TreeNode* tail = NULL) {
+        if (!root) 
+            return tail;
+        TreeNode* res = increasingBST(root->left, root);
+        root->left = NULL;
+        root->right = increasingBST(root->right, tail);
+        return res;
+    }
 
+    // solution 2
     TreeNode* increasingBST(TreeNode* root) {
         
         if (!root) 
@@ -53,7 +63,7 @@ public:
         
         return newroot;
     }
-
+    // solution 3
     TreeNode* increasingBST(TreeNode* root) {
 
         TreeNode* tmp, *newNode;
