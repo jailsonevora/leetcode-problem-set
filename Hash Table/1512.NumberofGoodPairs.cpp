@@ -20,33 +20,33 @@ public:
     }
 
     //Using Frequency Array
-    int numIdenticalPairs(vector<int>& nums) {
+    // int numIdenticalPairs(vector<int>& nums) {
         
-        int ans = 0;
-        int count[101] = {};
+    //     int ans = 0;
+    //     int count[101] = {};
         
-        for (auto num: nums){
-            ans += count[num];
-            count[num]++;
-        }
+    //     for (auto num: nums){
+    //         ans += count[num];
+    //         count[num]++;
+    //     }
         
-        return ans;
-    }
+    //     return ans;
+    // }
 
-    // using map
-    int numIdenticalPairs(vector<int>& nums) {
+    // // using map
+    // int numIdenticalPairs(vector<int>& nums) {
         
-        unordered_map<int, int> tmp;
+    //     unordered_map<int, int> tmp;
         
-        for(auto n: nums)
-            tmp[n]++;
+    //     for(auto n: nums)
+    //         tmp[n]++;
         
-        int ans = 0;
-        for(auto [key, value] :tmp)
-            ans += floor(value * (value - 1)/2);
+    //     int ans = 0;
+    //     for(auto [key, value] :tmp)
+    //         ans += floor(value * (value - 1)/2);
         
-        return ans;        
-    }
+    //     return ans;        
+    // }
 };
 
 int main(){
