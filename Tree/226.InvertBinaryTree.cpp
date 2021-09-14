@@ -51,3 +51,11 @@ public:
         
     }
 };
+
+int main(){
+    iostream::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    vector<int> preOrder = {4,2,7,1,3,6,9};
+}
