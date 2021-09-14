@@ -43,3 +43,20 @@ public:
         return buildTree(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1);
     }
 };
+
+
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    vector<int> preOrder = {4,2,1,3,7,6,9};
+    vector<int> inOrder = {1,2,3,4,6,7,9};
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder, inOrder);
+
+    Solution sl;
+    sl.invertTree(root);
+}
