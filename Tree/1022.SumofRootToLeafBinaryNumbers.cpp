@@ -45,21 +45,22 @@ public:
 };
 
 class Solution {
-    void inorderTraversal(TreeNode* root, int& ans){
+    void preorderTraversal(TreeNode* root, int& ans){
         
-        if(!root)
+        if(!root){
             return;
+        }
 
         ans = (2 * ans) + root->val;
 
-        inorderTraversal(root->left, ans);
-        inorderTraversal(root->right, ans);
+        preorderTraversal(root->left, ans);
+        preorderTraversal(root->right, ans);
     }
 public:
     int sumRootToLeaf(TreeNode* root) {
 
         int ans = 0;
-        inorderTraversal(root, ans);
+        preorderTraversal(root, ans);
         return ans;        
     }
 };
