@@ -66,7 +66,6 @@ class Solution {
     }
 public:
     int sumRootToLeaf(TreeNode* root) {
-
         preorderTraversal(root, 0);
         return ans;        
     }
