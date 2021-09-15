@@ -44,3 +44,29 @@ public:
         return buildTree(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1);
     }
 };
+
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    // vector<int> preOrder = {1,0,0,1,1,0,1};
+    // vector<int> inOrder = {0,1,0,1,0,1,1};
+
+    // BuildTreeFromPreOrderArray bl;
+    // TreeNode* root = bl.buildTree(preOrder, inOrder);
+
+    TreeNode* root = new TreeNode(1);
+    root->left = new TreeNode(0);
+    root->right = new TreeNode(1);
+
+    root->left->left = new TreeNode(0);
+    root->left->right = new TreeNode(1);
+
+    root->right->right = new TreeNode(1);
+    root->right->left = new TreeNode(0);
+
+    Solution sl;
+    cout << sl.sumRootToLeaf(root);
+}

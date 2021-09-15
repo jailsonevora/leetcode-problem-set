@@ -72,5 +72,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder, inOrder);
 
     Solution sl;
-    sl.sumRootToLeaf(root);
+    sl.invertTree(root);
 }
