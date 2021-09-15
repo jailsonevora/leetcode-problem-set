@@ -47,8 +47,18 @@ public:
 
 class Solution {
 public:
+    unordered_set<int> unival;
     bool isUnivalTree(TreeNode* root) {
+
+        if(!root)
+            return false;
+
+        if(!unival.count(root->val))
+            return true;
+
+        unival.insert(root->val);
         
+        return isUnivalTree(root->left) && isUnivalTree(root->right);
     }
 };
 
@@ -74,5 +84,5 @@ int main(){
     root->right->left = new TreeNode(0);
 
     Solution sl;
-    cout << sl.sumRootToLeaf(root);
+    cout << sl.isUnivalTree(root);
 }
