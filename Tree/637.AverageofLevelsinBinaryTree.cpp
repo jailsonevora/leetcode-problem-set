@@ -85,7 +85,6 @@ class Solution {
                 
                 sum += tmp->val;
             }
-
             avg.push_back(sum/size);
         }
         return avg;
