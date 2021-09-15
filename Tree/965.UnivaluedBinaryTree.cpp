@@ -45,6 +45,12 @@ public:
     }
 };
 
+class Solution {
+public:
+    bool isUnivalTree(TreeNode* root) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
