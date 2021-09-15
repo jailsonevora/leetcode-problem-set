@@ -46,6 +46,7 @@ public:
 };
 
 class Solution {
+    // tail recursion
     bool dfs(TreeNode* root, int val){
         
         if(!root)
