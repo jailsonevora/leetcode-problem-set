@@ -46,7 +46,23 @@ public:
     }
 };
 
-
+class Solution {
+    vector<double> avg;
+    // solution 2 tail recursion  
+    int preorderTraversal2(TreeNode* root) {
+        if (!root) 
+            return 0;
+        avg.push_back(root->val/2);
+        return 
+            !root->left && !root->right 
+            ? root->val 
+            : preorderTraversal2(root->left) + preorderTraversal2(root->right);
+    }
+public:
+    vector<double> averageOfLevels(TreeNode* root) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
@@ -70,5 +86,5 @@ int main(){
     // root->right->left = new TreeNode(0);
 
     Solution sl;
-    cout << sl.sumRootToLeaf(root);
+    sl.averageOfLevels(root);
 }
