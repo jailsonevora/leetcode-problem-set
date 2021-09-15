@@ -58,9 +58,41 @@ class Solution {
             ? root->val 
             : preorderTraversal2(root->left) + preorderTraversal2(root->right);
     }
+
+    // level order traversal with bfs
+    vector<double> bfs(TreeNode* root){
+
+        queue<TreeNode*> queue;
+        vector<double> avg;
+
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            int size = queue.size();
+            int sum = 0;
+
+            for(int i = 0; i < size; i++)
+            {
+                TreeNode* tmp = queue.front();
+                queue.pop();
+
+                if(tmp->left)
+                    queue.push(tmp->left);
+
+                if(tmp->right)
+                    queue.push(tmp->right);
+                
+                sum += tmp->val;
+            }
+
+            avg.push_back(sum/size);
+        }
+        return avg;
+    }
 public:
     vector<double> averageOfLevels(TreeNode* root) {
-        
+        return bfs(root);
     }
 };
 
@@ -69,21 +101,21 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> preOrder = {1,0,0,1,1,0,1};
-    vector<int> inOrder = {0,1,0,1,0,1,1};
+    // vector<int> preOrder = {1,0,0,1,1,0,1};
+    // vector<int> inOrder = {0,1,0,1,0,1,1};
 
-    BuildTreeFromPreOrderArray bl;
-    TreeNode* root = bl.buildTree(preOrder, inOrder);
+    // BuildTreeFromPreOrderArray bl;
+    // TreeNode* root = bl.buildTree(preOrder, inOrder);
 
-    // TreeNode* root = new TreeNode(1);
-    // root->left = new TreeNode(0);
-    // root->right = new TreeNode(1);
+    TreeNode* root = new TreeNode(3);
+    root->left = new TreeNode(9);
+    root->right = new TreeNode(20);
 
-    // root->left->left = new TreeNode(0);
-    // root->left->right = new TreeNode(1);
+    //root->left->left = new TreeNode(15);
+    //root->left->right = new TreeNode(1);
 
-    // root->right->right = new TreeNode(1);
-    // root->right->left = new TreeNode(0);
+    root->right->right = new TreeNode(7);
+    root->right->left = new TreeNode(15);
 
     Solution sl;
     sl.averageOfLevels(root);
