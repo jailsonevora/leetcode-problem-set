@@ -46,19 +46,19 @@ public:
 };
 
 class Solution {
-public:
-    unordered_set<int> unival;
-    bool isUnivalTree(TreeNode* root) {
-
+    bool dfs(TreeNode* root, int val){
+        
         if(!root)
-            return false;
-
-        if(!unival.count(root->val))
             return true;
 
-        unival.insert(root->val);
-        
-        return isUnivalTree(root->left) && isUnivalTree(root->right);
+        if(val != root->val)
+            return false;
+
+        return dfs(root->left, val) && dfs(root->right, val);
+    }
+public:
+    bool isUnivalTree(TreeNode* root) {
+        return dfs(root, root->val);
     }
 };
 
@@ -74,14 +74,14 @@ int main(){
     // TreeNode* root = bl.buildTree(preOrder, inOrder);
 
     TreeNode* root = new TreeNode(1);
-    root->left = new TreeNode(0);
+    root->left = new TreeNode(1);
     root->right = new TreeNode(1);
 
-    root->left->left = new TreeNode(0);
+    root->left->left = new TreeNode(1);
     root->left->right = new TreeNode(1);
 
     root->right->right = new TreeNode(1);
-    root->right->left = new TreeNode(0);
+    //root->right->left = new TreeNode(0);
 
     Solution sl;
     cout << sl.isUnivalTree(root);
