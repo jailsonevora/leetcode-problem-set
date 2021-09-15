@@ -65,7 +65,10 @@ class Solution {
         if (!root) 
             return 0;
         val = (val * 2 + root->val);
-        return root->left == root->right ? val : preorderTraversal2(root->left, val) + preorderTraversal2(root->right, val));
+        return 
+            !root->left && !root->right 
+            ? val 
+            : preorderTraversal2(root->left, val) + preorderTraversal2(root->right, val);
     }
 public:
     int sumRootToLeaf(TreeNode* root) {
