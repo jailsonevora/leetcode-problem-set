@@ -70,7 +70,7 @@ class Solution {
         while (!queue.empty())
         {
             int size = queue.size();
-            int sum = 0;
+            double sum = 0;
 
             for(int i = 0; i < size; i++)
             {
@@ -85,7 +85,7 @@ class Solution {
                 
                 sum += tmp->val;
             }
-            avg.push_back(sum/size);
+            avg.push_back(sum/(double)size);
         }
         return avg;
     }
