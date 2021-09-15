@@ -46,29 +46,24 @@ public:
     }
 };
 
-
+class Solution {
+public:
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
     cin.tie();
     cout.tie();
 
-    // vector<int> preOrder = {1,0,0,1,1,0,1};
-    // vector<int> inOrder = {0,1,0,1,0,1,1};
+    vector<int> preOrder = {3,5,6,2,7,4,1,9,8};
+    vector<int> inOrder = {6,5,7,2,4,3,9,1,8};
 
-    // BuildTreeFromPreOrderArray bl;
-    // TreeNode* root = bl.buildTree(preOrder, inOrder);
-
-    TreeNode* root = new TreeNode(3);
-    root->left = new TreeNode(9);
-    root->right = new TreeNode(20);
-
-    //root->left->left = new TreeNode(15);
-    //root->left->right = new TreeNode(1);
-
-    root->right->right = new TreeNode(7);
-    root->right->left = new TreeNode(15);
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root1 = bl.buildTree(preOrder, inOrder);
 
     Solution sl;
-    sl.averageOfLevels(root);
+    //sl.leafSimilar(root1, root2);
 }
