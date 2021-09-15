@@ -51,10 +51,11 @@ class Solution {
         if(!root)
             return;
         
-        if(!root->left || !root->right)
+        if(!root->left && !root->right)
             leaves.push_back(root->val);
         
-        dfs(root->left, leaves), dfs(root->right, leaves);
+        dfs(root->left, leaves); 
+        dfs(root->right, leaves);
     }
 public:
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
