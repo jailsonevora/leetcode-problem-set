@@ -47,18 +47,6 @@ public:
 };
 
 class Solution {
-    vector<double> avg;
-    // solution 2 tail recursion  
-    int preorderTraversal2(TreeNode* root) {
-        if (!root) 
-            return 0;
-        avg.push_back(root->val/2);
-        return 
-            !root->left && !root->right 
-            ? root->val 
-            : preorderTraversal2(root->left) + preorderTraversal2(root->right);
-    }
-
     // level order traversal with bfs
     vector<double> bfs(TreeNode* root){
 
