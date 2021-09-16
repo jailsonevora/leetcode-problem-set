@@ -47,9 +47,22 @@ public:
 }; 
 
 class Solution {
+    void dfs(TreeNode* root, string& str){
+
+        if(!root)
+            return;
+
+        str.push_back()
+        
+        dfs(root->left, str);
+        dfs(root->right, str);
+
+    }
 public:
     string tree2str(TreeNode* root) {
-        
+
+        string str;
+        dfs(root, str);        
     }
 };
 
