@@ -56,53 +56,26 @@ class Solution {
     //     return findTarget(root->left, k) || findTarget(root->right, k);
     // }
 
-    bool dfs_preOrderTraversal(TreeNode* root, int k){
+    bool dfs_preOrderTraversal(TreeNode* root, TreeNode* curr, int k){
 
+        if(!curr)
+            return false;
+        return binarySearch(root, curr, k - curr->val) || dfs_preOrderTraversal(root, curr->left, k) ||
+        dfs_preOrderTraversal(root, curr->right, k);      
+    }
+
+    // binary search
+    bool binarySearch(TreeNode* root, TreeNode *cur, int value){
         if(!root)
             return false;
-                
-        return bfs(root, k - root->val) ? true :
-        dfs_preOrderTraversal(root->left, k - root->val)
-        && dfs_preOrderTraversal(root->right, k - root->val);      
+        return (root->val == value) && (root != cur) 
+            || (root->val < value) && binarySearch(root->right, cur, value) 
+                || (root->val > value) && binarySearch(root->left, cur, value);
     }
-
-    // level order traversal with bfs
-    bool bfs(TreeNode* root, int difference){
-
-        queue<TreeNode*> queue;
-
-        queue.push(root);
-
-        while (!queue.empty())
-        {
-            int size = queue.size();
-            double sum = 0;
-
-            for(int i = 0; i < size; i++)
-            {
-                TreeNode* tmp = queue.front();
-                queue.pop();
-
-                if(tmp->left)
-                    queue.push(tmp->left);
-
-                if(tmp->right)
-                    queue.push(tmp->right);
-
-                // size o the tree is less than 2;
-                if(!queue.size())
-                    return false;
-                else{ 
-                    if (tmp->val == difference)
-                        return true;
-                }
-            }
-        }
-        return false;
-    }
+    
 public:
     bool findTarget(TreeNode* root, int k) {
-        return dfs_preOrderTraversal(root, k);        
+        return dfs_preOrderTraversal(root, root, k);        
     }
 };
 
@@ -111,12 +84,18 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> preOrder1 = {5,3,2,4,6,7};
-    vector<int> inOrder1 = {2,3,4,5,6,7};
+    // vector<int> preOrder1 = {5,3,2,4,6,7};
+    // vector<int> inOrder1 = {2,3,4,5,6,7};
+
+    vector<int> preOrder1 = {2,0,-4,1,3};
+//         2
+//     0       3
+// -4      1    
+    vector<int> inOrder1 = {-4,0,1,2,3};
 
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.findTarget(root, 28);
+    cout << sl.findTarget(root, -1);
 }
