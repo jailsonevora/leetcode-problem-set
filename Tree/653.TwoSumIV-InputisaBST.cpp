@@ -65,5 +65,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.findTarget(root);
+    cout << sl.findTarget(root, 9);
 }
