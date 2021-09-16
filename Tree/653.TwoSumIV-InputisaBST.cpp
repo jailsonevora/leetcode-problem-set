@@ -47,10 +47,10 @@ public:
 }; 
 
 class Solution {
-
     // using set
     unordered_set<int> s;
     bool findTarget_Set(TreeNode* root, int k) {
+        
         if (!root) 
             return false;
         if (s.count(k - root->val)) 
@@ -59,6 +59,7 @@ class Solution {
         return findTarget(root->left, k) || findTarget(root->right, k);
     }
 
+    // dfs recursive
     bool dfs_preOrderTraversal(TreeNode* root, TreeNode* curr, int k){
 
         if(!curr)
