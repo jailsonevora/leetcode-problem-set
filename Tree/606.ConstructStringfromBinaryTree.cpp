@@ -45,3 +45,26 @@ public:
         return buildTree(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1);
     }
 }; 
+
+
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    // vector<int> preOrder1 = {5,3,2,4,6,7};
+    // vector<int> inOrder1 = {2,3,4,5,6,7};
+
+    vector<int> preOrder1 = {2,0,-4,1,3};
+//         2
+//     0       3
+// -4      1    
+    vector<int> inOrder1 = {-4,0,1,2,3};
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder1, inOrder1);
+
+    Solution sl;
+    cout << sl.findTarget(root, -1);
+}
