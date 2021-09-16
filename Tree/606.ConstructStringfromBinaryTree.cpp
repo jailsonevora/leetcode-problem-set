@@ -57,8 +57,12 @@ class Solution {
         if(!root->left && !root->right)
             str.push_back(')');
         
-        str.push_back(root->val);
-        str.push_back('(');
+        if(root->left || root->right){
+            str.push_back(root->val);
+            str.push_back('(');
+        }
+        else
+            str.push_back(root->val);
         
         dfs(root->left, str);
         dfs(root->right, str);
@@ -68,7 +72,8 @@ public:
     string tree2str(TreeNode* root) {
 
         string str;
-        dfs(root, str);        
+            dfs(root, str);
+        return str;        
     }
 };
 
