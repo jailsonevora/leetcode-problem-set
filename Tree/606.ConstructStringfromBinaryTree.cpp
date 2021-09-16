@@ -47,33 +47,21 @@ public:
 }; 
 
 class Solution {
-    void dfs(TreeNode* root, string& str){
-
-        if(!root){
-            str.push_back(')');
-            return;
-        }
-
-        if(!root->left && !root->right)
-            str.push_back(')');
-        
-        if(root->left || root->right){
-            str.push_back(root->val);
-            str.push_back('(');
-        }
-        else
-            str.push_back(root->val);
-        
-        dfs(root->left, str);
-        dfs(root->right, str);
-
-    }
 public:
     string tree2str(TreeNode* root) {
+        
+        if (!root) 
+            return "";
 
-        string str;
-            dfs(root, str);
-        return str;        
+        string s = to_string(root->val);
+        if (root->left) 
+            s += '(' + tree2str(root->left) + ')';
+        else if (root->right) 
+            s += "()";
+        
+        if (root->right) 
+            s += '(' + tree2str(root->right) + ')';
+        return s;
     }
 };
 
@@ -85,15 +73,15 @@ int main(){
     // vector<int> preOrder1 = {5,3,2,4,6,7};
     // vector<int> inOrder1 = {2,3,4,5,6,7};
 
-    vector<int> preOrder1 = {2,0,-4,1,3};
-//         2
-//     0       3
-// -4      1    
-    vector<int> inOrder1 = {-4,0,1,2,3};
+    vector<int> preOrder1 = {1,2,4,3};
+//         1
+//     2       3
+// 4          
+    vector<int> inOrder1 = {4,2,1,3};
 
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.findTarget(root, -1);
+    cout << sl.tree2str(root);
 }
