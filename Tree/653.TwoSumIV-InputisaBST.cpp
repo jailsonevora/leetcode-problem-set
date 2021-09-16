@@ -48,13 +48,16 @@ public:
 
 class Solution {
 
-    // unordered_set<int> s;
-    // bool findTarget(TreeNode* root, int k) {
-    //     if (!root) return false;
-    //     if (s.count(k - root->val)) return true;
-    //     s.insert(root->val);
-    //     return findTarget(root->left, k) || findTarget(root->right, k);
-    // }
+    // using set
+    unordered_set<int> s;
+    bool findTarget_Set(TreeNode* root, int k) {
+        if (!root) 
+            return false;
+        if (s.count(k - root->val)) 
+            return true;
+        s.insert(root->val);
+        return findTarget(root->left, k) || findTarget(root->right, k);
+    }
 
     bool dfs_preOrderTraversal(TreeNode* root, TreeNode* curr, int k){
 
