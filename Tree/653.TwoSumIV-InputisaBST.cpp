@@ -47,6 +47,25 @@ public:
 }; 
 
 class Solution {
+
+    // unordered_set<int> s;
+    // bool findTarget(TreeNode* root, int k) {
+    //     if (!root) return false;
+    //     if (s.count(k - root->val)) return true;
+    //     s.insert(root->val);
+    //     return findTarget(root->left, k) || findTarget(root->right, k);
+    // }
+
+    bool dfs_preOrderTraversal(TreeNode* root, int k){
+
+        if(!root)
+            return false;
+                
+        return bfs(root, k - root->val) ? true :
+        dfs_preOrderTraversal(root->left, k - root->val)
+        && dfs_preOrderTraversal(root->right, k - root->val);      
+    }
+
     // level order traversal with bfs
     bool bfs(TreeNode* root, int difference){
 
@@ -64,21 +83,26 @@ class Solution {
                 TreeNode* tmp = queue.front();
                 queue.pop();
 
-                if(tmp->val == difference)
-                    return true;
-
                 if(tmp->left)
                     queue.push(tmp->left);
 
                 if(tmp->right)
                     queue.push(tmp->right);
+
+                // size o the tree is less than 2;
+                if(!queue.size())
+                    return false;
+                else{ 
+                    if (tmp->val == difference)
+                        return true;
+                }
             }
         }
         return false;
     }
 public:
     bool findTarget(TreeNode* root, int k) {
-        
+        return dfs_preOrderTraversal(root, k);        
     }
 };
 
@@ -94,5 +118,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.findTarget(root, 9);
+    cout << sl.findTarget(root, 28);
 }
