@@ -49,10 +49,16 @@ public:
 class Solution {
     void dfs(TreeNode* root, string& str){
 
-        if(!root)
+        if(!root){
+            str.push_back(')');
             return;
+        }
 
-        str.push_back()
+        if(!root->left && !root->right)
+            str.push_back(')');
+        
+        str.push_back(root->val);
+        str.push_back('(');
         
         dfs(root->left, str);
         dfs(root->right, str);
