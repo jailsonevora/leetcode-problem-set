@@ -46,7 +46,12 @@ public:
     }
 }; 
 
-
+class Solution {
+public:
+    string tree2str(TreeNode* root) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
