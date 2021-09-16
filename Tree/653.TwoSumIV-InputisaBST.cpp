@@ -46,6 +46,12 @@ public:
     }
 }; 
 
+class Solution {
+public:
+    bool findTarget(TreeNode* root, int k) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
@@ -64,5 +70,5 @@ int main(){
     TreeNode* root2 = bl.buildTree(preOrder2, inOrder2);
 
     Solution sl;
-    cout << sl.leafSimilar(root1, root2);
+    cout << sl.findTarget(root1, root2);
 }
