@@ -46,22 +46,22 @@ public:
 };
 
 class Solution {
-    void dfs(TreeNode* root, vector<string>& str){
+    void dfs_(TreeNode* root, string path, vector<string>& str){
         
         if(!root)
             return;
 
-        string s = to_string(root->val)+"->";
-        
-        if(!root->left && root->right)
-            str.push_back(s);
+        if(!root->left && !root->right)
+            str.push_back(path + to_string(root->val));
 
-        dfs(root->left, str);
-        dfs(root->right, str);
+        dfs_(root->left, path + to_string(root->val) + "->", str); 
+        dfs_(root->right, path + to_string(root->val) + "->", str);        
     }
 public:
     vector<string> binaryTreePaths(TreeNode* root) {
-        
+        vector<string> str;
+        dfs_(root, "", str);
+        return str;
     }
 };
 
