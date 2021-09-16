@@ -70,13 +70,10 @@ int main(){
     cin.tie();
     cout.tie();
 
-    // vector<int> preOrder1 = {5,3,2,4,6,7};
-    // vector<int> inOrder1 = {2,3,4,5,6,7};
-
     vector<int> preOrder1 = {1,2,4,3};
-//         1
-//     2       3
-// 4          
+    //         1
+    //     2       3
+    // 4          
     vector<int> inOrder1 = {4,2,1,3};
 
     BuildTreeFromPreOrderArray bl;
