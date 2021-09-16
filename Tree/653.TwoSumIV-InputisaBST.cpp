@@ -47,6 +47,35 @@ public:
 }; 
 
 class Solution {
+    // level order traversal with bfs
+    bool bfs(TreeNode* root, int difference){
+
+        queue<TreeNode*> queue;
+
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            int size = queue.size();
+            double sum = 0;
+
+            for(int i = 0; i < size; i++)
+            {
+                TreeNode* tmp = queue.front();
+                queue.pop();
+
+                if(tmp->val == difference)
+                    return true;
+
+                if(tmp->left)
+                    queue.push(tmp->left);
+
+                if(tmp->right)
+                    queue.push(tmp->right);
+            }
+        }
+        return false;
+    }
 public:
     bool findTarget(TreeNode* root, int k) {
         
