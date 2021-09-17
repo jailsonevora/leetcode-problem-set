@@ -46,25 +46,25 @@ public:
 };
 
 class Solution {
-    int dfs(TreeNode* root, int min, int diff){
+    int dfs(TreeNode* root, int& min, int& diff){
 
-        if(!root)
-            return 0;
-
-        if(diff < min)
-            min = diff;
-        
         if(root->left)
-            dfs(root->left, min, abs(root->val - root->left->val) ); 
+            dfs(root->left, min, diff); 
+
+        if(diff >= 0)
+            min = std::min(min, root->val - diff);
+
+        diff = root->val;
+
         if(root->right)
-            dfs(root->right, min, abs(root->val - root->right->val));
+            dfs(root->right, min, diff);
 
         return min;
-
     }
 public:
     int getMinimumDifference(TreeNode* root) {
-        return dfs(root, INT_MAX, INT_MAX);
+        int min = INT_MAX, diff = -1;
+        return dfs(root, min, diff);
     }
 };
 
@@ -83,5 +83,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    sl.getMinimumDifference(root);
+    cout << sl.getMinimumDifference(root);
 }
