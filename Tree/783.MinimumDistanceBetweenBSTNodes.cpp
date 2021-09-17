@@ -46,6 +46,28 @@ public:
     }
 };
 
+class Solution {
+    int dfs(TreeNode* root, int& min, int& diff){
+
+        if(root->left)
+            dfs(root->left, min, diff); 
+
+        if(diff >= 0)
+            min = std::min(min, root->val - diff);
+
+        diff = root->val;
+
+        if(root->right)
+            dfs(root->right, min, diff);
+
+        return min;
+    }
+public:
+    int minDiffInBST(TreeNode* root) {
+        int min = INT_MAX, diff = -1;
+        return dfs(root, min, diff);
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
