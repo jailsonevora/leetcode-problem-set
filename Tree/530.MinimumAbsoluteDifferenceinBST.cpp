@@ -57,14 +57,14 @@ class Solution {
         if(root->left)
             dfs(root->left, min, abs(root->val - root->left->val) ); 
         if(root->right)
-            dfs(root->right, min, abs(root->val - root->left->val));
+            dfs(root->right, min, abs(root->val - root->right->val));
 
         return min;
 
     }
 public:
     int getMinimumDifference(TreeNode* root) {
-        return dfs(root, INTMAX_MAX, INTMAX_MAX);
+        return dfs(root, INT_MAX, INT_MAX);
     }
 };
 
@@ -73,11 +73,11 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> preOrder1 = {1,2,5,3};
-    //         1
-    //     2       3
-    //       5          
-    vector<int> inOrder1 = {5,2,1,3};
+    vector<int> preOrder1 = {4,2,1,3,6};
+    //         4
+    //     2       6
+    // 1      3          
+    vector<int> inOrder1 = {1,2,3,4,6};
 
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
