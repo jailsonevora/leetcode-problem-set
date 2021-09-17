@@ -45,6 +45,12 @@ public:
     }
 };
 
+class Solution {
+public:
+    int getMinimumDifference(TreeNode* root) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
@@ -61,5 +67,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    sl.binaryTreePaths(root);
+    sl.getMinimumDifference(root);
 }
