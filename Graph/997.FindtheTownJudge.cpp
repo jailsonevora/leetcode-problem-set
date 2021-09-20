@@ -67,7 +67,7 @@ int main()
     //Graph graph(edges, N);
 
     vector<vector<int>> adjList = { 
-        {1,0},{2,0},{3,1},{3,2}
+        {1,3},{2,3}
     };
     int N = 1;
     
