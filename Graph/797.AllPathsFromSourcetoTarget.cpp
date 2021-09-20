@@ -10,7 +10,6 @@ struct Edge {
     int src, dest;
 };
 
-
 // A class to represent a graph object
 class Graph {
 public:
