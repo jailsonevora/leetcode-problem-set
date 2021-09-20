@@ -34,6 +34,13 @@ public:
     }
 };
 
+class Solution {
+public:
+    vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        
+    }
+};
+
 int main()
 {
     // vector of graph edges as per the above diagram
@@ -47,15 +54,21 @@ int main()
     // };
     // int N = 4;
 
-    vector<Edge> edges = {
+    // vector<Edge> edges = {
         
-    };
-    int N = 1;
+    // };
+    // int N = 1;
  
     // build a graph from the given edges
-    Graph graph(edges, N);
+    //Graph graph(edges, N);
+
+    vector<vector<int>> adjList = {
+        {{1,2},{3},{3},{}}
+    };
+    int N = 4;
     
     Solution sl;
-    for(auto v: sl.findOrder(N, graph.adjList))
-        cout << v << "\n";
+    for(auto v: sl.allPathsSourceTarget(adjList))
+        for(auto u: v)
+            cout << u << "\n";
 }
