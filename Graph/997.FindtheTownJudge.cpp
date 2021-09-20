@@ -2,6 +2,7 @@
 #include <stack>
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
@@ -34,6 +35,19 @@ public:
 };
 
 class Solution {
+    void dfs(int v, vector<vector<int>>& graph, vector<int> discovered, unordered_set<int>& set){
+
+        discovered[v] = 1;
+        for (int u: graph[v])
+        {
+            if(!discovered[v])
+                dfs(v,graph, discovered, set);
+        }
+
+        if()
+            set.insert(v);
+        
+    }
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
 
@@ -41,7 +55,17 @@ public:
         vector<vector<int>> graph(trust);
         for (auto &edge: trust)
             graph[edge[0]].push_back(edge[1]);
+
+        vector<int> discovered(n,0);
+        unordered_set<int> set;
+
+        for (int node = 0; node < n; node++)
+            if(!discovered[node])
+                dfs(node, graph, discovered, set);
         
+        if(set.size() == 1)
+            return *set.begin();
+        else return -1;        
     }
 };
 
