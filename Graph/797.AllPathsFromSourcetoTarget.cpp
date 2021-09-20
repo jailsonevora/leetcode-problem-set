@@ -38,7 +38,7 @@ class Solution {
         
         vec.push_back(v);
         
-        if(v == graph.size()-1)
+        if(v == graph.size() - 1)
             ans.push_back(vec);
         else{
             for (auto u: graph[v]){
