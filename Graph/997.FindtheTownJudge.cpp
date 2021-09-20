@@ -33,6 +33,17 @@ public:
     }
 };
 
+class Solution {
+public:
+    int findJudge(int n, vector<vector<int>>& trust) {
+
+        //to convert edge list to adjacent list
+        vector<vector<int>> graph(trust);
+        for (auto &edge: trust)
+            graph[edge[0]].push_back(edge[1]);
+        
+    }
+};
 
 int main()
 {
@@ -53,9 +64,8 @@ int main()
     int N = 1;
  
     // build a graph from the given edges
-    Graph graph(edges, N);
+    //Graph graph(edges, N);
     
     Solution sl;
-    for(auto v: sl.findOrder(N, graph.adjList))
-        cout << v << "\n";
+    cout << sl.findJudge(N, edges);
 }
