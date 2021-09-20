@@ -49,13 +49,14 @@ class Solution {
 public:
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         
-        vector<vector<int>> graph, ans;
+        vector<vector<int>> adj, ans;
         vector<int> vec;
         for (auto &edge: graph)
-            graph[edge[0]].push_back(edge[1]);
+            adj[edge[0]].push_back(edge[1]);
 
+        dfs_backtracking(0, adj, ans, vec);
 
-        
+        return ans;        
     }
 };
 
