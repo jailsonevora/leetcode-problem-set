@@ -35,37 +35,24 @@ public:
 };
 
 class Solution {
-    void dfs(int v, vector<vector<int>>& graph, vector<int> discovered, unordered_set<int>& set){
-
-        discovered[v] = 1;
-        for (int u: graph[v])
-        {
-            if(!discovered[v])
-                dfs(v,graph, discovered, set);
-        }
-
-        //if()
-          //  set.insert(v);
-        
-    }
+    
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
 
-        //to convert edge list to adjacent list
-        vector<vector<int>> graph(n);
-        for (auto &edge: trust)
-            graph[edge[0]].push_back(edge[1]);
+        if(trust.empty() && n==1)
+            return 1;
 
-        vector<int> discovered(n,0);
-        unordered_set<int> set;
-
-        for (int node = 0; node < n; node++)
-            if(!discovered[node])
-                dfs(node, graph, discovered, set);
+        //counts outdegree and indegree of a person or node 
+		//outdegree means number of nodes that are trusted by given specific node
+        //indegree means number of nodes that trusts a given specific node 
+        vector<int> count(n + 1, 0);
+        for (auto& edge : trust)
+            count[edge[0]]--, count[edge[1]]++;
         
-        if(set.size() == 1)
-            return *set.begin();
-        else return -1;        
+        for (int i = 1; i <= n; ++i) 
+            if (count[i] == n - 1) 
+                return i;
+        return -1;
     }
 };
 
