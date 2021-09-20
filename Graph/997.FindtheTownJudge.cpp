@@ -58,14 +58,19 @@ int main()
     // };
     // int N = 4;
 
-    vector<Edge> edges = {
+    // vector<Edge> edges = {
         
-    };
-    int N = 1;
+    // };
+    // int N = 1;
  
     // build a graph from the given edges
     //Graph graph(edges, N);
+
+    vector<vector<int>> adjList = { 
+        {1,0},{2,0},{3,1},{3,2}
+    };
+    int N = 1;
     
     Solution sl;
-    cout << sl.findJudge(N, edges);
+    cout << sl.findJudge(N, adjList);
 }
