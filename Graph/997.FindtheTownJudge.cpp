@@ -44,15 +44,15 @@ class Solution {
                 dfs(v,graph, discovered, set);
         }
 
-        if()
-            set.insert(v);
+        //if()
+          //  set.insert(v);
         
     }
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
 
         //to convert edge list to adjacent list
-        vector<vector<int>> graph(trust);
+        vector<vector<int>> graph(n);
         for (auto &edge: trust)
             graph[edge[0]].push_back(edge[1]);
 
@@ -93,7 +93,7 @@ int main()
     vector<vector<int>> adjList = { 
         {1,3},{2,3}
     };
-    int N = 1;
+    int N = 3;
     
     Solution sl;
     cout << sl.findJudge(N, adjList);
