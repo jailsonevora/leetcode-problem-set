@@ -36,12 +36,13 @@ public:
 class Solution {
     void dfs_backtracking(int v, vector<vector<int>>& graph, vector<vector<int>>& ans, vector<int> vec){
         
-        if(v == graph.size())
+        vec.push_back(v);
+        
+        if(v == graph.size()-1)
             ans.push_back(vec);
         else{
             for (auto u: graph[v]){
-                vec.push_back(u);
-                dfs_backtracking(v+1, graph, ans, vec);
+                dfs_backtracking(u, graph, ans, vec);
                 vec.pop_back();
             }
         }
@@ -51,10 +52,8 @@ public:
         
         vector<vector<int>> adj, ans;
         vector<int> vec;
-        for (auto &edge: graph)
-            adj[edge[0]].push_back(edge[1]);
 
-        dfs_backtracking(0, adj, ans, vec);
+        dfs_backtracking(0, graph, ans, vec);
 
         return ans;        
     }
