@@ -33,6 +33,23 @@ public:
     }
 };
 
+class Solution {
+public:
+    vector<int> findSmallestSetOfVertices(int n, vector<vector<int>>& edges) {
+
+        vector<int> outAndIndegree(n, 0);
+
+        for(auto& edge : edges)
+            /*outAndIndegree[edge[0]]--,*/ outAndIndegree[edge[1]]++;
+
+        vector<int> ans;
+        for (int i = 0; i < n; ++ i)
+            if(outAndIndegree[i] == 0)
+                ans.push_back(i);
+        
+        return ans;        
+    }
+};
 
 int main()
 {
@@ -56,12 +73,11 @@ int main()
     //Graph graph(edges, N);
 
     vector<vector<int>> adjList = {
-        {{1,2},{3},{3},{}}
+        {0,1},{0,2},{2,5},{3,4},{4,2}
     };
-    int N = 4;
+    int N = 6;
     
     Solution sl;
-    for(auto v: sl.allPathsSourceTarget(adjList))
-        for(auto u: v)
-            cout << u << "\n";
+    for(auto v: sl.findSmallestSetOfVertices(N, adjList))
+        cout << v << "\n";
 }
