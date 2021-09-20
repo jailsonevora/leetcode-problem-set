@@ -41,10 +41,9 @@ class Solution {
         if(v == graph.size() - 1)
             ans.push_back(vec);
         else{
-            for (auto u: graph[v]){
+            for (auto u: graph[v])
                 dfs_backtracking(u, graph, ans, vec);
-                vec.pop_back();
-            }
+            vec.pop_back();
         }
     }
 public:
