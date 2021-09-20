@@ -49,7 +49,7 @@ class Solution {
 public:
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         
-        vector<vector<int>> adj, ans;
+        vector<vector<int>> ans;
         vector<int> vec;
 
         dfs_backtracking(0, graph, ans, vec);
