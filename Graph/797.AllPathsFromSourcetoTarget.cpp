@@ -34,8 +34,15 @@ public:
 };
 
 class Solution {
+    void dfs_backtracking()
 public:
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
+        
+        vector<vector<int>> graph, ans;
+        for (auto &edge: graph)
+            graph[edge[0]].push_back(edge[1]);
+
+
         
     }
 };
