@@ -16,23 +16,22 @@ public:
         sort(nums.begin(), nums.end());
         
         for(int i = 0; i < nums.size(); ++i)
-            ans[i] = nums.size() - i;
-        
+            ans[i] = abs(nums.size() - (i+1));        
         return ans; 
     }
 
     // brute force
-    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+    // vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
         
-        vector<int> ans(nums.size(), 0);
+    //     vector<int> ans(nums.size(), 0);
         
-        // brute force
-        for(int i = 0; i < nums.size(); ++i)
-            for(int j = 1; j < nums.size(); j++)
-                if(nums[j] < nums[i])
-                    ans[i]++;
-        return ans;
-    }
+    //     // brute force
+    //     for(int i = 0; i < nums.size(); ++i)
+    //         for(int j = 1; j < nums.size(); j++)
+    //             if(nums[j] < nums[i])
+    //                 ans[i]++;
+    //     return ans;
+    // }
 };
 
 int main(){
