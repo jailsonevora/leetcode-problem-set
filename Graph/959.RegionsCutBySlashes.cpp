@@ -101,7 +101,7 @@ int main()
     //Graph graph(edges, N);
 
     vector<string> adjList = { 
-        {" /","/ "}
+        {" /"},{"/ "}
     };
     
     Solution sl;
