@@ -36,6 +36,8 @@ public:
 };
 
 class Solution {
+    int count, n;
+   vector<int> f;
 public:
     int regionsBySlashes(vector<string>& grid) {
         
@@ -64,7 +66,7 @@ int main()
     //Graph graph(edges, N);
 
     vector<string> adjList = { 
-        " /","/ "
+        {" /","/ "}
     };
     
     Solution sl;
