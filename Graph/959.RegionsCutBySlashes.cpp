@@ -35,6 +35,12 @@ public:
     }
 };
 
+class Solution {
+public:
+    int regionsBySlashes(vector<string>& grid) {
+        
+    }
+};
 
 int main()
 {
@@ -63,5 +69,5 @@ int main()
     int N = 3;
     
     Solution sl;
-    cout << sl.findJudge(N, adjList);
+    cout << sl.regionsBySlashes(adjList);
 }
