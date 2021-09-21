@@ -43,7 +43,7 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> nums = {1,2,3,1,1,3};
+    vector<int> nums = {8,1,2,2,3};
 
     Solution sl;
     for(auto num: sl.smallerNumbersThanCurrent(nums))
