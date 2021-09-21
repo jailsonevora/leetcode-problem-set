@@ -63,7 +63,7 @@ int main()
     // build a graph from the given edges
     //Graph graph(edges, N);
 
-    vector<vector<int>> adjList = { 
+    vector<string> adjList = { 
         {1,3},{2,3}
     };
     int N = 3;
