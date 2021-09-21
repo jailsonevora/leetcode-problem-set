@@ -1,6 +1,7 @@
 #include<iostream>
 #include<unordered_set>
 #include<unordered_map>
+#include<map>
 #include<vector>
 #include<algorithm>
 
@@ -11,12 +12,17 @@ public:
     // using sorting
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
         
-        vector<int> ans(nums.size(), 0);
+        map<int,int> mp;
+        vector<int> ans = nums;
         
         sort(nums.begin(), nums.end());
         
-        for(int i = 0; i < nums.size(); ++i)
-            ans[i] = abs(nums.size() - (i+1));        
+        for(int i = nums.size()-1; i >= 0; i--)
+            mp[nums[i]]=i;
+
+        for(int i=0; i < ans.size(); i++)
+            ans[i]=mp[ans[i]];
+
         return ans; 
     }
 
