@@ -64,9 +64,8 @@ int main()
     //Graph graph(edges, N);
 
     vector<string> adjList = { 
-        {1,3},{2,3}
+        " /","/ "
     };
-    int N = 3;
     
     Solution sl;
     cout << sl.regionsBySlashes(adjList);
