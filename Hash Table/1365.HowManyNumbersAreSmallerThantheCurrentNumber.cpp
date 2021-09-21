@@ -26,9 +26,10 @@ int main(){
     ios_base::sync_with_stdio();
     cin.tie();
     cout.tie();
-    
+
     vector<int> nums = {1,2,3,1,1,3};
 
     Solution sl;
-    cout << sl.smallerNumbersThanCurrent(nums);
+    for(auto num: sl.smallerNumbersThanCurrent(nums))
+        cout << num << "\n";
 }
