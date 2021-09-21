@@ -105,5 +105,5 @@ int main()
     };
     
     Solution sl;
-    cout << sl.regionsBySlashes(adjList);
+    std::cout << sl.regionsBySlashes(adjList);
 }
