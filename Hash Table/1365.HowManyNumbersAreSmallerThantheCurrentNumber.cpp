@@ -18,8 +18,7 @@ public:
                 if(nums[j] < nums[i])
                     ans[i]++;
         
-        return ans;
-        
+        return ans; 
     }
 
     // brute force
@@ -32,9 +31,7 @@ public:
             for(int j = 1; j < nums.size(); j++)
                 if(nums[j] < nums[i])
                     ans[i]++;
-        
         return ans;
-        
     }
 };
 
