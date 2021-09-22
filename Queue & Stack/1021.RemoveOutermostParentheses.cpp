@@ -13,16 +13,12 @@ public:
         
         for(auto str: s){
             
+            if(str == ')')
+                stk.pop();
+            if(!stk.empty())
+                ans.push_back(str);
             if(str == '(')
                 stk.push(str);
-            else if(str == ')'){
-                char tmp = stk.top();
-                stk.pop();
-                if(!stk.empty()){
-                    ans.push_back(tmp);
-                    ans.push_back(str);
-                }                                
-            }
         }        
         return ans;        
     }
@@ -34,7 +30,9 @@ int main(){
     cout.tie();
 
     //string s = "(()())(())";
-    string s = "(()())(())(()(()))";
+    //string s = "(()())(())(()(()))";
+    string s = "()()";
+
 
 
     Solution sl;
