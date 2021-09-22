@@ -56,8 +56,10 @@ int main()
     // build a graph from the given edges
     //Graph graph(edges, N);
 
-    vector<string> adjList = { 
-        {" /"},{"/ "}
+    vector<vector<int>> grid = { 
+        {1,1,0},
+        {1,1,0},
+        {0,0,1}
     };
     
     Solution sl;
