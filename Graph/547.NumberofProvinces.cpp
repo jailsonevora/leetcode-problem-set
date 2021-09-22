@@ -37,7 +37,7 @@ public:
 class Solution {
     void DFS(vector<vector<int>> &grid, int v, vector<int>& visited){
                
-        for (int u: grid[v])
+        for (int u = 0; u < grid.size(); u++)
             if(grid[v][u] == 1 && visited[u] == 0){
                 visited[u] = 1;
                 DFS(grid, u, visited);
