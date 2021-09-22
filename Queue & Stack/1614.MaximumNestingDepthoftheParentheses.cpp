@@ -29,11 +29,10 @@ int main(){
     cin.tie();
     cout.tie();
 
-    //vector<int> students {1,1,1,0,0,1}, sandwiches {1,0,0,0,1,1};
-    vector<int> students {1,1,1,0,0,1}, sandwiches {1,0,0,0,1,1};
+    vector<int> s {1,1,1,0,0,1};
 
     Solution sl;
 
-    cout << sl.maxDepth(students, sandwiches);
+    cout << sl.maxDepth();
 
 }
