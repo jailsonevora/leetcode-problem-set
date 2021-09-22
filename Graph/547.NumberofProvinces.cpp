@@ -63,5 +63,5 @@ int main()
     };
     
     Solution sl;
-    std::cout << sl.regionsBySlashes(adjList);
+    std::cout << sl.regionsBySlashes(grid);
 }
