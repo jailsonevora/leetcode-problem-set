@@ -45,11 +45,6 @@ class Solution {
 public:
     int findCircleNum(vector<vector<int>>& isConnected) {
 
-        // [1,0,0,1],
-        // [0,1,1,0],
-        // [0,1,1,1],
-        // [1,0,1,1]
-        
         int province = 0;
         
         for(int row = 0; row < isConnected.size(); row++)
@@ -82,17 +77,17 @@ int main()
     // build a graph from the given edges
     //Graph graph(edges, N);
 
-    vector<vector<int>> grid = { 
-        {1,1,0},
-        {1,1,0},
-        {0,0,1}
-    };
-
     // vector<vector<int>> grid = { 
-    //     {1,0,0},
-    //     {0,1,0},
+    //     {1,1,0},
+    //     {1,1,0},
     //     {0,0,1}
     // };
+
+    vector<vector<int>> grid = { 
+        {1,0,0},
+        {0,1,0},
+        {0,0,1}
+    };
     
     Solution sl;
     std::cout << sl.findCircleNum(grid);
