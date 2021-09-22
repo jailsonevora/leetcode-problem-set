@@ -9,7 +9,7 @@ public:
     string removeOuterParentheses(string s) {
         
         stack<char> stk;
-        string ans;
+        string ans = "";
         
         for(auto str: s){
             
@@ -23,8 +23,7 @@ public:
                     ans.push_back(str);
                 }                                
             }
-        }
-        
+        }        
         return ans;        
     }
 };
@@ -34,7 +33,9 @@ int main(){
     cin.tie();
     cout.tie();
 
-    string s = "(()())(())";
+    //string s = "(()())(())";
+    string s = "(()())(())(()(()))";
+
 
     Solution sl;
     cout << sl.removeOuterParentheses(s);
