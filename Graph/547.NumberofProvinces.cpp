@@ -35,35 +35,27 @@ public:
 };
 
 class Solution {
-    void DFS(vector<vector<int>> &grid, int x, int y, int row, int col){
-        if (x < 0 
-            || x >= row 
-            || y < 0 
-            || y >= col 
-            || grid[x][y] != '1')
-                return;
-        
-        grid[x][y] = '2';
-
-        //recursive call to 4 adjacent directions
-        DFS(grid, x+1, y, row, col);
-        DFS(grid, x, y+1, row, col);
-        DFS(grid, x-1, y, row, col);
-        DFS(grid, x, y-1, row, col);
+    void DFS(vector<vector<int>> &grid, int x, int y){
+               
+        grid[x][y] = 2;
+        for (int u: grid[x])
+            if(grid[x][u] == 1)
+                DFS(grid, x, u);
     }
 public:
     int findCircleNum(vector<vector<int>>& isConnected) {
+
+        // [1,0,0,1],
+        // [0,1,1,0],
+        // [0,1,1,1],
+        // [1,0,1,1]
         
         int province = 0;
-
-        // {1,1,0},
-        // {1,1,0},
-        // {0,0,1}
         
         for(int row = 0; row < isConnected.size(); row++)
             for(int col = 0; col < isConnected[0].size(); col++)
                 if(isConnected[row][col] == 1)
-                    DFS(isConnected, row, col, isConnected.size(), isConnected[0].size()), 
+                    DFS(isConnected, row, col), 
                         province++;
         return province;        
     }
@@ -96,11 +88,11 @@ int main()
         {0,0,1}
     };
 
-    vector<vector<int>> grid = { 
-        {1,0,0},
-        {0,1,0},
-        {0,0,1}
-    };
+    // vector<vector<int>> grid = { 
+    //     {1,0,0},
+    //     {0,1,0},
+    //     {0,0,1}
+    // };
     
     Solution sl;
     std::cout << sl.findCircleNum(grid);
