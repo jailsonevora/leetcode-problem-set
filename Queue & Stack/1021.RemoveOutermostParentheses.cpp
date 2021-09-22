@@ -4,13 +4,37 @@
 
 using namespace std;
 
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        
+        stack<char> stk;
+        string ans;
+        
+        for(auto str: s){
+            
+            if(str == '('){
+                stk.push(str);
+                ans.push_back(str);
+            }
+            else if(str == ')'){
+                stk.pop();
+                if(!stk.empty())
+                    ans.push_back(str);
+            }
+        }
+        
+        return ans;        
+    }
+};
+
 int main(){
     ios_base::sync_with_stdio();
     cin.tie();
     cout.tie();
 
-    string s = "(1+(2*3)+((8)/4))+1";
+    string s = "(()())(())";
 
     Solution sl;
-    cout << sl.maxDepth(s);
+    cout << sl.removeOuterParentheses(s);
 }
