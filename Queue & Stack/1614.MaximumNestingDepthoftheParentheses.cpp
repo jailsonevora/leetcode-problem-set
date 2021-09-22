@@ -33,5 +33,4 @@ int main(){
 
     Solution sl;
     cout << sl.maxDepth(s);
-
 }
