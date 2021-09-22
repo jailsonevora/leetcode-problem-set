@@ -50,9 +50,9 @@ public:
         vector<int> visited(isConnected.size(), 0);
         
         for(int row = 0; row < isConnected.size(); row++)
-                if(visited[row] == 0)
-                    DFS(isConnected, row, visited), 
-                        province++;
+            if(visited[row] == 0)
+                DFS(isConnected, row, visited), 
+                    province++;
         return province;        
     }
 };
