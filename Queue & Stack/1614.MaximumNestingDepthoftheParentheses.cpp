@@ -29,10 +29,9 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> s {1,1,1,0,0,1};
+    string s = "(1+(2*3)+((8)/4))+1";
 
     Solution sl;
-
-    cout << sl.maxDepth();
+    cout << sl.maxDepth(s);
 
 }
