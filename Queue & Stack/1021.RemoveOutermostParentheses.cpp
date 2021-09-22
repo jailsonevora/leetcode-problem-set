@@ -16,11 +16,12 @@ public:
             if(str == '(')
                 stk.push(str);
             else if(str == ')'){
+                char tmp = stk.top();
+                stk.pop();
                 if(!stk.empty()){
-                    ans.push_back(stk.top());
+                    ans.push_back(tmp);
                     ans.push_back(str);
-                }
-                stk.pop();                
+                }                                
             }
         }
         
