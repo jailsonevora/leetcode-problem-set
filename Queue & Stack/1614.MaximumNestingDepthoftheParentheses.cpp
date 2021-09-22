@@ -4,6 +4,26 @@
 
 using namespace std;
 
+class Solution {
+public:
+    int maxDepth(string s) {
+        
+        stack<char> st;
+        int max = 0, count = 0;
+        for(auto str: s){
+            
+            if(str == '(')
+                max = std::max(max, ++count),
+                    st.push(str);
+            
+            else if(str == ')')
+                    st.pop(),
+                        count--;
+        }
+        return max;
+    }
+};
+
 int main(){
     ios_base::sync_with_stdio();
     cin.tie();
@@ -14,6 +34,6 @@ int main(){
 
     Solution sl;
 
-    cout << sl.countStudents(students, sandwiches);
+    cout << sl.maxDepth(students, sandwiches);
 
 }
