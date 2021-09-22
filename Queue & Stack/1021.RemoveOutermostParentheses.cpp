@@ -13,14 +13,14 @@ public:
         
         for(auto str: s){
             
-            if(str == '('){
+            if(str == '(')
                 stk.push(str);
-                ans.push_back(str);
-            }
             else if(str == ')'){
-                stk.pop();
-                if(!stk.empty())
+                if(!stk.empty()){
+                    ans.push_back(stk.top());
                     ans.push_back(str);
+                }
+                stk.pop();                
             }
         }
         
