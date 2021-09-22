@@ -35,22 +35,23 @@ public:
 };
 
 class Solution {
-    void DFS(vector<vector<int>> &grid, int x, int y){
+    void DFS(vector<vector<int>> &grid, int v, vector<int>& visited){
                
-        grid[x][y] = 2;
-        for (int u: grid[x])
-            if(grid[x][u] == 1)
-                DFS(grid, x, u);
+        for (int u: grid[v])
+            if(grid[v][u] == 1 && visited[u] == 0){
+                visited[u] = 1;
+                DFS(grid, u, visited);
+            }
     }
 public:
     int findCircleNum(vector<vector<int>>& isConnected) {
 
         int province = 0;
+        vector<int> visited(isConnected.size(), 0);
         
         for(int row = 0; row < isConnected.size(); row++)
-            for(int col = 0; col < isConnected[0].size(); col++)
-                if(isConnected[row][col] == 1)
-                    DFS(isConnected, row, col), 
+                if(visited[row] == 0)
+                    DFS(isConnected, row, visited), 
                         province++;
         return province;        
     }
@@ -77,17 +78,17 @@ int main()
     // build a graph from the given edges
     //Graph graph(edges, N);
 
-    // vector<vector<int>> grid = { 
-    //     {1,1,0},
-    //     {1,1,0},
-    //     {0,0,1}
-    // };
-
     vector<vector<int>> grid = { 
-        {1,0,0},
-        {0,1,0},
+        {1,1,0},
+        {1,1,0},
         {0,0,1}
     };
+
+    // vector<vector<int>> grid = { 
+    //     {1,0,0},
+    //     {0,1,0},
+    //     {0,0,1}
+    // };
     
     Solution sl;
     std::cout << sl.findCircleNum(grid);
