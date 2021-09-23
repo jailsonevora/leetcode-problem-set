@@ -35,8 +35,23 @@ public:
 };
 
 class Solution {
+    void _dfs(int node, vector<vector<int>>& graph, vector<int>& visited)
+
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
+
+        vector<vector<int>> graph;
+        vector<int> visited(n, 0);
+
+        for(auto& edge: connections)
+            graph[edge[0]].push_back(edge[1]);
+
+        for (int node = 0; node < n; node++)
+            if(!visited[node])
+
+        
+
+
         
     }
 };
