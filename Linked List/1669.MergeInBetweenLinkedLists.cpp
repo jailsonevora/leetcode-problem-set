@@ -14,7 +14,6 @@ using namespace std;
 
 class Solution {
 public:
-    ListNode *list1 = nullptr, *list2 = nullptr;
 
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         
@@ -33,7 +32,7 @@ public:
 
     }
 
-    void pushBack(int data, ListNode* head)
+    void pushBack(int data, ListNode*& head)
     {
         ListNode* temp = new ListNode(data);
         ListNode* curr = head;
@@ -49,7 +48,7 @@ public:
 
 int main(){
     
-    ListNode* l1, *l2;
+    ListNode* l1 = nullptr, *l2 = nullptr;
 
     Solution ll;
     ll.pushBack(0, l1);
