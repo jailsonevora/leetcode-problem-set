@@ -47,28 +47,28 @@ public:
 };
 
 // with DFS
-class Solution {
-    void _dfs(vector<vector<int>> &grid, int v, vector<int>& visited){
+// class SolutionDFS {
+//     void _dfs(vector<vector<int>> &grid, int v, vector<int>& visited){
                
-        for (int u = 0; u < grid.size(); u++)
-            if(grid[v][u] == 1 && visited[u] == 0){
-                visited[u] = 1;
-                _dfs(grid, u, visited);
-            }
-    }
-public:
-    int findCircleNum(vector<vector<int>>& isConnected) {
+//         for (int u = 0; u < grid.size(); u++)
+//             if(grid[v][u] == 1 && visited[u] == 0){
+//                 visited[u] = 1;
+//                 _dfs(grid, u, visited);
+//             }
+//     }
+// public:
+//     int findCircleNum(vector<vector<int>>& isConnected) {
 
-        int province = 0;
-        vector<int> visited(isConnected.size(), 0);
+//         int province = 0;
+//         vector<int> visited(isConnected.size(), 0);
         
-        for(int row = 0; row < isConnected.size(); row++)
-            if(visited[row] == 0)
-                _dfs(isConnected, row, visited), 
-                    province++;
-        return province;        
-    }
-};
+//         for(int row = 0; row < isConnected.size(); row++)
+//             if(visited[row] == 0)
+//                 _dfs(isConnected, row, visited), 
+//                     province++;
+//         return province;        
+//     }
+// };
 
 int main()
 {
@@ -85,6 +85,7 @@ int main()
     //     {0,0,1}
     // };
     
-    Solution sl;
+    SolutionDFS sl;
+    SolutionDSU sl;
     std::cout << sl.findCircleNum(grid);
 }
