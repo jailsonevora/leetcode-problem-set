@@ -14,8 +14,24 @@ using namespace std;
 
 class Solution {
 public:
+    ListNode *head = NULL;
+
+
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = list1;
+
+        ListNode* aPtr = dummy, *bPtr = dummy;
+
+        while (bPtr->next->val != b)
+            bPtr = bPtr->next;
+
+        while (aPtr->next->val != b)
+            aPtr = aPtr->next;
+        
+        
+
     }
 
     void pushBack(int data)
