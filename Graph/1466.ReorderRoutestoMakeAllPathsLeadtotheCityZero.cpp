@@ -37,15 +37,14 @@ public:
 class Solution {
     void _dfs(int v, vector<pair<int,int>> graph[], vector<int>& visited, int& ans){
 
+        visited[v] = 1;
+
         for (auto [u, direction]: graph[v])
             if(!visited[u]){
                 _dfs(u, graph, visited, ans);
-                if(direction == -1){
-                    graph[u].push_back({v,1});
+                if(direction == 1)
                     ans++;
-                }
             }
-        visited[v] = 1;
     }
 
 public:
