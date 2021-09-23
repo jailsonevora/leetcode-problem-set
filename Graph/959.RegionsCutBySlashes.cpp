@@ -36,6 +36,7 @@ public:
 };
 
 class Solution {
+    
     int count, n;
    vector<int> f;
 
@@ -57,10 +58,13 @@ class Solution {
     }
 public:
     int regionsBySlashes(vector<string>& grid) {
+        
         n = grid.size();
         count = n * n * 4;
+        
         for (int i = 0; i < n * n * 4; ++i)
             f.push_back(i);
+        
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
                 if (i > 0) uni(g(i - 1, j, 2), g(i, j, 0));

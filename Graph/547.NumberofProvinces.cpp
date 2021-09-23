@@ -10,15 +10,16 @@ using namespace std;
 // Union find with path compression
 class SolutionDSU {
 
+private:
     int _find(int v, vector<int>& parent) {
         if (v == parent[v])
             return v;
-        return parent[v] = _find(parent[v]);
+        return parent[v] = _find(parent[v], parent);
     }
     
     void _union(int from, int to, vector<int>& parent) {
-        from = _find(from);
-        to = _find(to);
+        from = _find(from, parent);
+        to = _find(to, parent);
         if (from != to)
             parent[to] = from;
     }
@@ -28,7 +29,7 @@ public:
         
         int i, j, province = 0, n = M.size();
         
-        // initialize leads for every kid as themselves
+        // initialize leads
         vector<int> parent(n, 0);
         for (int i = 0; i < n; i++) 
             parent[i] = i;  
@@ -36,7 +37,7 @@ public:
         for(i = 0; i < n; i++)
             for(j = i + 1; j < n; j++)
                 if(M[i][j])
-                    _union(i, j);
+                    _union(i, j, parent);
         
         for(i = 0; i < n; i++)
             if(i == parent[i])
@@ -85,7 +86,7 @@ int main()
     //     {0,0,1}
     // };
     
-    SolutionDFS sl;
+    //SolutionDFS sl;
     SolutionDSU sl;
     std::cout << sl.findCircleNum(grid);
 }
