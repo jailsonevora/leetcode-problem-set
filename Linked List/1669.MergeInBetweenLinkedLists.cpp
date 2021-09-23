@@ -14,8 +14,7 @@ using namespace std;
 
 class Solution {
 public:
-    ListNode *head = NULL;
-
+    ListNode *list1 = nullptr, *list2 = nullptr;
 
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         
@@ -34,7 +33,7 @@ public:
 
     }
 
-    void pushBack(int data)
+    void pushBack(int data, ListNode* head)
     {
         ListNode* temp = new ListNode(data);
         ListNode* curr = head;
@@ -50,10 +49,19 @@ public:
 
 int main(){
     
-    Solution ll;
-    ll.pushBack(1);
-    ll.pushBack(0);
-    ll.pushBack(1);
+    ListNode* l1, *l2;
 
-    cout << ll.getDecimalValue(ll.head);
+    Solution ll;
+    ll.pushBack(0, l1);
+    ll.pushBack(1, l1);
+    ll.pushBack(2, l1);
+    ll.pushBack(3, l1);
+    ll.pushBack(4, l1);
+    ll.pushBack(5, l1);
+
+    ll.pushBack(1000000, l2);
+    ll.pushBack(1000001, l2);
+    ll.pushBack(1000002, l2);
+
+    ll.mergeInBetween(l1, 3, 4, l2);
 }
