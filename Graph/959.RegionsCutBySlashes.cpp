@@ -35,6 +35,7 @@ public:
     }
 };
 
+// Union find without path compression
 class Solution {
 
     int count, n;
@@ -70,7 +71,7 @@ public:
 
                 if (i > 0) uni(g(i - 1, j, 2), g(i, j, 0));
                 if (j > 0) uni(g(i , j - 1, 1), g(i , j, 3));
-                
+
                 if (grid[i][j] != '/') {
                     uni(g(i , j, 0), g(i , j,  1));
                     uni(g(i , j, 2), g(i , j,  3));

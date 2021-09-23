@@ -73,7 +73,7 @@ public:
 
 int main()
 {
-
+    //adjacent matrix instead adjacent list;
     vector<vector<int>> grid = { 
         {1,1,0},
         {1,1,0},
