@@ -34,7 +34,12 @@ public:
     }
 };
 
-
+class Solution {
+public:
+    int minReorder(int n, vector<vector<int>>& connections) {
+        
+    }
+};
 
 int main()
 {
@@ -58,12 +63,14 @@ int main()
     //Graph graph(edges, N);
 
     vector<vector<int>> adjList = {
-        {{1,2},{3},{3},{}}
+        {0,1},
+        {1,3},
+        {2,3},
+        {4,0},
+        {4,5}
     };
     int N = 4;
     
     Solution sl;
-    for(auto v: sl.allPathsSourceTarget(adjList))
-        for(auto u: v)
-            cout << u << "\n";
+    cout << sl.minReorder(N, adjList);
 }
