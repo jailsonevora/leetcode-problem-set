@@ -35,13 +35,15 @@ public:
 };
 
 class Solution {
-    void _dfs(int v, vector<vector<int>>& graph, vector<int>& visited, int& ans){
+    void _dfs(int v, vector<pair<int,int>> graph[], vector<int>& visited, int& ans){
 
-        for (auto& u: graph[v])
+        for (auto [u, direction]: graph[v])
             if(!visited[u]){
                 _dfs(u, graph, visited, ans);
-                    graph[u].push_back(v);
+                if(direction == -1){
+                    graph[u].push_back({v,1});
                     ans++;
+                }
             }
         visited[v] = 1;
     }
@@ -49,12 +51,13 @@ class Solution {
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
 
-        vector<vector<int>> graph(n);
+        vector<pair<int,int>> graph[n+1];
         vector<int> visited(n, 0);
         int ans = 0;
 
         for(auto& edge: connections)
-            graph[edge[0]].push_back(edge[1]);
+            graph[edge[0]].push_back({edge[1], 1}),
+            graph[edge[1]].push_back({edge[0], -1});
 
         for (int node = 0; node < n; node++)
             if(!visited[node])
@@ -84,14 +87,20 @@ int main()
     // build a graph from the given edges
     //Graph graph(edges, N);
 
+    // vector<vector<int>> adjList = {
+    //     {0,1},
+    //     {1,3},
+    //     {2,3},
+    //     {4,0},
+    //     {4,5}
+    // };
+    // int N = 6;
+
     vector<vector<int>> adjList = {
-        {0,1},
-        {1,3},
-        {2,3},
-        {4,0},
-        {4,5}
+        {1,2},
+        {2,0}
     };
-    int N = 6;
+    int N = 3;
     
     Solution sl;
     std::cout << sl.minReorder(N, adjList);
