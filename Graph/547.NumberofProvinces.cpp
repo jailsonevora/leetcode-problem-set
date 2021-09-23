@@ -6,36 +6,10 @@
 
 using namespace std;
 
-// Data structure to store a graph edge
-struct Edge {
-    int src, dest;
-};
 
-// A class to represent a graph object
-class Graph {
-public:
-    // a vector of vectors to represent an adjacency list
-    vector<vector<int>> adjList;
- 
-    // Graph Constructor
-    Graph(vector<Edge> const &edges, int N)
-    {
-        // resize the vector to hold `N` elements of type `vector<int>`
-        adjList.resize(N);
- 
-        // add edges to the undirected graph
-        if(!edges.empty()){
-            for (auto &edge: edges)
-            {
-                adjList[edge.src].push_back(edge.dest);
-                //adjList[edge.dest].push_back(edge.src);
-            }
-        }
-    }
-};
-
+// Union find with path compression
 class SolutionDSU {
-        
+
     int _find(int v, vector<int>& parent) {
         if (v == parent[v])
             return v;
@@ -72,13 +46,14 @@ public:
     }
 };
 
+// with DFS
 class Solution {
-    void DFS(vector<vector<int>> &grid, int v, vector<int>& visited){
+    void _dfs(vector<vector<int>> &grid, int v, vector<int>& visited){
                
         for (int u = 0; u < grid.size(); u++)
             if(grid[v][u] == 1 && visited[u] == 0){
                 visited[u] = 1;
-                DFS(grid, u, visited);
+                _dfs(grid, u, visited);
             }
     }
 public:
@@ -89,7 +64,7 @@ public:
         
         for(int row = 0; row < isConnected.size(); row++)
             if(visited[row] == 0)
-                DFS(isConnected, row, visited), 
+                _dfs(isConnected, row, visited), 
                     province++;
         return province;        
     }
