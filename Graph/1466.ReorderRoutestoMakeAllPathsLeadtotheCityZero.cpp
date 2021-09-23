@@ -35,24 +35,31 @@ public:
 };
 
 class Solution {
-    void _dfs(int node, vector<vector<int>>& graph, vector<int>& visited)
+    void _dfs(int v, vector<vector<int>>& graph, vector<int>& visited){
+
+        for (auto& u: graph[v])
+            if(!visited[u]){
+                _dfs(u, graph, visited);
+                    graph[u].push_back(v);
+                }        
+        
+        visited[v] = 1;
+    }
 
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
 
         vector<vector<int>> graph;
         vector<int> visited(n, 0);
+        int ans = 0;
 
         for(auto& edge: connections)
             graph[edge[0]].push_back(edge[1]);
 
         for (int node = 0; node < n; node++)
             if(!visited[node])
-
-        
-
-
-        
+                _dfs(node, graph,visited);       
+        return ans;        
     }
 };
 
