@@ -36,7 +36,7 @@ public:
 };
 
 class Solution {
-    
+
     int count, n;
    vector<int> f;
 
@@ -67,8 +67,10 @@ public:
         
         for (int i = 0; i < n; ++i) {
             for (int j = 0; j < n; ++j) {
+
                 if (i > 0) uni(g(i - 1, j, 2), g(i, j, 0));
                 if (j > 0) uni(g(i , j - 1, 1), g(i , j, 3));
+                
                 if (grid[i][j] != '/') {
                     uni(g(i , j, 0), g(i , j,  1));
                     uni(g(i , j, 2), g(i , j,  3));
