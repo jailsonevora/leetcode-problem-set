@@ -35,14 +35,16 @@ public:
 };
 
 class Solution {
-    void _dfs(int v, vector<vector<int>>& graph, vector<int>& visited){
+    void _dfs(int v, vector<vector<int>>& graph, vector<int>& visited, int& ans){
 
         for (auto& u: graph[v])
             if(!visited[u]){
-                _dfs(u, graph, visited);
-                    graph[u].push_back(v);
-                }        
-        
+                _dfs(u, graph, visited, ans);
+                    if(u > v ){
+                        graph[u].push_back(v);
+                        ans++;
+                    }
+                }
         visited[v] = 1;
     }
 
