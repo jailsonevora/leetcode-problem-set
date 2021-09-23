@@ -72,5 +72,5 @@ int main()
     int N = 4;
     
     Solution sl;
-    cout << sl.minReorder(N, adjList);
+    std::cout << sl.minReorder(N, adjList);
 }
