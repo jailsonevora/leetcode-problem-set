@@ -40,18 +40,16 @@ class Solution {
         for (auto& u: graph[v])
             if(!visited[u]){
                 _dfs(u, graph, visited, ans);
-                    if(u > v ){
-                        graph[u].push_back(v);
-                        ans++;
-                    }
-                }
+                    graph[u].push_back(v);
+                    ans++;
+            }
         visited[v] = 1;
     }
 
 public:
     int minReorder(int n, vector<vector<int>>& connections) {
 
-        vector<vector<int>> graph;
+        vector<vector<int>> graph(n);
         vector<int> visited(n, 0);
         int ans = 0;
 
@@ -60,7 +58,7 @@ public:
 
         for (int node = 0; node < n; node++)
             if(!visited[node])
-                _dfs(node, graph,visited);       
+                _dfs(node, graph,visited, ans);       
         return ans;        
     }
 };
@@ -93,7 +91,7 @@ int main()
         {4,0},
         {4,5}
     };
-    int N = 4;
+    int N = 6;
     
     Solution sl;
     std::cout << sl.minReorder(N, adjList);
