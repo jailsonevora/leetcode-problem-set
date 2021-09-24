@@ -14,26 +14,32 @@ using namespace std;
 
 class Solution {
 public:
-    ListNode *list1 = nullptr, *list2 = nullptr;
 
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         
-        ListNode* dummy = new ListNode(-1);
-        dummy->next = list1;
+        ListNode* aPtr = list1, *bPtr = list1;
+        ListNode* tailL2 = list2;
 
-        ListNode* aPtr = dummy, *bPtr = dummy;
-
-        while (bPtr->next->val != b)
+        while (b--)
             bPtr = bPtr->next;
 
-        while (aPtr->next->val != b)
+        a -= 1;
+        while (a--)
             aPtr = aPtr->next;
-        
-        
 
+        while (tailL2->next)
+            tailL2 = tailL2->next;
+
+        aPtr->next = list2;
+        tailL2->next = bPtr->next;
+
+        aPtr = nullptr, bPtr = nullptr, tailL2 = nullptr;
+        delete aPtr, bPtr, tailL2;
+        
+        return list1;        
     }
 
-    void pushBack(int data, ListNode* head)
+    void pushBack(int data, ListNode*& head)
     {
         ListNode* temp = new ListNode(data);
         ListNode* curr = head;
@@ -42,14 +48,15 @@ public:
             head = temp; 
             return;
         }     
-        while(curr && curr->next) curr = curr->next;
+        while(curr && curr->next) 
+            curr = curr->next;
         curr->next = temp;
     }
 };
 
 int main(){
     
-    ListNode* l1, *l2;
+    ListNode* l1 = nullptr, *l2 = nullptr;
 
     Solution ll;
     ll.pushBack(0, l1);
