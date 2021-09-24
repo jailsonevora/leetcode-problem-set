@@ -35,6 +35,11 @@ public:
 };
 
 class Solution {
+    int _find(int v, vector<int>& parent) {
+        if (v == parent[v])
+            return v;
+        return parent[v] = _find(parent[v], parent);
+    }
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         
