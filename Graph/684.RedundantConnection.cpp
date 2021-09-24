@@ -50,6 +50,11 @@ class Solution {
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         
+        
+        // initialize leads
+        vector<int> parent(n, 0);
+        for (int i = 0; i < n; i++) 
+            parent[i] = i; 
     }
 };
 
