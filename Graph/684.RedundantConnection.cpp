@@ -36,9 +36,9 @@ public:
 
 class Solution {
     int _find(int v, vector<int>& parent) {
-        if (v == parent[v])
+        if (-1 == parent[v])
             return v;
-        return parent[v] = _find(parent[v], parent);
+        return _find(parent[v], parent);
     }
 
     void _union(int from, int to, vector<int>& parent) {
@@ -57,9 +57,7 @@ public:
             graph[edge[1]].push_back(edge[0]);
 
         // initialize leads
-        vector<int> parent(graph.size(), 0);
-        for (int i = 1; i < graph.size(); i++) 
-            parent[i] = i;
+        vector<int> parent(graph.size(), -1);
 
         return vector<int>{}; 
     }
