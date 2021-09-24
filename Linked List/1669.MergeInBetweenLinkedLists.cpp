@@ -14,41 +14,17 @@ using namespace std;
 
 class Solution {
 public:
-    //Basic C++ approach (Clean and Simple with explanation)
+
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
-        
-        // ListNode* dummy = new ListNode(-1);
-        // dummy->next = list1;
-
-        // ListNode* aPtr = dummy, *bPtr = dummy;
-        // ListNode* tailL2 = list2;
-
-        // while (bPtr->val != b)
-        //     bPtr = bPtr->next;
-
-        // while (aPtr->next->val != a)
-        //     aPtr = aPtr->next;
-
-        // while (tailL2->next)
-        //     tailL2 = tailL2->next;
-
-        // aPtr->next = list2;
-        // tailL2->next = bPtr->next;
-
-        // aPtr = nullptr, bPtr = nullptr, tailL2 = nullptr;
-        // delete aPtr, bPtr, tailL2;
-        
-        // return dummy->next;
-
-        ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         
         ListNode* aPtr = list1, *bPtr = list1;
         ListNode* tailL2 = list2;
 
-        while (bPtr->val != b)
+        while (b--)
             bPtr = bPtr->next;
 
-        while (aPtr->next->val != a)
+        a -= 1;
+        while (a--)
             aPtr = aPtr->next;
 
         while (tailL2->next)
@@ -60,7 +36,7 @@ public:
         aPtr = nullptr, bPtr = nullptr, tailL2 = nullptr;
         delete aPtr, bPtr, tailL2;
         
-        return list1;
+        return list1;        
     }
 
     void pushBack(int data, ListNode*& head)
@@ -72,7 +48,8 @@ public:
             head = temp; 
             return;
         }     
-        while(curr && curr->next) curr = curr->next;
+        while(curr && curr->next) 
+            curr = curr->next;
         curr->next = temp;
     }
 };
