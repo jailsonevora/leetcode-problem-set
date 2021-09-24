@@ -100,6 +100,14 @@ int main()
         {1,3},
         {2,3}
     };
+
+    vector<vector<int>> adjList = { 
+        {1,2},
+        {2,3},
+        {3,4},
+        {1,4},
+        {1,5}
+    };
     
     Solution sl;
     for(auto it: sl.findRedundantConnection(adjList))
