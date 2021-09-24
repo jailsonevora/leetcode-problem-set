@@ -50,7 +50,8 @@ class Solution {
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         
-        
+        vector<vector<int>> graph(edges.size(), 0);
+
         // initialize leads
         vector<int> parent(n, 0);
         for (int i = 0; i < n; i++) 
