@@ -95,11 +95,11 @@ int main()
     // build a graph from the given edges
     //Graph graph(edges, N);
 
-    vector<vector<int>> adjList = { 
-        {1,2},
-        {1,3},
-        {2,3}
-    };
+    // vector<vector<int>> adjList = { 
+    //     {1,2},
+    //     {1,3},
+    //     {2,3}
+    // };
 
     vector<vector<int>> adjList = { 
         {1,2},
