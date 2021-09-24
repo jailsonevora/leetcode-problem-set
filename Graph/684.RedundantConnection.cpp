@@ -40,6 +40,13 @@ class Solution {
             return v;
         return parent[v] = _find(parent[v], parent);
     }
+
+    void _union(int from, int to, vector<int>& parent) {
+        from = _find(from, parent);
+        to = _find(to, parent);
+        if (from != to)
+            parent[to] = from;
+    }
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         
