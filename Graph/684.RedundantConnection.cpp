@@ -64,6 +64,8 @@ public:
 
             if(absParentFrom == absParentTo)
                 ans.push_back(absParentFrom), ans.push_back(absParentTo);
+
+            _union(absParentFrom,absParentTo, parent);
         }        
         return ans; 
     }
