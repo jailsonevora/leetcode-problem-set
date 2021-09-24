@@ -34,6 +34,12 @@ public:
     }
 };
 
+class Solution {
+public:
+    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+        
+    }
+};
 
 int main()
 {
@@ -57,9 +63,12 @@ int main()
     //Graph graph(edges, N);
 
     vector<string> adjList = { 
-        {{1,2},{1,3},{2,3}}
+        {1,2},
+        {1,3},
+        {2,3}
     };
     
     Solution sl;
-    std::cout << sl.regionsBySlashes(adjList);
+    for(auto it: sl.findRedundantConnection(adjList))
+        cout << it << "\n";
 }
