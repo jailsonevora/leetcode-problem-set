@@ -56,16 +56,17 @@ public:
             graph.push_back({edge[0], edge[1]});
 
         // initialize leads
-        vector<int> parent(graph.size(), -1);
+        vector<int> parent(graph.size(), -1), ans;
 
         for(auto node: graph){
-            int absolutePatrentFrom = _find(node.first, parent);
-            int absolutePatrentTo = _find(node.second, parent);
+            int absParentFrom = _find(node.first, parent);
+            int absParentTo = _find(node.second, parent);
 
+            if(absParentFrom == absParentTo)
+                ans.push_back(absParentFrom), ans.push_back(absParentTo);
         }
-
-
-        return vector<int>{}; 
+        
+        return ans; 
     }
 };
 
