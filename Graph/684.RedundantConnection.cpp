@@ -52,9 +52,13 @@ public:
         
         vector<vector<int>> graph(edges.size(), 0);
 
+        for(auto edge : edges)
+            graph[edge[0]].push_back(edge[1]),
+            graph[edge[1]].push_back(edge[0]);
+
         // initialize leads
-        vector<int> parent(n, 0);
-        for (int i = 0; i < n; i++) 
+        vector<int> parent(graph.size(), 0);
+        for (int i = 0; i < graph.size(); i++) 
             parent[i] = i; 
     }
 };
