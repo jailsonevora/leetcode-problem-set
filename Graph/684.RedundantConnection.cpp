@@ -58,7 +58,7 @@ public:
 
         // initialize leads
         vector<int> parent(n, 0), ans;
-        for (auto& i : n) 
+        for (int i = 0; i < n; ++i) 
             parent[i] = i;  
 
         for(auto& node: graph){
