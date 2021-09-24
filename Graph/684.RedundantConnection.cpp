@@ -50,9 +50,9 @@ class Solution {
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         
-        vector<vector<int>> graph(edges.size());
+        vector<vector<int>> graph(edges.size()+1);
 
-        for(auto edge : edges)
+        for(auto& edge : edges)
             graph[edge[0]].push_back(edge[1]),
             graph[edge[1]].push_back(edge[0]);
 
