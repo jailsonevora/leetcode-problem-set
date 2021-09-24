@@ -64,8 +64,7 @@ public:
 
             if(absParentFrom == absParentTo)
                 ans.push_back(absParentFrom), ans.push_back(absParentTo);
-        }
-        
+        }        
         return ans; 
     }
 };
