@@ -37,7 +37,7 @@ public:
 class Solution {
     int _find(int v, vector<int>& parent) {
         if (-1 == parent[v])
-            return v;
+            return parent[v];
         return _find(parent[v], parent);
     }
 
@@ -50,7 +50,7 @@ class Solution {
 public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         
-        vector<pair<int,int>> graph(edges.size()+1);
+        vector<pair<int,int>> graph(edges.size());
 
         for(auto& edge : edges)
             graph.push_back({edge[0], edge[1]});
@@ -58,12 +58,12 @@ public:
         // initialize leads
         vector<int> parent(graph.size(), -1), ans;
 
-        for(auto node: graph){
+        for(auto& node: graph){
             int absParentFrom = _find(node.first, parent);
             int absParentTo = _find(node.second, parent);
 
             if(absParentFrom == absParentTo)
-                ans.push_back(absParentFrom), ans.push_back(absParentTo);
+                ans.push_back(node.first), ans.push_back(node.second);
 
             _union(absParentFrom,absParentTo, parent);
         }        
