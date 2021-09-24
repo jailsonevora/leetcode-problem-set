@@ -58,7 +58,7 @@ public:
 
         // initialize leads
         vector<int> parent(graph.size(), 0);
-        for (int i = 0; i < graph.size(); i++) 
+        for (int i = 1; i < graph.size(); i++) 
             parent[i] = i;
 
         return vector<int>{}; 
