@@ -36,16 +36,18 @@ public:
 
 class Solution {
 
-    void _dfs(int v, vector<pair<int,int>>& graph, vector<int>& discovered, vector<int>& ans){
+    void _dfs(int v, vector<vector<int>>& graph, vector<int>& discovered, vector<int>& ans){
+
+        if(discovered[v] == 1)
+            return;
 
         if(discovered[v] == 2)
             ans.push_back(v);
         
         discovered[v] = 2;
-        for(auto& u: graph)
-            if(!discovered[u.second])
-                _dfs(u.second, graph, discovered, ans);
-        discovered[v] = 1;     
+        for(auto& u: graph[v])
+            _dfs(u, graph, discovered, ans);
+        discovered[v] = 1; 
     }
 
     int _find(int v, vector<int>& parent) {
@@ -88,15 +90,16 @@ public:
     vector<int> findRedundantConnection_DFS(vector<vector<int>>& edges) {
         
         int n = edges.size()+1;
-        vector<pair<int,int>> graph;
+        vector<vector<int>> graph(n);
 
         for(auto& edge : edges)
-            graph.push_back({edge[0], edge[1]});
+            graph[edge[0]].push_back(edge[1]),
+            graph[edge[1]].push_back(edge[0]);
 
         vector<int> discovered(n, 0), ans;
         
-        for(int node = 1; node < n; ++node)
-            if(!discovered[node])
+        for(int node = 0; node < n; ++node)
+            if (!discovered[node])
                 _dfs(node, graph, discovered, ans);
         return ans; 
     }
