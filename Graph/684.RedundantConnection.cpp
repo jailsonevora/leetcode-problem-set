@@ -36,18 +36,20 @@ public:
 
 class Solution {
 
-    void _dfs(int v, vector<vector<int>>& graph, vector<int>& discovered, vector<int>& ans){
+    bool _dfs(int v, vector<vector<int>>& graph, vector<int>& discovered){
 
         if(discovered[v] == 1)
-            return;
+           return false;
 
         if(discovered[v] == 2)
-            ans.push_back(v);
+            return true;
         
         discovered[v] = 2;
         for(auto& u: graph[v])
-            _dfs(u, graph, discovered, ans);
-        discovered[v] = 1; 
+            if(_dfs(u, graph, discovered))
+                return true;
+        discovered[v] = 1;
+        return false; 
     }
 
     int _find(int v, vector<int>& parent) {
@@ -92,16 +94,19 @@ public:
         int n = edges.size()+1;
         vector<vector<int>> graph(n);
 
-        for(auto& edge : edges)
-            graph[edge[0]].push_back(edge[1]),
-            graph[edge[1]].push_back(edge[0]);
-
         vector<int> discovered(n, 0), ans;
         
-        for(int node = 0; node < n; ++node)
-            if (!discovered[node])
-                _dfs(node, graph, discovered, ans);
-        return ans; 
+        for(auto& edge : edges){
+            if (!graph[edge[0]].empty() 
+                && !graph[edge[1]].empty() 
+                && _dfs(edge[0], graph, discovered)
+                )
+                    return edge;
+            graph[edge[0]].push_back(edge[1]),
+            graph[edge[1]].push_back(edge[0]);
+        }
+
+        return {}; 
     }
 };
 
