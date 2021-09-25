@@ -38,7 +38,6 @@ class Solution {
 
     bool _dfs(int v, int destination, vector<vector<int>>& graph, vector<int>& discovered){
 
-
         if(v == destination)
             return true;
 
