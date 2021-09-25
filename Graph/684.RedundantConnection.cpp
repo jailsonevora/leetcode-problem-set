@@ -35,6 +35,19 @@ public:
 };
 
 class Solution {
+
+    void _dfs(int v, vector<pair<int,int>>& graph, vector<int>& discovered, vector<int>& ans){
+
+        if(discovered[v] == 2)
+            ans.push_back(v);
+        
+        discovered[v] = 2;
+        for(auto& u: graph)
+            if(!discovered[u.second])
+                _dfs(u.second, graph, discovered, ans);
+        discovered[v] = 1;     
+    }
+
     int _find(int v, vector<int>& parent) {
         if (v == parent[v])
             return v;
@@ -48,7 +61,7 @@ class Solution {
             parent[to] = from;
     }
 public:
-    vector<int> findRedundantConnection(vector<vector<int>>& edges) {
+    vector<int> findRedundantConnection_DSU(vector<vector<int>>& edges) {
         
         int n = edges.size()+1;
         vector<pair<int,int>> graph;
@@ -70,6 +83,21 @@ public:
 
             _union(absParentFrom,absParentTo, parent);
         }        
+        return ans; 
+    }
+    vector<int> findRedundantConnection_DFS(vector<vector<int>>& edges) {
+        
+        int n = edges.size()+1;
+        vector<pair<int,int>> graph;
+
+        for(auto& edge : edges)
+            graph.push_back({edge[0], edge[1]});
+
+        vector<int> discovered(n, 0), ans;
+        
+        for(int node = 1; node < n; ++node)
+            if(!discovered[node])
+                _dfs(node, graph, discovered, ans);
         return ans; 
     }
 };
@@ -110,6 +138,6 @@ int main()
     };
     
     Solution sl;
-    for(auto it: sl.findRedundantConnection(adjList))
+    for(auto it: sl.findRedundantConnection_DFS(adjList))
         cout << it << "\n";
 }
