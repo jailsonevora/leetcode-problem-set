@@ -36,19 +36,17 @@ public:
 
 class Solution {
 
-    bool _dfs(int v, vector<vector<int>>& graph, vector<int>& discovered){
+    bool _dfs(int v, int destination, vector<vector<int>>& graph, vector<int>& discovered){
 
-        if(discovered[v] == 1)
-           return false;
 
-        if(discovered[v] == 2)
+        if(v == destination)
             return true;
-        
-        discovered[v] = 2;
-        for(auto& u: graph[v])
-            if(_dfs(u, graph, discovered))
-                return true;
+
         discovered[v] = 1;
+        for(auto& u: graph[v])
+            if(!discovered[u])
+                if(_dfs(u, destination, graph, discovered))
+                    return true;
         return false; 
     }
 
@@ -99,7 +97,7 @@ public:
         for(auto& edge : edges){
             if (!graph[edge[0]].empty() 
                 && !graph[edge[1]].empty() 
-                && _dfs(edge[0], graph, discovered)
+                && _dfs(edge[0], edge[1], graph, discovered)
                 )
                     return edge;
             graph[edge[0]].push_back(edge[1]),
