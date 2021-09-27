@@ -34,6 +34,13 @@ public:
     }
 };
 
+class Solution {
+public:
+    int removeStones(vector<vector<int>>& stones) {
+        
+    }
+};
+
 int main()
 {
     // vector of graph edges as per the above diagram
@@ -71,6 +78,5 @@ int main()
     };
     
     Solution sl;
-    for(auto it: sl.findRedundantConnection_DFS(adjList))
-        cout << it << "\n";
+    cout << sl.removeStones(adjList) << "\n";
 }
