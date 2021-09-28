@@ -64,9 +64,12 @@ public:
         for (auto& edge: graph){
             int absPFrom = _find(edge.first, parent);
             int absPTo = _find(edge.second,parent);
+
+            if(absPFrom != absPTo)
+                ans++;
         }
-            
         
+        return ans;       
         
         
     }
