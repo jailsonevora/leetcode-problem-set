@@ -53,13 +53,15 @@ public:
         int n = stones.size()+1;
         vector<pair<int, int>> graph;
 
-        for(auto& edge : stones)
-            graph.push_back({edge[0], edge[1]});
+        // for(auto& edge : stones)
+        //     graph.push_back({edge[0], edge[1]});
 
         // initialize leads
         vector<int> parent(n, 0); int ans;
         for (int i = 0; i < n; i++)
             parent[i] = i;
+
+        for
         
         
     }
