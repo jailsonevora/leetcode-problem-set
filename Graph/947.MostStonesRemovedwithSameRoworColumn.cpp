@@ -67,6 +67,8 @@ public:
 
             if(absPFrom != absPTo)
                 ans++;
+                
+            _union(absPFrom, absPTo, parent);
         }
         return ans;
     }
