@@ -68,10 +68,7 @@ public:
             if(absPFrom != absPTo)
                 ans++;
         }
-        
-        return ans;       
-        
-        
+        return ans;
     }
 };
 
