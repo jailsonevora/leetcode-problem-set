@@ -64,7 +64,7 @@ public:
         for (int row = 0; row < stones.size(); row++)
             for (size_t col = 0; col < stones[0].size(); col++)
             {
-                /* code */
+                
             }
             
         
