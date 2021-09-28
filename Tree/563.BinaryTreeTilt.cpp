@@ -51,10 +51,9 @@ class Solution {
         
         if(!root)
             return 0;
-
-        int left,right;
-        left = _dfs(root->left, val);
-        right = _dfs(root->right, val);
+            
+        int left = _dfs(root->left, val);
+        int right = _dfs(root->right, val);
 
         val += abs(left - right);
 
@@ -65,8 +64,7 @@ public:
 
         int val = 0;
         _dfs(root, val);
-        return val;
-        
+        return val;        
     }
 };
 
