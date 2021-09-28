@@ -57,9 +57,9 @@ public:
         for (int i = 0; i < n; i++)
             parent[i] = i;
 
-        for (auto rows: stones)
-            for (auto col: rows)            
-            _union(edge[0][0], edge.second, parent);
+        for (int row; row < stones.size(); row++)
+            for (int col; col < stones[0].size(); col++)            
+            _union(col[0][1], edge.second, parent);
         return n - ans;
     }
 };
