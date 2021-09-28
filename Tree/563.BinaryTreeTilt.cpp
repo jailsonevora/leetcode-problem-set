@@ -53,9 +53,9 @@ class Solution {
             return 0;
 
         if(root->left)
-            return root->val;
+            return root->left->val;
         if(root->right)
-            return root->val;
+            return root->right->val;
 
         return val = abs(findTilt(root->left) - findTilt(root->right));
     }
@@ -73,11 +73,10 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> preOrder1 = {4,2,1,3,6};
+    vector<int> preOrder1 = {1,2,3};
     //         1
-    //     2       3
-    // 1      3          
-    vector<int> inOrder1 = {1,2,3,4,6};
+    //     2       3     
+    vector<int> inOrder1 = {2,1,3};
 
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
