@@ -61,7 +61,13 @@ public:
         for (int i = 0; i < n; i++)
             parent[i] = i;
 
-        for
+        for (int row = 0; row < stones.size(); row++)
+            for (size_t col = 0; col < stones[0].size(); col++)
+            {
+                /* code */
+            }
+            
+        
         
         
     }
