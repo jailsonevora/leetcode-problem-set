@@ -57,10 +57,10 @@ public:
         for (int i = 0; i < n; i++)
             parent[i] = i;
 
-        for (int row; row < stones.size(); row++)
-            for (int col; col < stones[0].size(); col++)
-                if(st)            
-                _union( , , parent);
+        for (int row = 0; row < stones.size(); row++)
+            for (int col = 1; col < stones[0].size(); col++)
+                if(stones[row][0] == stones[col][0] || )            
+                    _union( , , parent);
         return n - ans;
     }
 };
