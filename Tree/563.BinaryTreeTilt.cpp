@@ -48,25 +48,24 @@ public:
 
 class Solution {
     int _dfs(TreeNode* root, int& val){
-
+        
         if(!root)
             return 0;
 
-        if(root->left)
-            _dfs(root->left, val);
+        int left,right;
+        left = _dfs(root->left, val);
+        right = _dfs(root->right, val);
 
-        val -= root->val;
+        val = abs(left - right);
 
-        if(root->right)
-            _dfs(root->right, val);
-
-        return val;
+        return root->val + left + right;
     }
 public:
     int findTilt(TreeNode* root) {
 
         int val = 0;
         _dfs(root, val);
+        return val;
         
     }
 };
