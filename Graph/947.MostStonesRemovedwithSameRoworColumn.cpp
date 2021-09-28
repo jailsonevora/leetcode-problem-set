@@ -58,8 +58,9 @@ public:
             parent[i] = i;
 
         for (int row; row < stones.size(); row++)
-            for (int col; col < stones[0].size(); col++)            
-            _union(col[0][1], edge.second, parent);
+            for (int col; col < stones[0].size(); col++)
+                if(st)            
+                _union( , , parent);
         return n - ans;
     }
 };
