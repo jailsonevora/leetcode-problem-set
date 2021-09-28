@@ -58,7 +58,7 @@ public:
 
         // initialize leads
         vector<int> parent(n, 0); int ans;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < n; i++)
             parent[i] = i;
         
         
