@@ -65,6 +65,7 @@ public:
             for (size_t col = 0; col < stones[0].size(); col++)
             {
                 int absPFrom = _find(stones[row][col], parent);
+                int absPTo = _find(stones[row][col],parent);
             }
             
         
