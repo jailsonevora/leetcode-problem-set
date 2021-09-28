@@ -53,20 +53,18 @@ public:
         int n = stones.size()+1;
         vector<pair<int, int>> graph;
 
-        // for(auto& edge : stones)
-        //     graph.push_back({edge[0], edge[1]});
+        for(auto& edge : stones)
+            graph.push_back({edge[0], edge[1]});
 
         // initialize leads
         vector<int> parent(n, 0); int ans;
         for (int i = 0; i < n; i++)
             parent[i] = i;
 
-        for (int row = 0; row < stones.size(); row++)
-            for (size_t col = 0; col < stones[0].size(); col++)
-            {
-                int absPFrom = _find(stones[row][col], parent);
-                int absPTo = _find(stones[row][col],parent);
-            }
+        for (auto& edge: graph){
+            int absPFrom = _find(stones[row][col], parent);
+            int absPTo = _find(stones[row][col],parent);
+        }
             
         
         
