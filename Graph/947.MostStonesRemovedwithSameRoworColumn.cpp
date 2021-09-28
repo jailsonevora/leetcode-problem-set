@@ -41,36 +41,27 @@ class Solution {
         return parent[v] = _find(parent[v], parent);
     }
 
-    void _union(int from, int to, vector<int>& parent) {
+    void _union(int from, int to, vector<int>& parent, int& ans) {
         from = _find(from, parent);
         to = _find(to, parent);
-        if (from != to)
+        if (from != to){
             parent[to] = from;
+            ans--;
+        }
     }
 public:
     int removeStones(vector<vector<int>>& stones) {
 
-        int n = stones.size()+1;
-        vector<pair<int, int>> graph;
-
-        for(auto& edge : stones)
-            graph.push_back({edge[0], edge[1]});
+        int n = stones.size();
 
         // initialize leads
-        vector<int> parent(n, 0); int ans;
+        vector<int> parent(n, 0); int ans = n;
         for (int i = 0; i < n; i++)
             parent[i] = i;
 
-        for (auto& edge: graph){
-            int absPFrom = _find(edge.first, parent);
-            int absPTo = _find(edge.second,parent);
-
-            if(absPFrom != absPTo)
-                ans++;
-                
-            _union(absPFrom, absPTo, parent);
-        }
-        return ans;
+        for (auto& edge: graph)            
+            _union(edge.first, edge.second, parent, ans);
+        return n - ans;
     }
 };
 
