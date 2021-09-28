@@ -49,6 +49,12 @@ public:
 class Solution {
 public:
     int findTilt(TreeNode* root) {
+
+        if(!root)
+            return 0;
+
+        findTilt(root->left);
+        findTilt(root->right);
         
     }
 };
