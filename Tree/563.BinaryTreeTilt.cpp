@@ -47,14 +47,23 @@ public:
 };
 
 class Solution {
-public:
-    int findTilt(TreeNode* root) {
+    int _dfs(TreeNode* root, int& val){
 
         if(!root)
             return 0;
 
-        findTilt(root->left);
-        findTilt(root->right);
+        if(root->left)
+            return root->val;
+        if(root->right)
+            return root->val;
+
+        return val = abs(findTilt(root->left) - findTilt(root->right));
+    }
+public:
+    int findTilt(TreeNode* root) {
+
+        int val = 0;
+        _dfs(root, val);
         
     }
 };
@@ -65,8 +74,8 @@ int main(){
     cout.tie();
 
     vector<int> preOrder1 = {4,2,1,3,6};
-    //         4
-    //     2       6
+    //         1
+    //     2       3
     // 1      3          
     vector<int> inOrder1 = {1,2,3,4,6};
 
