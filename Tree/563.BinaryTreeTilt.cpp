@@ -56,7 +56,7 @@ class Solution {
         left = _dfs(root->left, val);
         right = _dfs(root->right, val);
 
-        val = abs(left - right);
+        val += abs(left - right);
 
         return root->val + left + right;
     }
