@@ -53,11 +53,14 @@ class Solution {
             return 0;
 
         if(root->left)
-            return root->left->val;
-        if(root->right)
-            return root->right->val;
+            _dfs(root->left, val);
 
-        return val = abs(findTilt(root->left) - findTilt(root->right));
+        val -= root->val;
+
+        if(root->right)
+            _dfs(root->right, val);
+
+        return val;
     }
 public:
     int findTilt(TreeNode* root) {
