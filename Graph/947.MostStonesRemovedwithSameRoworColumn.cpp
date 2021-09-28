@@ -34,6 +34,40 @@ public:
     }
 };
 
+// class Solution {
+//     int _find(int v, vector<int>& parent) {
+//         if (v == parent[v])
+//             return v;
+//         return parent[v] = _find(parent[v], parent);
+//     }
+
+//     void _union(int from, int to, vector<int>& parent, int & ans) {
+//         from = _find(from, parent);
+//         to = _find(to, parent);
+//         if (from != to){
+//             parent[to] = from;
+//             ans++;
+//         }
+//     }
+// public:
+//     int removeStones(vector<vector<int>>& stones) {
+
+//         int n = stones.size();
+
+//         // initialize leads
+//         vector<int> parent(n, 0); int ans = 0;
+//         for (int i = 0; i < n; i++)
+//             parent[i] = i;
+
+//         for (int row = 0; row < n; row++)
+//             for (int col = 1; col < n; col++)
+//                 if(stones[row][0] == stones[col][0] || stones[row][1] == stones[col][1])            
+//                     _union(row, col, parent, ans);
+//         return ans;
+//     }
+// };
+
+
 class Solution {
     int _find(int v, vector<int>& parent) {
         if (v == parent[v])
@@ -52,7 +86,11 @@ class Solution {
 public:
     int removeStones(vector<vector<int>>& stones) {
 
-        int n = stones.size();
+        int n = edges.size()+1;
+        vector<pair<int,int>> graph;
+
+        for(auto& edge : edges)
+            graph.push_back({edge[0], edge[1]});
 
         // initialize leads
         vector<int> parent(n, 0); int ans = 0;
