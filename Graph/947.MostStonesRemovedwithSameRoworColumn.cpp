@@ -41,11 +41,13 @@ class Solution {
         return parent[v] = _find(parent[v], parent);
     }
 
-    void _union(int from, int to, vector<int>& parent) {
+    void _union(int from, int to, vector<int>& parent, int & ans) {
         from = _find(from, parent);
         to = _find(to, parent);
-        if (from != to)
+        if (from != to){
             parent[to] = from;
+            ans++;
+        }
     }
 public:
     int removeStones(vector<vector<int>>& stones) {
@@ -57,11 +59,11 @@ public:
         for (int i = 0; i < n; i++)
             parent[i] = i;
 
-        for (int row = 0; row < stones.size(); row++)
-            for (int col = 1; col < stones[0].size(); col++)
-                if(stones[row][0] == stones[col][0] || )            
-                    _union( , , parent);
-        return n - ans;
+        for (int row = 0; row < n; row++)
+            for (int col = 1; col < n; col++)
+                if(stones[row][0] == stones[col][0] || stones[row][1] == stones[col][1])            
+                    _union(row, col, parent, ans);
+        return ans;
     }
 };
 
