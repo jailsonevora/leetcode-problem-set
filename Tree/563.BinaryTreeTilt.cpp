@@ -46,6 +46,12 @@ public:
     }
 };
 
+class Solution {
+public:
+    int findTilt(TreeNode* root) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
@@ -62,5 +68,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.minDiffInBST(root);
+    cout << sl.findTilt(root);
 }
