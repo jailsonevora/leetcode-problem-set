@@ -45,3 +45,22 @@ public:
         return buildTree(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1);
     }
 };
+
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    vector<int> preOrder1 = {4,2,1,3,6};
+    //         4
+    //     2       6
+    // 1      3          
+    vector<int> inOrder1 = {1,2,3,4,6};
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder1, inOrder1);
+
+    Solution sl;
+    cout << sl.minDiffInBST(root);
+}
