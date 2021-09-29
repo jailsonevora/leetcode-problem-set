@@ -47,6 +47,22 @@ public:
 };
 
 class Solution {
+    int _dfs_iterativelly(TreeNode* root, int& sum){
+
+        stack<TreeNode*> st;
+
+        st.push(root);
+
+        while (!st.empty())
+        {
+            TreeNode* tmp = st.top();
+            st.pop();
+
+            if()
+        }
+        
+    }
+
     int _dfs_left(TreeNode* root, int& sum){
         
         if(!root)
