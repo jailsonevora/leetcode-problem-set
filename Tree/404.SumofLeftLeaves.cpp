@@ -47,9 +47,18 @@ public:
 };
 
 class Solution {
+    void _dfs_left(TreeNode* root, int& sum){
+        if(!root)
+            return;
+        if(root->left)
+            _dfs_left(root, sum);
+        sum += root->val;
+    }
 public:
     int sumOfLeftLeaves(TreeNode* root) {
-        
+        int sum = 0;
+        _dfs_left(root, sum);
+        return sum;
     }
 };
 
