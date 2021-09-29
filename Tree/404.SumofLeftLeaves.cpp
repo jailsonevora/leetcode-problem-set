@@ -47,6 +47,7 @@ public:
 };
 
 class Solution {
+    //pre-order traversal iterativelly
     int _dfs_iterativelly(TreeNode* root, int& sum){
 
         stack<TreeNode*> st;
@@ -58,11 +59,18 @@ class Solution {
             TreeNode* tmp = st.top();
             st.pop();
 
-            if()
-        }
-        
-    }
+            if(tmp->left && !tmp->left->left && !tmp->left->right)   
+                sum += tmp->left->val;
 
+            if(tmp->left)
+                st.push(tmp->left);
+
+            if(tmp->right)
+                st.push(tmp->right);
+        }
+        return sum;        
+    }
+    // in-order traversal recursive
     int _dfs_left(TreeNode* root, int& sum){
         
         if(!root)
@@ -80,7 +88,7 @@ class Solution {
 public:
     int sumOfLeftLeaves(TreeNode* root) {
         int sum = 0;
-        return _dfs_left(root, sum);
+        return _dfs_iterativelly(root, sum);
     }
 };
 
