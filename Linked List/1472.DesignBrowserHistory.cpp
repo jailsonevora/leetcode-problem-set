@@ -13,16 +13,31 @@ using namespace std;
 };
 
 class BrowserHistory {
-    ListNode* history, *tail;
+
+    ListNode* history, *tail = history;
+
+    void pushBack(string data, ListNode*& head)
+    {
+        ListNode* temp = new ListNode(data);
+        ListNode* curr = head;
+
+        if (!head){  
+            head = temp; 
+            return;
+        }     
+        while(curr && curr->next) 
+            curr = curr->next;
+        curr->next = temp;
+    }
 public:
     BrowserHistory(string homepage) {
-        history = new ListNode(homepage);        
+        pushBack(homepage,history);        
     }
     
     void visit(string url) {
-
-         
-        
+        pushBack(url,history);
+        if(history->next)
+            tail = history->next;
     }
     
     string back(int steps) {
