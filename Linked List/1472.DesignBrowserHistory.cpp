@@ -41,9 +41,6 @@ public:
 
 int main(){
     
-    ListNode* l1 = nullptr, *l2 = nullptr;
 
     BrowserHistory ll;
-
-    //[0,3,2,1,4,5] 3, 4, [1000000,1000001,1000002]
 }
