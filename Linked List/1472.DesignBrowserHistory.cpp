@@ -41,6 +41,8 @@ public:
 
 int main(){
     
-
-    BrowserHistory ll;
+    BrowserHistory* obj = new BrowserHistory("www.google.com");
+    obj->visit("url");
+    string param_2 = obj->back(1);
+    string param_3 = obj->forward(1);
 }
