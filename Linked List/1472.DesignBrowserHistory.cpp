@@ -14,7 +14,8 @@ using namespace std;
 
 class BrowserHistory {
 
-    ListNode* history, *tail = history;
+    ListNode* history;
+    int size = 0;
 
     void pushBack(string data, ListNode*& head)
     {
@@ -31,16 +32,22 @@ class BrowserHistory {
     }
 public:
     BrowserHistory(string homepage) {
-        pushBack(homepage,history);        
+        pushBack(homepage,history);
+        size++;        
     }
     
     void visit(string url) {
         pushBack(url,history);
-        if(history->next)
-            tail = history->next;
+        size++;
     }
     
     string back(int steps) {
+        
+        while (steps--)
+        {
+            /* code */
+        }
+        
         
     }
     
