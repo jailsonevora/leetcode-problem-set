@@ -5,20 +5,23 @@ using namespace std;
 
 //Definition for singly-linked list.
  struct ListNode {
-    int val;
+    string val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ListNode(string x) : val(x), next(nullptr) {}
+    ListNode(string x, ListNode *next) : val(x), next(next) {}
 };
 
 class BrowserHistory {
+    ListNode* history, *tail;
 public:
     BrowserHistory(string homepage) {
-        
+        history = new ListNode(homepage);        
     }
     
     void visit(string url) {
+
+         
         
     }
     
