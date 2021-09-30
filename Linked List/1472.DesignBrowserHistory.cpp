@@ -5,7 +5,6 @@ using namespace std;
 
 //Definition for singly-linked list.
 
-
 class BrowserHistory {
 
     struct ListNode {
