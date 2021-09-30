@@ -35,7 +35,6 @@ public:
         while (steps-- && curr->prev)
             curr = curr->prev;
         return curr->val;
-
     }
     
     string forward(int steps) {
