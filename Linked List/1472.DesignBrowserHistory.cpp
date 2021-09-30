@@ -14,7 +14,7 @@ class BrowserHistory {
         ListNode(string x, ListNode *next) : val(x), next(next) {}
     };
 
-    ListNode* head = nullptr, *curr = head;
+    ListNode* head = nullptr, *curr = head, *tail = nullptr;
     int size = 0, currSize = 0;
 
     void pushBack(string data, ListNode*& head)
@@ -29,20 +29,22 @@ class BrowserHistory {
         while(curr && curr->next) 
             curr = curr->next;
         curr->next = temp;
+
+        tail = curr->next;
     }
 
 public:
 
     BrowserHistory(string homepage) {
         pushBack(homepage,head);
-        curr = head;
+        curr = tail;
         size++;
         currSize = size;        
     }
     
     void visit(string url) {
         pushBack(url,head);
-        curr = curr->next;
+        curr = tail;
         size++;
         currSize = size;
     }
@@ -64,10 +66,11 @@ public:
 
         ListNode* temp = curr;
 
-        while (--steps && temp->next)
+        while (steps-- && temp->next)
             temp = temp->next;
         
         curr = temp;
+        currSize++;
         return temp->val;
     }
 };
