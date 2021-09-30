@@ -12,33 +12,57 @@ using namespace std;
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution {
-    
+class Solution { 
 public:
+    // ListNode* swapNodes(ListNode* head, int k) {
+
+    //     ListNode* tail = head;
+    //     int listSize = 1;
+
+    //     while (tail->next)
+    //         tail = tail->next, listSize++;
+
+    //     int kBegin = k-1;
+    //     ListNode* beginPrev = head;
+    //     while (--kBegin)
+    //         beginPrev = beginPrev->next;
+
+    //     int kEnd = listSize - k;
+    //     ListNode* endPrev = head;
+    //     while (--kEnd)
+    //         endPrev = endPrev->next;
+
+    //     ListNode* beginNext = beginPrev->next, *endNext = endPrev->next;
+
+    //     beginNext->next = endNext->next;
+    //     beginPrev->next =  endNext;
+    //     endNext->next = endPrev;
+    //     endPrev->next = beginNext;
+    // }
+
+    
     ListNode* swapNodes(ListNode* head, int k) {
 
-        ListNode* tail = head;
-        int listSize = 1;
+        ListNode* curr = head;
+        int listSize = 0;
 
-        while (tail->next)
-            tail = tail->next, listSize++;
+        vector<int> listToArray;
 
-        int kBegin = k-1;
-        ListNode* beginPrev = head;
-        while (--kBegin)
-            beginPrev = beginPrev->next;
+        while (curr)
+            listToArray.push_back(curr->val),
+            curr = curr->next, listSize++;
 
-        int kEnd = listSize - k;
-        ListNode* endPrev = head;
-        while (--kEnd)
-            endPrev = endPrev->next;
+        swap(listToArray[k-1], listToArray[(listSize)-(k)]);
+        
+        curr = head;
+        int i = 0;
+        while(curr){
+            curr->val = listToArray[i];
+            i++;
+            curr = curr->next;
+        }        
 
-        ListNode* beginNext = beginPrev->next, *endNext = endPrev->next;
-
-        beginNext->next = endNext->next;
-        beginPrev->next =  endNext;
-        endNext->next = endPrev;
-        endPrev->next = beginNext;
+        return head;
     }
 
     void pushBack(int data, ListNode*& head)
