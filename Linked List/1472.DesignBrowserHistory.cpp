@@ -56,7 +56,15 @@ public:
     }
     
     string forward(int steps) {
-        
+
+        ListNode* temp = curr;
+
+        while (steps-- && temp->next)
+        {
+            temp = temp->next;
+        }
+
+        return temp->val;
     }
 };
 
