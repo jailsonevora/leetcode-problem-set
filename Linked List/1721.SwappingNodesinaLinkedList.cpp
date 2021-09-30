@@ -16,7 +16,29 @@ class Solution {
     
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        
+
+        ListNode* tail = head;
+        int listSize = 1;
+
+        while (tail->next)
+            tail = tail->next, listSize++;
+
+        int kBegin = k-1;
+        ListNode* beginPrev = head;
+        while (--kBegin)
+            beginPrev = beginPrev->next;
+
+        int kEnd = listSize - k;
+        ListNode* endPrev = head;
+        while (--kEnd)
+            endPrev = endPrev->next;
+
+        ListNode* beginNext = beginPrev->next, *endNext = endPrev->next;
+
+        beginNext->next = endNext->next;
+        beginPrev->next =  endNext;
+        endNext->next = endPrev;
+        endPrev->next = beginNext;
     }
 
     void pushBack(int data, ListNode*& head)
@@ -39,7 +61,6 @@ int main(){
     ListNode* l1 = nullptr;
 
     Solution ll;
-    ll.pushBack(0, l1);
     ll.pushBack(1, l1);
     ll.pushBack(2, l1);
     ll.pushBack(3, l1);
