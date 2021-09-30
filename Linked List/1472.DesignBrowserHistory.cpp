@@ -10,9 +10,9 @@ class BrowserHistory {
         string val;
         ListNode *next;
         ListNode *prev;
-        ListNode() : val(0), next(nullptr) {}
-        ListNode(string x) : val(x), next(nullptr) {}
-        ListNode(string x, ListNode *next) : val(x), next(next) {}
+        ListNode() : val(0), next(nullptr), prev(nullptr) {}
+        ListNode(string x) : val(x), next(nullptr), prev(nullptr) {}
+        ListNode(string x, ListNode *next, ListNode *prev) : val(x), next(next), prev(prev) {}
     };
 
     ListNode* curr = nullptr;
