@@ -14,7 +14,7 @@ using namespace std;
 
 class BrowserHistory {
 
-    ListNode* history, *curr = history;
+    ListNode* history = nullptr, *curr = history;
     int size = 0;
 
     void pushBack(string data, ListNode*& head)
@@ -33,12 +33,14 @@ class BrowserHistory {
 public:
     BrowserHistory(string homepage) {
         pushBack(homepage,history);
+        curr = history;
         size++;        
     }
     
     void visit(string url) {
         pushBack(url,history);
-        curr = curr->next;
+        //if(history->next)
+            curr = curr->next;
         size++;
     }
     
@@ -79,7 +81,7 @@ public:
 int main(){
     
     BrowserHistory* obj = new BrowserHistory("www.google.com");
-    obj->visit("url");
+    obj->visit("www.facebook.com");
     string param_2 = obj->back(1);
     string param_3 = obj->forward(1);
 }
