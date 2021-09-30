@@ -47,7 +47,7 @@ public:
         ListNode* temp = history;
         int back = size - steps;
 
-        while (back--)
+        while (back-- && temp->next)
         {
             temp = temp->next;
         }
