@@ -4,15 +4,17 @@
 using namespace std;
 
 //Definition for singly-linked list.
- struct ListNode {
-    string val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(string x) : val(x), next(nullptr) {}
-    ListNode(string x, ListNode *next) : val(x), next(next) {}
-};
+
 
 class BrowserHistory {
+
+    struct ListNode {
+        string val;
+        ListNode *next;
+        ListNode() : val(0), next(nullptr) {}
+        ListNode(string x) : val(x), next(nullptr) {}
+        ListNode(string x, ListNode *next) : val(x), next(next) {}
+    };
 
     ListNode* head = nullptr, *curr = head;
     int size = 0;
@@ -79,8 +81,10 @@ public:
 
 int main(){
     
-    BrowserHistory* obj = new BrowserHistory("www.google.com");
+    BrowserHistory* obj = new BrowserHistory("www.leetcode.com");
+    obj->visit("www.googgle.com");
     obj->visit("www.facebook.com");
+
     string param_2 = obj->back(1);
     string param_3 = obj->forward(1);
 }
