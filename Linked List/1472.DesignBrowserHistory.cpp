@@ -73,8 +73,4 @@ int main(){
     cout << obj->back(2) << "\n";
     cout << obj->back(7) << "\n";
 
-
-
-
-
 }
