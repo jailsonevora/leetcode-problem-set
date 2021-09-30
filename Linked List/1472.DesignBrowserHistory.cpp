@@ -3,10 +3,9 @@
 
 using namespace std;
 
-//Definition for singly-linked list.
-
 class BrowserHistory {
 
+    //Definition for singly-linked list.    
     struct ListNode {
         string val;
         ListNode *next;
