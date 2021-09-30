@@ -39,8 +39,7 @@ public:
     
     void visit(string url) {
         pushBack(url,history);
-        //if(history->next)
-            curr = curr->next;
+        curr = curr->next;
         size++;
     }
     
@@ -54,6 +53,7 @@ public:
             temp = temp->next;
         }
 
+        curr = temp;
         return temp->val;      
     }
     
