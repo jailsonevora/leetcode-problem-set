@@ -30,7 +30,9 @@ class BrowserHistory {
             curr = curr->next;
         curr->next = temp;
     }
+
 public:
+
     BrowserHistory(string homepage) {
         pushBack(homepage,head);
         curr = head;
