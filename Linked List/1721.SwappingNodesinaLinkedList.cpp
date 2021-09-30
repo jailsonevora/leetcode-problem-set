@@ -17,22 +17,22 @@ class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
 
-        ListNode* tail = head; int size = 0;
+        ListNode* tail = head; int size = 1, end = k;
         while (tail->next)
             tail = tail->next,
             size++;
 
         ListNode* kthBegin = head;
-        while (k--)
+        while (--k)
             kthBegin = kthBegin->next;
 
-        int kthEnd = size - k;
+        int kthEnd = size - end;
         tail = head;
         while (kthEnd --)
             tail = tail->next;
         
         
-        
+        tail;
         
         
     }
@@ -57,7 +57,6 @@ int main(){
     ListNode* l1 = nullptr;
 
     Solution ll;
-    ll.pushBack(0, l1);
     ll.pushBack(1, l1);
     ll.pushBack(2, l1);
     ll.pushBack(3, l1);
