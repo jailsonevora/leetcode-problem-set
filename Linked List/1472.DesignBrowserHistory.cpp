@@ -48,7 +48,7 @@ public:
         ListNode* temp = history;
         int back = size - steps;
 
-        while (back-- && temp->next)
+        while (--back && temp->next)
         {
             temp = temp->next;
         }
@@ -61,11 +61,12 @@ public:
 
         ListNode* temp = curr;
 
-        while (steps-- && temp->next)
+        while (--steps && temp->next)
         {
             temp = temp->next;
         }
 
+        curr = temp;
         return temp->val;
     }
 };
