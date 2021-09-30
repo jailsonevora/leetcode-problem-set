@@ -17,7 +17,7 @@ class BrowserHistory {
     };
 
     ListNode* head = nullptr, *curr = head;
-    int size = 0;
+    int size = 0, currSize = 0;
 
     void pushBack(string data, ListNode*& head)
     {
@@ -38,24 +38,27 @@ public:
     BrowserHistory(string homepage) {
         pushBack(homepage,head);
         curr = head;
-        size++;        
+        size++;
+        currSize = size;        
     }
     
     void visit(string url) {
         pushBack(url,head);
         curr = curr->next;
         size++;
+        currSize = size;
     }
     
     string back(int steps) {
 
         ListNode* temp = head;
-        int back = size - steps;
+        int back = currSize - steps;
 
         while (--back && temp->next)
             temp = temp->next;
 
         curr = temp;
+        currSize--;
         return temp->val;      
     }
     
@@ -84,7 +87,22 @@ int main(){
     BrowserHistory* obj = new BrowserHistory("www.leetcode.com");
     obj->visit("www.googgle.com");
     obj->visit("www.facebook.com");
+    obj->visit("www.youtube.com");
 
     string param_2 = obj->back(1);
+    param_2 = obj->back(1);
+
     string param_3 = obj->forward(1);
+
+    obj->visit("www.linkedin.com");
+
+    param_3 = obj->forward(2);
+
+    param_2 = obj->back(2);
+    param_2 = obj->back(7);
+
+
+
+
+
 }
