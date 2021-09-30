@@ -14,33 +14,7 @@ using namespace std;
 
 class Solution { 
 public:
-    // ListNode* swapNodes(ListNode* head, int k) {
-
-    //     ListNode* tail = head;
-    //     int listSize = 1;
-
-    //     while (tail->next)
-    //         tail = tail->next, listSize++;
-
-    //     int kBegin = k-1;
-    //     ListNode* beginPrev = head;
-    //     while (--kBegin)
-    //         beginPrev = beginPrev->next;
-
-    //     int kEnd = listSize - k;
-    //     ListNode* endPrev = head;
-    //     while (--kEnd)
-    //         endPrev = endPrev->next;
-
-    //     ListNode* beginNext = beginPrev->next, *endNext = endPrev->next;
-
-    //     beginNext->next = endNext->next;
-    //     beginPrev->next =  endNext;
-    //     endNext->next = endPrev;
-    //     endPrev->next = beginNext;
-    // }
-
-    
+    // using array and two pointers
     ListNode* swapNodes(ListNode* head, int k) {
 
         ListNode* curr = head;
@@ -62,6 +36,29 @@ public:
             curr = curr->next;
         }        
 
+        return head;
+    }
+    
+    // two pointers 
+    ListNode* swapNodes(ListNode* head, int k) {
+
+        ListNode* tail = head;
+        int listSize = 1;
+
+        while (tail->next)
+            tail = tail->next, listSize++;
+
+        int kBegin = k-1;
+        ListNode* beginPrev = head;
+        while (kBegin--)
+            beginPrev = beginPrev->next;
+
+        int kEnd = listSize - k;
+        ListNode* endPrev = head;
+        while (kEnd--)
+            endPrev = endPrev->next;
+
+        swap(beginPrev->val, endPrev->val);
         return head;
     }
 
