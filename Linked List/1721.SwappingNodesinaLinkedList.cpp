@@ -16,6 +16,24 @@ class Solution {
     
 public:
     ListNode* swapNodes(ListNode* head, int k) {
+
+        ListNode* tail = head; int size = 0;
+        while (tail->next)
+            tail = tail->next,
+            size++;
+
+        ListNode* kthBegin = head;
+        while (k--)
+            kthBegin = kthBegin->next;
+
+        int kthEnd = size - k;
+        tail = head;
+        while (kthEnd --)
+            tail = tail->next;
+        
+        
+        
+        
         
     }
 
