@@ -43,14 +43,16 @@ public:
     }
     
     string back(int steps) {
+
         ListNode* temp = history;
         int back = size - steps;
-        while (back)
+
+        while (back--)
         {
             temp = temp->next;
         }
-        
-        
+
+        return temp->val;      
     }
     
     string forward(int steps) {
