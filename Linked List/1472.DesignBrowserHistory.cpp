@@ -23,7 +23,8 @@ class BrowserHistory {
         ListNode* curr = head;
 
         if (!head){  
-            head = temp; 
+            head = temp;
+            tail = head; 
             return;
         }     
         while(curr && curr->next) 
@@ -52,25 +53,32 @@ public:
     string back(int steps) {
 
         ListNode* temp = head;
-        int back = currSize - steps;
+        int back = abs(currSize - steps);
+        int b = 0;
 
-        while (--back && temp->next)
+        while (--back && temp->next){
             temp = temp->next;
+            b++;
+        }
 
         curr = temp;
-        currSize--;
+        currSize -= b;
         return temp->val;      
     }
     
     string forward(int steps) {
 
         ListNode* temp = curr;
+        int b = 0;
 
-        while (steps-- && temp->next)
+        while (steps-- && temp->next){
             temp = temp->next;
+            b ++;
+        }
+
         
         curr = temp;
-        currSize++;
+        currSize += b;
         return temp->val;
     }
 };
@@ -90,17 +98,17 @@ int main(){
     obj->visit("www.facebook.com");
     obj->visit("www.youtube.com");
 
-    string param_2 = obj->back(1);
-    param_2 = obj->back(1);
+    cout << obj->back(1) << "\n";
+    cout << obj->back(1) << "\n";
 
-    string param_3 = obj->forward(1);
+    cout << obj->forward(1) << "\n";
 
-    obj->visit("www.linkedin.com");
+    obj->visit("www.linkedin.com"); 
 
-    param_3 = obj->forward(2);
+    cout << obj->forward(2) << "\n";
 
-    param_2 = obj->back(2);
-    param_2 = obj->back(7);
+    cout << obj->back(2) << "\n";
+    cout << obj->back(7) << "\n";
 
 
 
