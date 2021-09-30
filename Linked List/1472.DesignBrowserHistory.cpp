@@ -43,10 +43,11 @@ public:
     }
     
     string back(int steps) {
-
-        while (steps--)
+        ListNode* temp = history;
+        int back = size - steps;
+        while (back)
         {
-            /* code */
+            temp = temp->next;
         }
         
         
