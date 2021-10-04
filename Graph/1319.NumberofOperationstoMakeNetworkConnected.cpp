@@ -116,7 +116,6 @@ int main()
         {1,2}
     };
     int n = 6;
-
     
     Solution sl;
     cout << sl.makeConnected(4, adjList) << "\n";
