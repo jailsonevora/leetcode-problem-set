@@ -35,6 +35,7 @@ public:
 };
 
 class Solution {
+    
     // find
     int _find(int v, vector<int>& parent){
 
@@ -42,6 +43,12 @@ class Solution {
             return v;
         return parent[v] = _find(parent[v], parent);
     }
+
+    // union
+    void _union(){
+        
+    }
+
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
