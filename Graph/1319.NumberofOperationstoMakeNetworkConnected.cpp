@@ -46,7 +46,11 @@ class Solution {
 
     // union
     void _union(int from, int to, vector<int>& parent){
+        from = _find(from, parent);
+        to = _find(to, parent);
 
+        if(from != to)
+            parent[to] = from;
     }
 
 public:
