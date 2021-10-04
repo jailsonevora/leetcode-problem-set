@@ -34,6 +34,41 @@ public:
     }
 };
 
+// class Solution {
+    
+//     // find
+//     int _find(int v, vector<int>& parent){
+
+//         if(v == parent[v])
+//             return v;
+//         return parent[v] = _find(parent[v], parent);
+//     }
+// public:
+//     int makeConnected(int n, vector<vector<int>>& connections) {
+        
+//         int size = connections.size();
+//         if( (n - size) > 1)
+//             return -1;
+
+//         int ans = 0;
+
+//         vector<int> parent(n, 0);
+//         for (int i = 0; i < n; i++)
+//             parent[i] = i;
+
+//         for(auto node: connections){
+//             int absPFrom = _find(node[0], parent);
+//             int absPTo = _find(node[1], parent);
+
+//             if(absPFrom != absPTo)
+//                 ans++,
+//                 parent[absPTo] = absPFrom;
+//         }
+//         return n - 1 - ans;
+//     }
+// };
+
+
 class Solution {
     
     // find
@@ -75,10 +110,9 @@ public:
             int absPFrom = _find(node.first, parent);
             int absPTo = _find(node.second, parent);
 
-            if(absPFrom != absPTo){
-                ans++;
+            if(absPFrom != absPTo)
+                ans++,
                 _union(absPFrom, absPTo, parent);
-            }
         }
         return n - 1 - ans;
     }
