@@ -56,7 +56,7 @@ class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
-        if(n - connections.size() > 1)
+        if( (n - connections.size()) > 1)
             return -1;
 
         int ans = 0;
@@ -121,13 +121,30 @@ int main()
     // };
     // int n = 6;
 
+    // vector<vector<int>> adjList = { 
+    //     {0,1},
+    //     {0,2},
+    //     {0,3},
+    //     {1,2}
+    // };
+    // int n = 6;
+
     vector<vector<int>> adjList = { 
+        {1,5},
+        {1,7},
+        {1,2},
+        {1,4},
+        {3,7},
+        {4,7},
+        {3,5},
+        {0,6},
         {0,1},
-        {0,2},
+        {0,4},
+        {2,6},
         {0,3},
-        {1,2}
+        {0,2}
     };
-    int n = 6;
+    int n = 12;
     
     Solution sl;
     cout << sl.makeConnected(n, adjList) << "\n";
