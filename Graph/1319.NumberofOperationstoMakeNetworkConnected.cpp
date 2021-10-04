@@ -37,7 +37,10 @@ public:
 class Solution {
     // find
     int _find(int v, vector<int>& parent){
-        
+
+        if(v == parent[v])
+            return v;
+
     }
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
