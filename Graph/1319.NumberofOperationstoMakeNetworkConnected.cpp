@@ -56,7 +56,7 @@ class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
-        int n = connections.size()+1;
+        int n = connections.size()+1, ans = 0;
         vector<pair<int,int>> graph;
 
         for(auto& edge: connections)
@@ -67,7 +67,9 @@ public:
         for (int i = 0; i < n; i++)
             parent[i] = i;
 
-        for
+        for(auto node: graph){
+            int absPFrom = _find(node.first, parent);
+        }
         
 
     }
