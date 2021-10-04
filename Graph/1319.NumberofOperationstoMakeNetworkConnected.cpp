@@ -40,7 +40,7 @@ class Solution {
 
         if(v == parent[v])
             return v;
-
+        return parent[v] = _find(parent[v], parent);
     }
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
