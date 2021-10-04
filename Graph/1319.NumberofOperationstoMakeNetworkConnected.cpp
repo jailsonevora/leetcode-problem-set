@@ -56,6 +56,9 @@ class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
+        if(n - (connections.size()-1) > 1)
+            return -1;
+
         int ans = 0;
         vector<pair<int,int>> graph;
 
@@ -76,7 +79,7 @@ public:
 
             _union(absPFrom, absPTo, parent);
         }
-        return ans != 0 ? ans : -1;
+        return ans > 0 ? ans : -1;
     }
 };
 
