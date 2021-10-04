@@ -57,8 +57,13 @@ public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
         int n = connections.size()+1;
+        vector<pair<int,int>> graph;
 
-        for(auto& edge: )
+        for(auto& edge: connections)
+            graph.push_back({edge[0], edge[1]});
+
+            
+
     }
 };
 
