@@ -69,9 +69,14 @@ public:
 
         for(auto node: graph){
             int absPFrom = _find(node.first, parent);
-        }
-        
+            int absPTo = _find(node.second, parent);
 
+            if(absPFrom == absPTo)
+                ans++;
+
+            _union(absPFrom, absPTo, parent);
+        }
+        return ans;
     }
 };
 
