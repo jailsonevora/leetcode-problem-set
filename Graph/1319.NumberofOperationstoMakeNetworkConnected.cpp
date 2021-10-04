@@ -56,6 +56,9 @@ class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
+        int n = connections.size()+1;
+
+        for(auto& edge: )
     }
 };
 
