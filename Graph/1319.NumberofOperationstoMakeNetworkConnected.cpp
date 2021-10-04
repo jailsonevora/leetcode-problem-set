@@ -35,6 +35,10 @@ public:
 };
 
 class Solution {
+    // find
+    int _find(int v, vector<int>& parent){
+        
+    }
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
