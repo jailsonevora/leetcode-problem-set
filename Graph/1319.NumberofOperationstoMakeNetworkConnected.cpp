@@ -79,5 +79,5 @@ int main()
     };
     
     Solution sl;
-    cout << sl.makeConnected(2, adjList) << "\n";
+    cout << sl.makeConnected(4, adjList) << "\n";
 }
