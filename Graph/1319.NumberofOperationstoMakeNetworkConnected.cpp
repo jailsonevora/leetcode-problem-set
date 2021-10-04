@@ -79,7 +79,7 @@ public:
 
             _union(absPFrom, absPTo, parent);
         }
-        return ans > 0 ? ans : -1;
+        return ans;
     }
 };
 
