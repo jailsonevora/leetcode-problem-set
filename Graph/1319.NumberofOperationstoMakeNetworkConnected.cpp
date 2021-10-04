@@ -112,12 +112,20 @@ int main()
     // };
     // int n = 4;
 
+    // vector<vector<int>> adjList = { 
+    //     {0,1},
+    //     {0,2},
+    //     {0,3},
+    //     {1,2},
+    //     {1,3}
+    // };
+    // int n = 6;
+
     vector<vector<int>> adjList = { 
         {0,1},
         {0,2},
         {0,3},
-        {1,2},
-        {1,3}
+        {1,2}
     };
     int n = 6;
     
