@@ -45,8 +45,8 @@ class Solution {
     }
 
     // union
-    void _union(){
-        
+    void _union(int from, int to, vector<int>& parent){
+
     }
 
 public:
