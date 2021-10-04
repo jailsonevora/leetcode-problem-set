@@ -75,12 +75,12 @@ public:
             int absPFrom = _find(node.first, parent);
             int absPTo = _find(node.second, parent);
 
-            if(absPFrom == absPTo)
+            if(absPFrom != absPTo){
                 ans++;
-
-            _union(absPFrom, absPTo, parent);
+                _union(absPFrom, absPTo, parent);
+            }
         }
-        return ans;
+        return n - 1 - ans;
     }
 };
 
