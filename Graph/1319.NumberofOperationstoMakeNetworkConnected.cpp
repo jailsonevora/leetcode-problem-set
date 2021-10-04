@@ -76,7 +76,7 @@ public:
 
             _union(absPFrom, absPTo, parent);
         }
-        return ans;
+        return ans != 0 ? ans : -1;
     }
 };
 
