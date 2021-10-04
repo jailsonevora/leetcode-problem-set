@@ -56,7 +56,7 @@ class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
-        if(n - (connections.size()-1) > 1)
+        if(n - (connections.size()-1) > 0)
             return -1;
 
         int ans = 0;
