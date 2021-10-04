@@ -66,8 +66,8 @@ public:
             graph.push_back({edge[0], edge[1]});
 
         // initialize leads
-        vector<int> parent(n-1, 0);
-        for (int i = 0; i < n-1; i++)
+        vector<int> parent(n, 0);
+        for (int i = 0; i < n; i++)
             parent[i] = i;
 
         for(auto node: graph){
