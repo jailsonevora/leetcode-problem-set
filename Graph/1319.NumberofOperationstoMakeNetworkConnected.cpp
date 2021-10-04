@@ -56,7 +56,7 @@ class Solution {
 public:
     int makeConnected(int n, vector<vector<int>>& connections) {
         
-        int n = connections.size()+1, ans = 0;
+        int ans = 0;
         vector<pair<int,int>> graph;
 
         for(auto& edge: connections)
