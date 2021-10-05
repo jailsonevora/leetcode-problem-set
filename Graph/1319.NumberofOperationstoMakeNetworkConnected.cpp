@@ -94,6 +94,15 @@ class Solution {
         }
     }
 
+    // deph first search
+    void _dfs(int u, vector<vector<int>> graph, vector<int>& visited){
+
+        visited[u] = 1;
+        for(auto& v: graph[u])
+            if(!visited[v])
+                _dfs(v, graph, visited);        
+    }
+
 public:
     // for DFS to find components or the number of cluster in graph
     int makeConnected(int n, vector<vector<int>>& connections) {
@@ -114,7 +123,8 @@ public:
 
         for(int node = 0; node < n-1; node++)
             if(!visited[node])
-                
+
+
         return ans - 1;
     }
 
