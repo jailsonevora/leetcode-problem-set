@@ -83,9 +83,6 @@ class Solution {
     // union by rank
     void _union(int from, int to, vector<int>& parent, vector<int>& rank){
         
-        from = _find(from, parent);
-        to = _find(to, parent);
-
         if(rank[to] < rank[from])
             parent[to] = from;
         else if(rank[from] < rank[to])
