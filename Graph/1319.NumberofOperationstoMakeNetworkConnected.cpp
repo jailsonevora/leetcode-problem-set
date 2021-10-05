@@ -121,9 +121,9 @@ public:
         
         vector<int> visited(n,0);
 
-        for(int node = 0; node < n-1; node++)
+        for(int node = 0; node < n; node++)
             if(!visited[node])
-
+                _dfs(node, graph, visited);
 
         return ans - 1;
     }
