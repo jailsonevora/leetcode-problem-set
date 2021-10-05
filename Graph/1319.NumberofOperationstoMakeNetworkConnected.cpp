@@ -109,15 +109,8 @@ public:
         for(auto& edge: connections)
             graph.push_back({edge[0], edge[1]}), 
                 graph.push_back({edge[1], edge[0]});
-
-        // initialize leads
-        vector<int> parent(n, 0);
-        vector<int> rank(n, 0);
-
-        // intantiate the rankings and parents
-        for (int i = 0; i < n; i++)
-            parent[i] = i, 
-                rank[i] = 0;
+        
+        vector<int> visited(n,0);
 
         for(auto node: graph){
             int absPFrom = _find(node.first, parent);
