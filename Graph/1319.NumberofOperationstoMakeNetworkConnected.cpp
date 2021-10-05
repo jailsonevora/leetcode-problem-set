@@ -103,10 +103,12 @@ public:
             return -1;
 
         int ans = 0;
-        vector<pair<int,int>> graph;
+        vector<vector<int>> graph;
 
+        // making undirected graph
         for(auto& edge: connections)
-            graph.push_back({edge[0], edge[1]});
+            graph.push_back({edge[0], edge[1]}), 
+                graph.push_back({edge[1], edge[0]});
 
         // initialize leads
         vector<int> parent(n, 0);
