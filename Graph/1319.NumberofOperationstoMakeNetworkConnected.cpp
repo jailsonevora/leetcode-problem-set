@@ -112,15 +112,10 @@ public:
         
         vector<int> visited(n,0);
 
-        for(auto node: graph){
-            int absPFrom = _find(node.first, parent);
-            int absPTo = _find(node.second, parent);
-
-            if(absPFrom != absPTo)
-                ans++,
-                _union(absPFrom, absPTo, parent, rank);
-        }
-        return n - 1 - ans;
+        for(int node = 0; node < n-1; node++)
+            if(!visited[node])
+                
+        return ans - 1;
     }
 
     // for disjointset Union find by rank with path compression
