@@ -69,7 +69,7 @@ public:
 //     }
 // };
 
-// union find by rank path compression upgrade
+// union find by rank path compression upgrade and dfs
 class Solution {
     
     // find path compression
