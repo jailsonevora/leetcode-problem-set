@@ -72,7 +72,7 @@ public:
 // union find by rank path compression upgrade
 class Solution {
     
-    // find
+    // find path compression
     int _find(int v, vector<int>& parent){
 
         if(v == parent[v])
