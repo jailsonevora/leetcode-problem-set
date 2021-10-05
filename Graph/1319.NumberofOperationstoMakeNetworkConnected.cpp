@@ -85,8 +85,15 @@ class Solution {
         from = _find(from, parent);
         to = _find(to, parent);
 
-        if(from != to)
+        if(rank[to] < rank[from])
             parent[to] = from;
+        else if(rank[from] < rank[to])
+            parent[from] = to;
+        else
+        {
+            parent[to]  = from;
+            rank[from]++;
+        }
     }
 
 public:
