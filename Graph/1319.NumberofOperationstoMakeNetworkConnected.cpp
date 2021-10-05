@@ -77,7 +77,7 @@ class Solution {
 
         if(v == parent[v])
             return v;
-        return parent[v] = _find(parent[v], parent);
+        return parent[v] = _find(parent[v], parent); // path compression
     }
 
     // union
