@@ -80,8 +80,9 @@ class Solution {
         return parent[v] = _find(parent[v], parent); // path compression
     }
 
-    // union
+    // union by rank
     void _union(int from, int to, vector<int>& parent, vector<int>& rank){
+        
         from = _find(from, parent);
         to = _find(to, parent);
 
