@@ -89,7 +89,7 @@ class Solution {
             parent[from] = to;
         else
         {
-            parent[to]  = from;
+            parent[to] = from;
             rank[from]++;
         }
     }
