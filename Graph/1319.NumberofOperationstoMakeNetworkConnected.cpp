@@ -95,7 +95,7 @@ class Solution {
     }
 
     // deph first search
-    void _dfs(int u, vector<vector<int>> graph, vector<int>& visited){
+    void _dfs(int u, vector<int> graph[], vector<int>& visited){
 
         visited[u] = 1;
         for(auto& v: graph[u])
@@ -112,18 +112,21 @@ public:
             return -1;
 
         int ans = 0;
-        vector<vector<int>> graph;
+
+        //adjacentlist
+        vector<int> graph[n];
 
         // making undirected graph
         for(auto& edge: connections)
-            graph.push_back({edge[0], edge[1]}), 
-                graph.push_back({edge[1], edge[0]});
+            graph[edge[0]].push_back(edge[1]),
+                graph[edge[1]].push_back(edge[0]);
         
         vector<int> visited(n,0);
 
         for(int node = 0; node < n; node++)
             if(!visited[node])
-                _dfs(node, graph, visited);
+                _dfs(node, graph, visited), 
+                    ans++;
 
         return ans - 1;
     }
