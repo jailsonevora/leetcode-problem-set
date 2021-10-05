@@ -105,9 +105,10 @@ public:
         // initialize leads
         vector<int> parent(n, 0);
         vector<int> rank(n, 0);
-        
+
         for (int i = 0; i < n; i++)
-            parent[i] = i;
+            parent[i] = i, 
+                rank[i] = 0;
 
         for(auto node: graph){
             int absPFrom = _find(node.first, parent);
