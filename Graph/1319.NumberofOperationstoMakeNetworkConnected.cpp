@@ -81,7 +81,7 @@ class Solution {
     }
 
     // union
-    void _union(int from, int to, vector<int>& parent){
+    void _union(int from, int to, vector<int>& parent, vector<int>& rank){
         from = _find(from, parent);
         to = _find(to, parent);
 
@@ -117,7 +117,7 @@ public:
 
             if(absPFrom != absPTo)
                 ans++,
-                _union(absPFrom, absPTo, parent);
+                _union(absPFrom, absPTo, parent, rank);
         }
         return n - 1 - ans;
     }
