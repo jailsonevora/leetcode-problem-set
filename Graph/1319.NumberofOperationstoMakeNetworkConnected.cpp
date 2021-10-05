@@ -34,6 +34,7 @@ public:
     }
 };
 
+// adjacent arry
 // class Solution {
     
 //     // find
