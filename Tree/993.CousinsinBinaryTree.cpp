@@ -57,11 +57,11 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> preOrder1 = {3,9,20,15,7};
+    vector<int> preOrder1 = {1,2,4,3};
     //         1
     //     2       3
     // 4                
-    vector<int> inOrder1 = {9,3,15,20,7};
+    vector<int> inOrder1 = {4,2,1,3};
 
     int x = 4, y = 3;
 
