@@ -74,7 +74,7 @@ class Solution {
 public:    
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
 
-        //to convert edge list to adjacent list
+        //to convert edge list to adjacent matrix
         vector<vector<int>> graph(numCourses);
         for (auto &edge: prerequisites)
             graph[edge[1]].push_back(edge[0]);
