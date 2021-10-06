@@ -76,7 +76,7 @@ int main(){
     //         1
     //     2       3
     //        4         5         
-    vector<int> inOrder1 = {4,2,1,3,5};
+    vector<int> inOrder1 = {4,2,1,3};
 
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
