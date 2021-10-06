@@ -63,9 +63,11 @@ int main(){
     // 4                
     vector<int> inOrder1 = {9,3,15,20,7};
 
+    int x = 4, y = 3;
+
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.isCousins(root, 1, 2);
+    cout << sl.isCousins(root, x, y);
 }
