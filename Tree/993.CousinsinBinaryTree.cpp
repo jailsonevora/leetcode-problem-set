@@ -67,5 +67,5 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.sumOfLeftLeaves(root);
+    cout << sl.isCousins(root, 1, 2);
 }
