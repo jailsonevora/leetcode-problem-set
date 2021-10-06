@@ -71,7 +71,7 @@ int main(){
     // //        4         5         
     // vector<int> inOrder1 = {4,2,1,3,5};
 
-    int x = 5, y = 4;
+    int x = 2, y = 3;
     vector<int> preOrder1 = {1,2,4,3};
     //         1
     //     2       3
