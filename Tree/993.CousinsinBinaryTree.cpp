@@ -64,6 +64,13 @@ int main(){
     // // 4                
     // vector<int> inOrder1 = {4,2,1,3};
 
+    // int x = 5, y = 4;
+    // vector<int> preOrder1 = {1,2,4,3,5};
+    // //         1
+    // //     2       3
+    // //        4         5         
+    // vector<int> inOrder1 = {4,2,1,3,5};
+
     int x = 5, y = 4;
     vector<int> preOrder1 = {1,2,4,3,5};
     //         1
