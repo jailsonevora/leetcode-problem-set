@@ -44,3 +44,21 @@ public:
         return buildTree(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1);
     }
 };
+
+int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
+
+    vector<int> preOrder1 = {3,9,20,15,7};
+    //         4
+    //     2       6
+    // 1      3          
+    vector<int> inOrder1 = {9,3,15,20,7};
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder1, inOrder1);
+
+    Solution sl;
+    cout << sl.sumOfLeftLeaves(root);
+}
