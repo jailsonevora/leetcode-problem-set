@@ -58,9 +58,9 @@ int main(){
     cout.tie();
 
     vector<int> preOrder1 = {3,9,20,15,7};
-    //         4
-    //     2       6
-    // 1      3          
+    //         1
+    //     2       3
+    // 4                
     vector<int> inOrder1 = {9,3,15,20,7};
 
     BuildTreeFromPreOrderArray bl;
