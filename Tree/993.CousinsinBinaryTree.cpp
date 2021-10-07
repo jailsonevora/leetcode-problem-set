@@ -63,11 +63,13 @@ class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
 
-        int nivelX = 0, nivelY = 0, parentX = nivelX - 2, parentY = nivelY - 2;
+        int nivelX = 0, nivelY = 0;
 
         _dfs(root, x, nivelX);
 
-        _dfs(root, x, nivelY);
+        _dfs(root, y, nivelY);
+
+        int parentX = nivelX - 2, parentY = nivelY - 2;
 
         if(nivelX == nivelY && parentX == parentY)
             return true;
