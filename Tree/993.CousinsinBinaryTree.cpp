@@ -69,6 +69,8 @@ public:
 
         _dfs(root, x, nivelY);
 
+        if(nivelX == nivelY && )
+
         
     }
 };
