@@ -93,6 +93,7 @@ public:
 class Solution {
 
     int xdepth, ydepth, xparent, yparent;
+    
     void _dfs(TreeNode* root, int x, int y, int depth, int parent){
 
         if(!root)
