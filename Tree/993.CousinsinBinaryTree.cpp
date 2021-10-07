@@ -54,7 +54,7 @@ class Solution {
         if(root->val == num)
             return;        
         
-        else if(root->val == num && !root->left && !root->right)
+        else if(root->val != num && !root->left && !root->right)
             nivel--;
         
         if(root->left)
