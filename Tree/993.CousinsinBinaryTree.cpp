@@ -53,16 +53,15 @@ class Solution {
         if(!root)
             return;
 
-        if(root->val == x){
-            xdepth = depth;
-            xparent = parent;
-            return;
-        }
-        if(root->val == y){
-            ydepth = depth;
-            yparent = parent;
-            return;
-        }
+        if(root->val == x)
+            xdepth = depth,
+                xparent = parent,
+                    return;
+        
+        if(root->val == y)
+            ydepth = depth,
+                yparent = parent,
+                    return;
         
         _dfs(root->left, x, y, depth += 1, root->val);
         _dfs(root->right, x, y, depth += 1, root->val);
