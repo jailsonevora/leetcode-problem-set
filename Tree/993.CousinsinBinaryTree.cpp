@@ -54,12 +54,12 @@ class Solution {
         if(root->val == num)
             return;        
         
-        if(!root->left && !root->right)
+        else if(root->val == num && !root->left && !root->right)
             nivel--;
         
         if(root->left)
             _dfs(root->left, num, nivel+=1);
-        if(root->ri)
+        if(root->right)
             _dfs(root->right, num, nivel+=1);
     }
 public:
