@@ -62,6 +62,11 @@ class Solution {
     }
 public:
     bool isCousins(TreeNode* root, int x, int y) {
+
+        int nivelX = 0, nivelY = 0;
+
+        _dfs(root, x, nivelX);
+
         
     }
 };
