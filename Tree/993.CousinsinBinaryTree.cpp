@@ -53,7 +53,10 @@ class Solution {
 
         if(root->left)
             _dfs(root->left, num, nivel+1);
-            
+
+        if(root->right)
+            _dfs(root->right, num, nivel+1);
+
     }
 public:
     bool isCousins(TreeNode* root, int x, int y) {
