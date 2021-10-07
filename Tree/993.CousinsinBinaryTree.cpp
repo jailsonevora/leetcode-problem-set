@@ -46,20 +46,26 @@ public:
 };
 
 class Solution {
-    void _dfs(TreeNode* root, int x, int y, int& xdepth, int& ydepth, int& xparent, int& yparent){
+
+    int xdepth, ydepth, xparent, yparent;
+    void _dfs(TreeNode* root, int x, int y, int depth, int parent){
 
         if(!root)
             return;
 
         if(root->val == x){
-            
+            xdepth = depth;
+            xparent = parent
+            return;
+        }
+        if(root->val == y){
+            ydepth = 
+            yparent =
             return;
         }
         
-        if(root->left)
-            _dfs(root->left, num, nivel+=1);
-        if(root->right)
-            _dfs(root->right, num, nivel+=1);
+        _dfs(root->left, x, y, depth += 1, root->val);
+        _dfs(root->right, x, y, depth += 1, root->val);
     }
 public:
     bool isCousins(TreeNode* root, int x, int y) {
