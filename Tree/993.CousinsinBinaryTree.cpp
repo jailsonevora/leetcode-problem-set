@@ -67,6 +67,8 @@ public:
 
         _dfs(root, x, nivelX);
 
+        _dfs(root, x, nivelY);
+
         
     }
 };
