@@ -56,9 +56,11 @@ class Solution {
         
         if(!root->left && !root->right)
             nivel--;
+        
         if(root->left)
-        _dfs(root->left, num, nivel+=1);
-        _dfs(root->right, num, nivel+=1);
+            _dfs(root->left, num, nivel+=1);
+        if(root->ri)
+            _dfs(root->right, num, nivel+=1);
     }
 public:
     bool isCousins(TreeNode* root, int x, int y) {
