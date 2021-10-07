@@ -13,7 +13,7 @@ struct Edge {
 // A class to represent a graph object
 class Graph {
 public:
-    // a vector of vectors to represent an adjacency list
+    // a vector of vectors to represent an adjacency matrix
     vector<vector<int>> adjList;
  
     // Graph Constructor

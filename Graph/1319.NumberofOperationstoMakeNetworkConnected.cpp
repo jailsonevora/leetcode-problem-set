@@ -34,7 +34,7 @@ public:
     }
 };
 
-// adjacent arry
+// adjacent array
 // class Solution {
     
 //     // find
@@ -132,37 +132,37 @@ public:
     }
 
     // for disjointset Union find by rank with path compression
-    int makeConnected(int n, vector<vector<int>>& connections) {
+    // int makeConnected(int n, vector<vector<int>>& connections) {
         
-        int size = connections.size();
-        if( (n - size) > 1)
-            return -1;
+    //     int size = connections.size();
+    //     if( (n - size) > 1)
+    //         return -1;
 
-        int ans = 0;
-        vector<pair<int,int>> graph;
+    //     int ans = 0;
+    //     vector<pair<int,int>> graph;
 
-        for(auto& edge: connections)
-            graph.push_back({edge[0], edge[1]});
+    //     for(auto& edge: connections)
+    //         graph.push_back({edge[0], edge[1]});
 
-        // initialize leads
-        vector<int> parent(n, 0);
-        vector<int> rank(n, 0);
+    //     // initialize leads
+    //     vector<int> parent(n, 0);
+    //     vector<int> rank(n, 0);
 
-        // intantiate the rankings and parents
-        for (int i = 0; i < n; i++)
-            parent[i] = i, 
-                rank[i] = 0;
+    //     // intantiate the rankings and parents
+    //     for (int i = 0; i < n; i++)
+    //         parent[i] = i, 
+    //             rank[i] = 0;
 
-        for(auto node: graph){
-            int absPFrom = _find(node.first, parent);
-            int absPTo = _find(node.second, parent);
+    //     for(auto node: graph){
+    //         int absPFrom = _find(node.first, parent);
+    //         int absPTo = _find(node.second, parent);
 
-            if(absPFrom != absPTo)
-                ans++,
-                _union(absPFrom, absPTo, parent, rank);
-        }
-        return n - 1 - ans;
-    }
+    //         if(absPFrom != absPTo)
+    //             ans++,
+    //             _union(absPFrom, absPTo, parent, rank);
+    //     }
+    //     return n - 1 - ans;
+    // }
 };
 
 
