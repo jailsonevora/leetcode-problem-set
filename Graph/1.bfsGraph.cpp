@@ -16,19 +16,19 @@ class Graph
 {
 public:
     // a vector of vectors to represent an adjacency matrix
-    vector<vector<int>> adjList;
+    vector<vector<int>> adjMatrix;
  
     // Graph Constructor
     Graph(vector<Edge> const &edges, int N)
     {
         // resize the vector to hold `N` elements of type `vector<int>`
-        adjList.resize(N);
+        adjMatrix.resize(N);
  
         // add edges to the undirected graph
         for (auto &edge: edges)
         {
-            adjList[edge.src].push_back(edge.dest);
-            adjList[edge.dest].push_back(edge.src);
+            adjMatrix[edge.src].push_back(edge.dest);
+            adjMatrix[edge.dest].push_back(edge.src);
         }
     }
 };
@@ -55,7 +55,7 @@ bool BFS(Graph const &graph, int v, vector<bool> &discovered, int N, int vu)
         cout << v << " ";
  
         // do for every edge `v —> u`
-        for (int u: graph.adjList[v])
+        for (int u: graph.adjMatrix[v])
         {
             if (!discovered[v])
             {
