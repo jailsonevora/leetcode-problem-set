@@ -72,9 +72,7 @@ public:
         if(nivelX == nivelY && parentX == parentY)
             return true;
         else
-            false;
-
-        
+            return false;        
     }
 };
 
