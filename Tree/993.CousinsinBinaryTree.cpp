@@ -46,16 +46,15 @@ public:
 };
 
 class Solution {
-    void _dfs(TreeNode* root, int num, int& nivel){
+    void _dfs(TreeNode* root, int x, int y, int& nivel){
 
         if(!root)
             return;
 
-        if(root->val == num)
-            return;        
-        
-        else if(root->val != num && !root->left && !root->right)
-            nivel--;
+        if(root->val == x){
+            
+            return;
+        }
         
         if(root->left)
             _dfs(root->left, num, nivel+=1);
