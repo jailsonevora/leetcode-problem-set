@@ -46,7 +46,7 @@ public:
 };
 
 class Solution {
-    void _dfs(TreeNode* root, int x, int y, int& nivel){
+    void _dfs(TreeNode* root, int x, int y, int& xdepth, int& ydepth, int& xparent, int& yparent){
 
         if(!root)
             return;
