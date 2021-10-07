@@ -55,12 +55,12 @@ class Solution {
 
         if(root->val == x){
             xdepth = depth;
-            xparent = parent
+            xparent = parent;
             return;
         }
         if(root->val == y){
-            ydepth = 
-            yparent =
+            ydepth = depth;
+            yparent = parent;
             return;
         }
         
@@ -70,18 +70,14 @@ class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y) {
 
-        int nivelX = 0, nivelY = 0;
+        if(root->val == x || root->val == y) 
+            return false;
 
-        _dfs(root, x, nivelX);
+        _dfs(root, x, y, 0, 0);
 
-        _dfs(root, y, nivelY);
-
-        int parentX = nivelX - 2, parentY = nivelY - 2;
-
-        if(nivelX == nivelY && parentX == parentY)
+        if(xdepth == ydepth && xparent != yparent)
             return true;
-        else
-            return false;        
+        return false;        
     }
 };
 
