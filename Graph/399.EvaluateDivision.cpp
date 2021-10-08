@@ -48,15 +48,14 @@ public:
         unordered_map<string, vector<pair<string,double>>> graph;
 
         // undirected graph
-        for(int i=0; i<equations.size(); i++)
+        for(int i=0; i < equations.size(); i++)
             graph[equations[i][0]].push_back({equations[i][1],values[i]}),
-            graph[equations[i][1]].push_back({equations[i][0],1.0/values[i]});
+            graph[equations[i][1]].push_back({equations[i][0],1/values[i]});
 
         vector<double> ans;
         unordered_set<string> visited;
 
         for (auto q: queries)
-            if(!visited.count(q[0]))
                 ans.push_back(_dfs(q[0], q[1], graph, visited));       
         return ans;
     }
