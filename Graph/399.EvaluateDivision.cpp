@@ -28,7 +28,7 @@ int main(){
         2.0, 3.0
     };
 
-    vector<vector<string>> queries = {}
+    vector<vector<string>> queries = {};
 
     Solution sl;
 
