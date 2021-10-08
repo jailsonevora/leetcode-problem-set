@@ -56,7 +56,7 @@ public:
         unordered_set<string> visited;
 
         for (auto q: queries)
-                ans.push_back(_dfs(q[0], q[1], graph, visited));       
+            ans.push_back(_dfs(q[0], q[1], graph, visited));       
         return ans;
     }
 };
