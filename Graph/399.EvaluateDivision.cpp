@@ -21,12 +21,22 @@ class Solution {
     }
 
     // deph first search
-    void _dfs(string u, string v, unordered_map<string, vector<pair<string,double>>> graph, unordered_set<string>& visited, vector<double>& ans){
+    double _dfs(string u, string v, unordered_map<string, vector<pair<string,double>>> graph, unordered_set<string>& visited){
+
+        if(!graph.count(u) || !graph.count(v) ) 
+            return -1.0;
+
+        if(u == v) 
+            return 1.0;
 
         visited.insert(u);
-        for(auto& v: graph[u])
-            if(!visited[v])
-                _dfs(v, graph, visited);        
+        for(auto [vnext, w]: graph[u])
+            if(!visited.count(vnext)){
+                double rs = _dfs(vnext, v, graph, visited);
+                if(rs != -1.0)
+                    return rs * w;
+            }
+        return -1.0      
     }
 
 public:
@@ -46,7 +56,7 @@ public:
 
         for (auto q: queries)
             if(!visited.count(q[0]))
-                _dfs(q[0], q[1], graph, visited, ans);       
+                ans.push_back(_dfs(q[0], q[1], graph, visited));       
         return ans;
     }
 };
