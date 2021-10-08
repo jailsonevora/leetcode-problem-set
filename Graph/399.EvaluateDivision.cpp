@@ -21,7 +21,7 @@ class Solution {
     }
 
     // deph first search
-    double _dfs(string u, string v, unordered_map<string, vector<pair<string,double>>> graph, unordered_set<string>& visited){
+    double _dfs(string u, string v, unordered_map<string, vector<pair<string,double>>>& graph, unordered_set<string> visited){
 
         if(!graph.count(u) || !graph.count(v)) 
             return -1.0;
@@ -31,12 +31,13 @@ class Solution {
 
         visited.insert(u);
 
-        for(auto [vnext, w]: graph[u])
+        for(auto [vnext, w]: graph[u]){
             if(!visited.count(vnext)){
                 double rs = _dfs(vnext, v, graph, visited);
                 if(rs != -1.0)
                     return rs * w;
             }
+        }
         return -1.0;      
     }
 
