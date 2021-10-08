@@ -30,7 +30,7 @@ int main(){
 
     Solution sl;
 
-    for(auto q: sl.calcEquation())
+    for(auto q: sl.calcEquation(equations, values, queries))
         cout << q << "\n";
 
 }
