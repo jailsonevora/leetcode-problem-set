@@ -10,4 +10,10 @@ int main(){
     cin.tie();
     cout.tie();
 
+    // adjacency matrix
+    vector<vector<string>> equations = { 
+        {"a","b"},
+        {"b","c"}
+    };
+
 }
