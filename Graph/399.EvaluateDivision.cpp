@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 
+
 using namespace std;
 
 // using union find by ranking with path compression
@@ -24,11 +25,16 @@ public:
         
 
         // adjacent list
-        vector<string> graph[26];
+        vector<string, pair<string,double>> graph[10000];
 
         // undirected graph
-        for(auto& edge: equations)
-            graph[edge[0]].push_
+        for(int i=0;i<equations.size();i++)
+        {
+            string from=equations[i][0];
+            string to=equations[i][1];
+            graph[from].insert({to,values[i]});
+            graph[to].insert({from,1.0/values[i]});
+        }
 
 
 
