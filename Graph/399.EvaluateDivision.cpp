@@ -4,7 +4,16 @@
 
 using namespace std;
 
+// using union find by ranking with path compression
 class Solution {
+
+    // find with path compression
+    int _find(int v, vector<int>& parent){
+
+    }
+
+
+
 public:
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         
