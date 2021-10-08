@@ -18,6 +18,6 @@ int main(){
 
     vector<double> values = {
         2.0, 3.0
-    }
+    };
 
 }
