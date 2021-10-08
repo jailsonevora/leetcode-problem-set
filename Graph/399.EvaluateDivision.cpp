@@ -28,4 +28,9 @@ int main(){
         2.0, 3.0
     };
 
+    Solution sl;
+
+    for(auto q: sl.calcEquation())
+        cout << q << "\n";
+
 }
