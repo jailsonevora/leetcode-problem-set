@@ -14,7 +14,7 @@ class Solution {
 
     // union by rank
     void _union(){
-        
+
     }
 
 
@@ -22,6 +22,16 @@ class Solution {
 public:
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         
+
+        // adjacent list
+        vector<string> graph[26];
+
+        // undirected graph
+        for(auto& edge: equations)
+            graph[edge[0]].push_
+
+
+
     }
 };
 
