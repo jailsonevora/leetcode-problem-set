@@ -23,7 +23,7 @@ class Solution {
     // deph first search
     double _dfs(string u, string v, unordered_map<string, vector<pair<string,double>>> graph, unordered_set<string>& visited){
 
-        if(!graph.count(u) || !graph.count(v) ) 
+        if(!graph.count(u) || !graph.count(v)) 
             return -1.0;
 
         if(u == v) 
