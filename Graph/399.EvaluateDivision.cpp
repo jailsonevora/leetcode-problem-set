@@ -30,6 +30,7 @@ class Solution {
             return 1.0;
 
         visited.insert(u);
+        
         for(auto [vnext, w]: graph[u])
             if(!visited.count(vnext)){
                 double rs = _dfs(vnext, v, graph, visited);
