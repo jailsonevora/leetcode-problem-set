@@ -28,7 +28,13 @@ int main(){
         2.0, 3.0
     };
 
-    vector<vector<string>> queries = {};
+    vector<vector<string>> queries = {
+        {"a","c"},
+        {"b","a"},
+        {"a","e"},
+        {"a","a"},
+        {"x","x"}
+    };
 
     Solution sl;
 
