@@ -30,7 +30,7 @@ class Solution {
             return 1.0;
 
         visited.insert(u);
-        
+
         for(auto [vnext, w]: graph[u])
             if(!visited.count(vnext)){
                 double rs = _dfs(vnext, v, graph, visited);
@@ -52,7 +52,7 @@ public:
             graph[equations[i][0]].push_back({equations[i][1],values[i]}),
             graph[equations[i][1]].push_back({equations[i][0],1.0/values[i]});
 
-        vector<double> ans(queries.size());
+        vector<double> ans;
         unordered_set<string> visited;
 
         for (auto q: queries)
