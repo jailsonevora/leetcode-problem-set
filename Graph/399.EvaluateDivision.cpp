@@ -12,6 +12,11 @@ class Solution {
 
     }
 
+    // union by rank
+    void _union(){
+        
+    }
+
 
 
 public:
