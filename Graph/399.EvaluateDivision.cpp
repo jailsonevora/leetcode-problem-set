@@ -23,6 +23,7 @@ int main(){
         {"b","c"}
     };
 
+    // represent the equation Ai / Bi = values[i]
     vector<double> values = {
         2.0, 3.0
     };
