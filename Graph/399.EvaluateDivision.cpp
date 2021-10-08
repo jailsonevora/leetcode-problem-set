@@ -36,7 +36,7 @@ class Solution {
                 if(rs != -1.0)
                     return rs * w;
             }
-        return -1.0      
+        return -1.0;      
     }
 
 public:
