@@ -21,9 +21,9 @@ class Solution {
     }
 
     // deph first search
-    void _dfs(int u, int v, unordered_map<string, vector<pair<string,double>>> graph, vector<int>& visited){
+    void _dfs(string u, string v, unordered_map<string, vector<pair<string,double>>> graph, unordered_set<string>& visited, vector<double>& ans){
 
-        visited[u] = 1;
+        visited.insert(u);
         for(auto& v: graph[u])
             if(!visited[v])
                 _dfs(v, graph, visited);        
@@ -42,10 +42,10 @@ public:
             graph[equations[i][1]].push_back({equations[i][0],1.0/values[i]});
 
         vector<double> ans(queries.size());
-        vector<string> visited;
+        unordered_set<string> visited;
 
         for (auto q: queries)
-            if(!visited[q[0]])
+            if(!visited.count(q[0]))
                 _dfs(q[0], q[1], graph, visited, ans);       
         return ans;
     }
