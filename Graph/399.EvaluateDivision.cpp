@@ -10,19 +10,6 @@ using namespace std;
 // using union find by ranking with path compression
 class Solution {
 
-    // find with path compression
-    int _find(int v, vector<int>& parent){
-        
-        if(v == parent[v])
-            return v;
-        return parent[v] = _find(parent[v], parent); // path compression
-    }
-
-    // union by rank
-    void _union(){
-
-    }
-
     // depth first search
     double _dfs(string u, string v, unordered_map<string, vector<pair<string,double>>>& graph, unordered_set<string> visited){
 
