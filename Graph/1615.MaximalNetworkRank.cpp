@@ -28,6 +28,17 @@ int main(){
     };
     int n = 4;
 
+    // // adjacency matrix
+    // vector<vector<int>> roads = { 
+    //     {0,1},
+    //     {0,3},
+    //     {1,2},
+    //     {1,3},
+    //     {2,3},
+    //     {2,4}
+    // };
+    // int n = 5;
+
     Solution sl;
 
     cout << sl.maximalNetworkRank(n, roads) << "\n";
