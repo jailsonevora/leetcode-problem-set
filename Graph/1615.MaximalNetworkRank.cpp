@@ -14,7 +14,7 @@ public:
         vector<int> count(n + 1, 0);
 
         for(auto edge: roads)
-            count[edge[0]]--,
+            //count[edge[0]]--,
                 count[edge[1]]++;
 
         return 1;
