@@ -9,13 +9,13 @@ public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
         
         vector<int> degree(n, 0);
-        vector<vector<int>> edgepair(n, vector<int>(n,0));
+        vector<vector<int>> edgepair(n, vector<int>(n,0)); //matrix values will set to 1 if the pair of cities has road between them
 
         for(auto edge: roads)
-            degree[edge[0]]++,
-                degree[edge[1]]++,
-                    edgepair[edge[0]][edge[1]] = 1,
-                        edgepair[edge[1]][edge[0]] = 1;
+            degree[edge[0]]++, // no. of roads (incoming/outgoing) for a particular city
+                degree[edge[1]]++, // no. of roads (incoming/outgoing) for a particular city
+                    edgepair[edge[0]][edge[1]] = 1, //matrix values for pair of city set to 1
+                        edgepair[edge[1]][edge[0]] = 1; //set 1 for both roads [ai,bi]
                          
 
         int maxRank = INT_MIN;
