@@ -9,16 +9,16 @@ class Solution {
 public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
         
-        vector<int> count(n + 1, 0);
+        vector<int> degree(n + 1, 0);
 
         for(auto edge: roads)
-            count[edge[0]]++,
-                count[edge[1]]++;
+            degree[edge[0]]++,
+                degree[edge[1]]++;
 
         int maxRank = INT_MIN;
 
         for(auto edge: roads)
-            maxRank = std::max((count[edge[0]] + count[edge[1]] - 1), maxRank);
+            maxRank = std::max((degree[edge[0]] + degree[edge[1]] - 1), maxRank);
 
         return maxRank;
     }
