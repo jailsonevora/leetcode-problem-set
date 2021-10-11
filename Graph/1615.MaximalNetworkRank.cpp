@@ -59,9 +59,9 @@ int main()
     // };
     // int n = 8;
 
-    // Solution sl;
+    Solution sl;
 
-    // std::cout << sl.maximalNetworkRank(n, roads);
+    std::cout << sl.maximalNetworkRank(n, roads);
 
     return 0;
 }
