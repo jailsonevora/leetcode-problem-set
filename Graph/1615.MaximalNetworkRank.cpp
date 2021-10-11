@@ -8,6 +8,11 @@ class Solution {
 public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
         
+        // adjacency list
+        vector<int> graph[n];
+
+
+
     }
 };
 
