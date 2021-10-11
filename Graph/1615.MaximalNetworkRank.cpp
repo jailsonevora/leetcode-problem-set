@@ -9,8 +9,6 @@ class Solution {
 public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
         
-        // adjacency list
-        //vector<int> graph[n];
         vector<int> count(n + 1, 0);
 
         for(auto edge: roads)
@@ -23,7 +21,6 @@ public:
             maxRank = std::max((count[edge[0]] + count[edge[1]] - 1), maxRank);
 
         return maxRank;
-
     }
 };
 
