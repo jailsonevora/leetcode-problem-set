@@ -17,6 +17,13 @@ public:
             count[edge[0]]++,
                 count[edge[1]]++;
 
+        int maxRank = INT_MIN;
+
+        for(auto edge: roads){
+            int max = count[edge[0]] + count[edge[1]] - 1;
+            maxRank = std::max(max, maxRank);
+        }
+
         return 1;
 
     }
