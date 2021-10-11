@@ -20,7 +20,7 @@ public:
 
         int maxRank = INT_MIN;
 
-        // faster
+        // faster - for all pair of edge
         for(int from = 0; from < n; from++)
             for(int to = from + 1; to < n; to++)
                     maxRank = std::max(degree[from] + degree[to] - edgepair[from][to], maxRank);
@@ -33,6 +33,7 @@ public:
         //         else
         //             maxRank = std::max((degree[from] + degree[to]), maxRank);
 
+        // only for vertice with direct connection
         // for(auto edge: roads)
         //     maxRank = std::max((degree[edge[0]] + degree[edge[1]] - 1), maxRank);
 
