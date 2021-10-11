@@ -63,5 +63,5 @@ int main()
 
     Solution sl;
 
-    sl.maximalNetworkRank(n, roads);
+    cout << sl.maximalNetworkRank(n, roads);
 }
