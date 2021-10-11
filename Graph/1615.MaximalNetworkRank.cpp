@@ -20,23 +20,13 @@ int main(){
     cout.tie();
 
     // adjacency matrix
-    vector<vector<string>> equations = { 
-        {"a","b"},
-        {"b","c"}
+    vector<vector<int>> equations = { 
+        {0,1},
+        {0,3},
+        {1,2},
+        {1,3}
     };
-
-    // represent the equation Ai / Bi = values[i]
-    vector<double> values = {
-        2.0, 3.0
-    };
-
-    vector<vector<string>> queries = {
-        {"a","c"},
-        {"b","a"},
-        {"a","e"},
-        {"a","a"},
-        {"x","x"}
-    };
+    int n = 4;
 
     Solution sl;
 
