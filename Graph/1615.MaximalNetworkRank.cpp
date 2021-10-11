@@ -5,6 +5,7 @@
 using namespace std;
 
 class Solution {
+
 public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
         
@@ -12,7 +13,7 @@ public:
         //vector<int> graph[n];
         vector<int> count(n + 1, 0);
 
-        for(auto edge: roads){
+        for(auto edge: roads)
             count[edge[0]]--,
                 count[edge[1]]++;
 
@@ -23,10 +24,6 @@ public:
 
 int main()
 {
-
-    // ios_base::sync_with_stdio();
-    // cin.tie();
-    // cout.tie();
 
     // adjacency matrix
     vector<vector<int>> roads = { 
