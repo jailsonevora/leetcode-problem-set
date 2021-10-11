@@ -19,12 +19,10 @@ public:
 
         int maxRank = INT_MIN;
 
-        for(auto edge: roads){
-            int max = count[edge[0]] + count[edge[1]] - 1;
-            maxRank = std::max(max, maxRank);
-        }
+        for(auto edge: roads)
+            maxRank = std::max((count[edge[0]] + count[edge[1]] - 1), maxRank);
 
-        return 1;
+        return maxRank;
 
     }
 };
