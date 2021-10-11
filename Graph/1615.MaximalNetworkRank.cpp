@@ -20,7 +20,7 @@ public:
 
         int maxRank = INT_MIN;
 
-        // faster - for all pair of edge
+        // faster - for all pair of edge even if they do not have a direct connection
         for(int from = 0; from < n; from++)
             for(int to = from + 1; to < n; to++)
                     maxRank = std::max(degree[from] + degree[to] - edgepair[from][to], maxRank);
