@@ -20,7 +20,7 @@ int main(){
     cout.tie();
 
     // adjacency matrix
-    vector<vector<int>> equations = { 
+    vector<vector<int>> roads = { 
         {0,1},
         {0,3},
         {1,2},
