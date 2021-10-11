@@ -4,22 +4,22 @@
 
 using namespace std;
 
-// class Solution {
-// public:
-//     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
+class Solution {
+public:
+    int maximalNetworkRank(int n, vector<vector<int>>& roads) {
         
-//         // adjacency list
-//         //vector<int> graph[n];
-//         vector<int> count(n + 1, 0);
+        // adjacency list
+        //vector<int> graph[n];
+        vector<int> count(n + 1, 0);
 
-//         for(auto edge: roads){
-//             count[edge[0]]--,
-//                 count[edge[1]]++;
+        for(auto edge: roads){
+            count[edge[0]]--,
+                count[edge[1]]++;
 
-//         return 1;
+        return 1;
 
-//     }
-// };
+    }
+};
 
 int main()
 {
