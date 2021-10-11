@@ -30,7 +30,6 @@ int main(){
 
     Solution sl;
 
-    for(auto q: sl.calcEquation(equations, values, queries))
-        cout << q << "\n";
+    cout << sl.maximalNetworkRank(n, roads) << "\n";
 
 }
