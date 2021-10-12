@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <stack>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class Solution {
         for(auto v: graph[u])
             if(!visited[v])
                 _dfs(v, graph, visited, ans);
+        ans.push(u);
 
 
     }
@@ -26,10 +28,10 @@ public:
         vector<int> visited(quiet.size(), 0);
         stack<int> ans;
 
+        //for each unvisited node traverse and push to global stack
         for(int node = 0; node < quiet.size(); node++)
             if(!visited[node])
                 _dfs(node, graph, visited, ans);
-
         
     }
 };
