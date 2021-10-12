@@ -5,11 +5,13 @@
 using namespace std;
 
 class Solution {
-    void _dfs(int u, vector<int> graph[], vector<int>& visited, stack<int>& stack){
+    void _dfs(int u, vector<int> graph[], vector<int>& visited, stack<int>& ans){
 
         visited[u] = 1;
 
         for(auto v: graph[u])
+            if(!visited[v])
+                _dfs(v, graph, visited, ans);
 
 
     }
