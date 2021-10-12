@@ -42,5 +42,5 @@ int main()
     Solution sl;
 
     for(auto it: sl.loudAndRich(richer, quiet))
-        sttd::cout << it << ",";
+        std::cout << it << ",";
 }
