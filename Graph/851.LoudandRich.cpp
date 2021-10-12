@@ -12,11 +12,9 @@ class Solution {
 
         for(auto v: graph[u])
             if(!visited[v])
-                if (quiet[ans[v]] > quiet[ans[u]])
-                {
-                    ans[v] = ans[u];
-                    _dfs(v, graph, visited, ans);
-                }
+                if (quiet[ans[v]] > quiet[ans[u]])                
+                    ans[v] = ans[u],
+                    _dfs(v, graph, visited, ans, quiet);
 
 
     }
@@ -29,7 +27,7 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited(quiet.size(), 0);
-        stack<int> ans;
+        vector<int> ans;
 
         //for each unvisited node traverse and push to global stack
         for(int node = 0; node < quiet.size(); node++)
@@ -37,10 +35,10 @@ public:
                 _dfs(node, graph, visited, ans, quiet);
 
         // reverse global stack when using dfs recursively
-        vector<int> revereStack;
-        while (!ans.empty())
-            revereStack.push_back(ans.top()),
-                ans.pop();
+        // vector<int> revereStack;
+        // while (!ans.empty())
+        //     revereStack.push_back(ans.top()),
+        //         ans.pop();
 
         cout << 1;
         return revereStack;
