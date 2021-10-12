@@ -34,11 +34,12 @@ public:
                 _dfs(node, graph, visited, ans);
 
         // reverse global stack when using dfs recursively
-        vector<int> revereStack;
+        vector<int> revereStack(quiet.size(), -1);
         while (!ans.empty())
             revereStack.push_back(ans.top()),
                 ans.pop();
 
+        cout << 1;
         return revereStack;
         
     }
