@@ -14,15 +14,6 @@ public:
 int main()
 {
 
-    // adjacency matrix
-    // vector<vector<int>> roads = { 
-    //     {0,1},
-    //     {0,3},
-    //     {1,2},
-    //     {1,3}
-    // };
-    // int n = 4;
-
     // // adjacency matrix
     // vector<vector<int>> roads = { 
     //     {0,1},
@@ -35,13 +26,14 @@ int main()
     // int n = 5;
 
     // adjacency matrix
-    vector<vector<int>> roads = { 
-        {0,1},
-        {1,2},
-        {2,3},
-        {2,4},
-        {5,6},
-        {5,7}
+    vector<vector<int>> richer = { 
+        {1,0},
+        {2,1},
+        {3,1},
+        {3,7},
+        {4,3},
+        {5,3},
+        {6,3}
     };
     int n = 8;
 
