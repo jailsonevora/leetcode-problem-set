@@ -20,6 +20,7 @@ public:
 
         for(int node = 0; node < quiet.size(); node++)
             if(!visited[node])
+                _dfs(node, graph, visited);
 
         
     }
