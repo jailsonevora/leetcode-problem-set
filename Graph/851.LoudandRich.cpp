@@ -10,6 +10,7 @@ class Solution {
         
         if (ans[u] >= 0)
             return ans[u];
+        
         visited[u] = 1;
         ans[u] = u;
         for(auto v: graph[u])
@@ -17,7 +18,6 @@ class Solution {
                 if (quiet[_dfs(v, graph, visited, ans, quiet)] < quiet[ans[u]])                
                     ans[u] = ans[v];
         return ans[u];
-
     }
 public:
     vector<int> loudAndRich(vector<vector<int>>& richer, vector<int>& quiet) {
@@ -30,18 +30,10 @@ public:
         vector<int> visited(quiet.size(), 0);
         vector<int> ans(quiet.size(), -1);
 
-        //for each unvisited node traverse and push to global stack
+        //for each unvisited node traverse and push to global vector
         for(int node = 0; node < quiet.size(); node++)
             if(!visited[node])
                 _dfs(node, graph, visited, ans, quiet);
-
-        // reverse global stack when using dfs recursively
-        // vector<int> revereStack;
-        // while (!ans.empty())
-        //     revereStack.push_back(ans.top()),
-        //         ans.pop();
-
-        cout << 1;
         return ans;
     }
 };
