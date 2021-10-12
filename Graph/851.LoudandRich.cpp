@@ -7,6 +7,16 @@ using namespace std;
 class Solution {
 public:
     vector<int> loudAndRich(vector<vector<int>>& richer, vector<int>& quiet) {
+
+        vector<int> graph[quiet.size()];
+
+        for(auto edge: richer)
+            graph[edge[0]].push_back(edge[1]);
+
+        vector
+
+        for(int node = 0; node < quiet.size(); node++)
+            if()
         
     }
 };
