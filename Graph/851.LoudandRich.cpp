@@ -35,7 +35,9 @@ int main()
         {5,3},
         {6,3}
     };
-    int n = 8;
+    vector<int> quiet = {
+        3,2,5,4,6,1,7,0
+    };
 
     Solution sl;
 
