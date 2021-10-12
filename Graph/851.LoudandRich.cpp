@@ -7,16 +7,18 @@ using namespace std;
 
 // //with adjacency list
 class Solution {
-    void _dfs(int u, vector<int> graph[], vector<int>& ans, vector<int> quiet){
+    // faster
+    void _dfsVoid(int u, vector<int> graph[], vector<int>& ans, vector<int>& quiet){
         
         if (ans[u] >= 0)
-            return ans[u];
+            return;
         
         ans[u] = u;
-        for(auto v: graph[u])
-            if (quiet[_dfs(v, graph, ans, quiet)] < quiet[ans[u]])             
+        for(auto v: graph[u]){
+            _dfsVoid(v, graph, ans, quiet);
+            if (quiet[ans[v]] < quiet[ans[u]])             
                 ans[u] = ans[v];
-        return ans[u];
+        }
     }
     int _dfs(int u, vector<int> graph[], vector<int>& ans, vector<int> quiet){
         
@@ -41,7 +43,7 @@ public:
 
         //for each unvisited node traverse and push to global vector
         for(int node = 0; node < quiet.size(); node++)
-            _dfs(node, graph, ans, quiet);
+            _dfsVoid(node, graph, ans, quiet);
         return ans;
     }
 };
