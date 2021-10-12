@@ -7,7 +7,7 @@ using namespace std;
 
 // //with adjacency list
 class Solution {
-    // faster
+    // faster than others.
     void _dfsVoid(int u, vector<int> graph[], vector<int>& ans, vector<int>& quiet){
         
         if (ans[u] >= 0)
