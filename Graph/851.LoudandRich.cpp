@@ -16,7 +16,8 @@ public:
         vector<int> visited(quiet.size(), 0);
 
         for(int node = 0; node < quiet.size(); node++)
-            if()
+            if(!visited[node])
+                
         
     }
 };
