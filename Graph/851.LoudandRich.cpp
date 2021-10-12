@@ -5,18 +5,28 @@
 
 using namespace std;
 
+// //with adjacency list
 class Solution {
-    int _dfs(int u, vector<int> graph[], vector<int>& visited, vector<int>& ans, vector<int> quiet){
+    void _dfs(int u, vector<int> graph[], vector<int>& ans, vector<int> quiet){
         
         if (ans[u] >= 0)
             return ans[u];
         
-        visited[u] = 1;
         ans[u] = u;
         for(auto v: graph[u])
-            if(!visited[v])
-                if (quiet[_dfs(v, graph, visited, ans, quiet)] < quiet[ans[u]])                
-                    ans[u] = ans[v];
+            if (quiet[_dfs(v, graph, ans, quiet)] < quiet[ans[u]])             
+                ans[u] = ans[v];
+        return ans[u];
+    }
+    int _dfs(int u, vector<int> graph[], vector<int>& ans, vector<int> quiet){
+        
+        if (ans[u] >= 0)
+            return ans[u];
+        
+        ans[u] = u;
+        for(auto v: graph[u])
+            if (quiet[_dfs(v, graph, ans, quiet)] < quiet[ans[u]])             
+                ans[u] = ans[v];
         return ans[u];
     }
 public:
@@ -26,14 +36,43 @@ public:
 
         for(auto edge: richer)
             graph[edge[1]].push_back(edge[0]);
-
-        vector<int> visited(quiet.size(), 0);
+        
         vector<int> ans(quiet.size(), -1);
 
         //for each unvisited node traverse and push to global vector
         for(int node = 0; node < quiet.size(); node++)
-            if(!visited[node])
-                _dfs(node, graph, visited, ans, quiet);
+            _dfs(node, graph, ans, quiet);
+        return ans;
+    }
+};
+
+//with adjacency matrix
+class Solution {
+    int _dfs(int u, vector<vector<int>>& graph, vector<int>& ans, vector<int> quiet){
+        
+        if (ans[u] >= 0)
+            return ans[u];
+        
+        ans[u] = u;
+        for(auto v: graph[u])
+            if (quiet[_dfs(v, graph, ans, quiet)] < quiet[ans[u]])                
+                ans[u] = ans[v];
+        return ans[u];
+    }
+public:
+    vector<int> loudAndRich(vector<vector<int>>& richer, vector<int>& quiet) {
+
+        //with adjacency matrix
+        vector<vector<int>> graph(quiet.size());
+
+        for(auto edge: richer)
+            graph[edge[1]].push_back(edge[0]);
+        
+        vector<int> ans(quiet.size(), -1);
+
+        //for each unvisited node traverse and push to global vector
+        for(int node = 0; node < quiet.size(); node++)
+            _dfs(node, graph, ans, quiet);
         return ans;
     }
 };
