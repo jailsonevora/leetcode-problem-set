@@ -6,16 +6,18 @@
 using namespace std;
 
 class Solution {
-    void _dfs(int u, vector<int> graph[], vector<int>& visited, vector<int>& ans, vector<int> quiet){
-
+    int8_t _dfs(int u, vector<int> graph[], vector<int>& visited, vector<int>& ans, vector<int> quiet){
+        
+        if (ans[u] >= 0) {
+            return ans[u];
+        }
         visited[u] = 1;
 
         for(auto v: graph[u])
             if(!visited[v])
-                if (quiet[ans[v]] > quiet[ans[u]])                
-                    ans[v] = ans[u],
-                    _dfs(v, graph, visited, ans, quiet);
-
+                if (quiet[_dfs(v, graph, visited, ans, quiet)] > quiet[ans[u]])                
+                    ans[v] = ans[u];
+        return ans[u];
 
     }
 public:
@@ -27,7 +29,7 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited(quiet.size(), 0);
-        vector<int> ans;
+        vector<int> ans(quiet.size(), -1);
 
         //for each unvisited node traverse and push to global stack
         for(int node = 0; node < quiet.size(); node++)
@@ -41,7 +43,7 @@ public:
         //         ans.pop();
 
         cout << 1;
-        return revereStack;
+        return ans;
     }
 };
 
