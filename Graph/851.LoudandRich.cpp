@@ -32,6 +32,14 @@ public:
         for(int node = 0; node < quiet.size(); node++)
             if(!visited[node])
                 _dfs(node, graph, visited, ans);
+
+        // reverse global stack when using dfs recursively
+        vector<int> revereStack;
+        while (!ans.empty())
+            revereStack.push_back(ans.top()),
+                ans.pop();
+
+        return revereStack;
         
     }
 };
