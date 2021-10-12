@@ -5,6 +5,9 @@
 using namespace std;
 
 class Solution {
+    void _dfs(int u, vector<int> graph[], vector<int>& visited){
+
+    }
 public:
     vector<int> loudAndRich(vector<vector<int>>& richer, vector<int>& quiet) {
 
@@ -17,7 +20,7 @@ public:
 
         for(int node = 0; node < quiet.size(); node++)
             if(!visited[node])
-                
+
         
     }
 };
