@@ -14,16 +14,14 @@ public:
 int main()
 {
 
-    // // adjacency matrix
-    // vector<vector<int>> roads = { 
-    //     {0,1},
-    //     {0,3},
-    //     {1,2},
-    //     {1,3},
-    //     {2,3},
-    //     {2,4}
+    // adjacency matrix
+    // vector<vector<int>> richer = { 
     // };
-    // int n = 5;
+
+    // // vector
+    // vector<int> quiet = {
+    //     0
+    // };
 
     // adjacency matrix
     vector<vector<int>> richer = { 
