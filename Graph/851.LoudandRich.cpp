@@ -5,7 +5,12 @@
 using namespace std;
 
 class Solution {
-    void _dfs(int u, vector<int> graph[], vector<int>& visited){
+    void _dfs(int u, vector<int> graph[], vector<int>& visited, stack<int>& stack){
+
+        visited[u] = 1;
+
+        for(auto v: graph[u])
+
 
     }
 public:
@@ -17,10 +22,11 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited(quiet.size(), 0);
+        stack<int> ans;
 
         for(int node = 0; node < quiet.size(); node++)
             if(!visited[node])
-                _dfs(node, graph, visited);
+                _dfs(node, graph, visited, ans);
 
         
     }
