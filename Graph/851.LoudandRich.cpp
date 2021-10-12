@@ -41,5 +41,6 @@ int main()
 
     Solution sl;
 
-    cout << sl.maximalNetworkRank(n, roads);
+    for(auto it: sl.loudAndRich(richer, quiet))
+        sttd::cout << it << ",";
 }
