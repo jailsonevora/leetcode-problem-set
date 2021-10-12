@@ -13,7 +13,7 @@ public:
         for(auto edge: richer)
             graph[edge[0]].push_back(edge[1]);
 
-        vector
+        vector<int> visited(quiet.size(), 0);
 
         for(int node = 0; node < quiet.size(); node++)
             if()
