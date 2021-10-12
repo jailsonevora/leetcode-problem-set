@@ -6,14 +6,17 @@
 using namespace std;
 
 class Solution {
-    void _dfs(int u, vector<int> graph[], vector<int>& visited, stack<int>& ans){
+    void _dfs(int u, vector<int> graph[], vector<int>& visited, vector<int>& ans, vector<int> quiet){
 
         visited[u] = 1;
 
         for(auto v: graph[u])
             if(!visited[v])
-                _dfs(v, graph, visited, ans);
-        ans.push(u);
+                if (quiet[ans[v]] > quiet[ans[u]])
+                {
+                    ans[v] = ans[u];
+                    _dfs(v, graph, visited, ans);
+                }
 
 
     }
@@ -31,17 +34,16 @@ public:
         //for each unvisited node traverse and push to global stack
         for(int node = 0; node < quiet.size(); node++)
             if(!visited[node])
-                _dfs(node, graph, visited, ans);
+                _dfs(node, graph, visited, ans, quiet);
 
         // reverse global stack when using dfs recursively
-        vector<int> revereStack(quiet.size(), -1);
+        vector<int> revereStack;
         while (!ans.empty())
             revereStack.push_back(ans.top()),
                 ans.pop();
 
         cout << 1;
         return revereStack;
-        
     }
 };
 
