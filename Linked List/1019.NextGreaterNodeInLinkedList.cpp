@@ -15,6 +15,19 @@ using namespace std;
 class Solution {
 public:
     vector<int> nextLargerNodes(ListNode* head) {
+
+        ListNode* curr = head;
+        vector<int> ans(0,0);
+
+        int i = 0;
+        while (curr)
+        {
+            /* code */
+            w
+
+            i++;
+        }
+        
         
     }
     void pushBack(int data, ListNode*& head)
