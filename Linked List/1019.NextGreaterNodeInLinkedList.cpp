@@ -16,7 +16,7 @@ using namespace std;
 
 class Solution {
 public:
-    // monotonic stack
+    // monotonic stack with stack<>
     vector<int> nextLargerNodes(ListNode* head) {
 
         ListNode* curr = head;
@@ -41,6 +41,29 @@ public:
 
         return ans;    
     }
+
+    // monotonic stack with vector<>
+    vector<int> nextLargerNodes(ListNode* head) {
+
+        vector<int> ans, stack;
+
+        // using monotonic stack
+        for (ListNode* curr = head; curr; curr = curr->next)
+        {
+            while (stack.size() && ans[stack.back()] < curr->val)
+                ans[stack.back()] = curr->val,
+                    stack.pop_back();
+
+            stack.push_back(ans.size());
+            ans.push_back(curr->val);
+        }
+
+        for (int i: stack) 
+            ans[i] = 0;
+
+        return ans;    
+    }
+    
     void pushBack(int data, ListNode*& head)
     {
         ListNode* temp = new ListNode(data);
@@ -60,17 +83,17 @@ int main(){
     
     ListNode* l1 = nullptr;
 
-    Solution ll;
-    ll.pushBack(2, l1);
-    ll.pushBack(1, l1);
-    ll.pushBack(5, l1);
-
     // Solution ll;
     // ll.pushBack(2, l1);
-    // ll.pushBack(7, l1);
-    // ll.pushBack(4, l1);
-    // ll.pushBack(3, l1);
+    // ll.pushBack(1, l1);
     // ll.pushBack(5, l1);
+
+    Solution ll;
+    ll.pushBack(2, l1);
+    ll.pushBack(7, l1);
+    ll.pushBack(4, l1);
+    ll.pushBack(3, l1);
+    ll.pushBack(5, l1);
 
     for(auto it: ll.nextLargerNodes(l1))
         cout << it << " ";
