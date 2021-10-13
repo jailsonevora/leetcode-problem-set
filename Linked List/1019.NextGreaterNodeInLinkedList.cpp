@@ -15,22 +15,25 @@ using namespace std;
 
 class Solution {
 public:
+    
     vector<int> nextLargerNodes(ListNode* head) {
 
         ListNode* curr = head;
-        vector<int> ans;
+        vector<int> ans, nums;
         stack<int> stack;
-        
-        while (curr)
+
+        while (curr->next)
+            nums.push_back(curr->val),
+                curr = curr->next;
+    
+        for (int i = nums.size(); i >= 0; --i)
         {
             /* code */
-            while (!stack.empty() && stack.top() <= curr->val)
+            while (!stack.empty() && stack.top() <= nums[i])
                 stack.pop();
 
             ans.push_back(stack.empty() ? 0 : stack.top());
-            stack.push(curr->val);
-
-            curr = curr->next;
+            stack.push(nums[i]);
         }
 
         return ans;    
