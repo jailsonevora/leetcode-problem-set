@@ -21,13 +21,11 @@ int main()
 
     // adjacency matrix
     vector<vector<int>> graph = { 
-        {1,0},
-        {2,1},
-        {3,1},
-        {3,7},
-        {4,3},
-        {5,3},
-        {6,3}
+        {1,2,3,4},
+        {1,2},
+        {3,4},
+        {0,4},
+        {}
     };
 
     Solution sl;
