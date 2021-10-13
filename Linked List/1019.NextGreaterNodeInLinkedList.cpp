@@ -15,7 +15,7 @@ using namespace std;
 
 class Solution {
 public:
-    
+    // monotonic stack
     vector<int> nextLargerNodes(ListNode* head) {
 
         ListNode* curr = head;
@@ -25,10 +25,10 @@ public:
         while (curr->next)
             nums.push_back(curr->val),
                 curr = curr->next;
-    
+
+        // using monotonic stack
         for (int i = nums.size(); i >= 0; --i)
         {
-            /* code */
             while (!stack.empty() && stack.top() <= nums[i])
                 stack.pop();
 
