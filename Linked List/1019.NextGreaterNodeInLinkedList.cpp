@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<stack>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ public:
 
         ListNode* curr = head;
         vector<int> ans(0,0);
+        stack<int> stack;
 
         int i = 0;
         while (curr)
