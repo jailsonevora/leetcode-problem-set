@@ -37,6 +37,6 @@ int main()
 
     Solution sl;
 
-    for(auto it: sl.eventualSafeNodes())
+    for(auto it: sl.eventualSafeNodes(graph))
         std::cout << it << ",";
 }
