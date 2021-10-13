@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-    // recursive check cycle
+    // recursive check cycle for a path
     bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
 
         if(discovered[v] == 1) // viseted
