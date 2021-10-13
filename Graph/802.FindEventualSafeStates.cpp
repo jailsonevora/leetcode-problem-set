@@ -36,10 +36,11 @@ class Solution {
 public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
 
-        vector<int> visited(graph.size(), 0), ans;
+        vector<int> visited(graph.size(), 0), ans, discovered(graph.size(), 0);
+
 
         for (int node = 0; node < graph.size(); node++)
-            if(!visited[node] && dfsCheckCycle(node, graph, visited))
+            if(!visited[node] && !dfsCheckCycle(node, graph, discovered))
                 _dfs(node, graph, visited, ans);
         return ans;        
     }
