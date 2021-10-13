@@ -16,13 +16,8 @@ int main()
 {
 
     // adjacency matrix
-    // vector<vector<int>> richer = { 
-    // };
-
-    // // vector
-    // vector<int> quiet = {
-    //     0
-    // };
+    vector<vector<int>> graph = { 
+    };
 
     // adjacency matrix
     vector<vector<int>> graph = { 
