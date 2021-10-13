@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
     // recursive check cycle for a path
-    bool dfsCheckCycle(int u, vector<vector<int>>& graph, vector<int> &visited){
+    bool hasCycle(int u, vector<vector<int>>& graph, vector<int> &visited){
 
         if(visited[u] == 1) // viseted
             return false;
@@ -19,7 +19,7 @@ class Solution {
 
         // do for every edge `v —> u`
         for (int u: graph[u])
-            if(dfsCheckCycle(u, graph, visited))
+            if(hasCycle(u, graph, visited))
                 return true;
         
         visited[u] = 1; // viseted
@@ -40,7 +40,7 @@ public:
 
 
         for (int node = 0; node < graph.size(); node++)
-            if(!visited[node] && !dfsCheckCycle(node, graph, discovered))
+            if(!visited[node] && !hasCycle(node, graph, discovered))
                 _dfs(node, graph, visited, ans);
         return ans;        
     }
