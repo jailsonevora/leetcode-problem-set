@@ -41,5 +41,12 @@ int main(){
     ll.pushBack(1, l1);
     ll.pushBack(5, l1);
 
+    Solution ll;
+    ll.pushBack(2, l1);
+    ll.pushBack(7, l1);
+    ll.pushBack(4, l1);
+    ll.pushBack(3, l1);
+    ll.pushBack(5, l1);
+
     ll.nextLargerNodes(l1);
 }
