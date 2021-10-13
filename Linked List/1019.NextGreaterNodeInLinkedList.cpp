@@ -18,19 +18,21 @@ public:
     vector<int> nextLargerNodes(ListNode* head) {
 
         ListNode* curr = head;
-        vector<int> ans(0,0);
+        vector<int> ans;
         stack<int> stack;
 
         int i = 0;
         while (curr)
         {
             /* code */
-            w
+            while (!stack.empty() && stack.top() <= curr->val)
+                stack.pop();
 
-            i++;
+            ans.push_back(stack.empty() ? 0 : stack.top());
+            stack.push(curr->val);
         }
-        
-        
+
+        return ans;    
     }
     void pushBack(int data, ListNode*& head)
     {
