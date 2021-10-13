@@ -41,8 +41,7 @@ public:
         for (int node = 0; node < graph.size(); node++)
             if(!visited[node] && dfsCheckCycle(node, graph, visited))
                 _dfs(node, graph, visited, ans);
-        
-        
+        return ans;        
     }
 };
 
