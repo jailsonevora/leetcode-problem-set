@@ -31,7 +31,7 @@ class Solution {
         for (int v : graph[u])
             if (!visited[v])
                 _dfs(v, graph, visited, ans);
-        ans[u]=u;
+        ans.push_back(u);
     }
 public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
