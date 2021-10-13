@@ -40,7 +40,6 @@ public:
 
         vector<int> visited(graph.size(), 0), ans, discovered(graph.size(), 0);
 
-
         for (int node = 0; node < graph.size(); node++)
             if(!visited[node] && !hasCycle(node, graph, discovered))
                 _dfs(node, graph, visited, ans);
