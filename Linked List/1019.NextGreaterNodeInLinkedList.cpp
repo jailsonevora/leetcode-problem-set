@@ -22,7 +22,7 @@ public:
         vector<int> ans, nums;
         stack<int> stack;
 
-        while (curr->next)
+        while (curr)
             nums.push_back(curr->val),
                 curr = curr->next;
 
