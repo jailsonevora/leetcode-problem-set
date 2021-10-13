@@ -36,8 +36,8 @@ class Solution {
 
     //     visited[u] = 1; //visited
     //     // do for every edge `u —> v`
-    //     for (int u: graph[u])
-    //         if(hasCycle(u, graph, visited))
+    //     for (int v: graph[u])
+    //         if(hasCycle(v, graph, visited))
     //             return true;
     //     visited[u] = 1;
     //     return false;
