@@ -20,8 +20,7 @@ public:
         ListNode* curr = head;
         vector<int> ans;
         stack<int> stack;
-
-        int i = 0;
+        
         while (curr)
         {
             /* code */
