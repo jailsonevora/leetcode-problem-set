@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<stack>
+#include<algorithm>
 
 using namespace std;
 
@@ -35,6 +36,8 @@ public:
             ans.push_back(stack.empty() ? 0 : stack.top());
             stack.push(nums[i]);
         }
+
+        reverse(ans.begin(), ans.end());
 
         return ans;    
     }
