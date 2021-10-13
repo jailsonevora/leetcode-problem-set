@@ -43,6 +43,8 @@ public:
         for (int node = 0; node < graph.size(); node++)
             if(!visited[node] && !hasCycle(node, graph, discovered))
                 _dfs(node, graph, visited, ans);
+
+        sort(ans.begin(), ans.end());
         return ans;        
     }
 };
