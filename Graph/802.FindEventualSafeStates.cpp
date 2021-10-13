@@ -17,16 +17,23 @@ int main()
 
     // adjacency matrix
     vector<vector<int>> graph = { 
+        {1,2},
+        {2,3},
+        {5},
+        {0},
+        {5},
+        {},
+        {}
     };
 
     // adjacency matrix
-    vector<vector<int>> graph = { 
-        {1,2,3,4},
-        {1,2},
-        {3,4},
-        {0,4},
-        {}
-    };
+    // vector<vector<int>> graph = { 
+    //     {1,2,3,4},
+    //     {1,2},
+    //     {3,4},
+    //     {0,4},
+    //     {}
+    // };
 
     Solution sl;
 
