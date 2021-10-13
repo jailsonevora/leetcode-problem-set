@@ -7,22 +7,22 @@ using namespace std;
 
 class Solution {
     // recursive check cycle for a path
-    bool dfs(int v, vector<vector<int>>& graph, vector<int> &visited){
+    bool dfsCheckCycle(int u, vector<vector<int>>& graph, vector<int> &visited){
 
-        if(visited[v] == 1) // viseted
+        if(visited[u] == 1) // viseted
             return false;
-        if(visited[v] == 2) // processing
+        if(visited[u] == 2) // processing
             return true;
         
         // mark the current node as processing
-        visited[v] = 2;
+        visited[u] = 2;
 
         // do for every edge `v —> u`
-        for (int u: graph[v])
-            if(dfs(u, graph, visited))
+        for (int u: graph[u])
+            if(dfsCheckCycle(u, graph, visited))
                 return true;
         
-        visited[v] = 1; // viseted
+        visited[u] = 1; // viseted
         return false;
     }
     void _dfs(int u, vector<vector<int>>& graph, vector<int> &visited, vector<int> &ans){
@@ -39,7 +39,7 @@ public:
         vector<int> visited(graph.size(), 0), ans;
 
         for (int node = 0; node < graph.size(); node++)
-            if(!visited[node] && dfs(node, graph, visited))
+            if(!visited[node] && dfsCheckCycle(node, graph, visited))
                 if
         
         
