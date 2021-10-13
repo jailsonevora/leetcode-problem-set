@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-    // recursive check cycle for a path
+    // check cycle in for each path
     bool hasCycle(int u, vector<vector<int>>& graph, vector<int> &visited){
 
         if(visited[u] == 1) // viseted
@@ -25,6 +25,8 @@ class Solution {
         visited[u] = 1; // viseted
         return false;
     }
+
+    // topological sort;
     void _dfs(int u, vector<vector<int>>& graph, vector<int> &visited, vector<int> &ans){
 
         visited[u] = 1;
