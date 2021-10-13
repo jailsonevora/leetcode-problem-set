@@ -27,7 +27,7 @@ public:
                 curr = curr->next;
 
         // using monotonic stack
-        for (int i = nums.size(); i >= 0; --i)
+        for (int i = nums.size() - 1; i >= 0; --i)
         {
             while (!stack.empty() && stack.top() <= nums[i])
                 stack.pop();
@@ -70,5 +70,5 @@ int main(){
     // ll.pushBack(5, l1);
 
     for(auto it: ll.nextLargerNodes(l1))
-        cout << "[" << it << "," << "]";
+        cout << it << " ";
 }
