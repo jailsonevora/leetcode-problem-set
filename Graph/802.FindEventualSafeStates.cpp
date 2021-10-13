@@ -28,21 +28,6 @@ class Solution {
         return false;
     }
 
-    // check cycle in for each path
-    // bool hasCycle(int u, vector<vector<int>>& graph, vector<int> &visited){
-
-    //     if(visited[u] == 1) // processing
-    //         return true; 
-
-    //     visited[u] = 1; //visited
-    //     // do for every edge `u —> v`
-    //     for (int v: graph[u])
-    //         if(hasCycle(v, graph, visited))
-    //             return true;
-    //     visited[u] = 1;
-    //     return false;
-    // }
-
     // topological sort;
     void _dfs(int u, vector<vector<int>>& graph, vector<int> &visited, vector<int> &ans){
 
