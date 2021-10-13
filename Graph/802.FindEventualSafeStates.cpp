@@ -25,10 +25,23 @@ class Solution {
         discovered[v] = 1; // viseted
         return false;
     }
+    void _dfs(int u, vector<vector<int>>& graph, vector<int> &discovered, stack<int> &ans){
+
+        discovered[u] = 1;
+        for (int v : graph[u])
+            if (!discovered[v])
+                _dfs(v, graph, discovered, ans);
+        ans.push(u);
+    }
 public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
 
-        vector<int> visited(graph.size(), 0);
+        vector<int> visited(graph.size(), 0), ans;
+
+        for (int node = 0; node < graph.size(); node++)
+            if(!visited[node])
+                if
+        
         
     }
 };
