@@ -30,6 +30,8 @@ public:
 
             ans.push_back(stack.empty() ? 0 : stack.top());
             stack.push(curr->val);
+
+            curr = curr->next;
         }
 
         return ans;    
