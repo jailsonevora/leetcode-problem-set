@@ -39,7 +39,7 @@ public:
         vector<int> visited(graph.size(), 0), ans;
 
         for (int node = 0; node < graph.size(); node++)
-            if(!visited[node])
+            if(!visited[node] && dfs(node, graph, visited))
                 if
         
         
