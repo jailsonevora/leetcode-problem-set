@@ -25,7 +25,7 @@ int main()
     // };
 
     // adjacency matrix
-    vector<vector<int>> richer = { 
+    vector<vector<int>> graph = { 
         {1,0},
         {2,1},
         {3,1},
@@ -35,13 +35,8 @@ int main()
         {6,3}
     };
 
-    // vector
-    vector<int> quiet = {
-        3,2,5,4,6,1,7,0
-    };
-
     Solution sl;
 
-    for(auto it: sl.loudAndRich(richer, quiet))
+    for(auto it: sl.eventualSafeNodes())
         std::cout << it << ",";
 }
