@@ -11,20 +11,37 @@ class Solution {
 
         if(visited[u] == 1) // viseted
             return false;
-        if(visited[u] == 2) // processing
+        // processing current node
+        // if so we have a cycle 
+        if(visited[u] == 2) 
             return true;
         
         // mark the current node as processing
         visited[u] = 2;
 
         // do for every edge `v —> u`
-        for (int u: graph[u])
-            if(hasCycle(u, graph, visited))
+        for (int v: graph[u])
+            if(hasCycle(v, graph, visited))
                 return true;
         
         visited[u] = 1; // viseted
         return false;
     }
+
+    // check cycle in for each path
+    // bool hasCycle(int u, vector<vector<int>>& graph, vector<int> &visited){
+
+    //     if(visited[u] == 1) // processing
+    //         return true; 
+
+    //     visited[u] = 1; //visited
+    //     // do for every edge `u —> v`
+    //     for (int u: graph[u])
+    //         if(hasCycle(u, graph, visited))
+    //             return true;
+    //     visited[u] = 1;
+    //     return false;
+    // }
 
     // topological sort;
     void _dfs(int u, vector<vector<int>>& graph, vector<int> &visited, vector<int> &ans){
