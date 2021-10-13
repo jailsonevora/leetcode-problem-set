@@ -7,31 +7,31 @@ using namespace std;
 
 class Solution {
     // recursive check cycle for a path
-    bool dfs(int v, vector<vector<int>>& graph, vector<int> &discovered){
+    bool dfs(int v, vector<vector<int>>& graph, vector<int> &visited){
 
-        if(discovered[v] == 1) // viseted
+        if(visited[v] == 1) // viseted
             return false;
-        if(discovered[v] == 2) // processing
+        if(visited[v] == 2) // processing
             return true;
         
         // mark the current node as processing
-        discovered[v] = 2;
+        visited[v] = 2;
 
         // do for every edge `v —> u`
         for (int u: graph[v])
-            if(dfs(u, graph, discovered))
+            if(dfs(u, graph, visited))
                 return true;
         
-        discovered[v] = 1; // viseted
+        visited[v] = 1; // viseted
         return false;
     }
-    void _dfs(int u, vector<vector<int>>& graph, vector<int> &discovered, stack<int> &ans){
+    void _dfs(int u, vector<vector<int>>& graph, vector<int> &visited, vector<int> &ans){
 
-        discovered[u] = 1;
+        visited[u] = 1;
         for (int v : graph[u])
-            if (!discovered[v])
-                _dfs(v, graph, discovered, ans);
-        ans.push(u);
+            if (!visited[v])
+                _dfs(v, graph, visited, ans);
+        ans[u]=u;
     }
 public:
     vector<int> eventualSafeNodes(vector<vector<int>>& graph) {
