@@ -82,6 +82,6 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.diameterOfBinaryTree(root, x, y);
+    cout << sl.diameterOfBinaryTree(root);
 }
 
