@@ -12,9 +12,5 @@ class BuildTreeFromPreOrderArray {
     protected:    
 
     public:
-    //BuildTreeFromPreOrderArray();
-    // ~BuildTreeFromPreOrderArray(){
-    //     //destructor
-    // }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
 };
