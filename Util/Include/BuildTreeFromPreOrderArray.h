@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include "Include\TreeNode.h"
+#include "Util\Include\TreeNode.h"
 
 using namespace std;
 
@@ -12,5 +12,9 @@ class BuildTreeFromPreOrderArray {
     protected:    
 
     public:
+    //BuildTreeFromPreOrderArray();
+    // ~BuildTreeFromPreOrderArray(){
+    //     //destructor
+    // }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
 };

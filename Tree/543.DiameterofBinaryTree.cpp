@@ -2,14 +2,14 @@
 #include<queue>
 #include<stack>
 #include<unordered_set>
-#include "Include\BuildTreeFromPreOrderArray.h"
+#include "Util\Include\BuildTreeFromPreOrderArray.h"
 
 using namespace std;
 
 class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        
+        return 1;
     }
 };
 
@@ -40,9 +40,9 @@ int main(){
     // vector<int> inOrder1 = {2,4,1,3};
 
     BuildTreeFromPreOrderArray bl;
-    TreeNode* root = bl.buildTree(preOrder1, inOrder1);
+    TreeNode* root = bl.buildTree(preOrder1,inOrder1);
 
     Solution sl;
-    cout << sl.diameterOfBinaryTree(root);
+    //cout << sl.diameterOfBinaryTree(root);
 }
 
