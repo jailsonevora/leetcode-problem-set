@@ -1,19 +1,9 @@
 #include<iostream>
 #include<stack>
 #include<queue>
+#include "Util\Include\BuildTreeFromPreOrderArray.h"
 
 using namespace std;
-
-/**
- * Definition for a binary tree node.*/
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
 
 class Solution {
      
@@ -43,35 +33,35 @@ public:
     }
 
     // solution 2
-    TreeNode* increasingBST(TreeNode* root) {
+    // TreeNode* increasingBST(TreeNode* root) {
         
-        if (!root) 
-            return nullptr;
+    //     if (!root) 
+    //         return nullptr;
 
-        increasingBST(root->left);
+    //     increasingBST(root->left);
         
-        if (!newroot) { 
-            newroot = new TreeNode(root->val);
-            curr = newroot;
-        }
-        else {
-            curr->right = new TreeNode(root->val);
-            curr = curr->right;
-        }
+    //     if (!newroot) { 
+    //         newroot = new TreeNode(root->val);
+    //         curr = newroot;
+    //     }
+    //     else {
+    //         curr->right = new TreeNode(root->val);
+    //         curr = curr->right;
+    //     }
         
-        increasingBST(root->right);
+    //     increasingBST(root->right);
         
-        return newroot;
-    }
+    //     return newroot;
+    // }
     // solution 3
-    TreeNode* increasingBST(TreeNode* root) {
+    // TreeNode* increasingBST(TreeNode* root) {
 
-        TreeNode* tmp, *newNode;
-        newNode = new TreeNode();
-        tmp = newNode;
-        inorder(root, newNode);
-        return tmp->right;                
-    }
+    //     TreeNode* tmp, *newNode;
+    //     newNode = new TreeNode();
+    //     tmp = newNode;
+    //     inorder(root, newNode);
+    //     return tmp->right;                
+    // }
 };
 
 int main(){
