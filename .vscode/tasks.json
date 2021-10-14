@@ -7,10 +7,11 @@
             "args": [
                 "-g",
                 "${file}",
+                "C:\\Competitive Programming\\LeetCode\\leetcode-learn-cards\\Util\\*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-I",
-                "${workspaceFolder}"
+                "${workspaceFolder}"                
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -31,7 +32,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${file}",                
+                "*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-I",

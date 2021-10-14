@@ -1,11 +1,11 @@
 #include "Util\Include\BuildTreeFromPreOrderArray.h"
 
-TreeNode::TreeNode* BuildTreeFromPreOrderArray::buildTree(vector<int>& preorder, int p1, int p2, vector<int>& inorder, int i1, int i2) {
+TreeNode* BuildTreeFromPreOrderArray::buildTree(vector<int>& preorder, int p1, int p2, vector<int>& inorder, int i1, int i2) {
     
     if(p1 > p2)
         return nullptr;
     
-    TreeNode::TreeNode *root = new TreeNode::TreeNode(preorder[p1]);
+    TreeNode *root = new TreeNode(preorder[p1]);
     int i = i1;
     while (i <= i2) {
         if (inorder[i] == root->val) break;
@@ -21,7 +21,7 @@ TreeNode::TreeNode* BuildTreeFromPreOrderArray::buildTree(vector<int>& preorder,
     return root;
 }
 
-TreeNode::TreeNode* BuildTreeFromPreOrderArray::buildTree(vector<int>& preorder, vector<int>& inorder) {
+TreeNode* BuildTreeFromPreOrderArray::buildTree(vector<int>& preorder, vector<int>& inorder) {
     
     if(!inorder.size())
         return nullptr;

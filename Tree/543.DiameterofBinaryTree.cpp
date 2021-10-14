@@ -37,9 +37,9 @@ int main(){
     // vector<int> inOrder1 = {2,4,1,3};
 
     BuildTreeFromPreOrderArray bl;
-    //TreeNode* root = bl.buildTree(preOrder1,inOrder1);
+    TreeNode* root = bl.buildTree(preOrder1,inOrder1);
 
     Solution sl;
-    //cout << sl.diameterOfBinaryTree(root);
+    cout << sl.diameterOfBinaryTree(root);
 }
 
