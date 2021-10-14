@@ -40,10 +40,6 @@ class Solution {
                         pq.push(make_pair(distance[v], v));
             }
         }
-        
-        cout<<"Vertex   Distance from src\n";
-        for(int i=0; i<n; i++)
-            cout<<i<<"\t"<<distance[i]<<endl;
 
         int count = 0;
         for(int node=0; node < n; ++node)
@@ -81,7 +77,6 @@ public:
 
 int main()
 {
-
     // adjacency edges
     vector<vector<int>> edges = { 
         {0,1,3},
@@ -92,6 +87,5 @@ int main()
     int n = 4, distanceThreshold = 4;
 
     Solution sl;
-
-    std::cout << sl.findTheCity(n, edges, distanceThreshold) << ",";
+    std::cout << sl.findTheCity(n, edges, distanceThreshold);
 }
