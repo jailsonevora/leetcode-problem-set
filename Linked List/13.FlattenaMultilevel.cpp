@@ -1,41 +1,24 @@
 #include<iostream>
-/*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    Node* prev;
-    Node* next;
-    Node* child;
-};
-*/
+#include "Util\Include\DoubleLinkedListNode.h"
 
 using namespace std;
-
-struct Node {
-    int val;
-    Node *prev;
-    Node *next;
-    Node* child;
-    Node(int x) : val(x), prev(nullptr), next(nullptr), child(nullptr) {}
-};
 
 class Solution {
 public:
 
-    Node *head = nullptr;
+    NodeChild *head = nullptr;
 
-    Node* flatten(Node* head) {
+    NodeChild* flatten(NodeChild* head) {
 
         if (!head)
             return nullptr;        
 
-        Node *dumy = new Node(-1);
+        NodeChild *dumy = new NodeChild(-1);
         dumy->next = head;
         head->prev = dumy;
-        Node *curr = dumy;
+        NodeChild *curr = dumy;
 
-        Node *headRemain = nullptr, *ptRemain = nullptr;
+        NodeChild *headRemain = nullptr, *ptRemain = nullptr;
 
         while (curr->next)
         {
@@ -46,7 +29,7 @@ public:
                 curr->next->next = curr->next->child;
                 curr->next->child->prev = curr->next;
 
-                Node *dumyTwo = new Node(-1);
+                NodeChild *dumyTwo = new NodeChild(-1);
                 dumyTwo->next = curr->next->child;
                 curr->next->child = nullptr;
 
@@ -75,11 +58,11 @@ public:
         return head;
     }
 
-    void pushAtHead(Node *&head, Node *&remain)
+    void pushAtHead(NodeChild *&head, NodeChild *&remain)
     {
         if (!remain) return;
         
-        Node* curr = remain;
+        NodeChild* curr = remain;
 
         if (!head){  
             head = remain; 
@@ -93,11 +76,11 @@ public:
         head = remain;
     }
 
-    void pushBack(int data, Node *l)
+    void pushBack(int data, NodeChild *l)
     {
-        Node* temp = new Node(data);
+        NodeChild* temp = new NodeChild(data);
         temp->child = l;
-        Node* curr = head;
+        NodeChild* curr = head;
 
         if (!head){  
             head = temp;

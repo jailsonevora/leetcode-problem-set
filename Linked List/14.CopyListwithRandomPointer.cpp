@@ -1,43 +1,22 @@
 #include<iostream>
 #include<map>
-/*
-// Definition for a Node.
-class Node {
-public:
-    int val;
-    Node* next;
-    Node* random;
-    
-    Node(int _val) {
-        val = _val;
-        next = NULL;
-        random = NULL;
-    }
-};
-*/
+#include "Util\Include\DoubleLinkedListNode.h"
 
 using namespace std;
-
-struct Node {
-    int val;
-    Node *next;
-    Node* random;
-    Node(int x) : val(x), random(nullptr), next(nullptr) {}
-};
 
 class Solution {
 public:
 
-    Node *head = nullptr;
+    NodeRand *head = nullptr;
 
-    Node* copyRandomList(Node* head) {
+    NodeRand* copyRandomList(NodeRand* head) {
 
-        Node* curr = head;
-        std::map<Node*, Node*> oldToCopy;
+        NodeRand* curr = head;
+        std::map<NodeRand*, NodeRand*> oldToCopy;
 
         while (curr)
         {   
-            Node* cpy = new Node(curr->val);
+            NodeRand* cpy = new NodeRand(curr->val);
             oldToCopy[curr] = cpy;
             curr = curr->next;
         }
@@ -45,7 +24,7 @@ public:
         curr = head;
         while (curr)
         {   
-            Node* cpy = oldToCopy[curr];
+            NodeRand* cpy = oldToCopy[curr];
             cpy->next = oldToCopy[curr->next];
             cpy->random = oldToCopy[curr->random];
             curr = curr->next;
@@ -54,11 +33,11 @@ public:
         return oldToCopy[head];
     }
 
-    void pushBack(int data, Node *&head)
+    void pushBack(int data, NodeRand *&head)
     {
-        Node* temp = new Node(data);              
+        NodeRand* temp = new NodeRand(data);              
 
-        Node* curr = head;
+        NodeRand* curr = head;
 
         if (!head){  
             head = temp;
@@ -72,12 +51,12 @@ public:
 
     void random(int index, int indexRandom)
     {
-        Node* curr = head;       
+        NodeRand* curr = head;       
         
         while (index-- > 1)
             curr = curr->next;
 
-        Node* tempCurr = head;
+        NodeRand* tempCurr = head;
         if (indexRandom == -1){            
             curr->random = nullptr;
             return;
