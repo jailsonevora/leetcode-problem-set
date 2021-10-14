@@ -32,7 +32,8 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",                
+                "${file}",
+                "C:\\Competitive Programming\\LeetCode\\leetcode-learn-cards\\Util\\*.cpp",
                 "*.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
