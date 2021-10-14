@@ -11,9 +11,9 @@ public:
 };
 
 int main(){
-    // ios_base::sync_with_stdio();
-    // cin.tie();
-    // cout.tie();
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
 
     int x = 4, y = 3;
     vector<int> preOrder1 = {1,2,4,5,3};
