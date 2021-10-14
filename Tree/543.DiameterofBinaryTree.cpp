@@ -16,7 +16,6 @@ class Solution {
         ans = std::max(ans,left+righ);
 
         return std::max(left,righ)+1;;
-        
     }
 public:
     int diameterOfBinaryTree(TreeNode* root) {
