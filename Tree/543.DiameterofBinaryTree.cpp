@@ -2,6 +2,7 @@
 #include<queue>
 #include<stack>
 #include<unordered_set>
+#include "Include\BuildTreeFromPreOrderArray.h"
 
 using namespace std;
 
