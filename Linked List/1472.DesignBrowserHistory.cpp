@@ -1,31 +1,22 @@
 #include<iostream>
 #include<vector>
+#include "Util\Include\LinkedListNode.h"
 
 using namespace std;
 
 class BrowserHistory {
 
-    //Definition for singly-linked list.    
-    struct ListNode {
-        string val;
-        ListNode *next;
-        ListNode *prev;
-        ListNode() : val(0), next(nullptr), prev(nullptr) {}
-        ListNode(string x) : val(x), next(nullptr), prev(nullptr) {}
-        ListNode(string x, ListNode *next, ListNode *prev) : val(x), next(next), prev(prev) {}
-    };
-
-    ListNode* curr = nullptr;
+    ListNodeString* curr = nullptr;
 
 public:
 
     BrowserHistory(string homepage) {
-        curr = new ListNode(homepage);       
+        curr = new ListNodeString(homepage);       
     }
     
     void visit(string url) {
-        curr->next = new ListNode(url);
-        ListNode* prev = curr;
+        curr->next = new ListNodeString(url);
+        ListNodeString* prev = curr;
         curr = curr->next;
         curr->prev = prev;
     }

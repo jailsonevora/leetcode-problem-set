@@ -19,3 +19,13 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+
+//Definition for singly-linked list.    
+    struct ListNodeString {
+        string val;
+        ListNodeString *next;
+        ListNodeString *prev;
+        ListNodeString() : val(0), next(nullptr), prev(nullptr) {}
+        ListNodeString(string x) : val(x), next(nullptr), prev(nullptr) {}
+        ListNodeString(string x, ListNodeString *next, ListNodeString *prev) : val(x), next(next), prev(prev) {}
+    };
