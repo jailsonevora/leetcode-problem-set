@@ -3,19 +3,9 @@
 #include<stack>
 #include<unordered_set>
 
-using namespace std;
+#include "Util\Include\BuildTreeFromPreOrderArray.h"
 
-/**
- * Definition for a binary tree node.
- **/ 
- struct TreeNode {
-      int val;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode() : val(0), left(nullptr), right(nullptr) {}
-      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- };
+using namespace std;
 
  class Solution {
     bool DFS_Recursive_PreOrderTraversal(TreeNode* rootL, TreeNode* rootR){
