@@ -4,9 +4,25 @@
 using namespace std;
 
 class Solution {
+
+    int dfs(TreeNode* root, int& ans){
+
+        if(!root)
+            return 0;
+
+        int left = dfs(root->left, ans);
+        int righ = dfs(root->right, ans);
+        
+        ans = std::max(ans,left+righ);
+
+        return std::max(left,righ)+1;;
+        
+    }
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-        return 1;
+        int ans = 0;
+        dfs(root, ans);
+        return ans;
     }
 };
 
