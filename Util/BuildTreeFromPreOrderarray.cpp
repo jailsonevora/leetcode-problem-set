@@ -2,6 +2,7 @@
 #include "Util\Include\TreeNode.h"
 
 TreeNode::TreeNode* BuildTreeFromPreOrderArray::buildTree(vector<int>& preorder, int p1, int p2, vector<int>& inorder, int i1, int i2) {
+    
     if(p1 > p2)
         return nullptr;
     

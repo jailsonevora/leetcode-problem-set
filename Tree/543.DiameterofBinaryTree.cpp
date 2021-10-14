@@ -1,7 +1,4 @@
 #include<iostream>
-#include<queue>
-#include<stack>
-#include<unordered_set>
 #include "Util\Include\BuildTreeFromPreOrderArray.h"
 
 using namespace std;
