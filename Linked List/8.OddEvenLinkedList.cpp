@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Util\Include\LinkedListNode.h"
 
-
 class Solution {
 public:
     ListNode *head = NULL;

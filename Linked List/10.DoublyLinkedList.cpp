@@ -1,13 +1,7 @@
 #include<iostream>
+#include "Util\Include\DoubleLinkedListNode.h"
 
 using namespace std;
-
-struct Node {
-    int val;
-    Node *prev;
-    Node *next;
-    Node(int x) : val(x), prev(NULL), next(NULL) {}
-};
 
 class MyLinkedList {
 public:
