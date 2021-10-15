@@ -8,16 +8,16 @@ using namespace std;
 
 class Solution {
     //
-    int selectMinVertex(int n, vector<int>& value,vector<bool>& processed)
-    {
-        int minimum = INT_MAX;
-        int vertex;
-        for(int i=0; i < n; ++i)
-            if(processed[i]==false && value[i]<minimum)
-                vertex = i,
-                    minimum = value[i];
-        return vertex;
-    }
+    // int selectMinVertex(int n, vector<int>& value,vector<bool>& processed)
+    // {
+    //     int minimum = INT_MAX;
+    //     int vertex;
+    //     for(int i=0; i < n; ++i)
+    //         if(processed[i]==false && value[i]<minimum)
+    //             vertex = i,
+    //                 minimum = value[i];
+    //     return vertex;
+    // }
     // using simple implementation of dijkstra in O(V^2)
     void dijkstra(int n, vector<vector<int>> graph, int u, int distanceThreshold, vector<pair<int,int>>& ans)
     {
@@ -119,10 +119,10 @@ public:
     int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
         
         // adjacencyList graph
-        vector<pair<int,int>> graph[n];
+        //vector<pair<int,int>> graph[n];
 
         // adjacencyMatrix graph
-        vector<vector<int>> graph(n+1);
+        vector<vector<int>> graph(n);
 
         vector<pair<int,int>> ans;
 
