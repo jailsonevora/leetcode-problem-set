@@ -7,17 +7,6 @@
 using namespace std;
 
 class Solution {
-    //
-    // int selectMinVertex(int n, vector<int>& value,vector<bool>& processed)
-    // {
-    //     int minimum = INT_MAX;
-    //     int vertex;
-    //     for(int i=0; i < n; ++i)
-    //         if(processed[i]==false && value[i]<minimum)
-    //             vertex = i,
-    //                 minimum = value[i];
-    //     return vertex;
-    // }
     // using simple implementation of dijkstra in O(V^2)
     void _dijkstra(int n, vector<vector<int>> graph, int u, int distanceThreshold, vector<pair<int,int>>& ans)
     {
