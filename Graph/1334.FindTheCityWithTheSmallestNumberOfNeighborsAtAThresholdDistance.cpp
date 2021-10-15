@@ -146,7 +146,7 @@ public:
             // using bfs
             //dijkstra(graph, u, n, distanceThreshold, ans);
             // using simple implementation
-            _dijkstra(n, graph, u, n, distanceThreshold, ans);
+            _dijkstra(n, graph, u, distanceThreshold, ans);
 
     
         //anonymous class
