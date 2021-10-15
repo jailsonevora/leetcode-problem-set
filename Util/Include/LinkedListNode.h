@@ -1,4 +1,7 @@
 #include<iostream>
+#include<string>
+
+using namespace std;
 
 /**
  * Definition for singly-linked list.
@@ -21,11 +24,11 @@ struct ListNode {
 };
 
 //Definition for singly-linked list.    
-    struct ListNodeString {
-        string val;
-        ListNodeString *next;
-        ListNodeString *prev;
-        ListNodeString() : val(0), next(nullptr), prev(nullptr) {}
-        ListNodeString(string x) : val(x), next(nullptr), prev(nullptr) {}
-        ListNodeString(string x, ListNodeString *next, ListNodeString *prev) : val(x), next(next), prev(prev) {}
-    };
+struct ListNodeString {
+    string val;
+    ListNodeString *next;
+    ListNodeString *prev;
+    ListNodeString() : val(0), next(nullptr), prev(nullptr) {}
+    ListNodeString(string x) : val(x), next(nullptr), prev(nullptr) {}
+    ListNodeString(string x, ListNodeString *next, ListNodeString *prev) : val(x), next(next), prev(prev) {}
+};

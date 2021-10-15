@@ -29,7 +29,8 @@ public:
         ListNode* curr = head;
 
         while (curr && curr->next)
-            mp.insert({curr->val,curr->next->val});
+            mp.insert({curr->val,curr->next->val}),
+                curr = curr->next;
         
         int count = 0;
         for(auto [key, val]: mp)

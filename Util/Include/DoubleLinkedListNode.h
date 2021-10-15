@@ -1,5 +1,7 @@
 #include<iostream>
 
+using namespace std;
+
 /**
  * Definition for double-linked list.
  * */
