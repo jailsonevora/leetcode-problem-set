@@ -7,6 +7,23 @@
 using namespace std;
 
 class Solution {
+    //
+    int selectMinVertex(vector<int>& value,vector<bool>& processed)
+    {
+        int minimum = INT_MAX;
+        int vertex;
+        for(int i=0;i<V;++i)
+        {
+            if(processed[i]==false && value[i]<minimum)
+            {
+                vertex = i;
+                minimum = value[i];
+            }
+        }
+        return vertex;
+    }
+    //
+
     //using BFS + ADjList + PriorityQueue as MinHeap
     void dijkstra(vector<pair<int, int>> graph[], int u, int n, int distanceThreshold, vector<pair<int,int>>& ans){
         
