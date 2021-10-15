@@ -10,5 +10,5 @@ class BuildLinkedList {
     protected:    
 
     public:
-    void pushBack(int data, ListNode*& head)
+    void pushBack(int data, ListNode*& head);
 };
