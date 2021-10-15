@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<unordered_map>
-#include "Util\Include\LinkedListNode.h"
+#include "Util\Include\BuildLinkedList.h"
 
 using namespace std;
 
@@ -16,14 +16,17 @@ int main(){
     
     ListNode* l1 = nullptr;
 
-    Solution ll;
-    ll.pushBack(1, l1);
-    ll.pushBack(2, l1);
-    ll.pushBack(3, l1);
-    ll.pushBack(4, l1);
-    ll.pushBack(5, l1);
+    Solution sl;
+    BuildLinkedList bl;
 
-    ll.swapNodes(l1,2);
+    bl.pushBack(0, l1);
+    bl.pushBack(1, l1);
+    bl.pushBack(2, l1);
+    bl.pushBack(3, l1);
 
-    //[0,3,2,1,4,5] 3, 4, [1000000,1000001,1000002]
+    vector<int> nums = {
+        0,1,3
+    };
+
+    sl.numComponents(l1,nums);
 }
