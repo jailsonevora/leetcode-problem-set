@@ -1,41 +1,22 @@
 #include<iostream>
 #include<vector>
-#include<unordered_map>
+#include<unordered_set>
 #include "Util\Include\BuildLinkedList.h"
 
 using namespace std;
 
 class Solution {
-    bool binarySearch(vector<int>& nums, int target) {
-        
-        int head = 0, tail = nums.size() - 1;
-
-        while(head <= tail)
-        {
-            int middle = head + (tail - head) / 2;
-            if(nums[middle] == target)
-                return true;
-            else if(nums[middle] < target)
-                head = middle + 1;
-            else
-                tail = middle - 1;
-        }       
-        return false;        
-    }
 public:
     int numComponents(ListNode* head, vector<int>& nums) {
 
-        unordered_map<int,int> mp;
-        ListNode* curr = head;
-
-        while (curr && curr->next)
-            mp.insert({curr->val,curr->next->val}),
-                curr = curr->next;
-        
-        int count = 0;
-        for(auto [key, val]: mp)
-            if(binarySearch(nums, val))
-                count++;
+        unordered_set<int> set (nums.begin(), nums.end());
+        int ans = 0;
+        while (!head) {
+            if (set.count(head->val) && (head->next == NULL || !set.count(head->next->val))) 
+                ans++;
+            head = head->next;
+        }
+        return ans;
     }
 };
 
@@ -55,5 +36,5 @@ int main(){
         0,1,3
     };
 
-    sl.numComponents(l1,nums);
+    cout << sl.numComponents(l1,nums);
 }
