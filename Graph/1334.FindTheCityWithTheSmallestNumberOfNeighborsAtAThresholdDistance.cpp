@@ -19,7 +19,7 @@ class Solution {
     //     return vertex;
     // }
     // using simple implementation of dijkstra in O(V^2)
-    void dijkstra(int n, vector<vector<int>> graph, int u, int distanceThreshold, vector<pair<int,int>>& ans)
+    void _dijkstra(int n, vector<vector<int>> graph, int u, int distanceThreshold, vector<pair<int,int>>& ans)
     {
         int parent[n];		//Stores Shortest Path Structure
         vector<int> value(n,INT_MAX);	//Keeps shortest path values to each vertex from source
@@ -122,7 +122,7 @@ public:
         //vector<pair<int,int>> graph[n];
 
         // adjacencyMatrix graph
-        vector<vector<int>> graph(n);
+        vector<vector<int>> graph(n, vector<int>(n,0));
 
         vector<pair<int,int>> ans;
 
@@ -134,12 +134,19 @@ public:
         //     graph[v].push_back({u,w});
         // }
 
+        //adjMatrix
+        for(auto edge: edges){
+            int u = edge[0], v = edge[1], w = edge[2];
+            graph[u][v] = w;
+            graph[v][u] = w;
+        }
+
         // for each vertice
         for(int u=0; u < n; ++u)
             // using bfs
             //dijkstra(graph, u, n, distanceThreshold, ans);
             // using simple implementation
-            dijkstra(n, graph, u, n, distanceThreshold, ans);
+            _dijkstra(n, graph, u, n, distanceThreshold, ans);
 
     
         //anonymous class
