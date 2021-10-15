@@ -64,45 +64,70 @@ class Solution {
 
 
     //using BFS + AdjList + PriorityQueue as MinHeap in O(E logV)
-    // void dijkstra(vector<pair<int, int>> graph[], int u, int n, int distanceThreshold, vector<pair<int,int>>& ans){
+    void dijkstra(vector<pair<int, int>> graph[], int u, int n, int distanceThreshold, vector<pair<int,int>>& ans){
         
-    //     // use priority queue as min heap
-    //     priority_queue<
-    //         pair<int, int>, 
-    //         vector<pair<int, int>>, 
-    //         greater<pair<int, int>>
-    //     > pq;
+        // use priority queue as min heap
+        priority_queue<
+            pair<int, int>, 
+            vector<pair<int, int>>, 
+            greater<pair<int, int>>
+        > pq;
         
-    //     // distance vector
-    //     vector<int> distance(n+1, INT_MAX);
+        // distance vector
+        vector<int> distance(n+1, INT_MAX);
 
-    //     pq.push(make_pair(0, u));
-    //     distance[u] = 0;
+        pq.push(make_pair(0, u));
+        distance[u] = 0;
 
-    //     // normal BFS traversal
-    //     while(!pq.empty()){
+        // normal BFS traversal
+        while(!pq.empty()){
 
-    //         int u = pq.top().second;
-    //         pq.pop();
+            int u = pq.top().second;
+            pq.pop();
 
-    //         // traverse for the neighbors of u
-    //         for(auto it : graph[u]){
+            // traverse for the neighbors of u
+            for(auto it : graph[u]){
 
-    //             int v = it.first;
-    //             int w = it.second;
+                int v = it.first;
+                int w = it.second;
 
-    //             if(distance[v] > distance[u] + w)
-    //                 distance[v] = distance[u] + w,
-    //                     pq.push(make_pair(distance[v], v));
-    //         }
-    //     }
+                if(distance[v] > distance[u] + w)
+                    distance[v] = distance[u] + w,
+                        pq.push(make_pair(distance[v], v));
+            }
+        }
 
-    //     int count = 0;
-    //     for(int node=0; node < n; ++node)
-    //         if(node != u && distance[node] <= distanceThreshold)
-    //             count++;    
-    //     ans.push_back({count,u});
-    // }
+        int count = 0;
+        for(int node=0; node < n; ++node)
+            if(node != u && distance[node] <= distanceThreshold)
+                count++;    
+        ans.push_back({count,u});
+    }
+
+    //Floyd Warshall Algorithm
+    int floyd_Warshall(int n, vector<vector<int>>& edges, int distanceThreshold) {
+        vector<vector<int>> dis(n, vector(n, 10001));
+        int res = 0, smallest = n;
+        for (auto& e : edges)
+            dis[e[0]][e[1]] = dis[e[1]][e[0]] = e[2];
+        for (int i = 0; i < n; ++i)
+            dis[i][i] = 0;
+        for (int k = 0; k < n; ++k)
+            for (int i = 0; i < n; ++i)
+                for (int j = 0; j < n; ++j)
+                    dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; ++j)
+                if (dis[i][j] <= distanceThreshold)
+                    ++count;
+            if (count <= smallest) {
+                res = i;
+                smallest = count;
+            }
+        }
+        return res;
+    }
 
 public:
     int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
@@ -138,7 +163,7 @@ public:
             _dijkstra(n, graph, u, distanceThreshold, ans);
 
     
-        //anonymous class
+        //anonymous class/method
         sort(ans.begin(),ans.end(),[](const pair<int,int> p1 ,const pair<int,int> p2){
             if(p1.first != p2.first)
                 return p1.first < p2.first;
