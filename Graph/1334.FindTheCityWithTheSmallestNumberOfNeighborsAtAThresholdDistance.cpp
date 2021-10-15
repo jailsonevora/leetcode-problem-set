@@ -18,13 +18,12 @@ class Solution {
                     minimum = value[i];
         return vertex;
     }
-    //
-    
+    // using simple implementation of dijkstra in O(V^2)
     void dijkstra(int n, vector<vector<int>> graph)
     {
         int parent[n];		//Stores Shortest Path Structure
         vector<int> value(n,INT_MAX);	//Keeps shortest path values to each vertex from source
-        vector<bool> processed(V,false);	//TRUE->Vertex is processed
+        vector<bool> processed(n,false);	//TRUE->Vertex is processed
 
         //Assuming start point as Node-0
         parent[0] = -1;	//Start node has no parent
@@ -34,7 +33,15 @@ class Solution {
         for(int i=0; i<n-1; ++i)
         {
             //Select best Vertex by applying greedy method
-            int U = selectMinVertex(value,processed);
+            int U = [](int n, vector<int>& value,vector<bool>& processed){
+                int minimum = INT_MAX;
+                int vertex;
+                for(int i=0; i < n; ++i)
+                    if(processed[i]==false && value[i]<minimum)
+                        vertex = i,
+                            minimum = value[i];
+                return vertex;
+            };
             processed[U] = true;	//Include new Vertex in shortest Path Graph
 
             //Relax adjacent vertices (not yet included in shortest path graph)
@@ -59,7 +66,7 @@ class Solution {
     }
 
 
-    //using BFS + ADjList + PriorityQueue as MinHeap
+    //using BFS + AdjList + PriorityQueue as MinHeap in O(E logV)
     void dijkstra(vector<pair<int, int>> graph[], int u, int n, int distanceThreshold, vector<pair<int,int>>& ans){
         
         // use priority queue as min heap
