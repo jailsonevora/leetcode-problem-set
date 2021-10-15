@@ -8,6 +8,15 @@ using namespace std;
 class Solution {
 public:
     int numComponents(ListNode* head, vector<int>& nums) {
+
+        unordered_map<int,int> mp;
+        ListNode* curr = head;
+
+        while ()
+        {
+            /* code */
+        }
+        
         
     }
 };
