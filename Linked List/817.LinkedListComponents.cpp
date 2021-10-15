@@ -11,7 +11,7 @@ public:
 
         unordered_set<int> set (nums.begin(), nums.end());
         int ans = 0;
-        while (!head) {
+        while (head) {
             if (set.count(head->val) && (head->next == NULL || !set.count(head->next->val))) 
                 ans++;
             head = head->next;
