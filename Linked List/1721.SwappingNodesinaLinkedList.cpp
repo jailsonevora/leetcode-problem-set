@@ -83,9 +83,7 @@ public:
 
         swap(beginPrev->val, endPrev->val);
         return head;
-    }
-
-    
+    }    
 };
 
 int main(){
@@ -93,11 +91,12 @@ int main(){
     ListNode* l1 = nullptr;
 
     Solution ll;
-    ll.pushBack(1, l1);
-    ll.pushBack(2, l1);
-    ll.pushBack(3, l1);
-    ll.pushBack(4, l1);
-    ll.pushBack(5, l1);
+    BuildLinkedList bl;
+    bl.pushBack(1, l1);
+    bl.pushBack(2, l1);
+    bl.pushBack(3, l1);
+    bl.pushBack(4, l1);
+    bl.pushBack(5, l1);
 
     ll.swapNodes(l1,2);
 
