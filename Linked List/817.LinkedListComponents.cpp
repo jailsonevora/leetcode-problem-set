@@ -6,18 +6,35 @@
 using namespace std;
 
 class Solution {
+    bool binarySearch(vector<int>& nums, int target) {
+        
+        int head = 0, tail = nums.size() - 1;
+
+        while(head <= tail)
+        {
+            int middle = head + (tail - head) / 2;
+            if(nums[middle] == target)
+                return true;
+            else if(nums[middle] < target)
+                head = middle + 1;
+            else
+                tail = middle - 1;
+        }       
+        return false;        
+    }
 public:
     int numComponents(ListNode* head, vector<int>& nums) {
 
         unordered_map<int,int> mp;
         ListNode* curr = head;
 
-        while ()
-        {
-            /* code */
-        }
+        while (curr && curr->next)
+            mp.insert({curr->val,curr->next->val});
         
-        
+        int count = 0;
+        for(auto [key, val]: mp)
+            if(binarySearch(nums, val))
+                count++;
     }
 };
 
