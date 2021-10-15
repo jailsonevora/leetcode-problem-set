@@ -122,7 +122,7 @@ public:
         vector<pair<int,int>> graph[n];
 
         // adjacencyMatrix graph
-        vector<vector<int>> graph[n];
+        vector<vector<int>> graph(n+1);
 
         vector<pair<int,int>> ans;
 
