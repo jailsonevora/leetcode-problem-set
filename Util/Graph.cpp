@@ -1,5 +1,4 @@
-#include "Util\Include\Edge.h"
-#include <vector>
+#include "Util\Include\Graph.h"
 
 // A class to represent a graph object
 class Graph {

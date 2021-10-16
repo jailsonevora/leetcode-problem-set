@@ -2,37 +2,9 @@
 #include <queue>
 #include <vector>
 #include <unordered_set>
+#include "Util\Include\Graph.h"
 
 using namespace std;
-
-
-// Data structure to store a graph edge
-struct Edge {
-    int src, dest;
-};
- 
-// A class to represent a graph object
-class Graph
-{
-public:
-    // a vector of vectors to represent an adjacency matrix
-    vector<vector<int>> adjMatrix;
- 
-    // Graph Constructor
-    Graph(vector<Edge> const &edges, int N)
-    {
-        // resize the vector to hold `N` elements of type `vector<int>`
-        adjMatrix.resize(N);
- 
-        // add edges to the undirected graph
-        for (auto &edge: edges)
-        {
-            adjMatrix[edge.src].push_back(edge.dest);
-            adjMatrix[edge.dest].push_back(edge.src);
-        }
-    }
-};
-
 
 // Perform BFS on the graph starting from vertex `v`
 bool BFS(Graph const &graph, int v, vector<bool> &discovered, int N, int vu)
