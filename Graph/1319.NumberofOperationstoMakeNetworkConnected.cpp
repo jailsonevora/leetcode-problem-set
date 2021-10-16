@@ -3,36 +3,10 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_set>
+#include "Util\Include\Graph.h"
 
 using namespace std;
 
-// Data structure to store a graph edge
-struct Edge {
-    int src, dest;
-};
-
-// A class to represent a graph object
-class Graph {
-public:
-    // a vector of vectors to represent an adjacency matrix
-    vector<vector<int>> adjMatrix;
- 
-    // Graph Constructor
-    Graph(vector<Edge> const &edges, int N)
-    {
-        // resize the vector to hold `N` elements of type `vector<int>`
-        adjMatrix.resize(N);
- 
-        // add edges to the undirected graph
-        if(!edges.empty()){
-            for (auto &edge: edges)
-            {
-                adjMatrix[edge.src].push_back(edge.dest);
-                //adjList[edge.dest].push_back(edge.src);
-            }
-        }
-    }
-};
 
 // adjacent array
 // class Solution {
@@ -187,14 +161,14 @@ int main()
     // build a graph from the given edges
     //Graph graph(edges, N);
 
-    // vector<vector<int>> adjList = { 
+    // vector<vector<int>> edges = { 
     //     {0,1},
     //     {0,2},
     //     {1,2},
     // };
     // int n = 4;
 
-    // vector<vector<int>> adjList = { 
+    // vector<vector<int>> edges = { 
     //     {0,1},
     //     {0,2},
     //     {0,3},
@@ -203,7 +177,7 @@ int main()
     // };
     // int n = 6;
 
-    // vector<vector<int>> adjList = { 
+    // vector<vector<int>> edges = { 
     //     {0,1},
     //     {0,2},
     //     {0,3},
@@ -211,7 +185,8 @@ int main()
     // };
     // int n = 6;
 
-    vector<vector<int>> adjList = { 
+    //edge as adjMatrix
+    vector<vector<int>> edges = { 
         {1,5},
         {1,7},
         {1,2},
@@ -229,5 +204,5 @@ int main()
     int n = 12;
     
     Solution sl;
-    cout << sl.makeConnected(n, adjList) << "\n";
+    cout << sl.makeConnected(n, edges) << "\n";
 }
