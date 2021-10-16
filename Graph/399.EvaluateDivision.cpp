@@ -4,7 +4,6 @@
 #include <unordered_map>
 #include <unordered_set>
 
-
 using namespace std;
 
 // using union find by ranking with path compression
