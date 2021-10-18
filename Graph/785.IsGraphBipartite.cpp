@@ -8,6 +8,7 @@
 using namespace std;
 
 class Solution {
+
     // find path compression
     int _find(int v, vector<int>& parent){
         
