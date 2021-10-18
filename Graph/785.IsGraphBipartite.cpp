@@ -51,10 +51,7 @@ public:
                 _union(graph[row][0], graph[row][col], parent, rank);
             }
         }
-
         return true;
-
-
     }
 };
 
