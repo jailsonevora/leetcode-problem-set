@@ -2,7 +2,8 @@
 #include <stack>
 #include <vector>
 #include <algorithm>
-#include <unordered_set>
+#include <map>
+#include <unordered_map>
 
 using namespace std;
 
@@ -37,16 +38,14 @@ int main()
     int n,m;
     vector<int> event(n+1);
     //vector<int> graph[n+1];
-    vector<int,pair<int,int>> graph;
+    unordered_map<int,vector<pair<int,int>>> graph;
  
-    cin>>n;
-    cin>>m;
+    cin>> n >> m;
     
-    for(int i=1; i<=n; i++){
+    for(int i=1; i<=m; i++){
         int a, b, c;
 	    cin >> a >> b >> c;
-        graph[i] = a;
-        graph[i].push_back({b,c});
+        graph[a].push_back({b,c});
     }
  
     // initialize leads
@@ -58,22 +57,22 @@ int main()
         parent[i] = i, 
             rank[i] = 0;
 
-    for(auto node: graph){
-        if(node[0] == 1){
-            int absPFrom = _find(node[0].first, parent);
-            int absPTo = _find(node[0].second, parent);
+    // for(auto [k,v]: graph[1]){
+    //     if(node == 1){
+    //         int absPFrom = _find(node[0].first, parent);
+    //         int absPTo = _find(node[0].second, parent);
 
-            _union(absPFrom, absPTo, parent, rank);
+    //         _union(absPFrom, absPTo, parent, rank);
 
-        }
-        else{
-            int absPFrom = _find(node.first, parent);
-            int absPTo = _find(node.second, parent);
+    //     }
+    //     else{
+    //         int absPFrom = _find(node.first, parent);
+    //         int absPTo = _find(node.second, parent);
             
-            if(absPFrom == absPTo)
-                cout << "1";
-            else
-                cout << "0";
-        }
-    }    
+    //         if(absPFrom == absPTo)
+    //             cout << "1";
+    //         else
+    //             cout << "0";
+    //     }
+    // }    
 }
