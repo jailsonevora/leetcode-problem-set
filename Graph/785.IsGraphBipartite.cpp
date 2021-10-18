@@ -49,7 +49,7 @@ public:
 
                 if(absPFrom == absPTo)
                     return false;
-                _union(graph[row][0], graph[row][col], parent, rank);
+                _union(_find(graph[row][0], parent), _find(graph[row][col], parent), parent, rank);
             }
         }
         return true;
