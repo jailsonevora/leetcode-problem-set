@@ -30,6 +30,16 @@ class Solution {
     }
 public:
     bool isBipartite(vector<vector<int>>& graph) {
+
+        // initialize leads
+        vector<int> parent(graph.size(), 0);
+        vector<int> rank(graph.size(), 0);
+
+        // intantiate the rankings and parents
+        for (int i = 0; i < graph.size(); i++)
+            parent[i] = i, 
+                rank[i] = 0;
+        
         
     }
 };
