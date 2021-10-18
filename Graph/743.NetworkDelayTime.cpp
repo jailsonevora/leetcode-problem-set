@@ -2,8 +2,6 @@
 #include <stack>
 #include <vector>
 #include <algorithm>
-#include <unordered_set>
-#include "Util\Include\Graph.h"
 
 using namespace std;
 
@@ -36,11 +34,13 @@ int main()
     //Graph graph(edges, N);
 
     //edge as adjMatrix
-    vector<vector<int>> edge = { 
-        {1,3},{2,3}
+    vector<vector<int>> times = { 
+        {2,1,1},
+        {2,3,1},
+        {3,4,1}
     };
-    int N = 3;
+    int n = 4, k = 2;
     
     Solution sl;
-    cout << sl.findJudge(N, edge);
+    cout << sl.networkDelayTime(times, n, k);
 }
