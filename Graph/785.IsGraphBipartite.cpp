@@ -39,7 +39,8 @@ public:
         for (int i = 0; i < graph.size(); i++)
             parent[i] = i, 
                 rank[i] = 0;
-                
+
+        // all node neighbours should belong to one set
         for(int row = 0; row < graph.size(); row++){
             for(int col = 0; col < graph[row].size(); col++){
                 
