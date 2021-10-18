@@ -60,8 +60,8 @@ int main()
 
     for(auto node: graph){
         if(node[0] == 1){
-            int absPFrom = _find(node.first, parent);
-            int absPTo = _find(node.second, parent);
+            int absPFrom = _find(node[0].first, parent);
+            int absPTo = _find(node[0].second, parent);
 
             _union(absPFrom, absPTo, parent, rank);
 
