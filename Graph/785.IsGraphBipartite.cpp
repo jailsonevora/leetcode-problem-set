@@ -10,23 +10,23 @@ using namespace std;
 class Solution {
     // find path compression
     int _find(int v, vector<int>& parent){
-
         if(v == parent[v])
             return v;
         return parent[v] = _find(parent[v], parent); // path compression
     }
     // union by rank
     void _union(int from, int to, vector<int>& parent, vector<int>& rank){
-        
-        if(rank[to] < rank[from])
-            parent[to] = from;
-        else if(rank[from] < rank[to])
-            parent[from] = to;
-        else
-        {
-            parent[to] = from;
-            rank[from]++;
-        }
+        //if(from != to){
+            if(rank[to] < rank[from])
+                parent[to] = from;
+            else if(rank[from] < rank[to])
+                parent[from] = to;
+            else
+            {
+                parent[to] = from;
+                rank[from]++;
+            }
+        //}
     }
 public:
     bool isBipartite(vector<vector<int>>& graph) {
@@ -46,11 +46,13 @@ public:
                 int absPFrom = _find(row, parent);
                 int absPTo = _find(graph[row][col], parent);
 
-                _union(absPFrom, absPTo, parent, rank);
+                if(absPFrom == absPTo)
+                    return false;
+                _union(graph[row][0], graph[row][col], parent, rank);
             }
         }
 
-        return false;
+        return true;
 
 
     }
