@@ -66,6 +66,14 @@ int main()
         {0,2}
     };
 
+    // adjacency Matrix
+    vector<vector<int>> graph = { 
+        {1,2,3},
+        {0,2},
+        {0,1,3},
+        {0,2}
+    };
+
     Solution sl;
     std::cout << sl.isBipartite(graph);
 }
