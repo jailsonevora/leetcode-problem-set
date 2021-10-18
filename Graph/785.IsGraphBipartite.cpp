@@ -35,28 +35,22 @@ public:
         vector<int> parent(graph.size(), 0);
         vector<int> rank(graph.size(), 0);
 
-        //vector<vector<int>> g(graph.size(), vector<int>(graph.size(),0));
-
-
         // intantiate the rankings and parents
         for (int i = 0; i < graph.size(); i++)
             parent[i] = i, 
                 rank[i] = 0;
-
-        // for(int row = 0; row < g.size(); row++){
-        //     for(int col = 0; col < g.size(); col++){
-        
                 
-                int absPFrom = _find(g[row][col], parent);
-                int absPTo = _find(g[row][col], parent);
+        for(int row = 0; row < graph.size(); row++){
+            for(int col = 0; col < graph[row].size(); col++){
+                
+                int absPFrom = _find(row, parent);
+                int absPTo = _find(graph[row][col], parent);
 
-                _union(b, c, parent, rank);
-
-
+                _union(absPFrom, absPTo, parent, rank);
             }
         }
 
-        
+        return false;
 
 
     }
