@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <queue>
+#include <set>
 
 using namespace std;
 
@@ -40,6 +41,32 @@ class Solution {
         }
 
     }
+    // usin dijkstra with set instead MinHeap
+    int shortestPath(vector<pair<int,int>>gr[],int k,int n, vector<int>& distance) {
+        
+        set<pair<int,int>> set;
+        distance[k] = 0;
+        set.insert({0,k});
+        
+        while(!set.empty()) {
+          
+            auto curr = *set.begin();
+            set.erase(curr);
+            
+            int currVer = curr.second;
+            int dist = curr.first;
+            
+            for(auto adj : gr[currVer]) {
+                
+                if(distance[adj.second] > distance[currVer] + adj.first) {
+                    set.erase({distance[adj.second],adj.second});
+                    distance[adj.second] = adj.first + dist;
+                    set.insert({distance[adj.second],adj.second});
+                }
+            }
+        }
+    }
+
     // using DFS
     void dfs(int u, vector<pair<int,int>> graph[], vector<int>& visitedTime, int time){
 
