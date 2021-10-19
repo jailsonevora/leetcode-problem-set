@@ -7,6 +7,7 @@ using namespace std;
 
 class Solution {
 
+    // using dfs
     void dfs(int u, vector<pair<int,int>> graph[], vector<int>& visitedTime, int time){
 
         if(visitedTime[u] <= time)
@@ -25,14 +26,13 @@ public:
 
         for(auto edge: times)
             graph[edge[0]].push_back({edge[1],edge[2]});
-            
+
         dfs(k, graph, visitedTime, 0);
 
         int ans = 0;
-        for (auto a : visitedTime) 
-            ans = max(ans, a);
+        for (int a = 1; a <= n; a++) 
+            ans = max(ans, visitedTime[a]);
         return ans == INT_MAX ? -1 : ans;
-
     }
 };
 
