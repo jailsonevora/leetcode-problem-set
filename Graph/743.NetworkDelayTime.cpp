@@ -11,9 +11,12 @@ public:
         
         // adj Matrix graph
         vector<vector<int>> graph(n,vector<int>(n,0));
+        vector<int> outdegree(n,0);
 
         for(auto edge: times)
-            graph[edge[0]][edge[1]] = edge[2];
+            graph[edge[0]][edge[1]] = edge[2],
+            outdegree[edge[0]]++;
+
     }
 };
 
