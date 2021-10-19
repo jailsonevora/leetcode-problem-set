@@ -7,8 +7,14 @@ using namespace std;
 
 class Solution {
 
-    void dfs(int u, vector<vector<int>> graph, vector<int>& visited){
+    void dfs(int u, vector<vector<int>> graph, vector<int>& visited, int t){
 
+        visited[u] = 1;
+        for(auto v: graph[u]){
+            if(!visited[v])
+                dfs(v,graph, visited, t);
+            t += max(t,graph[u][v]);
+        }
 
 
     }
@@ -25,9 +31,9 @@ public:
 
         sort(outdegree.begin(),outdegree.end(), greater<>());
 
-        int i = 0;
+        int t = 0;
         if(!visited[k])
-            dfs(outdegree[i], graph, visited);
+            dfs(k, graph, visited, t);
         
 
         return 1;
