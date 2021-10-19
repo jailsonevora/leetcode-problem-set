@@ -7,15 +7,14 @@ using namespace std;
 
 class Solution {
 
-    void dfs(int u, vector<pair<int,int>> graph[], vector<int>& visited, int& t){
+    void dfs(int u, vector<pair<int,int>> graph[], vector<int>& visitedTime, int time){
 
-        visited[u] = 1;
-        for(auto it: graph[u]){
-            if(!visited[it.first])
-                dfs(it.first,graph, visited, t);
-            int tp = max(t,it.second);
-            t = 
-        }
+        if(visitedTime[u] <= time)
+            return;
+
+        visitedTime[u] = time;
+        for(auto it: graph[u])
+            dfs(it.first,graph, visitedTime, time + it.second);
     }
 public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
@@ -26,13 +25,13 @@ public:
 
         for(auto edge: times)
             graph[edge[0]].push_back({edge[1],edge[2]});
+            
+        dfs(k, graph, visitedTime, 0);
 
-        int t = 0;
-        if(!visited[k])
-            dfs(k, graph, visited, t);
-        
-
-        return t;
+        int ans = 0;
+        for (auto a : visitedTime) 
+            ans = max(ans, a);
+        return ans == INT_MAX ? -1 : ans;
 
     }
 };
