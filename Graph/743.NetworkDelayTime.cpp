@@ -7,26 +7,24 @@ using namespace std;
 
 class Solution {
 
-    void dfs(int u, vector<vector<int>> graph, vector<int>& visited, int t){
+    void dfs(int u, vector<pair<int,int>> graph[], vector<int>& visited, int& t){
 
         visited[u] = 1;
-        for(auto v: graph[u]){
-            if(!visited[v])
-                dfs(v,graph, visited, t);
-            t += max(t,graph[u][v]);
+        for(auto it: graph[u]){
+            if(!visited[it.first])
+                dfs(it.first,graph, visited, t);
+            t += max(t,it.second);
         }
-
-
     }
 public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         
-        // adj Matrix graph
-        vector<vector<int>> graph(n,vector<int>(n,0));
-        vector<int> outdegree(n,0), visited(n,0);
+        // adj list graph
+        vector<pair<int,int>> graph[n];
+        vector<int> outdegree(n+1,0), visited(n+1,0);
 
         for(auto edge: times)
-            graph[edge[0]][edge[1]] = edge[2],
+            graph[edge[0]].push_back({edge[1],edge[2]}),
             outdegree[edge[0]]++;
 
         sort(outdegree.begin(),outdegree.end(), greater<>());
@@ -36,7 +34,7 @@ public:
             dfs(k, graph, visited, t);
         
 
-        return 1;
+        return t;
 
     }
 };
