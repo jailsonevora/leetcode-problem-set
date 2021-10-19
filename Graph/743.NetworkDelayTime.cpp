@@ -17,6 +17,8 @@ public:
             graph[edge[0]][edge[1]] = edge[2],
             outdegree[edge[0]]++;
 
+        
+
     }
 };
 
