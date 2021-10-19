@@ -67,7 +67,6 @@ public:
         vector<int> distance(n+1, INT_MAX);
         dijkstra(k, graph, n, distance);
 
-
         int ans = 0;
         for (int a = 1; a <= n; a++) 
             ans = max(ans, distance[a]);
