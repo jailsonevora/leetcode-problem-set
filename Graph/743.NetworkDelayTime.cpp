@@ -13,21 +13,19 @@ class Solution {
         for(auto it: graph[u]){
             if(!visited[it.first])
                 dfs(it.first,graph, visited, t);
-            t += max(t,it.second);
+            int tp = max(t,it.second);
+            t = 
         }
     }
 public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
         
         // adj list graph
-        vector<pair<int,int>> graph[n];
-        vector<int> outdegree(n+1,0), visited(n+1,0);
+        vector<pair<int,int>> graph[n+1];
+        vector<int> visitedTime(n+1,INT_MAX);
 
         for(auto edge: times)
-            graph[edge[0]].push_back({edge[1],edge[2]}),
-            outdegree[edge[0]]++;
-
-        sort(outdegree.begin(),outdegree.end(), greater<>());
+            graph[edge[0]].push_back({edge[1],edge[2]});
 
         int t = 0;
         if(!visited[k])
