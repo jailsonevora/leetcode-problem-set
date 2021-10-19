@@ -7,7 +7,14 @@ using namespace std;
 
 class Solution {
 
-    // using dfs
+    //using BFS + adjList + MinHeap in O(E log V)
+    void dijkstra(vector<pair<int,int>> graph[]){
+
+
+    }
+
+
+    // using DFS
     void dfs(int u, vector<pair<int,int>> graph[], vector<int>& visitedTime, int time){
 
         if(visitedTime[u] <= time)
