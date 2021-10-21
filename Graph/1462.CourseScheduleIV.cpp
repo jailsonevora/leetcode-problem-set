@@ -8,12 +8,23 @@
 using namespace std;
 
 class Solution {
-    void _dfs(int u, vector<int> graph[], vector<vector<int>>& reachable, vector<int> visited){
+    bool _dfs(int u, int v, vector<int> graph[], vector<int> visited){
+
+        if(u == v)
+            return 1;
+        
+        if(visited[u])
+            return 0;
 
         visited[u] = 1;
-        for(auto v: graph[u])
+        for(auto unext: graph[u])
             if(!visited[v])
-                _dfs(v, graph, reachable) 
+                if(_dfs(unext, v, graph, visited))
+                    return true;
+        return false;
+    }
+
+    void _bfs(int u, vector<int> graph[], vector<vector<int>>& reachable, vector<int> visited){
 
     }
 public:
@@ -25,7 +36,7 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited;
-        vector<vector<int>> reachable(numCourses, vector<int>(numCourses,0));
+        //vector<vector<int>> reachable(numCourses, vector<int>(numCourses,0));
 
         for(int node = 0; node < numCourses; ++node)
             
