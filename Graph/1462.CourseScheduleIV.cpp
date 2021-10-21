@@ -18,10 +18,10 @@ class Solution {
 
         visited[u] = 1;
         for(auto unext: graph[u])
-            if(!visited[v])
+            if(!visited[unext])
                 if(_dfs(unext, v, graph, visited))
-                    return true;
-        return false;
+                    return 1;
+        return 0;
     }
 
     void _bfs(int u, vector<int> graph[], vector<vector<int>>& reachable, vector<int> visited){
@@ -36,12 +36,13 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited;
+        vector<bool> ans;
         //vector<vector<int>> reachable(numCourses, vector<int>(numCourses,0));
 
-        for(int node = 0; node < numCourses; ++node)
-            
+        for(auto edge: queries)
+            ans.push_back(_dfs(edge[0],edge[1], graph, visited));
 
-        
+        return ans;
     }
 };
 
