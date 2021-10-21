@@ -8,34 +8,32 @@
 using namespace std;
 
 class Solution {
+    // with dynamming programing
     bool _dfs(int u, int v, vector<int> graph[], vector<vector<int>>& dp){
 
         if (dp[u][v] != -1)
             return dp[u][v];
 
-        for (int i = 0; i < mp[a].size(); i++) {
-                if(mp[u][i] == b || _dfs(dp[u][i], v, graph, dp))
-                    return dp[u][v] = 1;
-        return false;
-    }
-
-    void _bfs(int u, vector<int> graph[], vector<vector<int>>& reachable, vector<int> visited){
-
+        for (int i = 0; i < graph[u].size(); i++)
+            if(graph[u][i] == v || _dfs(dp[u][i], v, graph, dp))
+                return dp[u][v] = 1;
+        return dp[u][v] = 0;
     }
 public:
     vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
 
         vector<int> graph[numCourses];
+        vector<vector<int>>dp(numCourses, vector<int>(numCourses, -1));
 
         for(auto edge: prerequisites)
-            graph[edge[0]].push_back(edge[1]);
+            graph[edge[0]].push_back(edge[1]),
+                dp[edge[0]][edge[1]] = 1;
 
         vector<int> visited(numCourses,0);
         vector<bool> ans;
-        vector<vector<int>>dp(numCourses, vector<int>(numCourses, -1));
 
         for(auto edge: queries)
-            ans.push_back(_dfs(edge[0],edge[1], graph, visited));
+            ans.push_back(_dfs(edge[0],edge[1], graph, dp));
         return ans;
     }
 };
