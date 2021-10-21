@@ -10,6 +10,13 @@ using namespace std;
 class Solution {
 public:
     vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
+
+        vector<int> graph[numCourses];
+
+        for(auto edge: prerequisites)
+            graph[edge[0]].push_back(edge[1]);
+
+        for()
         
     }
 };
