@@ -11,12 +11,12 @@ class Solution {
 public:
     vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
 
-        vector<int> graph[numCourses];
+        vector<int> graph[numCourses-1];
 
         for(auto edge: prerequisites)
             graph[edge[0]].push_back(edge[1]);
 
-        for()
+        for(int node = 0;)
         
     }
 };
