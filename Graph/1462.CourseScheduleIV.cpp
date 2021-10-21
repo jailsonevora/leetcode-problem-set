@@ -22,9 +22,9 @@ int main()
     };
 
     vector<vector<int>> queries = { 
-        {1,0}
+        {0,1}
     };
-    int numCourses = 4, k = 2;
+    int numCourses = 4;
     
     Solution sl;
     cout << sl.checkIfPrerequisite(numCourses, prerequisites, queries);
