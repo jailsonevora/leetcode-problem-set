@@ -8,7 +8,7 @@
 using namespace std;
 
 class Solution {
-    void _dfs(int u, vector<int> graph[], ){
+    void _dfs(int u, vector<int> graph[], vector<vector<int>> reachable, vector<int> visited){
 
     }
 public:
@@ -20,7 +20,8 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited;
-        vector<vector<int>> reacheble(numCourses, vector<int>(numCourses,0));
+        vector<vector<int>> reachable(numCourses, vector<int>(numCourses,0));
+
         for(int node = 0; node < numCourses; ++node)
             
 
