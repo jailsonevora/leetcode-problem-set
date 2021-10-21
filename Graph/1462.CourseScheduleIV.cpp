@@ -9,6 +9,14 @@ using namespace std;
 
 class Solution {
 
+    void _dfs(int u, int node, vector<int> graph[], vector<vector<int>>& isReachable){
+        
+        isReachable[u][node]=1;
+        for(auto v: graph[node])
+            if(isReachable[u][v]==0)
+                _dfs(u, v, graph, isReachable);
+    }
+
     // Topological sort similar to kahns algorithm using bfs
     void _bfs(int u, vector<int> graph[], vector<vector<int>>& isReachable){
         
@@ -45,6 +53,7 @@ public:
 
         for(int node = 0; node < numCourses; node++)
             _bfs(node, graph, isReachable);
+            //_dfs(isReach,i,i);
 
         for(auto edge: queries)
             ans.push_back(isReachable[edge[0]][edge[1]]);
