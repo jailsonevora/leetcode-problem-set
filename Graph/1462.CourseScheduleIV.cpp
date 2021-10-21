@@ -38,7 +38,6 @@ class Solution {
                 queue.push(v);
             }
         }
-
     }
     
 public:
