@@ -11,17 +11,20 @@ class Solution {
     void _bfs(int u, vector<int> graph, vector<vector<int>>& isReachable){
         
         queue<int> queue;
+        queue.push(u);
 
-        queue.push(i);
+        while(!queue.empty()){
 
-        while(!q.empty()){
-            int f = q.front();
-            q.pop();
-            for(int nei : g[f]){
-                if(ir[i][nei])
+            int front = queue.front();
+            queue.pop();
+
+            for(int v : graph[front]){
+
+                if(isReachable[u][v])
                     continue;
-                ir[i][nei]=1;
-                q.push(nei);
+
+                isReachable[u][v]=1;
+                queue.push(v);
             }
         }
 
