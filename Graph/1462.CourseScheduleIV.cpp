@@ -8,7 +8,7 @@
 using namespace std;
 
 class Solution {
-    void _bfs(){
+    void _bfs(int u, vector<int> graph, vector<vector<int>>& isReachable){
         
         queue<int> queue;
 
