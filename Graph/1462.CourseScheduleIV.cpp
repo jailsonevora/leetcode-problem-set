@@ -22,7 +22,8 @@ int main()
     };
 
     vector<vector<int>> queries = { 
-        {0,1}
+        {0,1},
+        {1,0}
     };
     int numCourses = 4;
     
