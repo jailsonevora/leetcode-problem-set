@@ -16,7 +16,10 @@ public:
         for(auto edge: prerequisites)
             graph[edge[0]].push_back(edge[1]);
 
-        for(int node = 0;)
+        vector<int> visited;
+        for(int node = 0; node < numCourses; ++node)
+            
+
         
     }
 };
