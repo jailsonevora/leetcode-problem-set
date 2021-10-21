@@ -6,3 +6,16 @@
 #include <set>
 
 using namespace std;
+
+
+int main()
+{
+    //edge as adjMatrix
+    vector<vector<int>> prerequisites  = { 
+        {1,0}
+    };
+    int numCourses = 4, k = 2;
+    
+    Solution sl;
+    cout << sl.networkDelayTime(times, n, k);
+}
