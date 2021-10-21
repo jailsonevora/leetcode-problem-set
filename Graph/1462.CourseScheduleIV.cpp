@@ -47,7 +47,6 @@ int main()
     //     {1,2}
     // };
     // int numCourses = 3;
-
     
     Solution sl;
     for(auto it: sl.checkIfPrerequisite(numCourses, prerequisites, queries))
