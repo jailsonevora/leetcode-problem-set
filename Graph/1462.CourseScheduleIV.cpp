@@ -11,7 +11,11 @@ using namespace std;
 int main()
 {
     //edge as adjMatrix
-    vector<vector<int>> prerequisites  = { 
+    vector<vector<int>> prerequisites = { 
+        {1,0}
+    };
+
+    vector<vector<int>> queries = { 
         {1,0}
     };
     int numCourses = 4, k = 2;
