@@ -8,7 +8,9 @@
 using namespace std;
 
 class Solution {
-    void _bfs(int u, vector<int> graph, vector<vector<int>>& isReachable){
+
+    // Topological sort similar to kahns algorithm using bfs
+    void _bfs(int u, vector<int> graph[], vector<vector<int>>& isReachable){
         
         queue<int> queue;
         queue.push(u);
@@ -45,7 +47,7 @@ public:
             _bfs(node, graph, isReachable);
 
         for(auto edge: queries)
-            ans.push_back(_dfs(edge[0],edge[1], graph, dp));
+            ans.push_back(isReachable[edge[0]][edge[1]]);
         return ans;
     }
 };
