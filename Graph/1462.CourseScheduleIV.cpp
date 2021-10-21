@@ -20,7 +20,7 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited;
-        vector<vector<int>> reacheble(n, vector<int>(n,0));
+        vector<vector<int>> reacheble(numCourses, vector<int>(n,0));
         for(int node = 0; node < numCourses; ++node)
             
 
