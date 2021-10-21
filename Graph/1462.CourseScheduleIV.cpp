@@ -26,6 +26,15 @@ int main()
         {1,0}
     };
     int numCourses = 4;
+
+    // vector<vector<int>> prerequisites = {
+    // };
+
+    // vector<vector<int>> queries = { 
+    //     {1,0},
+    //     {0,1}
+    // };
+    // int numCourses = 2;
     
     Solution sl;
     for(auto it: sl.checkIfPrerequisite(numCourses, prerequisites, queries))
