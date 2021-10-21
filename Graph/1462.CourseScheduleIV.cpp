@@ -11,17 +11,17 @@ class Solution {
     bool _dfs(int u, int v, vector<int> graph[], vector<int> visited){
 
         if(u == v)
-            return 1;
+            return true;
         
         if(visited[u])
-            return 0;
+            return false;
 
         visited[u] = 1;
         for(auto unext: graph[u])
             if(!visited[unext])
                 if(_dfs(unext, v, graph, visited))
-                    return 1;
-        return 0;
+                    return true;
+        return false;
     }
 
     void _bfs(int u, vector<int> graph[], vector<vector<int>>& reachable, vector<int> visited){
@@ -30,12 +30,12 @@ class Solution {
 public:
     vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
 
-        vector<int> graph[numCourses-1];
+        vector<int> graph[numCourses];
 
         for(auto edge: prerequisites)
             graph[edge[0]].push_back(edge[1]);
 
-        vector<int> visited;
+        vector<int> visited(numCourses,0);
         vector<bool> ans;
         //vector<vector<int>> reachable(numCourses, vector<int>(numCourses,0));
 
@@ -57,7 +57,7 @@ int main()
         {0,1},
         {1,0}
     };
-    int numCourses = 4;
+    int numCourses = 2;
 
     // vector<vector<int>> prerequisites = {
     // };
