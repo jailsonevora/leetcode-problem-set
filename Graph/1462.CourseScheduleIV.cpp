@@ -9,6 +9,21 @@ using namespace std;
 
 class Solution {
     void _bfs(){
+        
+        queue<int> queue;
+
+        queue.push(i);
+
+        while(!q.empty()){
+            int f = q.front();
+            q.pop();
+            for(int nei : g[f]){
+                if(ir[i][nei])
+                    continue;
+                ir[i][nei]=1;
+                q.push(nei);
+            }
+        }
 
     }
     
@@ -22,6 +37,9 @@ public:
 
         vector<bool> ans;
         vector<vector<int>> isReachable(numCourses,vector<int>(numCourses,0));
+
+        for(int node = 0; node < numCourses; node++)
+            _bfs(node, graph, isReachable);
 
         for(auto edge: queries)
             ans.push_back(_dfs(edge[0],edge[1], graph, dp));
