@@ -7,6 +7,12 @@
 
 using namespace std;
 
+class Solution {
+public:
+    vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
+        
+    }
+};
 
 int main()
 {
@@ -21,5 +27,5 @@ int main()
     int numCourses = 4, k = 2;
     
     Solution sl;
-    cout << sl.networkDelayTime(times, n, k);
+    cout << sl.checkIfPrerequisite(numCourses, prerequisites, queries);
 }
