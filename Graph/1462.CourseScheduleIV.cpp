@@ -8,7 +8,12 @@
 using namespace std;
 
 class Solution {
-    void _dfs(int u, vector<int> graph[], vector<vector<int>> reachable, vector<int> visited){
+    void _dfs(int u, vector<int> graph[], vector<vector<int>>& reachable, vector<int> visited){
+
+        visited[u] = 1;
+        for(auto v: graph[u])
+            if(!visited[v])
+                _dfs(v, graph, reachable) 
 
     }
 public:
