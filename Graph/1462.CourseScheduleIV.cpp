@@ -8,19 +8,14 @@
 using namespace std;
 
 class Solution {
-    bool _dfs(int u, int v, vector<int> graph[], vector<int> visited){
+    bool _dfs(int u, int v, vector<int> graph[], vector<vector<int>>& dp){
 
-        if(u == v)
-            return true;
-        
-        if(visited[u])
-            return false;
+        if (dp[u][v] != -1)
+            return dp[u][v];
 
-        visited[u] = 1;
-        for(auto unext: graph[u])
-            if(!visited[unext])
-                if(_dfs(unext, v, graph, visited))
-                    return true;
+        for (int i = 0; i < mp[a].size(); i++) {
+                if(mp[u][i] == b || _dfs(dp[u][i], v, graph, dp))
+                    return dp[u][v] = 1;
         return false;
     }
 
@@ -37,11 +32,10 @@ public:
 
         vector<int> visited(numCourses,0);
         vector<bool> ans;
-        //vector<vector<int>> reachable(numCourses, vector<int>(numCourses,0));
+        vector<vector<int>>dp(numCourses, vector<int>(numCourses, -1));
 
         for(auto edge: queries)
             ans.push_back(_dfs(edge[0],edge[1], graph, visited));
-
         return ans;
     }
 };
