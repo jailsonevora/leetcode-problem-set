@@ -27,5 +27,6 @@ int main()
     int numCourses = 4;
     
     Solution sl;
-    cout << sl.checkIfPrerequisite(numCourses, prerequisites, queries);
+    for(auto it: sl.checkIfPrerequisite(numCourses, prerequisites, queries))
+        cout << it << "\n";
 }
