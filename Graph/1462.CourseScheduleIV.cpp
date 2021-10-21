@@ -9,11 +9,12 @@ using namespace std;
 
 class Solution {
 
+    // Topological sort with dfs
     void _dfs(int u, int node, vector<int> graph[], vector<vector<int>>& isReachable){
         
-        isReachable[u][node]=1;
+        isReachable[u][node] = 1;
         for(auto v: graph[node])
-            if(isReachable[u][v]==0)
+            if(!isReachable[u][v])
                 _dfs(u, v, graph, isReachable);
     }
 
@@ -52,8 +53,8 @@ public:
         vector<vector<int>> isReachable(numCourses,vector<int>(numCourses,0));
 
         for(int node = 0; node < numCourses; node++)
-            _bfs(node, graph, isReachable);
-            //_dfs(isReach,i,i);
+            //_bfs(node, graph, isReachable);
+            _dfs(node, node, graph, isReachable);
 
         for(auto edge: queries)
             ans.push_back(isReachable[edge[0]][edge[1]]);
