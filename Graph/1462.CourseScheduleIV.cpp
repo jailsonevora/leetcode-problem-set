@@ -8,6 +8,9 @@
 using namespace std;
 
 class Solution {
+    void _dfs(int u, vector<int> graph[], ){
+
+    }
 public:
     vector<bool> checkIfPrerequisite(int numCourses, vector<vector<int>>& prerequisites, vector<vector<int>>& queries) {
 
@@ -17,6 +20,7 @@ public:
             graph[edge[0]].push_back(edge[1]);
 
         vector<int> visited;
+        vector<vector<int>> reacheble(n, vector<int>(n,0));
         for(int node = 0; node < numCourses; ++node)
             
 
