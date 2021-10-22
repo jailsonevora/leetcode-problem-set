@@ -18,7 +18,7 @@ int main(){
     cout.tie();
 
     vector<int> preOrder1 = {1,2,2};
-    vector<int> inOrder1 = {6,5,7,2,4,3,9,1,8};
+    vector<int> inOrder1 = {1,2,2};
 
     BuildTreeFromPreOrderArray bl;
     TreeNode* root1 = bl.buildTree(preOrder1, inOrder1);
