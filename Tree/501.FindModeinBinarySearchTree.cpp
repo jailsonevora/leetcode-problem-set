@@ -26,8 +26,8 @@ int main(){
     vector<int> preOrder2 = {0};
     vector<int> inOrder2 = {0};
 
-    TreeNode* root2 = bl.buildTree(preOrder2, inOrder2);
+    TreeNode* root1 = bl.buildTree(preOrder2, inOrder2);
 
     Solution sl;
-    cout << sl.leafSimilar(root1, root2);
+    cout << sl.findMode(root1);
 }
