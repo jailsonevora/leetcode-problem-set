@@ -29,5 +29,6 @@ int main(){
     // TreeNode* root1 = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.findMode(root);
+    for(auto it: sl.findMode(root))
+        cout << it << endl
 }
