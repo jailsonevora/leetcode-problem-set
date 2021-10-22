@@ -21,13 +21,13 @@ int main(){
     vector<int> inOrder1 = {1,2,2};
 
     BuildTreeFromPreOrderArray bl;
-    TreeNode* root1 = bl.buildTree(preOrder1, inOrder1);
+    TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
-    vector<int> preOrder1 = {0};
-    vector<int> inOrder1 = {0};
+    // vector<int> preOrder1 = {0};
+    // vector<int> inOrder1 = {0};
 
-    TreeNode* root1 = bl.buildTree(preOrder1, inOrder1);
+    // TreeNode* root1 = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.findMode(root1);
+    cout << sl.findMode(root);
 }
