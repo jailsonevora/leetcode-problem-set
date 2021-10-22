@@ -5,6 +5,12 @@
 
 using namespace std;
 
+class Solution {
+public:
+    vector<int> findMode(TreeNode* root) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
