@@ -17,7 +17,7 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int> preOrder1 = {3,5,6,2,7,4,1,9,8};
+    vector<int> preOrder1 = {1,2,2};
     vector<int> inOrder1 = {6,5,7,2,4,3,9,1,8};
 
     BuildTreeFromPreOrderArray bl;
