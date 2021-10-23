@@ -30,5 +30,5 @@ int main(){
 
     Solution sl;
     for(auto it: sl.findMode(root))
-        cout << it << endl
+        cout << it << endl;
 }
