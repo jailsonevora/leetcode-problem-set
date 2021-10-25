@@ -40,7 +40,7 @@ public:
         int prev=INT_MIN, cur, max=INT_MIN;
         vector<int> mode;
 
-        _dfs(TreeNode* root, int prev, int cur, int max)
+        _dfs(TreeNode* root, prev, cur, max)
 
         
     }
