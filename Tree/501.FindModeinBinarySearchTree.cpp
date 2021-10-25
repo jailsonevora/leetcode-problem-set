@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-    void _dfs(TreeNode* root, int p=INT_MIN, cur,mx=INT_MIN){
+    void _dfs(TreeNode* root, int prev=INT_MIN, cur,max=INT_MIN){
 
         if(!root)
             return;
