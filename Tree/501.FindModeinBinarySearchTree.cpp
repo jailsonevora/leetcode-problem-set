@@ -23,7 +23,7 @@ class Solution {
         if(cur>max) {
             modes.clear();
             modes.push_back(root->val);
-            mx=cur;
+            max=cur;
         }
         p=root->val;
         if(root->right)
