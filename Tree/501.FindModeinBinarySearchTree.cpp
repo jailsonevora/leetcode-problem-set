@@ -14,9 +14,11 @@ class Solution {
         if(root->left)
             _dfs(root->left);
 
-        if(prev == root->val) cur++;
-
-        else cur = 1;
+        if(prev == root->val) 
+            cur++;
+        else 
+            cur = 1;
+            
         if(cur == max) {
             modes.push_back(root->val);
         }
