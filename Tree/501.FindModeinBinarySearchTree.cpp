@@ -6,13 +6,13 @@
 using namespace std;
 
 class Solution {
-    void _dfs(TreeNode* root, int prev, int cur, int max, vector<int>& mode){
+    void _dfs(TreeNode* root, int prev, int cur, int max, vector<int>& modes){
 
         if(!root)
             return;
 
         if(root->left)
-            _dfs(root->left, , prev, cur, max, mode);
+            _dfs(root->left, prev, cur, max, modes);
 
         if(prev == root->val) 
             cur++;
@@ -31,16 +31,16 @@ class Solution {
         prev=root->val;
 
         if(root->right)
-            _dfs(root->right, prev, cur, max, mode);
+            _dfs(root->right, prev, cur, max, modes);
 
     }
 public:
     vector<int> findMode(TreeNode* root) {
 
         int prev=INT_MIN, cur, max=INT_MIN;
-        vector<int> mode;
+        vector<int> modes;
 
-        _dfs(root, prev, cur, max, mode)
+        _dfs(root, prev, cur, max, modes)
 
         
     }
