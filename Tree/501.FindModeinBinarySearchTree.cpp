@@ -6,8 +6,30 @@
 using namespace std;
 
 class Solution {
+    void _dfs(TreeNode* root){
+
+        if(!root)
+            return;
+        if(root->left)
+            inorder(root->left);
+        if(p==root->val) cur++;
+        else cur=1;
+        if(cur==mx) {
+            modes.push_back(root->val);
+        }
+        if(cur>mx) {
+            modes.clear();
+            modes.push_back(root->val);
+            mx=cur;
+        }
+        p=root->val;
+        if(root->right)
+            inorder(root->right);
+
+    }
 public:
     vector<int> findMode(TreeNode* root) {
+
         
     }
 };
