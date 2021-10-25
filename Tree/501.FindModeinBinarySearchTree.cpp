@@ -11,7 +11,7 @@ class Solution {
         if(!root)
             return;
         if(root->left)
-            inorder(root->left);
+            _dfs(root->left);
         if(p==root->val) cur++;
         else cur=1;
         if(cur==mx) {
