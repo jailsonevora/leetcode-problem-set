@@ -40,9 +40,8 @@ public:
         int prev=INT_MIN, cur, max=INT_MIN;
         vector<int> modes;
 
-        _dfs(root, prev, cur, max, modes)
-
-        
+        _dfs(root, prev, cur, max, modes);
+        return modes;        
     }
 };
 
