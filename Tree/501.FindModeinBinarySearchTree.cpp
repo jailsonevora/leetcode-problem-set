@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-    void _dfs(TreeNode* root, int prev, int cur, int max){
+    void _dfs(TreeNode* root, int prev, int cur, int max, vector<int>& mode){
 
         if(!root)
             return;
@@ -40,7 +40,7 @@ public:
         int prev=INT_MIN, cur, max=INT_MIN;
         vector<int> mode;
 
-        _dfs(TreeNode* root, prev, cur, max)
+        _dfs(root, prev, cur, max, mode)
 
         
     }
