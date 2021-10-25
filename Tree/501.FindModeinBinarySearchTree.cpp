@@ -18,7 +18,7 @@ class Solution {
             cur++;
         else 
             cur = 1;
-            
+
         if(cur == max) {
             modes.push_back(root->val);
         }
@@ -38,6 +38,9 @@ public:
     vector<int> findMode(TreeNode* root) {
 
         int prev=INT_MIN, cur, max=INT_MIN;
+        vector<int> mode;
+
+        _dfs(TreeNode* root, int prev, int cur, int max)
 
         
     }
