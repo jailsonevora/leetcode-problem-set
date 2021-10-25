@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-    void _dfs(TreeNode* root){
+    void _dfs(TreeNode* root, int p=INT_MIN, cur,mx=INT_MIN){
 
         if(!root)
             return;
@@ -29,6 +29,8 @@ class Solution {
     }
 public:
     vector<int> findMode(TreeNode* root) {
+
+        int prev=INT_MIN, cur, mx=INT_MIN;
 
         
     }
