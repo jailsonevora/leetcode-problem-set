@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-    void _dfs(TreeNode* root, int prev, int cur, int max, vector<int>& modes){
+    void _dfs(TreeNode* root, int& prev, int& cur, int& max, vector<int>& modes){
 
         if(!root)
             return;
@@ -19,9 +19,8 @@ class Solution {
         else 
             cur = 1;
 
-        if(cur == max) {
+        if(cur == max)
             modes.push_back(root->val);
-        }
         if(cur > max) {
             modes.clear();
             modes.push_back(root->val);
@@ -29,7 +28,6 @@ class Solution {
         }
 
         prev=root->val;
-
         if(root->right)
             _dfs(root->right, prev, cur, max, modes);
 
