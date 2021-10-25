@@ -24,7 +24,7 @@ class Solution {
         }
         p=root->val;
         if(root->right)
-            inorder(root->right);
+            _dfs(root->right);
 
     }
 public:
