@@ -25,7 +25,9 @@ class Solution {
             modes.push_back(root->val);
             max=cur;
         }
-        p=root->val;
+
+        prev=root->val;
+
         if(root->right)
             _dfs(root->right);
 
