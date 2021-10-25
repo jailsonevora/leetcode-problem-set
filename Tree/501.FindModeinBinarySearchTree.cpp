@@ -14,13 +14,13 @@ class Solution {
         if(root->left)
             _dfs(root->left);
 
-        if(prev==root->val) cur++;
+        if(prev == root->val) cur++;
 
-        else cur=1;
-        if(cur==max) {
+        else cur = 1;
+        if(cur == max) {
             modes.push_back(root->val);
         }
-        if(cur>max) {
+        if(cur > max) {
             modes.clear();
             modes.push_back(root->val);
             max=cur;
