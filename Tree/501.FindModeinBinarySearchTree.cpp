@@ -17,10 +17,10 @@ class Solution {
         if(prev==root->val) cur++;
 
         else cur=1;
-        if(cur==mx) {
+        if(cur==max) {
             modes.push_back(root->val);
         }
-        if(cur>mx) {
+        if(cur>max) {
             modes.clear();
             modes.push_back(root->val);
             mx=cur;
