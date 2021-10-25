@@ -30,7 +30,7 @@ class Solution {
 public:
     vector<int> findMode(TreeNode* root) {
 
-        int prev=INT_MIN, cur, mx=INT_MIN;
+        int prev=INT_MIN, cur, max=INT_MIN;
 
         
     }
