@@ -12,7 +12,7 @@ class Solution {
             return;
 
         if(root->left)
-            _dfs(root->left);
+            _dfs(root->left, , prev, cur, max, mode);
 
         if(prev == root->val) 
             cur++;
@@ -31,7 +31,7 @@ class Solution {
         prev=root->val;
 
         if(root->right)
-            _dfs(root->right);
+            _dfs(root->right, prev, cur, max, mode);
 
     }
 public:
