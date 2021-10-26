@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
     // adjacency edges
-    vector<vector<int>> edges = { 
+    vector<string> equations = { 
         {0,1,3},
         {1,2,1},
         {1,3,4},
