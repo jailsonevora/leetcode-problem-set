@@ -11,10 +11,8 @@ int main()
 {
     // adjacency edges
     vector<string> equations = { 
-        {0,1,3},
-        {1,2,1},
-        {1,3,4},
-        {2,3,1}
+        "a==b",
+        "b!=a"
     };
     int n = 4, distanceThreshold = 4;
 
