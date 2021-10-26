@@ -27,7 +27,8 @@ int main()
 
     vector<string> equations = { 
         "a==b",
-        "b!=a"
+        "b==c",
+        "a==c"
     };
 
     vector<string> equations = { 
