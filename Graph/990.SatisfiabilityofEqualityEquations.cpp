@@ -14,7 +14,6 @@ int main()
         "a==b",
         "b!=a"
     };
-    int n = 4, distanceThreshold = 4;
 
     Solution sl;
     std::cout << sl.findTheCity(n, edges, distanceThreshold);
