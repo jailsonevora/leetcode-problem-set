@@ -6,6 +6,12 @@
 
 using namespace std;
 
+class Solution {
+public:
+    bool equationsPossible(vector<string>& equations) {
+        
+    }
+};
 
 int main()
 {
@@ -16,5 +22,5 @@ int main()
     };
 
     Solution sl;
-    std::cout << sl.findTheCity(n, edges, distanceThreshold);
+    std::cout << sl.equationsPossible(equations);
 }
