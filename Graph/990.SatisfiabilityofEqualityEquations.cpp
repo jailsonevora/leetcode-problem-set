@@ -33,7 +33,8 @@ int main()
 
     vector<string> equations = { 
         "a==b",
-        "b!=a"
+        "b!=c",
+        "c==a"
     };
 
     Solution sl;
