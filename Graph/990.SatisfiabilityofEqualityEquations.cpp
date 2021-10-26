@@ -15,7 +15,6 @@ public:
 
 int main()
 {
-    // adjacency edges
     vector<string> equations = { 
         "a==b",
         "b!=a"
