@@ -20,6 +20,21 @@ int main()
         "b!=a"
     };
 
+    vector<string> equations = { 
+        "b==a",
+        "a==b"
+    };
+
+    vector<string> equations = { 
+        "a==b",
+        "b!=a"
+    };
+
+    vector<string> equations = { 
+        "a==b",
+        "b!=a"
+    };
+
     Solution sl;
     std::cout << sl.equationsPossible(equations);
 }
