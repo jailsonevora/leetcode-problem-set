@@ -23,9 +23,13 @@ public:
         for (int i = 1; i < 500; i++)
             parent[i] = i;
 
-        for (int i = 0; i < count; i++)
+        int a, b;
+
+        cin << 
+
+        for (int i = 0; i < equations.size(); i++)
         {
-            /* code */
+            
         }
         
 
