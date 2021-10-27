@@ -25,7 +25,7 @@ public:
 
         int a, b;
 
-        cin << 
+        cin >> a >> b;
 
         for (int i = 0; i < equations.size(); i++)
         {
