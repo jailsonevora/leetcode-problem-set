@@ -20,10 +20,8 @@ public:
 
         vector<int> parent(500,0);
 
-        for (size_t i = 0; i < count; i++)
-        {
-            /* code */
-        }
+        for (int i = 0; i < count; i++)
+            parent[i]
         
         
     }
