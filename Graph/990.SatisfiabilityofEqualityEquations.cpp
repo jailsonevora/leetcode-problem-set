@@ -28,7 +28,7 @@ public:
                 parent[find(str[0] - 'a', parent)] = find(str[3] - 'a', parent);
 
         for (auto str: equations)
-            if(str[1] == '!' && find(str[0] - 'a') == find(str[3] - 'a'))
+            if(str[1] == '!' && find(str[0] - 'a', parent) == find(str[3] - 'a', parent))
                 return false;        
         return true;       
     }
