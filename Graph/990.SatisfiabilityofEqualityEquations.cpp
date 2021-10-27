@@ -20,8 +20,10 @@ public:
 
         vector<int> parent(500,0);
 
-        for (int i = 0; i < count; i++)
-            parent[i]
+        for (int i = 0; i < 500; i++)
+            parent[i] = i;
+
+        
         
         
     }
