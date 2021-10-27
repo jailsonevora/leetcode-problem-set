@@ -20,8 +20,14 @@ public:
 
         vector<int> parent(500,0);
 
-        for (int i = 0; i < 500; i++)
+        for (int i = 1; i < 500; i++)
             parent[i] = i;
+
+        for (int i = 0; i < count; i++)
+        {
+            /* code */
+        }
+        
 
         
         
