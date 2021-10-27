@@ -14,8 +14,8 @@ class Solution {
             return v;
         return parent[v] = find(parent[v],parent);
     }
-
 public:
+    // using path compression only on find
     bool equationsPossible(vector<string>& equations){
 
         vector<int> parent(26,0);
