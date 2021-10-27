@@ -7,6 +7,14 @@
 using namespace std;
 
 class Solution {
+
+    int find(int v, vector<int>& parent){
+
+        if(v == parent[v])
+            return v;
+        return parent[v] = find(parent[v],parent);
+    }
+
 public:
     bool equationsPossible(vector<string>& equations) {
         
