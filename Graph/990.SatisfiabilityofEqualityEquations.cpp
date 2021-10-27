@@ -18,24 +18,19 @@ class Solution {
 public:
     bool equationsPossible(vector<string>& equations){
 
-        vector<int> parent(500,0);
+        vector<int> parent(26,0);
 
-        for (int i = 1; i < 500; i++)
+        for (int i = 1; i < 26; i++)
             parent[i] = i;
 
-        int a, b;
+        for (auto str: equations)
+            if(str[1] == '=')
+                parent[find(str[0] - 'a', parent)] = find(str[3] - 'a', parent);
 
-        cin >> a >> b;
-
-        for (int i = 0; i < equations.size(); i++)
-        {
-            
-        }
-        
-
-        
-        
-        
+        for (auto str: equations)
+            if(str[1] == '!' && find(str[0] - 'a') == find(str[3] - 'a'))
+                return false;        
+        return true;       
     }
 };
 
