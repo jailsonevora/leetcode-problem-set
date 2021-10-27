@@ -16,7 +16,15 @@ class Solution {
     }
 
 public:
-    bool equationsPossible(vector<string>& equations) {
+    bool equationsPossible(vector<string>& equations){
+
+        vector<int> parent(500,0);
+
+        for (size_t i = 0; i < count; i++)
+        {
+            /* code */
+        }
+        
         
     }
 };
