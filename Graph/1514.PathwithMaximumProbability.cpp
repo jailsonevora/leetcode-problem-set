@@ -60,18 +60,18 @@ public:
 int main()
 {
     // adjacency edges
-    // vector<vector<int>> edges = { 
-    //     {0,1},
-    //     {1,2},
-    //     {0,2}
-    // };
-    // //weight or probability
-    // vector<double> succProb = { 
-    //     0.5,
-    //     0.5,
-    //     0.2
-    // };
-    // int n = 3;
+    vector<vector<int>> edges = { 
+        {0,1},
+        {1,2},
+        {0,2}
+    };
+    //weight or probability
+    vector<double> succProb = { 
+        0.5,
+        0.5,
+        0.2
+    };
+    int n = 3;
 
     // adjacency edges
     // vector<vector<int>> edges = { 
@@ -88,14 +88,14 @@ int main()
     // int n = 3;
 
     // adjacency edges
-    vector<vector<int>> edges = { 
-        {0,1}
-    };
-    //weight or probability
-    vector<double> succProb = { 
-        0.5
-    };
-    int n = 3;
+    // vector<vector<int>> edges = { 
+    //     {0,1}
+    // };
+    // //weight or probability
+    // vector<double> succProb = { 
+    //     0.5
+    // };
+    // int n = 3;
 
 
     Solution sl;
