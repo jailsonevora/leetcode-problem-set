@@ -10,6 +10,8 @@ class Solution {
 public:
     double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
         
+        // adjacency lsit
+        vector<pair<int, int>> graph[n];
     }
 };
 
@@ -55,5 +57,5 @@ int main()
 
 
     Solution sl;
-    std::cout << sl.maxProbability(n, edges, succProb, 0,1);
+    std::cout << sl.maxProbability(n, edges, succProb, 0,2);
 }
