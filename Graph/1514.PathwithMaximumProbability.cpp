@@ -15,7 +15,7 @@ int main()
         {1,2},
         {0,2}
     };
-    int n = 4, distanceThreshold = 4;
+    int n = 3, succProb  = 4;
 
     Solution sl;
     std::cout << sl.findTheCity(n, edges, distanceThreshold);
