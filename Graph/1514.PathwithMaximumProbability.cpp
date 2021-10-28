@@ -33,7 +33,7 @@ class Solution {
                 int v = it.first;
                 int w = it.second;
 
-                if (distance[v] > distance[u] * w)
+                if (distance[v] < distance[u] * w)
                     distance[v] = distance[u] * w,
                         priorityQueue.push({v,distance[v]});
             }
