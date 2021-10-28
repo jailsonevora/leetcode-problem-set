@@ -13,7 +13,7 @@ class Solution {
         priority_queue<pair<int, int>, vector<pair<int, int>>, less<pair<int, int> >> priorityQueue;
 
         //disctance vector
-        vector<int> distance(n, INT_MIN);
+        vector<double> distance(n, INTMAX_MIN);
         distance[u] = 0;
 
         priorityQueue.push({u,0});
@@ -30,7 +30,9 @@ class Solution {
                 int v = it.first;
                 int w = it.second;
 
-                if (distance[v] )
+                if (distance[v] > distance[u] * w)
+                    distance[v] = distance[u] * w,
+                        priorityQueue.push({v,distance[v]});
                 
             }
 
