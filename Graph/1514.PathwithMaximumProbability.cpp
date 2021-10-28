@@ -11,10 +11,9 @@ int main()
 {
     // adjacency edges
     vector<vector<int>> edges = { 
-        {0,1,3},
-        {1,2,1},
-        {1,3,4},
-        {2,3,1}
+        {0,1},
+        {1,2},
+        {0,2}
     };
     int n = 4, distanceThreshold = 4;
 
