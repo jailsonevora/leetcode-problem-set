@@ -12,6 +12,11 @@ public:
         
         // adjacency lsit
         vector<pair<int, int>> graph[n];
+
+        for (int i = 0; i < n; i++)
+            graph[edges[i][0]].push_back({edges[i][1],succProb[i]}),
+            graph[edges[i][1]].push_back({edges[i][0],succProb[i]});
+        
     }
 };
 
