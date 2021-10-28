@@ -9,7 +9,10 @@ using namespace std;
 class Solution {
     double dijkstra(vector<pair<int, int>> graph[], int u, int v, int n){
 
+        //binary heap
         priority_queue<pair<int, int>, vector<pair<int, int>>, less<pair<int, int> >> priorityQueue;
+
+        
 
     }
 public:
