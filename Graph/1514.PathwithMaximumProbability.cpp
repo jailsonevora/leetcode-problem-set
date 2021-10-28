@@ -14,6 +14,7 @@ class Solution {
 
         //disctance vector
         vector<int> distance(n, INT_MIN);
+        distance[u] = 0;
 
         priorityQueue.push({u,0});
 
@@ -24,6 +25,14 @@ class Solution {
             priorityQueue.pop();
 
             //traverse neighbours
+            for(auto it: graph[u]){
+
+                int v = it.first;
+                int w = it.second;
+
+                if (distance[v] )
+                
+            }
 
         }
         
