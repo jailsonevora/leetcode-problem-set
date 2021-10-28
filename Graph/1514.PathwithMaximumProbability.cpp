@@ -7,22 +7,25 @@
 using namespace std;
 
 class Solution {
-    double dijkstra(vector<pair<int, int>> graph[], int u, int v, int n){
+    double dijkstra(vector<pair<int, int>> graph[], int start, int end, int n){
 
         //binary heap
         priority_queue<pair<int, int>, vector<pair<int, int>>, less<pair<int, int> >> priorityQueue;
 
         //disctance vector
         vector<double> distance(n, INTMAX_MIN);
-        distance[u] = 0;
+        distance[start] = 0;
 
-        priorityQueue.push({u,0});
+        priorityQueue.push({start,0});
 
         //normal level traversal
         while (!priorityQueue.empty())
         {
             int u = priorityQueue.top().first;
             priorityQueue.pop();
+
+            if(u == end)
+                break;
 
             //traverse neighbours
             for(auto it: graph[u]){
@@ -33,9 +36,7 @@ class Solution {
                 if (distance[v] > distance[u] * w)
                     distance[v] = distance[u] * w,
                         priorityQueue.push({v,distance[v]});
-                
             }
-
         }
         
 
