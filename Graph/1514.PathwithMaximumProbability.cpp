@@ -7,14 +7,14 @@
 using namespace std;
 
 class Solution {
-    double dijkstra(vector<pair<int, int>> graph[], int start, int end, int n){
+    double dijkstra(vector<pair<int, double>> graph[], int start, int end, int n){
 
         //binary heap
-        priority_queue<pair<int, int>, vector<pair<int, int>>, less<pair<int, int> >> priorityQueue;
+        priority_queue<pair<int, double>, vector<pair<int, double>>, less<pair<int, double> >> priorityQueue;
 
         //disctance vector
-        vector<double> distance(n, INTMAX_MIN);
-        distance[start] = 0;
+        vector<double> distance(n, 0.0);
+        distance[start] = 0.0;
 
         priorityQueue.push({start,0});
 
@@ -39,17 +39,20 @@ class Solution {
             }
         }
         
+        return distance[end];
 
     }
 public:
     double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
         
         // adjacency lsit
-        vector<pair<int, int>> graph[n];
+        vector<pair<int, double>> graph[n];
 
         for (int i = 0; i < n; i++)
             graph[edges[i][0]].push_back({edges[i][1],succProb[i]}),
             graph[edges[i][1]].push_back({edges[i][0],succProb[i]});
+
+        return dijkstra(graph, start, end, n);
         
         
     }
