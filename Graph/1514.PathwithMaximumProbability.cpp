@@ -22,9 +22,9 @@ int main()
         {0,2}
     };
     vector<double> succProb = { 
-        {0,1},
-        {1,2},
-        {0,2}
+        0.5,
+        0.5,
+        0.2
     };
 
     int n = 3;
