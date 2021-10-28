@@ -12,6 +12,20 @@ class Solution {
         //binary heap
         priority_queue<pair<int, int>, vector<pair<int, int>>, less<pair<int, int> >> priorityQueue;
 
+        //disctance vector
+        vector<int> distance(n, INT_MIN);
+
+        priorityQueue.push({u,0});
+
+        //normal level traversal
+        while (!priorityQueue.empty())
+        {
+            int u = priorityQueue.top().first;
+            priorityQueue.pop();
+
+            //traverse neighbours
+
+        }
         
 
     }
