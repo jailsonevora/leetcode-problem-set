@@ -10,13 +10,13 @@ class Solution {
     double dijkstra(vector<pair<int, double>> graph[], int start, int end, int n){
 
         //binary heap
-        priority_queue<pair<int, double>, vector<pair<int, double>>, less<pair<int, double> >> priorityQueue;
+        priority_queue<pair<double, int>, vector<pair<double, int>>, greater<pair<double, int> >> priorityQueue;
 
         //disctance vector
-        vector<double> distance(n, 0.0);
-        distance[start] = 1.0;
+        vector<double> probability(n, 0.0);
+        probability[start] = 1.0;
 
-        priorityQueue.push({start,1.0});
+        priorityQueue.push({1.0, start});
 
         //normal level traversal
         while (!priorityQueue.empty())
@@ -33,13 +33,13 @@ class Solution {
                 int v = it.first;
                 int w = it.second;
 
-                if (distance[v] < distance[u] * w)
-                    distance[v] = distance[u] * w,
-                        priorityQueue.push({v,distance[v]});
+                if (probability[v] < probability[u] * w)
+                    probability[v] = probability[u] * w,
+                        priorityQueue.push({probability[v], v});
             }
         }
         
-        return distance[end];
+        return probability[end];
 
     }
 public:
@@ -52,9 +52,7 @@ public:
             graph[edges[i][0]].push_back({edges[i][1],succProb[i]}),
             graph[edges[i][1]].push_back({edges[i][0],succProb[i]});
 
-        return dijkstra(graph, start, end, n);
-        
-        
+        return dijkstra(graph, start, end, n);        
     }
 };
 
