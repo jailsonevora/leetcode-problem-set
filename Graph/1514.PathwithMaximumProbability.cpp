@@ -7,6 +7,9 @@
 using namespace std;
 
 class Solution {
+    double dijkstra(vector<pair<int, int>> graph[], int u, int v, int n, ){
+        
+    }
 public:
     double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
         
@@ -16,6 +19,7 @@ public:
         for (int i = 0; i < n; i++)
             graph[edges[i][0]].push_back({edges[i][1],succProb[i]}),
             graph[edges[i][1]].push_back({edges[i][0],succProb[i]});
+        
         
     }
 };
