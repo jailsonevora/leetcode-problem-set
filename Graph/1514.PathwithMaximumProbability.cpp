@@ -15,7 +15,13 @@ int main()
         {1,2},
         {0,2}
     };
-    int n = 3, succProb  = 4;
+    vector<vector<int>> succProb = { 
+        {0,1},
+        {1,2},
+        {0,2}
+    };
+
+    int n = 3;
 
     Solution sl;
     std::cout << sl.findTheCity(n, edges, distanceThreshold);
