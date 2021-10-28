@@ -7,21 +7,22 @@
 using namespace std;
 
 class Solution {
+    //using BFS + AdjList + PriorityQueue as MAXHeap in O(E logV)
     double dijkstra(vector<pair<int, double>> graph[], int start, int end, int n){
 
-        //binary heap
-        priority_queue<pair<double, int>, vector<pair<double, int>>, greater<pair<double, int> >> priorityQueue;
-
+        //binary Max heap compared as less than
+        priority_queue<pair<double, int>, vector<pair<double, int>>, less<pair<double, int> >> priorityQueue;
+        
         //disctance vector
         vector<double> probability(n, 0.0);
         probability[start] = 1.0;
 
-        priorityQueue.push({1.0, start});
+        priorityQueue.push({ 1.0, start});
 
         //normal level traversal
         while (!priorityQueue.empty())
         {
-            int u = priorityQueue.top().first;
+            int u = priorityQueue.top().second;
             priorityQueue.pop();
 
             if(u == end)
@@ -31,10 +32,10 @@ class Solution {
             for(auto it: graph[u]){
 
                 int v = it.first;
-                int w = it.second;
+                double w = it.second;
 
                 if (probability[v] < probability[u] * w)
-                    probability[v] = probability[u] * w,
+                        probability[v] = probability[u] * w,
                         priorityQueue.push({probability[v], v});
             }
         }
@@ -45,15 +46,15 @@ class Solution {
 public:
     double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
         
-        // adjacency lsit
+        // // adjacency lsit
         vector<pair<int, double>> graph[n];
 
         for (int i = 0; i < n; i++)
             graph[edges[i][0]].push_back({edges[i][1],succProb[i]}),
             graph[edges[i][1]].push_back({edges[i][0],succProb[i]});
 
-        return dijkstra(graph, start, end, n);        
-    }
+        return dijkstra(graph, start, end, n);
+    } 
 };
 
 int main()

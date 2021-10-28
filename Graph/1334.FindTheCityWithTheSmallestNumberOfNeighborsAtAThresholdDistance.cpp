@@ -66,7 +66,7 @@ class Solution {
     //using BFS + AdjList + PriorityQueue as MinHeap in O(E logV)
     void dijkstra(vector<pair<int, int>> graph[], int u, int n, int distanceThreshold, vector<pair<int,int>>& ans){
         
-        // use priority queue as min heap
+        // use priority queue as min heap represented as greater than
         priority_queue<
             pair<int, int>, 
             vector<pair<int, int>>, 
