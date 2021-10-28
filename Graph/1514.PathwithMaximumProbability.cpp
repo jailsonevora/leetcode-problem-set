@@ -7,7 +7,7 @@
 using namespace std;
 
 class Solution {
-    double dijkstra(vector<pair<int, int>> graph[], int u, int v, int n, ){
+    double dijkstra(vector<pair<int, int>> graph[], int u, int v, int n){
 
         priority_queue<pair<int, int>, vector<pair<int, int>>, less<pair<int, int> >> priorityQueue;
 
