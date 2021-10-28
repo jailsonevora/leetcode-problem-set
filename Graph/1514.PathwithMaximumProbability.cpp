@@ -43,6 +43,16 @@ int main()
     // };
     // int n = 3;
 
+    // adjacency edges
+    vector<vector<int>> edges = { 
+        {0,1}
+    };
+    //weight or probability
+    vector<double> succProb = { 
+        0.5
+    };
+    int n = 3;
+
 
     Solution sl;
     std::cout << sl.maxProbability(n, edges, succProb, 0,1);
