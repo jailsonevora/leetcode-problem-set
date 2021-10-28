@@ -14,9 +14,9 @@ class Solution {
 
         //disctance vector
         vector<double> distance(n, 0.0);
-        distance[start] = 0.0;
+        distance[start] = 1.0;
 
-        priorityQueue.push({start,0});
+        priorityQueue.push({start,1.0});
 
         //normal level traversal
         while (!priorityQueue.empty())
