@@ -6,6 +6,12 @@
 
 using namespace std;
 
+class Solution {
+public:
+    double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
+        
+    }
+};
 
 int main()
 {
@@ -15,7 +21,7 @@ int main()
         {1,2},
         {0,2}
     };
-    vector<vector<int>> succProb = { 
+    vector<double> succProb = { 
         {0,1},
         {1,2},
         {0,2}
@@ -24,5 +30,5 @@ int main()
     int n = 3;
 
     Solution sl;
-    std::cout << sl.findTheCity(n, edges, distanceThreshold);
+    std::cout << sl.maxProbability(n, edges, succProb, 0,1);
 }
