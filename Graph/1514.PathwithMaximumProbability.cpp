@@ -49,7 +49,7 @@ public:
         // // adjacency lsit
         vector<pair<int, double>> graph[n];
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < edges.size(); i++)
             graph[edges[i][0]].push_back({edges[i][1],succProb[i]}),
             graph[edges[i][1]].push_back({edges[i][0],succProb[i]});
 
@@ -60,18 +60,18 @@ public:
 int main()
 {
     // adjacency edges
-    vector<vector<int>> edges = { 
-        {0,1},
-        {1,2},
-        {0,2}
-    };
-    //weight or probability
-    vector<double> succProb = { 
-        0.5,
-        0.5,
-        0.2
-    };
-    int n = 3;
+    // vector<vector<int>> edges = { 
+    //     {0,1},
+    //     {1,2},
+    //     {0,2}
+    // };
+    // //weight or probability
+    // vector<double> succProb = { 
+    //     0.5,
+    //     0.5,
+    //     0.2
+    // };
+    // int n = 3;
 
     // adjacency edges
     // vector<vector<int>> edges = { 
@@ -88,14 +88,14 @@ int main()
     // int n = 3;
 
     // adjacency edges
-    // vector<vector<int>> edges = { 
-    //     {0,1}
-    // };
-    // //weight or probability
-    // vector<double> succProb = { 
-    //     0.5
-    // };
-    // int n = 3;
+    vector<vector<int>> edges = { 
+        {0,1}
+    };
+    //weight or probability
+    vector<double> succProb = { 
+        0.5
+    };
+    int n = 3;
 
 
     Solution sl;
