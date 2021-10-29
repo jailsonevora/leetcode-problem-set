@@ -9,8 +9,8 @@
 using namespace std;
 
 class Solution {
-public:
 
+public:
     vector<string> topKFrequent(vector<string>& words, int k) {
 
         unordered_map<string, int> mp;
@@ -19,12 +19,12 @@ public:
         for(auto str: words)
             mp[str]++;
 
-        priority_queue< 
-            pair<int,string>, 
-            vector<pair<int,string>>, 
-            less<>
-        >
-        pq;
+        auto comp = [&](const pair<int,string>& a, const pair<int,string>& b) {
+            return a.first < b.first || (a.first == b.first && a.second > b.second);
+        };
+
+        typedef priority_queue<pair<int,string>,vector<pair<int,string>>,decltype(comp)> m_priority_queue;
+        m_priority_queue pq(comp);
 
         for(auto [key, value]: mp)
             pq.push({value,key});
@@ -32,7 +32,6 @@ public:
         for (int i = 0; i < k; i++)
             ans.push_back(pq.top().second),
                 pq.pop();
-        
         return ans;
     }
 };
