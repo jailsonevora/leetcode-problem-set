@@ -15,4 +15,6 @@ int main(){
         "i","love","leetcode","i","love","coding"
     }
 
+    int k = 2;
+
 }
