@@ -6,8 +6,12 @@
 
 using namespace std;
 
-
-
+class Solution {
+public:
+    vector<string> topKFrequent(vector<string>& words, int k) {
+        
+    }
+};
 
 int main(){
 
@@ -16,5 +20,7 @@ int main(){
     };
 
     int k = 2;
+
+
 
 }
