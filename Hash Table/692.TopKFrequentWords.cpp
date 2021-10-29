@@ -13,7 +13,7 @@ int main(){
 
     vector<string> words = {
         "i","love","leetcode","i","love","coding"
-    }
+    };
 
     int k = 2;
 
