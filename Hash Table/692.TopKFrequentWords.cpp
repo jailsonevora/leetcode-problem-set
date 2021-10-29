@@ -19,7 +19,6 @@ public:
         for(auto str: words)
             mp[str]++;
 
-        //set<pair<int, string>> st;
         priority_queue< 
             pair<int,string>, 
             vector<pair<int,string>>, 
@@ -45,6 +44,12 @@ int main(){
     };
 
     int k = 2;
+
+    vector<string> words = {
+        "the","day","is","sunny","the","the","the","sunny","is","is"
+    };
+
+    int k = 4;
     
     Solution sl;
     sl.topKFrequent(words, k);
