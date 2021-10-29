@@ -9,6 +9,7 @@ using namespace std;
 
 class Solution {
 public:
+    
     vector<string> topKFrequent(vector<string>& words, int k) {
         
     }
@@ -24,6 +25,4 @@ int main(){
     
     Solution sl;
     sl.topKFrequent(words, k);
-
-
 }
