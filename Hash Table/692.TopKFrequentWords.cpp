@@ -14,22 +14,27 @@ public:
     vector<string> topKFrequent(vector<string>& words, int k) {
 
         unordered_map<string, int> mp;
-        vector<int> ans;
+        vector<string> ans;
 
         for(auto str: words)
             mp[str]++;
 
-        set<pair<int, string>> st;
+        //set<pair<int, string>> st;
+        priority_queue< 
+            pair<int,string>, 
+            vector<pair<int,string>>, 
+            less<>
+        >
+        pq;
 
         for(auto [key, value]: mp)
-            st.insert({value,key});
+            pq.push({value,key});
 
         for (int i = 0; i < k; i++)
+            ans.push_back(pq.top().second),
+                pq.pop();
         
-        
-
-        return {};
-        
+        return ans;
     }
 };
 
