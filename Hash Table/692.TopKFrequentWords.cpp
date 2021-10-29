@@ -20,7 +20,9 @@ int main(){
     };
 
     int k = 2;
-
+    
+    Solution sl;
+    sl.topKFrequent(words, k);
 
 
 }
