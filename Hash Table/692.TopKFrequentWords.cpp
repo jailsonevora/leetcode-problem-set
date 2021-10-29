@@ -39,11 +39,11 @@ public:
 
 int main(){
 
-    vector<string> words = {
-        "i","love","leetcode","i","love","coding"
-    };
+    // vector<string> words = {
+    //     "i","love","leetcode","i","love","coding"
+    // };
 
-    int k = 2;
+    // int k = 2;
 
     vector<string> words = {
         "the","day","is","sunny","the","the","the","sunny","is","is"
