@@ -47,4 +47,13 @@ public:
 
 int main(){
 
+    vector<int> nums{
+        1,0,-1,0,-2,2
+    };
+
+    int target = 0;
+
+    Solution sl;
+    sl.fourSum(nums,target);
+
 }
