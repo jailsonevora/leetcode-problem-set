@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// two pointers techinic O(N3)
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
