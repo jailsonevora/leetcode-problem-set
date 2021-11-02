@@ -54,6 +54,8 @@ int main(){
     int target = 0;
 
     Solution sl;
-    sl.fourSum(nums,target);
+    for(auto v: sl.fourSum(nums,target))
+        for(auto num: v)
+            cout << num;
 
 }
