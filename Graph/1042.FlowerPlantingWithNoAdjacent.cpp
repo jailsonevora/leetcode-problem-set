@@ -12,6 +12,10 @@ public:
         
         vector<int> graph[n];
 
+        for(auto edge: paths)
+            graph[edge[0]].push_back(edge[1]),
+                graph[edge[0]].push_back(edge[1]);
+
         
     }
 };
