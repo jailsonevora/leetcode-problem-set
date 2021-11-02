@@ -21,19 +21,19 @@ public:
 			
                 int new_target  =  target - nums[i] - nums[j];
                 
-                int x = j+1 , y = n-1;
+                int left = j+1 , right = n-1;
                 
-                while(x < y){
+                while(left < right){
 				
-                    int sum = nums[x] + nums[y];
+                    int sum = nums[left] + nums[right];
                     
                     if(sum > new_target) 
-                        y--;
+                        right--;
                     else if(sum < new_target ) 
-                        x++;
+                        left++;
                     else
-                        store.insert({nums[i] , nums[j] , nums[x] , nums[y]}),
-                            x++,y--;
+                        store.insert({nums[i] , nums[j] , nums[left] , nums[right]}),
+                            left++,right--;
                 }
             }
         }
