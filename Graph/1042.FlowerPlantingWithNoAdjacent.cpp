@@ -11,13 +11,14 @@ class Solution {
 
         // bfs
         queue<int> queue;
-        vector<int> visited;
+        vector<int> visited(n,0);
 
         queue.push(u);
+        visited[u] = 1;
 
         while (!queue.empty())
         {
-            /* code */
+            
         }
         
     }
