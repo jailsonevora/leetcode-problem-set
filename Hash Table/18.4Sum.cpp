@@ -38,9 +38,8 @@ public:
             }
         }
 		
-        for(auto i : store){
+        for(auto i : store)
             ans.push_back(i);  // store the answers in an array(ans)
-        }
 		
         return ans;
     }
