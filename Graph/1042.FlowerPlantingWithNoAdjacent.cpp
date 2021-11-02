@@ -7,35 +7,31 @@
 using namespace std;
 
 class Solution {
-    void bfs(vector<int> graph[], int n, int u){
+    void bfs(vector<int> graph[], int flowertypes, int u, vector<int>& ans){
 
-        // bfs
-        queue<int> queue;
-        vector<int> visited(n,0);
+        vector<int> visited(flowertypes,0);
 
-        queue.push(u);
-        visited[u] = 1;
-
-        while (!queue.empty())
-        {
-            
-        }
+        for(auto v: graph[u])
+            visited[ans[v]] = 1;
         
+        for (int i = 4; i > 0; i--)
+            if(!visited[i])
+                ans[u] = i;
     }
 public:
     vector<int> gardenNoAdj(int n, vector<vector<int>>& paths) {
         
         vector<int> graph[n];
+        vector<int> ans(n);
 
         for(auto edge: paths)
-            graph[edge[0]].push_back(edge[1]),
-                graph[edge[0]].push_back(edge[1]);
+            graph[edge[0] - 1].push_back(edge[1] - 1),
+                graph[edge[1] - 1].push_back(edge[0] - 1);
 
-        for (int u = 1; u < n; u++)
-            bfs(graph, n, u);
-        
+        for (int u = 0; u < n; u++)
+            bfs(graph, 4+1, u, ans);
 
-        
+        return ans;
     }
 };
 
