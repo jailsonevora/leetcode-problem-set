@@ -7,7 +7,7 @@
 using namespace std;
 
 class Solution {
-    void bfs(vector<int> graph[], int flowertypes, int u, vector<int>& ans){
+    void colored(vector<int> graph[], int flowertypes, int u, vector<int>& ans){
 
         vector<int> visited(flowertypes,0);
 
@@ -29,7 +29,7 @@ public:
                 graph[edge[1] - 1].push_back(edge[0] - 1);
 
         for (int u = 0; u < n; u++)
-            bfs(graph, 4+1, u, ans);
+            colored(graph, 4+1, u, ans);
 
         return ans;
     }
