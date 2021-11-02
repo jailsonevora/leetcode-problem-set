@@ -6,6 +6,12 @@
 
 using namespace std;
 
+class Solution {
+public:
+    vector<int> gardenNoAdj(int n, vector<vector<int>>& paths) {
+        
+    }
+};
 
 int main()
 {
@@ -18,4 +24,6 @@ int main()
     int n = 3;
 
     Solution sl;
+    for (auto it : sl.gardenNoAdj(n, paths))
+        cout << it;
 }
