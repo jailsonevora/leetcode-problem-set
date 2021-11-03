@@ -17,11 +17,13 @@ int main(){
 
     Solution ll;
     BuildLinkedList bl;
+    bl.pushBack(5, head);
+    bl.pushBack(3, head);
     bl.pushBack(1, head);
     bl.pushBack(2, head);
-    bl.pushBack(3, head);
-    bl.pushBack(4, head);
     bl.pushBack(5, head);
+    bl.pushBack(1, head);
+    bl.pushBack(2, head);
 
     ll.nodesBetweenCriticalPoints(head);
 }
