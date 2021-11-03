@@ -13,13 +13,15 @@ public:
 
 int main(){
     
-    ListNode* l1 = nullptr;
+    ListNode* head = nullptr;
 
     Solution ll;
     BuildLinkedList bl;
-    bl.pushBack(1, l1);
-    bl.pushBack(2, l1);
-    bl.pushBack(3, l1);
-    bl.pushBack(4, l1);
-    bl.pushBack(5, l1);
+    bl.pushBack(1, head);
+    bl.pushBack(2, head);
+    bl.pushBack(3, head);
+    bl.pushBack(4, head);
+    bl.pushBack(5, head);
+
+    ll.nodesBetweenCriticalPoints(head);
 }
