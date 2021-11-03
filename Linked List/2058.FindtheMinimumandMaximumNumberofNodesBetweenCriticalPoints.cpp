@@ -15,10 +15,10 @@ public:
         while (cur->next)
         {
             /* all min critical point */
-            if(cur->val < prev && cur->val < cur->next)
+            if(cur->val < prev && cur->val < cur->next->val)
                 min.push_back(i);
             /* all max critical point */
-            else if(cur->val > prev && cur->val > cur->next)
+            else if(cur->val > prev && cur->val > cur->next->val)
                 max.push_back(i);
 
             prev = cur->val;
