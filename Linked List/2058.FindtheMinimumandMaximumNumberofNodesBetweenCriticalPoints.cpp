@@ -13,6 +13,10 @@ public:
         while (cur->next)
         {
             /* code */
+            
+
+
+            cur = cur->next;
         }
         
 
