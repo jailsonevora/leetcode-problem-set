@@ -15,8 +15,8 @@ public:
         {
             /* min critical point */
             if(cur->val < prev && cur->val < cur->next)
-
-            /* min critical point */
+                min = std::min(i,min);
+            /* max critical point */
             else if(cur->val > prev && cur->val > cur->next)
                 max = std::max(i,max);
 
