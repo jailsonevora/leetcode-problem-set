@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include "Util\Include\BuildLinkedList.h"
+#include<algorithm>
 
 using namespace std;
 
@@ -10,26 +11,29 @@ public:
 
         ListNode* cur = head->next;
         int i = 2, prev = head->val;
-        vector<int> min, max;
+        vector<int> minV, maxV;
 
         while (cur->next)
         {
             /* all min critical point */
             if(cur->val < prev && cur->val < cur->next->val)
-                min.push_back(i);
+                minV.push_back(i);
             /* all max critical point */
             else if(cur->val > prev && cur->val > cur->next->val)
-                max.push_back(i);
+                maxV.push_back(i);
 
             prev = cur->val;
             cur = cur->next;
             i++;
         }
-        int mindistance = std::min(max.begin(), max.end()) - std::max(min.begin(), min.end());
-        int maxdistance = std::max(max.begin(), max.end()) - std::min(min.begin(), min.end());
+
+        sort(maxV.begin(), maxV.end());
+        sort(minV.begin(), minV.end());
+
+        int mindistance = std::max(maxV[0],minV[minV.size()-1]);
+        //int maxdistance = 
         return {
-            mindistance,
-            maxdistance
+           
          };
         
     }
