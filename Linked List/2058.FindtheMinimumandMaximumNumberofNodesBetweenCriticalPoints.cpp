@@ -9,14 +9,20 @@ public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
 
         ListNode* cur = head->next, *prev = head;
+        int min, max, i = 0;
 
         while (cur->next)
         {
-            /* code */
-            
+            /* min critical point */
+            if(cur->val < prev && cur->val < cur->next)
 
+            /* min critical point */
+            else if(cur->val > prev && cur->val > cur->next)
+                max = std::max(i,max);
 
+            prev = cur;
             cur = cur->next;
+            i++;
         }
         
 
