@@ -7,6 +7,15 @@ using namespace std;
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
+
+        ListNode* cur = head->next, *prev = head;
+
+        while (cur->next)
+        {
+            /* code */
+        }
+        
+
         
     }
 };
