@@ -11,7 +11,7 @@ public:
         ListNode* cur = head->next;
         int i = 0, prev = 0;
         vector<int> min, max;
-        
+
         while (cur->next)
         {
             /* all min critical point */
@@ -21,7 +21,7 @@ public:
             else if(cur->val > prev && cur->val > cur->next)
                 max.push_back(i);
 
-            prev = cur;
+            prev = cur->val;
             cur = cur->next;
             i++;
         }
