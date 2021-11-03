@@ -15,7 +15,7 @@ int main(){
     
     ListNode* head = nullptr;
 
-    Solution ll;
+    Solution sl;
     BuildLinkedList bl;
     bl.pushBack(5, head);
     bl.pushBack(3, head);
@@ -25,5 +25,5 @@ int main(){
     bl.pushBack(1, head);
     bl.pushBack(2, head);
 
-    ll.nodesBetweenCriticalPoints(head);
+    sl.nodesBetweenCriticalPoints(head);
 }
