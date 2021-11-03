@@ -9,7 +9,7 @@ public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
 
         ListNode* cur = head->next;
-        int i = 0, prev = 0;
+        int i = 1, prev = head->val;
         vector<int> min, max;
 
         while (cur->next)
