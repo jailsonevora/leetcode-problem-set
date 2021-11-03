@@ -25,8 +25,12 @@ public:
             cur = cur->next;
             i++;
         }
-        
-        return {};
+        int mindistance = std::min(max.begin(), max.end()) - std::max(min.begin(), min.end());
+        int maxdistance = std::max(max.begin(), max.end()) - std::min(min.begin(), min.end());
+        return {
+            mindistance,
+            maxdistance
+         };
         
     }
 };
