@@ -7,6 +7,8 @@ using namespace std;
 
 class Solution {
 public:
+    // O(N) time complexity
+    // O(N) space complexity
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
 
         ListNode* cur = head->next;
