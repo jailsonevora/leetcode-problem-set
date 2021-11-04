@@ -17,8 +17,7 @@ int main(){
     cin.tie();
     cout.tie();
 
-    //string s = "abacbc";
-    string s = "aaabb";
+    string s = "thequickbrownfoxjumpsoverthelazydog";
 
     Solution sl;
     cout << sl.checkIfPangram(s);
