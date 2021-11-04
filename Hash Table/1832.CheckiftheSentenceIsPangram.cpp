@@ -8,6 +8,14 @@ using namespace std;
 class Solution {
 public:
     bool checkIfPangram(string sentence) {
+
+        unordered_set<string> panagram;
+
+        for (auto s : sentence)
+        {
+            /* code */
+        }
+        
         
     }
 };
