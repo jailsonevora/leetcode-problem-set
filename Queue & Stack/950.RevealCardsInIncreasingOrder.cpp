@@ -20,5 +20,6 @@ int main(){
     };
 
     Solution sl;
-    //cout << sl.deckRevealedIncreasing(deck);
+    for(auto it: sl.deckRevealedIncreasing(deck))
+        cout << it;
 }
