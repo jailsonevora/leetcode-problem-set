@@ -5,6 +5,12 @@
 
 using namespace std;
 
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
