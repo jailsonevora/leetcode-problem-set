@@ -36,7 +36,6 @@ public:
         for(int i=0;i<index.size()-1;i++)
             mindist=min(index[i+1]-index[i],mindist);
         return {mindist,index.back()-index[0]};
-        
     }
 };
 
