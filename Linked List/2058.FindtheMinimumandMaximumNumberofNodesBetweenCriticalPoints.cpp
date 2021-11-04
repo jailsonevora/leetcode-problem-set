@@ -11,30 +11,29 @@ public:
 
         ListNode* cur = head->next;
         int i = 2, prev = head->val;
-        vector<int> minV, maxV;
+        vector<int> index;
 
         while (cur->next)
         {
             /* all min critical point */
             if(cur->val < prev && cur->val < cur->next->val)
-                minV.push_back(i);
+                index.push_back(i);
             /* all max critical point */
             else if(cur->val > prev && cur->val > cur->next->val)
-                maxV.push_back(i);
+                index.push_back(i);
 
             prev = cur->val;
             cur = cur->next;
             i++;
         }
 
-        sort(maxV.begin(), maxV.end());
-        sort(minV.begin(), minV.end());
+        if(index.size() < 2) 
+            return {-1,-1};
 
-        int mindistance = std::max(maxV[0],minV[minV.size()-1]);
-        //int maxdistance = 
-        return {
-           
-        };
+        int mindist=INT_MAX;
+        for(int i=0;i<index.size()-1;i++)
+            mindist=min(index[i+1]-index[i],mindist);
+        return {mindist,index.back()-index[0]};
         
     }
 };
