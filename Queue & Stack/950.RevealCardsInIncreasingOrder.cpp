@@ -15,9 +15,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    //string s = "abacbc";
-    string s = "aaabb";
+    vector<int>& deck;
 
     Solution sl;
-    cout << sl.deckRevealedIncreasing(s);
+    //cout << sl.deckRevealedIncreasing(deck);
 }
