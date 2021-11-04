@@ -9,14 +9,15 @@ class Solution {
 public:
     bool checkIfPangram(string sentence) {
 
-        unordered_set<string> panagram;
+        unordered_set<char> panagram;
 
         for (auto s : sentence)
-        {
-            /* code */
-        }
-        
-        
+            panagram.insert(s);
+
+        if(panagram.size() == 26)
+            return true;
+        else
+            return false;
     }
 };
 
