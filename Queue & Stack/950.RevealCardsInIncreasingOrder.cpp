@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include<iostream>
 #include<queue>
 
 using namespace std;
@@ -19,5 +19,5 @@ int main(){
     string s = "aaabb";
 
     Solution sl;
-    cout << sl.areOccurrencesEqual(s);
+    cout << sl.deckRevealedIncreasing(s);
 }
