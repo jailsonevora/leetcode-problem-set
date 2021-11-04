@@ -15,7 +15,9 @@ int main(){
     cin.tie();
     cout.tie();
 
-    vector<int>& deck;
+    vector<int>& deck = {
+        
+    };
 
     Solution sl;
     //cout << sl.deckRevealedIncreasing(deck);
