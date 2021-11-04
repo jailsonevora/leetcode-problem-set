@@ -26,7 +26,8 @@ int main(){
     cin.tie();
     cout.tie();
 
-    string s = "thequickbrownfoxjumpsoverthelazydog";
+    //string s = "thequickbrownfoxjumpsoverthelazydog";
+    string s = "leetcode";
 
     Solution sl;
     cout << sl.checkIfPangram(s);
