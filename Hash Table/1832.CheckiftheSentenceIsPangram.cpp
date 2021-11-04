@@ -21,5 +21,5 @@ int main(){
     string s = "aaabb";
 
     Solution sl;
-    cout << sl.areOccurrencesEqual(s);
+    cout << sl.checkIfPangram(s);
 }
