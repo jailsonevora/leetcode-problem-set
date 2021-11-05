@@ -8,7 +8,9 @@ using namespace std;
 class Solution {
 public:
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if(!root)
         
+        return root->val == subRoot->val && isSubtree(root->left, subRoot->left) && isSubtree(root->right, subRoot->right) ? true : false;
     }
 };
 
