@@ -17,6 +17,7 @@ int main(){
     cin.tie();
     cout.tie();
 
+    //example 1
     vector<int> preOrder1 = {3,4,1,2,5};
     vector<int> inOrder1 = {1,4,2,3,5};
 
@@ -28,5 +29,5 @@ int main(){
     TreeNode* subRoot = bl.buildTree(preOrder1, inOrder1);
 
     Solution sl;
-    cout << sl.findMode(root, subRoot);
+    cout << sl.isSubtree(root, subRoot);
 }
