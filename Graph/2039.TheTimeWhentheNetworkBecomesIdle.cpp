@@ -19,20 +19,31 @@ public:
                 graph[edge[1]].push_back(edge[0]);
 
         queue.push(0);
+        time[0] = 0;
 
         while (!queue.empty())
         {
             int u = queue.front();
             queue.pop();
 
-            for(int v: edges[u]){
-
+            for(int v: graph[u]){
+                if(time[v] == -1) // if not visited.
+                    time[v] = time[u] + 1, // calc time for child node
+                        queue.push(v);
             }
-
         }
-        
 
-        
+        int res = 0;
+        for(int i = 1; i < patience.size(); i++) {
+            int extraPayload = (time[i] * 2 - 1)/patience[i];
+			
+            int lastOut = extraPayload * patience[i]; // find the last time when a data server sends a message
+            int lastIn = lastOut + time[i] * 2; // this is the result for current data server
+			
+            res = max(res, lastIn);
+        }
+		
+        return res+1;
     }
 };
 
