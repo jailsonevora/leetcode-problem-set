@@ -22,9 +22,5 @@ int main(){
     };
 
     Solution sl;
-    sl.networkBecomesIdle(edges,patience);
-
-
-
-
+    cout << sl.networkBecomesIdle(edges,patience);
 }
