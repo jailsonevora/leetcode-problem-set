@@ -23,7 +23,7 @@ int main(){
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
-    
+    TreeNode* subRoot = bl.buildTree(preOrder1, inOrder1);
 
     // vector<int> preOrder1 = {0};
     // vector<int> inOrder1 = {0};
