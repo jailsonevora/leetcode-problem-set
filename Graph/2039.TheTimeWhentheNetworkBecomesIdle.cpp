@@ -10,7 +10,13 @@ public:
 
         
         queue<int> queue;
-        vector<int> visited(edges.size(),0);
+        vector<int> time(patience.size(),-1);
+
+        vector<int> graph[patience.size()];
+
+        for(auto edge: edges)
+            graph[edge[0]].push_back(edge[1]),
+                graph[edge[1]].push_back(edge[0]);
 
         queue.push(0);
 
