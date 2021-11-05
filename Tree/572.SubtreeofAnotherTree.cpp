@@ -12,8 +12,8 @@ class Solution {
             return root==subRoot;
         
         return root->val == subRoot->val 
-            && isSubtree(root->left, subRoot->left) 
-            && isSubtree(root->right, subRoot->right);
+            && isSub(root->left, subRoot->left) 
+            && isSub(root->right, subRoot->right);
     }
 public:
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
@@ -24,8 +24,8 @@ public:
             return true;
         
         return isSub(root, subRoot) 
-            || isSub(root->left, subRoot) 
-            || isSub(root->right, subRoot);
+            || isSubtree(root->left, subRoot) 
+            || isSubtree(root->right, subRoot);
     }
 };
 
