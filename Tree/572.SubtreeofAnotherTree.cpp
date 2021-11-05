@@ -17,7 +17,7 @@ public:
         
         return root->val == subRoot->val 
             && isSubtree(root->left, subRoot->left) 
-                && isSubtree(root->right, subRoot->right) ? true : false;
+            && isSubtree(root->right, subRoot->right);
     }
 };
 
