@@ -6,11 +6,22 @@
 using namespace std;
 
 class Solution {
-public:
-    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+    bool isSub(TreeNode* root, TreeNode* subRoot) {
 
         if(!root || !subRoot)
             return root==subRoot;
+        
+        return root->val == subRoot->val 
+            && isSubtree(root->left, subRoot->left) 
+            && isSubtree(root->right, subRoot->right);
+    }
+public:
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+
+        if(!root)
+            return false;
+        if(!subRoot)
+            return false;
         
         return root->val == subRoot->val 
             && isSubtree(root->left, subRoot->left) 
