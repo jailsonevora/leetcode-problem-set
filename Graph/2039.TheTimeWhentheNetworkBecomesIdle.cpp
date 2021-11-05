@@ -7,7 +7,6 @@ using namespace std;
 class Solution {
 public:
     int networkBecomesIdle(vector<vector<int>>& edges, vector<int>& patience) {
-
         
         queue<int> queue;
         vector<int> time(patience.size(),-1);
