@@ -12,8 +12,8 @@ public:
         if(!root && !subRoot)
             return true;
         
-        if(!root && !subRoot)
-            return ;
+        if(!root || !subRoot)
+            return false;
         
         return root->val == subRoot->val 
             && isSubtree(root->left, subRoot->left) 
