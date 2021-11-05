@@ -33,9 +33,9 @@ int main(){
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder1, inOrder1);
 
-    vector<int> preOrder1 = {4,1,2};
-    vector<int> inOrder1 = {1,4,2};
-    TreeNode* subRoot = bl.buildTree(preOrder1, inOrder1);
+    vector<int> subpreOrder1 = {4,1,2};
+    vector<int> subinOrder1 = {1,4,2};
+    TreeNode* subRoot = bl.buildTree(subpreOrder1, subinOrder1);
 
 
     //example 2
