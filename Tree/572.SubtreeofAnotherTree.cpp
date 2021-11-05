@@ -5,6 +5,12 @@
 
 using namespace std;
 
+class Solution {
+public:
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        
+    }
+};
 
 int main(){
     ios_base::sync_with_stdio();
