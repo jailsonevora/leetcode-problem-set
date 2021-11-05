@@ -27,11 +27,6 @@ int main(){
     vector<int> inOrder1 = {1,4,2};
     TreeNode* subRoot = bl.buildTree(preOrder1, inOrder1);
 
-    // vector<int> preOrder1 = {0};
-    // vector<int> inOrder1 = {0};
-
-    // TreeNode* root1 = bl.buildTree(preOrder1, inOrder1);
-
     Solution sl;
-    cout sl.findMode(root, subRoot);
+    cout << sl.findMode(root, subRoot);
 }
