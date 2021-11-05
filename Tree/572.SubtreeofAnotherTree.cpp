@@ -21,7 +21,7 @@ public:
         if(!root)
             return false;
         if(!subRoot)
-            return false;
+            return true;
         
         return root->val == subRoot->val 
             && isSubtree(root->left, subRoot->left) 
