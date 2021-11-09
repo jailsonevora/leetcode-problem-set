@@ -14,10 +14,13 @@ public:
 int main()
 {
     vector<vector<int>> dislikes = { 
-        "a==b",
-        "b!=a"
+        {1,2},
+        {1,3},
+        {2,4}
     };
 
+    int n = 4;
+
     Solution sl;
-    std::cout << sl.possibleBipartition(2, dislikes);
+    std::cout << sl.possibleBipartition(4, dislikes);
 }
