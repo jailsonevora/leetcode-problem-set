@@ -11,7 +11,9 @@ class Solution {
         return parent[v] = find(parent[v], parent);
     }
 
-    void union(int u, int v, vector<int> parent, vector<int> rank)
+    void union(int u, int v, vector<int> parent, vector<int> rank){
+        
+    }
 public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         
