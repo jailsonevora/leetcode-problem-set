@@ -29,12 +29,6 @@ int main()
     //     "c==a"
     // };
 
-    // vector<string> equations = { 
-    //     "c==c",
-    //     "b==d",
-    //     "x!=z"
-    // };
-
     Solution sl;
     std::cout << sl.equationsPossible(equations);
 }
