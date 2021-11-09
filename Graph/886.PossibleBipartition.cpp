@@ -5,13 +5,13 @@
 using namespace std;
 
 class Solution {
-    int find(int v, vector<int> parent){
+    int find(int v, vector<int>& parent){
         if(v == parent[v])
             return v;
         return parent[v] = find(parent[v], parent);
     }
 
-    void union(int u, int v, vector<int> parent, vector<int> rank){
+    void union(int u, int v, vector<int>& parent, vector<int>& rank){
         
     }
 public:
