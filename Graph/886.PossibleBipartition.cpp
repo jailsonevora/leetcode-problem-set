@@ -5,7 +5,11 @@
 using namespace std;
 
 class Solution {
-    int find(int v, vector<int> parent)
+    int find(int v, vector<int> parent){
+        if(v == parent[v])
+            return v;
+        return parent[v] = find(parent[v], parent);
+    }
 public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         
