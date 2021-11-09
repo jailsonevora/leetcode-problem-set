@@ -12,18 +12,6 @@ int main()
         "b!=a"
     };
 
-    // vector<string> equations = { 
-    //     "b==a",
-    //     "a==b"
-    // };
-
-    // vector<string> equations = { 
-    //     "a==b",
-    //     "b==c",
-    //     "a==c"
-    // };
-
-
     Solution sl;
     std::cout << sl.equationsPossible(equations);
 }
