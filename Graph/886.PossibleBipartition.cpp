@@ -11,13 +11,16 @@ class Solution {
         return parent[v] = find(parent[v], parent);
     }
 
-    void union(int u, int v, vector<int>& parent, vector<int>& rank){
+    void _union(int u, int v, vector<int>& parent, vector<int>& rank){
 
         if(rank[v] < rank[u])
             parent[v] = u;
         else if(rank[u] < rank[v])
             parent[u] = v;
-        
+        else{
+            parent[v] = u;
+            rank[u]++;
+        }
     }
 public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
