@@ -27,6 +27,15 @@ int main()
     // };
     // int n = 3;
 
+    // vector<vector<int>> dislikes = { 
+    //      {1,2},
+    //      {2,3],
+    //      {3,4},
+    //      {4,5},
+    //      {1,5}
+    // };
+    // int n = 3;
+
     Solution sl;
     std::cout << sl.possibleBipartition(4, dislikes);
 }
