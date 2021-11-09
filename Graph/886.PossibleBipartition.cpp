@@ -13,11 +13,11 @@ public:
 
 int main()
 {
-    vector<string> equations = { 
+    vector<vector<int>> dislikes = { 
         "a==b",
         "b!=a"
     };
 
     Solution sl;
-    std::cout << sl.possibleBipartition(, equations);
+    std::cout << sl.possibleBipartition(2, dislikes);
 }
