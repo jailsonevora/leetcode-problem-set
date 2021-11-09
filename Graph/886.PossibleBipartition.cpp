@@ -5,6 +5,7 @@
 using namespace std;
 
 class Solution {
+    int find(int v, vector<int> parent)
 public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         
