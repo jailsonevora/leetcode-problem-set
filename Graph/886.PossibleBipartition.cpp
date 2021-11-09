@@ -12,6 +12,11 @@ class Solution {
     }
 
     void union(int u, int v, vector<int>& parent, vector<int>& rank){
+
+        if(rank[v] < rank[u])
+            parent[v] = u;
+        else if(rank[u] < rank[v])
+            parent[u] = v;
         
     }
 public:
