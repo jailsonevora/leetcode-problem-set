@@ -19,5 +19,5 @@ int main()
     };
 
     Solution sl;
-    std::cout << sl.equationsPossible(equations);
+    std::cout << sl.possibleBipartition(, equations);
 }
