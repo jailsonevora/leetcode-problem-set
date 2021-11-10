@@ -28,6 +28,9 @@ public:
         vector<int> parent(n,0), rank(n,0);
 
         for(int i = 0; i < n; ++i)
+            parent[i] = i;
+
+        
     }
 };
 
