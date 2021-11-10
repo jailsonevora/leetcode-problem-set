@@ -39,7 +39,8 @@ public:
   
             _union(absFrom, absTo, parent, rank);
         }
-         
+
+        return false;
     }
 };
 
