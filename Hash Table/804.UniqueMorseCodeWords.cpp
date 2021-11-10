@@ -17,6 +17,4 @@ int main(){
 
     Solution sl;
     cout << sl.uniqueMorseRepresentations(words);
-
-
 }
