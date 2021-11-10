@@ -35,17 +35,17 @@ public:
         for(int i = 0; i < n; ++i)
             parent[i] = i;
         
-        for(int node = 0; node < n; ++node){
-            for(auto edge: graph){
-                int absFrom = find(edge[0],parent);
-                int absTo = find(edge[1],parent);
+        for(int u = 0; u < n; ++u){
+            for(auto v: graph[u]){
+                int absFrom = find(u,parent);
+                int absTo = find(v,parent);
 
                 if(absFrom == absTo)
                     return false;
     
                 _union(absFrom, absTo, parent, rank);
             }
-
+        }
         return false;
     }
 };
