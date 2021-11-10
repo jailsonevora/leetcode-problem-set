@@ -26,26 +26,25 @@ public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         
         vector<int> parent(n,0), rank(n,0);
-        vector<vector<int>> graph(n);
+        vector<int> graph[n];
 
         for(auto edge: dislikes)
-            graph[edge[0]].push_back(edge[1]),
-            graph[edge[1]].push_back(edge[0]);
-
-
+            graph[edge[0]-1].push_back(edge[1]-1),
+            graph[edge[1]-1].push_back(edge[0]-1);
 
         for(int i = 0; i < n; ++i)
             parent[i] = i;
+        
+        for(int node = 0; node < n; ++node){
+            for(auto edge: graph){
+                int absFrom = find(edge[0],parent);
+                int absTo = find(edge[1],parent);
 
-        for(auto edge: dislikes){
-            int absFrom = find(edge[0],parent);
-            int absTo = find(edge[1],parent);
-
-            if(absFrom == absTo)
-                return false;
-  
-            _union(absFrom, absTo, parent, rank);
-        }
+                if(absFrom == absTo)
+                    return false;
+    
+                _union(absFrom, absTo, parent, rank);
+            }
 
         return false;
     }
