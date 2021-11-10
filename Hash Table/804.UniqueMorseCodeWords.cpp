@@ -16,7 +16,7 @@ int main(){
     vector<string> words = {"gin","zen","gig","msg"};
 
     Solution sl;
-    cout >> sl.uniqueMorseRepresentations(words);
+    cout << sl.uniqueMorseRepresentations(words);
 
 
 }
