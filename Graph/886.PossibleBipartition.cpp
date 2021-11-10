@@ -36,17 +36,18 @@ public:
             parent[i] = i;
         
         for(int u = 0; u < n; ++u){
-            for(auto v: graph[u]){
-                int absFrom = find(u,parent);
+            int absFrom = find(u,parent);
+            for(auto v: graph[u]){                
                 int absTo = find(v,parent);
 
                 if(absFrom == absTo)
                     return false;
-    
-                _union(absFrom, absTo, parent, rank);
+
+                parent[absTo]=parent[graph[u][0]];
+                //_union(absFrom, absTo, parent, rank);
             }
         }
-        return false;
+        return true;
     }
 };
 
