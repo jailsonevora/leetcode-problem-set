@@ -26,6 +26,13 @@ public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         
         vector<int> parent(n,0), rank(n,0);
+        vector<vector<int>> graph(n);
+
+        for(auto edge: dislikes)
+            graph[edge[0]].push_back(edge[1]),
+            graph[edge[1]].push_back(edge[0]);
+
+
 
         for(int i = 0; i < n; ++i)
             parent[i] = i;
