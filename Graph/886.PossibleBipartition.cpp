@@ -26,6 +26,8 @@ public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         
         vector<int> parent(n,0), rank(n,0);
+
+        for(int i = 0; i < n; ++i)
     }
 };
 
