@@ -35,10 +35,9 @@ public:
             int absTo = find(edge[1],parent);
 
             if(absFrom == absTo)
-                return true;
-            
-            _union(absFrom)
-
+                return false;
+  
+            _union(absFrom, absTo, parent, rank);
         }
          
     }
