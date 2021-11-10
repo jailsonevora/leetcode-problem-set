@@ -25,7 +25,7 @@ class Solution {
 public:
     bool possibleBipartition(int n, vector<vector<int>>& dislikes) {
         
-        vector<int> parent(n,0);
+        vector<int> parent(n,0), rank(n,0);
     }
 };
 
