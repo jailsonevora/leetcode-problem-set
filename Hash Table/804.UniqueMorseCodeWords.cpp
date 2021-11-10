@@ -6,17 +6,18 @@
 using namespace std;
 
 class Solution {
-    vector<string> fullTable = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
-    "--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
-
+public:
     int uniqueMorseRepresentations(vector<string>& words) {
+
+        vector<string> fullTable = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
+    "--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
 
         unordered_set<string> assciiToMorse;
 
         for(auto flStr: fullTable){
             string code;
             for(auto c: flStr)
-                code += flStr[c-'a'];
+                code += fullTable[c-'a'];
             assciiToMorse.insert(code);
         }
         return assciiToMorse.size();        
