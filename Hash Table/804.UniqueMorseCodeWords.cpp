@@ -13,4 +13,8 @@ public:
 
 int main(){
 
+    vector<string> words = {"gin","zen","gig","msg"}
+
+    
+
 }
