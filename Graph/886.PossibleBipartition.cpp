@@ -31,7 +31,7 @@ public:
             parent[i] = i;
 
         for(auto edge: dislikes){
-            
+            int absFrom = find(edge[0],parent);
         }
          
     }
