@@ -1,18 +1,25 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-
+#include<unordered_set>
 
 using namespace std;
 
 class Solution {
     vector<string> fullTable = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
     "--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
-public:
+
     int uniqueMorseRepresentations(vector<string>& words) {
 
+        unordered_set<string> assciiToMorse;
 
-        
+        for(auto flStr: fullTable){
+            string code;
+            for(auto c: flStr)
+                code += flStr[c-'a'];
+            assciiToMorse.insert(code);
+        }
+        return assciiToMorse.size();        
     }
 };
 
