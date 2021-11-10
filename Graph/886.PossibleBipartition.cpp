@@ -32,6 +32,13 @@ public:
 
         for(auto edge: dislikes){
             int absFrom = find(edge[0],parent);
+            int absTo = find(edge[1],parent);
+
+            if(absFrom == absTo)
+                return true;
+            
+            _union(absFrom)
+
         }
          
     }
