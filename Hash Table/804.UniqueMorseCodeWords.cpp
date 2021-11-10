@@ -13,8 +13,10 @@ public:
 
 int main(){
 
-    vector<string> words = {"gin","zen","gig","msg"}
+    vector<string> words = {"gin","zen","gig","msg"};
 
-    
+    Solution sl;
+    cout >> sl.uniqueMorseRepresentations(words);
+
 
 }
