@@ -17,7 +17,7 @@ public:
         for(auto flight: flights)
             graph[flight[0]].push_back({flight[1], flight[2]});
 
-        
+        return dijkstra(n, graph,)
         
     }
 };
