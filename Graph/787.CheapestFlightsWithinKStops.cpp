@@ -7,95 +7,95 @@ using namespace std;
 class Solution {
     //solution 1
     //using bfs + adjList + MinHeap in O(E logV) with pair
-    int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
+    // int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
-        //pair{Price sum + pair{u + hop}}
-        priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
+    //     //pair{Price sum + pair{u + hop}}
+    //     priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
-        //pair{price + hop}
-        vector<pair<int,int>> distance(n+1,{INT_MAX,0});
-        distance[src].first = 0;
-        distance[src].second = 0;
+    //     //pair{price + hop}
+    //     vector<pair<int,int>> distance(n+1,{INT_MAX,0});
+    //     distance[src].first = 0;
+    //     distance[src].second = 0;
 
-        priorityQueue.push({0,{src,0}});
+    //     priorityQueue.push({0,{src,0}});
 
-        while(!priorityQueue.empty()){
+    //     while(!priorityQueue.empty()){
 
-            int cost = priorityQueue.top().first;
-            int u = priorityQueue.top().second.first;
-            int hop = priorityQueue.top().second.second;
-            priorityQueue.pop();
+    //         int cost = priorityQueue.top().first;
+    //         int u = priorityQueue.top().second.first;
+    //         int hop = priorityQueue.top().second.second;
+    //         priorityQueue.pop();
 
-            if(u == dst) 
-                return cost;
+    //         if(u == dst) 
+    //             return cost;
             
-            if(distance[u].first < hop) 
-                continue;
+    //         if(distance[u].first < hop) 
+    //             continue;
             
-            distance[u].first = hop;
+    //         distance[u].first = hop;
             
-            if(hop > k) 
-                continue;
+    //         if(hop > k) 
+    //             continue;
 
-            for(auto it: graph[u]){
+    //         for(auto it: graph[u]){
 
-                int v = it.first;
-                int price = it.second;
-                priorityQueue.push({cost+price,{v,hop+1}});
-            }
-        }
-        return -1;
-    }
+    //             int v = it.first;
+    //             int price = it.second;
+    //             priorityQueue.push({cost+price,{v,hop+1}});
+    //         }
+    //     }
+    //     return -1;
+    // }
 
     //solution 2
     //using bfs + adjList + MinHeap in O(E logV) with vector<>
-    int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
+    // int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
-        priority_queue< vector<int>, vector<vector<int>>, greater<vector<int>> > priorityQueue;
-        priorityQueue.push({0,src,0});
+    //     priority_queue< vector<int>, vector<vector<int>>, greater<vector<int>> > priorityQueue;
+    //     priorityQueue.push({0,src,0});
         
-        vector<int> dist(n+1, INT_MAX);
+    //     vector<int> dist(n+1, INT_MAX);
 
-        while(!priorityQueue.empty()){
+    //     while(!priorityQueue.empty()){
             
-            auto tupl = priorityQueue.top(); 
-            priorityQueue.pop();
-            int cost = tupl[0];
-            int u = tupl[1];
-            int hop = tupl[2];
+    //         auto tupl = priorityQueue.top(); 
+    //         priorityQueue.pop();
+    //         int cost = tupl[0];
+    //         int u = tupl[1];
+    //         int hop = tupl[2];
 
-            if(u==dst) 
-                return cost;
+    //         if(u==dst) 
+    //             return cost;
             
-            if(dist[u]<hop) 
-                continue;
+    //         if(dist[u]<hop) 
+    //             continue;
             
-            dist[u]=hop;
+    //         dist[u]=hop;
             
-            if(hop > k) 
-                continue;
+    //         if(hop > k) 
+    //             continue;
 
-            for(auto it: graph[u]){
-                int v = it.first;
-                int price = it.second;
-                priorityQueue.push({cost+price,v,hop+1});
-            }
-        }
-        return -1;
-    }
+    //         for(auto it: graph[u]){
+    //             int v = it.first;
+    //             int price = it.second;
+    //             priorityQueue.push({cost+price,v,hop+1});
+    //         }
+    //     }
+    //     return -1;
+    // }
     
     //using bfs + queue
     int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
         //pair{Price sum + pair{u + hop}}
-        queue<pair<int,pair<int,int>>> queue;
+        queue<pair<int,int>> queue;
 
         //pair{price + hop}
         vector<pair<int,int>> cost(n,{INT_MAX,0});
         cost[src].first = 0;
         cost[src].second = 0;
 
-        queue.push({0,{src,0}});
+        queue.push({0,src});
 
         k+=1;
         while(!queue.empty()){
@@ -108,8 +108,7 @@ class Solution {
             for(int i=0;i<size;i++){
                 
                 int price = queue.front().first;
-                int u = queue.front().second.first;
-                int hop = queue.front().second.second;
+                int u = queue.front().second;
                 queue.pop();
 
                 for(auto it: graph[u]){
@@ -117,7 +116,7 @@ class Solution {
                     int v = it.first;
                     int price = it.second;
 
-                    if(cost[v].first > cost[u].first + price && hop <= k){
+                    if(cost[v].first > cost[u].first + price){
                         cost[v].first = cost[u].first + price;
                         cost[v].second = cost[u].second + hop;
                         queue.push({cost[v].first,{v,hop+1}});
