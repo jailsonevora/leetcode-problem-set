@@ -35,7 +35,6 @@ class Solution {
                     priorityQueue.push({distance[v].first,{v,numHop+1}});
                 }
             }
-
         }
 
 
