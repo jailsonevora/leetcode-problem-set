@@ -10,7 +10,12 @@ class Solution {
 
         priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
-        vector<pair<int,int>> distance(n,0);
+        vector<pair<int,int>> distance(n,{0,0});
+        distance[src].first = 0;
+        distance[src].second = 0;
+
+        priorityQueue.push({0,{src,0}});
+
 
 
 
