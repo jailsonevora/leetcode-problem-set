@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
     //using bfs + adjList + MinHeap in O(E logV)
-    int dijkstra(){
+    int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst){
 
     }
 public:
