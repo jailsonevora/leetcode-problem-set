@@ -29,7 +29,7 @@ class Solution {
                 int v = it.first;
                 int price = it.second;
 
-                if(distance[v].first > distance[u].first + price){
+                if(distance[v].first > distance[u].first + price && k <= distance[u].second + numHop){
                     distance[v].first = distance[u].first + price;
                     distance[v].second = distance[u].second + numHop;
                     priorityQueue.push({distance[v].first,{v,numHop+1}});
