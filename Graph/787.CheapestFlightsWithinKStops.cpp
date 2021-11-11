@@ -87,10 +87,8 @@ class Solution {
     //using bfs + queue
     int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
-        //pair{Price sum + pair{u + hop}}
+        //pair{price + u}}
         queue<pair<int,int>> queue;
-
-        //pair{price + hop}
         vector<int> cost(n,INT_MAX);
         cost[src] = 0;
 
@@ -100,24 +98,24 @@ class Solution {
         while(!queue.empty()){
 
             int size=queue.size();
-            
+
             k--;
             if(k<0) // break statement
                 break;
 
             for(int i=0;i<size;i++){
                 
-                int price = queue.front().first;
+                int u_price = queue.front().first;
                 int u = queue.front().second;
                 queue.pop();
 
                 for(auto it: graph[u]){
 
                     int v = it.first;
-                    int price = it.second;
+                    int v_price = it.second;
 
-                    if(cost[v] > cost[u] + price){
-                        cost[v] = cost[u] + price;
+                    if(cost[v] > u_price + v_price){
+                        cost[v] = cost[u] + v_price;
                         queue.push({cost[v],v});
                     }
                 }
