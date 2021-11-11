@@ -8,8 +8,10 @@ class Solution {
     //using bfs + adjList + MinHeap in O(E logV)
     int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
+        //
         priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
+        //pair{price + num hop}
         vector<pair<int,int>> distance(n,{0,0});
         distance[src].first = 0;
         distance[src].second = 0;
@@ -26,7 +28,9 @@ class Solution {
                 int v = it.first;
                 int price = it.second;
 
-                if()
+                if(distance[v].first < distance[u].first + price){
+
+                }
 
             }
 
@@ -39,6 +43,7 @@ class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
 
+        //pair{to + price}
         vector<pair<int, int>> graph[n];
 
         for(auto flight: flights)
