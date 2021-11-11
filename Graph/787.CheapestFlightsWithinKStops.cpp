@@ -16,6 +16,22 @@ class Solution {
 
         priorityQueue.push({0,{src,0}});
 
+        while(!priorityQueue.empty()){
+
+            int u = priorityQueue.top().second.first;
+            priorityQueue.pop();
+
+            for(auto it: graph[u]){
+
+                int v = it.first;
+                int price = it.second;
+
+                if()
+
+            }
+
+        }
+
 
 
 
