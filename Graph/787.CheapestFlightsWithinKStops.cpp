@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
     //using bfs + adjList + MinHeap in O(E logV)
-    int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst){
+    int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
     }
 public:
@@ -17,8 +17,7 @@ public:
         for(auto flight: flights)
             graph[flight[0]].push_back({flight[1], flight[2]});
 
-        return dijkstra(n, graph,)
-        
+        return dijkstra(n, graph, src, dst, k);
     }
 };
 
