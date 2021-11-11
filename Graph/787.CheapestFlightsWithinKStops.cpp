@@ -8,9 +8,11 @@ class Solution {
     //using bfs + adjList + MinHeap in O(E logV)
     int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
-        priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>>
+        priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
-        
+        vector<pair<int,int>> distance(n,0);
+
+
 
     }
 public:
