@@ -97,21 +97,31 @@ class Solution {
 
         queue.push({0,{src,0}});
 
-        while(!priorityQueue.empty()){
+        k+=1;
+        while(!queue.empty()){
 
-            int u = priorityQueue.top().second.first;
-            int hop = priorityQueue.top().second.second;
-            priorityQueue.pop();
+            int size=queue.size();
+            k--;
+            if(k<0) // break statement
+                break;
 
-            for(auto it: graph[u]){
+            for(int i=0;i<size;i++){
+                
+                int price = queue.front().first;
+                int u = queue.front().second.first;
+                int hop = queue.front().second.second;
+                queue.pop();
 
-                int v = it.first;
-                int price = it.second;
+                for(auto it: graph[u]){
 
-                if(cost[v].first > cost[u].first + price && hop <= k){
-                    cost[v].first = cost[u].first + price;
-                    cost[v].second = cost[u].second + hop;
-                    priorityQueue.push({cost[v].first,{v,hop+1}});
+                    int v = it.first;
+                    int price = it.second;
+
+                    if(cost[v].first > cost[u].first + price && hop <= k){
+                        cost[v].first = cost[u].first + price;
+                        cost[v].second = cost[u].second + hop;
+                        queue.push({cost[v].first,{v,hop+1}});
+                    }
                 }
             }
         }
