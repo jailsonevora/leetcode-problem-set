@@ -8,10 +8,10 @@ class Solution {
     //using bfs + adjList + MinHeap in O(E logV)
     int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
-        //pair{Price sum + pair{u + numHop}}
+        //pair{Price sum + pair{u + hop}}
         priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
-        //pair{price + num hop}
+        //pair{price + hop}
         vector<pair<int,int>> cost(n,{INT_MAX,0});
         cost[src].first = 0;
         cost[src].second = 0;
