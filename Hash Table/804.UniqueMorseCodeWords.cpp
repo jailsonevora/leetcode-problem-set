@@ -14,9 +14,9 @@ public:
 
         unordered_set<string> assciiToMorse;
 
-        for(auto flStr: table){
+        for(auto w: words){
             string code;
-            for(auto c: flStr)
+            for(auto c: w)
                 code += table[c - 'a'];
             assciiToMorse.insert(code);
         }
