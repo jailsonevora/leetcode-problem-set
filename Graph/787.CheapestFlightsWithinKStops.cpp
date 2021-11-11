@@ -10,3 +10,12 @@ public:
         
     }
 };
+
+int main(){
+
+    vector<vector<int>> flights {
+        {0,1,100},
+        {1,2,100},
+        {0,2,500}
+    };
+}
