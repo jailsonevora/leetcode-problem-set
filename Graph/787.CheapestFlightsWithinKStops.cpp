@@ -5,7 +5,10 @@
 using namespace std;
 
 class Solution {
-    //diks bfs
+    //using bfs + adjList + MinHeap in O(E logV)
+    int dijkstra(){
+        
+    }
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
 
