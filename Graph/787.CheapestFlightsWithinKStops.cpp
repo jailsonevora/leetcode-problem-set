@@ -91,9 +91,8 @@ class Solution {
         queue<pair<int,int>> queue;
 
         //pair{price + hop}
-        vector<pair<int,int>> cost(n,{INT_MAX,0});
-        cost[src].first = 0;
-        cost[src].second = 0;
+        vector<int> cost(n,INT_MAX);
+        cost[src] = 0;
 
         queue.push({0,src});
 
@@ -101,6 +100,7 @@ class Solution {
         while(!queue.empty()){
 
             int size=queue.size();
+            
             k--;
             if(k<0) // break statement
                 break;
@@ -116,15 +116,14 @@ class Solution {
                     int v = it.first;
                     int price = it.second;
 
-                    if(cost[v].first > cost[u].first + price){
-                        cost[v].first = cost[u].first + price;
-                        cost[v].second = cost[u].second + hop;
-                        queue.push({cost[v].first,{v,hop+1}});
+                    if(cost[v] > cost[u] + price){
+                        cost[v] = cost[u] + price;
+                        queue.push({cost[v],v});
                     }
                 }
             }
         }
-        return (cost[dst].first == INT_MAX) ? -1 : cost[dst].first;
+        return (cost[dst] == INT_MAX) ? -1 : cost[dst];
     }
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
