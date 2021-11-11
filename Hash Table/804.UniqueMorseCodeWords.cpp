@@ -9,15 +9,15 @@ class Solution {
 public:
     int uniqueMorseRepresentations(vector<string>& words) {
 
-        vector<string> fullTable = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
+        vector<string> table = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..",
     "--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
 
         unordered_set<string> assciiToMorse;
 
-        for(auto flStr: fullTable){
+        for(auto flStr: table){
             string code;
             for(auto c: flStr)
-                code += fullTable[c-'a'];
+                code += table[c - 'a'];
             assciiToMorse.insert(code);
         }
         return assciiToMorse.size();        
