@@ -21,6 +21,7 @@ class Solution {
         while(!priorityQueue.empty()){
 
             int u = priorityQueue.top().second.first;
+            int numHop = priorityQueue.top().second.second;
             priorityQueue.pop();
 
             for(auto it: graph[u]){
@@ -29,9 +30,10 @@ class Solution {
                 int price = it.second;
 
                 if(distance[v].first < distance[u].first + price){
-
+                    distance[v].first = distance[u].first + price;
+                    distance[v].second = distance[u].second + numHop;
+                    priorityQueue.push({distance[v].first,{v,numHop+1}});
                 }
-
             }
 
         }
