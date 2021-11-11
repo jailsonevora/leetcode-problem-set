@@ -12,7 +12,7 @@ class Solution {
         priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
         //pair{price + num hop}
-        vector<pair<int,int>> distance(n,{0,0});
+        vector<pair<int,int>> distance(n,{INT_MAX,0});
         distance[src].first = 0;
         distance[src].second = 0;
 
@@ -29,17 +29,14 @@ class Solution {
                 int v = it.first;
                 int price = it.second;
 
-                if(distance[v].first < distance[u].first + price){
+                if(distance[v].first > distance[u].first + price){
                     distance[v].first = distance[u].first + price;
                     distance[v].second = distance[u].second + numHop;
                     priorityQueue.push({distance[v].first,{v,numHop+1}});
                 }
             }
         }
-
-
-
-
+        return 200;
     }
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
