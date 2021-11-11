@@ -8,7 +8,7 @@ class Solution {
     //using bfs + adjList + MinHeap in O(E logV)
     int dijkstra(int n, vector<pair<int,int>> graph[], int src, int dst, int k){
 
-        //
+        //pair{Price sum + pair{u + numHop}}
         priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
         //pair{price + num hop}
