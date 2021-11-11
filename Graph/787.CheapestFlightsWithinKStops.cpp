@@ -7,12 +7,17 @@ using namespace std;
 class Solution {
     //using bfs + adjList + MinHeap in O(E logV)
     int dijkstra(){
-        
+
     }
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
 
+        vector<pair<int, int>> graph[n];
 
+        for(auto flight: flights)
+            graph[flight[0]].push_back({flight[1], flight[2]});
+
+        
         
     }
 };
