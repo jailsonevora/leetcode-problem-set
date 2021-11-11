@@ -12,16 +12,16 @@ class Solution {
         priority_queue<pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>>, greater<>> priorityQueue;
 
         //pair{price + num hop}
-        vector<pair<int,int>> distance(n,{INT_MAX,0});
-        distance[src].first = 0;
-        distance[src].second = 0;
+        vector<pair<int,int>> cost(n,{INT_MAX,0});
+        cost[src].first = 0;
+        cost[src].second = 0;
 
         priorityQueue.push({0,{src,0}});
 
         while(!priorityQueue.empty()){
 
             int u = priorityQueue.top().second.first;
-            int numHop = priorityQueue.top().second.second;
+            int hop = priorityQueue.top().second.second;
             priorityQueue.pop();
 
             for(auto it: graph[u]){
@@ -29,14 +29,14 @@ class Solution {
                 int v = it.first;
                 int price = it.second;
 
-                if(distance[v].first > distance[u].first + price && k <= distance[u].second + numHop){
-                    distance[v].first = distance[u].first + price;
-                    distance[v].second = distance[u].second + numHop;
-                    priorityQueue.push({distance[v].first,{v,numHop+1}});
+                if(cost[v].first > cost[u].first + price && cost[u].second + hop <= k){
+                    cost[v].first = cost[u].first + price;
+                    cost[v].second = cost[u].second + hop;
+                    priorityQueue.push({cost[v].first,{v,hop+1}});
                 }
             }
         }
-        return 200;
+        return cost[dst].first;
     }
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
@@ -59,7 +59,7 @@ int main(){
         {0,2,500}
     };
 
-    int n = 3, src = 0, dst = 2, k = 1;
+    int n = 3, src = 0, dst = 2, k = 0;
 
     Solution sl;
     cout << sl.findCheapestPrice(n,flights,src,dst,k);
