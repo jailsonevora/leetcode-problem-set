@@ -19,7 +19,8 @@ int main(){
         {0,2,500}
     };
 
-    int src = 0, dst = 2, k = 1;
+    int n = 3, src = 0, dst = 2, k = 1;
 
-    
+    Solution sl;
+    cout << sl.findCheapestPrice(n,flights,src,dst,k);
 }
