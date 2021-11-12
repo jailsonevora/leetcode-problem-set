@@ -19,7 +19,8 @@ int main(){
     rightChild = {
 
     };
-    
 
+    Solution sl;
 
+    cout << sl.validateBinaryTreeNodes(n, leftChild, rightChild);
 }
