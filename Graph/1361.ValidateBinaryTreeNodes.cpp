@@ -29,6 +29,14 @@ int main(){
     //     2,3,-1,-1
     // };
 
+    // int n = 2;
+    // vector<int> leftChild = {
+    //     1,0
+    // },
+    // rightChild = {
+    //     -1,-1
+    // };
+
     Solution sl;
     cout << sl.validateBinaryTreeNodes(n, leftChild, rightChild);
 }
