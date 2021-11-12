@@ -10,3 +10,16 @@ public:
         
     }
 };
+
+int main(){
+    int n = 4;
+    vector<int> leftChild = {
+
+    },
+    rightChild = {
+
+    };
+    
+
+
+}
