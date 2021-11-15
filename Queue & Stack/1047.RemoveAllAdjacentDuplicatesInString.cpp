@@ -8,6 +8,15 @@ using namespace std;
 class Solution {
 public:
     string removeDuplicates(string s) {
+
+        stack<char> stack;
+
+        for(auto c: s){
+            if(stack.top() == c)
+                stack.pop();
+            else
+                stack.push(c);
+        }
         
     }
 };
