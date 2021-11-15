@@ -31,10 +31,10 @@ public:
 int main(){
 
     //ex1
-    string s = "abbaca";
+    //string s = "abbaca";
 
     //ex2
-    //string s = "azxxzy";
+    string s = "azxxzy";
 
     Solution sl;
     cout << sl.removeDuplicates(s);
