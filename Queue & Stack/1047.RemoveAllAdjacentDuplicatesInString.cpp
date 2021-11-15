@@ -16,4 +16,7 @@ int main(){
 
     vector<string> s = "abbaca";
 
+    Solution sl;
+    sl.removeDuplicates(s);
+
 }
