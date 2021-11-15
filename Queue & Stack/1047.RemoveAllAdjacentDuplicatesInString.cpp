@@ -26,6 +26,16 @@ public:
         reverse(ans.begin(), ans.end());
         return ans;
     }
+
+    string removeDuplicates(string S) {
+        string res = "";
+        for (char& c : S)
+            if (res.size() && c == res.back())
+                res.pop_back();
+            else
+                res.push_back(c);
+        return res;
+    }
 };
 
 int main(){
