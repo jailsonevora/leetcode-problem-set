@@ -12,7 +12,7 @@ public:
         stack<char> stack;
 
         for(auto c: s){
-            if(stack.top() == c)
+            if(stack.top() == c && !stack.empty())
                 stack.pop();
             else
                 stack.push(c);
