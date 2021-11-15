@@ -14,6 +14,6 @@ public:
 
 int main(){
 
-    vecotr
+    vector<string> s = "abbaca";
 
 }
