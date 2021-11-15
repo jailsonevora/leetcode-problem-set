@@ -14,7 +14,11 @@ public:
 
 int main(){
 
+    //ex1
     string s = "abbaca";
+
+    //ex2
+    //string s = "azxxzy";
 
     Solution sl;
     sl.removeDuplicates(s);
