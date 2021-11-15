@@ -9,15 +9,22 @@ class Solution {
 public:
     string removeDuplicates(string s) {
 
-        stack<char> stack;
+        stack<char> stk;
 
         for(auto c: s){
-            if(stack.top() == c && !stack.empty())
-                stack.pop();
+            if(!stk.empty() && stk.top() == c)
+                stk.pop();
             else
-                stack.push(c);
+                stk.push(c);
         }
+
+        string ans;
+        while (!stk.empty())
+            ans.push_back(stk.top()),
+                stk.pop();
         
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
 };
 
@@ -30,6 +37,6 @@ int main(){
     //string s = "azxxzy";
 
     Solution sl;
-    sl.removeDuplicates(s);
+    cout << sl.removeDuplicates(s);
 
 }
