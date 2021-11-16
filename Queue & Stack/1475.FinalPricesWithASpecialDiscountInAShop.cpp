@@ -16,6 +16,7 @@ int main(){
     vector<int>  prices = {8,4,6,2,3};
 
     Solution sl;
-    sl.finalPrices(prices);
+    for(auto it: sl.finalPrices(prices))
+        cout << it;
 
 }
