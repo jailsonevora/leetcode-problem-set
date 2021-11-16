@@ -17,7 +17,7 @@ int main(){
     vector<int>  prices = {8,4,6,2,3};
 
     //ex2
-    vector<int>  prices = {1,2,3,4,5};
+    //vector<int>  prices = {1,2,3,4,5};
 
     Solution sl;
     for(auto it: sl.finalPrices(prices))
