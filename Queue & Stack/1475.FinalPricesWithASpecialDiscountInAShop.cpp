@@ -18,5 +18,4 @@ int main(){
     Solution sl;
     for(auto it: sl.finalPrices(prices))
         cout << it;
-
 }
