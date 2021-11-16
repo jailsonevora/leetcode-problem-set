@@ -13,6 +13,7 @@ public:
 
 int main(){
 
+    //ex1
     vector<int>  prices = {8,4,6,2,3};
 
     Solution sl;
