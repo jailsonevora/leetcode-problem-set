@@ -12,5 +12,7 @@ public:
 };
 
 int main(){
-    
+
+    vector<int>  prices = {8,4,6,2,3}
+
 }
