@@ -22,7 +22,8 @@ public:
             stack.push(prices[i]);
         }
 
-        //reverse(ans.begin(), ans.end());
+        reverse(ans.begin(), ans.end());
+        return ans;
     }
     
 };
