@@ -9,6 +9,19 @@ class Solution {
 public:
     vector<int> finalPrices(vector<int>& prices) {
         
+        stack<int> stack;
+
+        // using monotonic stack
+        for (int i = nums.size() - 1; i >= 0; --i)
+        {
+            while (!stack.empty() && stack.top() <= nums[i])
+                stack.pop();
+
+            ans.push_back(stack.empty() ? 0 : stack.top());
+            stack.push(nums[i]);
+        }
+
+        reverse(ans.begin(), ans.end());
     }
     
 };
