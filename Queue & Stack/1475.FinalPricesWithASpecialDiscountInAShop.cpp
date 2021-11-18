@@ -10,6 +10,7 @@ public:
     vector<int> finalPrices(vector<int>& prices) {
         
         stack<int> stack;
+        vector<int> ans;
 
         // using monotonic stack
         for (int i = prices.size() - 1; i >= 0; --i)
@@ -17,7 +18,7 @@ public:
             while (!stack.empty() && stack.top() <= prices[i])
                 stack.pop();
 
-            prices.push_back(stack.empty() ? 0 : stack.top());
+            ans.push_back(stack.empty() ? prices[i] : stack.top());
             stack.push(prices[i]);
         }
 
