@@ -12,16 +12,16 @@ public:
         stack<int> stack;
 
         // using monotonic stack
-        for (int i = nums.size() - 1; i >= 0; --i)
+        for (int i = prices.size() - 1; i >= 0; --i)
         {
-            while (!stack.empty() && stack.top() <= nums[i])
+            while (!stack.empty() && stack.top() <= prices[i])
                 stack.pop();
 
-            ans.push_back(stack.empty() ? 0 : stack.top());
-            stack.push(nums[i]);
+            prices.push_back(stack.empty() ? 0 : stack.top());
+            stack.push(prices[i]);
         }
 
-        reverse(ans.begin(), ans.end());
+        //reverse(ans.begin(), ans.end());
     }
     
 };
