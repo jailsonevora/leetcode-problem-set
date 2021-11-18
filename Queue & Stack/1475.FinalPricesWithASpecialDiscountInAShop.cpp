@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stack>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ public:
         // using monotonic stack
         for (int i = prices.size() - 1; i >= 0; --i)
         {
-            while (!stack.empty() && stack.top() <= prices[i])
+            while (!stack.empty() && prices[i] <= stack.top())
                 stack.pop();
 
             ans.push_back(stack.empty() ? prices[i] : stack.top());
