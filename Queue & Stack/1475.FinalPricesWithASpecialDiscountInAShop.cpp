@@ -14,19 +14,18 @@ public:
         vector<int> ans;
 
         // using monotonic stack
-        for (int i = prices.size() - 1; i >= 0; --i)
-        {
-            while (!stack.empty() && prices[i] <= stack.top())
-                stack.pop();
+        for (int i = 0; i < prices.size(); ++i)
+        {   
+            int dif = prices[i];
+            while (!stack.empty() && prices[i] <= stack.top()){
+                dif = stack.top() - prices[i],
+                    stack.pop();
 
-            ans.push_back(stack.empty() ? prices[i] : stack.top());
+            ans.push_back(dif);
             stack.push(prices[i]);
         }
-
-        reverse(ans.begin(), ans.end());
         return ans;
     }
-    
 };
 
 int main(){
