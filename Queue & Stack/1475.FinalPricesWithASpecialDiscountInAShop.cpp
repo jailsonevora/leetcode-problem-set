@@ -21,7 +21,7 @@ public:
                     stack.pop();
             stack.push(i);
         }
-        return ans;
+        return prices;
     }
 };
 
