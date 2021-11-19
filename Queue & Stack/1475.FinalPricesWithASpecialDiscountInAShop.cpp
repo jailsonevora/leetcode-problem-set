@@ -16,11 +16,9 @@ public:
         for (int i = 0; i < prices.size(); ++i)
         {   
             int dif = prices[i];
-            while (!stack.empty() && prices[i] <= stack.top())
+            while (!stack.empty() && prices[stack.top()] <= stack.top())
                 dif = stack.top() - prices[i],
                     stack.pop();
-
-            ans.push_back(dif);
             stack.push(prices[i]);
         }
         return ans;
