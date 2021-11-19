@@ -10,7 +10,6 @@ public:
     vector<int> finalPrices(vector<int>& prices) {
         
         stack<int> stack;
-
         // using monotonic stack
         for (int i = 0; i < prices.size(); ++i)
         {   
