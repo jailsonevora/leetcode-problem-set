@@ -14,4 +14,7 @@ public:
 
 int main(){
 
+    vector<int> target = {1,3};
+    int n = 3;
+    
 }
