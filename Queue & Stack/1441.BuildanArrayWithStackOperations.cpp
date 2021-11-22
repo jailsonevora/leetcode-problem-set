@@ -18,7 +18,8 @@ int main(){
     vector<int> target = {1,3};
     int n = 3;
 
-    // vector<int> target = {1,3};
+    // ex2
+    // vector<int> target = {1,2,3};
     // int n = 3;
 
     Solution sl;
