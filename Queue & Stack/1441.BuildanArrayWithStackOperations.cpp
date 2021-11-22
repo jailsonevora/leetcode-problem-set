@@ -16,5 +16,8 @@ int main(){
 
     vector<int> target = {1,3};
     int n = 3;
-    
+
+    Solution sl;
+    for(auto it: sl.buildArray(target,n))
+        cout << it <<" "; 
 }
