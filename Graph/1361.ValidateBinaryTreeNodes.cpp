@@ -14,6 +14,8 @@ class Solution {
         return parent[v] = _find(parent[v], parent);
     }
 
+    // union by rank
+    
 
 
 public:
