@@ -7,7 +7,7 @@ using namespace std;
 class Solution {
 
     // find path compression
-    int _find(int v, vector<int> parent){
+    int _find(int v, vector<int>& parent){
 
         if(v == parent[v])
             return v;
@@ -15,7 +15,9 @@ class Solution {
     }
 
     // union by rank
-    
+    void _union(int from, int to, vector<int>& rank, vector<int>& parent){
+        
+    }
 
 
 public:
