@@ -6,6 +6,10 @@ using namespace std;
 
 class Solution {
 
+    int _find(int v, vector<int> parent){
+        
+    }
+
 public:
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
 
@@ -15,6 +19,8 @@ public:
         // instantiate the parents
         for(int i = 0; i < n; ++i)
             parent[i] = i;
+
+        //
 
         
 
