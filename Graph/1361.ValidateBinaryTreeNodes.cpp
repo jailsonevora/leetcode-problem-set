@@ -9,10 +9,13 @@ class Solution {
 public:
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
 
+        //initialize leads
         vector<int> parent, rank(n,0);
 
         for(int i = 0; i < n; ++i)
             parent[i] = i;
+
+        
 
         
     }
