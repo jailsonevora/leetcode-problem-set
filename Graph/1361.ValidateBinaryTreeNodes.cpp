@@ -22,7 +22,8 @@ class Solution {
         else if(rank[from] < rank[to])
             parent[from] = to;
         else{
-            
+            parent[to] = from;
+            rank[from]++;
         }
     }
 
