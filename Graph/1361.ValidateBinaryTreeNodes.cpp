@@ -6,12 +6,15 @@ using namespace std;
 
 class Solution {
 
+    // find path compression
     int _find(int v, vector<int> parent){
 
         if(v == parent[v])
             return v;
         return parent[v] = _find(parent[v], parent);
     }
+
+
 
 public:
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
