@@ -11,7 +11,8 @@ public:
 
         vector<int> parent, rank(n,0);
 
-        for(int i = 0;)
+        for(int i = 0; i < n; ++i)
+            parent[i] = i;
 
         
     }
