@@ -71,21 +71,21 @@ public:
 
 int main(){
 
-    int n = 4;
-    vector<int> leftChild = {
-        1,-1,3,-1
-    },
-    rightChild = {
-        2,-1,-1,-1
-    };
-
     // int n = 4;
     // vector<int> leftChild = {
     //     1,-1,3,-1
     // },
     // rightChild = {
-    //     2,3,-1,-1
+    //     2,-1,-1,-1
     // };
+
+    int n = 4;
+    vector<int> leftChild = {
+        1,-1,3,-1
+    },
+    rightChild = {
+        2,3,-1,-1
+    };
 
     // int n = 2;
     // vector<int> leftChild = {
