@@ -39,7 +39,10 @@ public:
 
         //
 
-        for(int i = 0; i < leftChild.size() && leftChild[i] != -1; ++i){
+        for(int i = 0; i < leftChild.size(); ++i){
+
+            if(leftChild[i] != -1)
+                continue;
 
             int absFrom = _find(i, parent);
             int absTo = _find(leftChild[i], parent);
