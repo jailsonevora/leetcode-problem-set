@@ -41,7 +41,7 @@ public:
 
         for(int i = 0; i < leftChild.size() && leftChild[i] != -1; ++i){
 
-            int absFrom = _find(leftChild[i], parent);
+            int absFrom = _find(i, parent);
             int absTo = _find(leftChild[i], parent);
 
             _union(absFrom, absTo, rank, parent);
@@ -50,7 +50,7 @@ public:
 
         for(int i = 0; i < rightChild.size() && rightChild[i] != -1; ++i){
 
-            int absFrom = _find(rightChild[i], parent);
+            int absFrom = _find(i, parent);
             int absTo = _find(rightChild[i], parent);
 
             _union(absFrom, absTo, rank, parent);
