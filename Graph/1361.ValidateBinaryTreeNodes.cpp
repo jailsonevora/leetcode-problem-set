@@ -40,8 +40,11 @@ public:
         //
 
         for(int i = 0; i < leftChild.size() && leftChild[i] != -1; ++i){
+
             int absFrom = _find(leftChild[i], parent);
             int absTo = _find(leftChild[i], parent);
+
+            _union(absFrom, absTo, rank, parent);
 
         }
 
