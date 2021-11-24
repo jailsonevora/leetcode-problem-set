@@ -41,7 +41,7 @@ public:
 
         for(int i = 0; i < leftChild.size(); ++i){
 
-            if(leftChild[i] != -1)
+            if(leftChild[i] == -1)
                 continue;
 
             int absFrom = _find(i, parent);
@@ -51,7 +51,10 @@ public:
 
         }
 
-        for(int i = 0; i < rightChild.size() && rightChild[i] != -1; ++i){
+        for(int i = 0; i < rightChild.size(); ++i){
+
+            if(rightChild[i] == -1)
+                continue;
 
             int absFrom = _find(i, parent);
             int absTo = _find(rightChild[i], parent);
