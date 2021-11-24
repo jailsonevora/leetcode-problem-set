@@ -39,7 +39,10 @@ public:
 
         //
 
-        for(int i = 0; i < leftChild)
+        for(int i = 0; i < leftChild.size(); ++i){
+
+
+        }
 
         
 
