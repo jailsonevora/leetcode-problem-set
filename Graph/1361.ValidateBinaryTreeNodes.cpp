@@ -39,7 +39,7 @@ public:
 
         //
 
-        for(int i = 0; i < leftChild.size() && ; ++i){
+        for(int i = 0; i < leftChild.size() && leftChild[i] != -1; ++i){
             int absTo = _find(leftChild[i])
 
         }
