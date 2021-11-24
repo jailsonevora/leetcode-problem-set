@@ -31,7 +31,7 @@ public:
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
 
         // initialize leads
-        vector<int> parent, rank(n,0);
+        vector<int> parent(n,0), rank(n,0);
 
         // instantiate the parents
         for(int i = 0; i < n; ++i)
