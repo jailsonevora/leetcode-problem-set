@@ -9,16 +9,30 @@ class Solution {
 public:
     vector<int> shortestAlternatingPaths(int n, vector<vector<int>>& red_edges, vector<vector<int>>& blue_edges) {
 
-        vector<vector<pair<int,char>>> graph[n];
+        // pair with vector
+        // vector<vector<pair<int,char>>> graph[n];
+
+        // for(auto edge: red_edges){
+        //     int u = edge[0], v = edge[1];
+        //     graph[u].push_back({{v,'r'}});
+        // }
+
+        // for(auto edge: blue_edges){
+        //     int u = edge[0], v = edge[1];
+        //     graph[u].push_back({{v,'b'}});
+        // }
+
+        // pair without vector
+        vector<pair<int,char>> graph[n];
 
         for(auto edge: red_edges){
             int u = edge[0], v = edge[1];
-            graph[u].push_back({{v,'r'}});
+            graph[u].push_back({v,'r'});
         }
 
         for(auto edge: blue_edges){
             int u = edge[0], v = edge[1];
-            graph[u].push_back({{v,'b'}});
+            graph[u].push_back({v,'b'});
         }
 
         int w = 0;
