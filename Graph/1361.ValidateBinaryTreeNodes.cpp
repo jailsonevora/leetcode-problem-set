@@ -47,7 +47,6 @@ public:
             int absTo = _find(leftChild[i], parent);
 
             _union(absFrom, absTo, rank, parent);
-
         }
 
         // join right child
