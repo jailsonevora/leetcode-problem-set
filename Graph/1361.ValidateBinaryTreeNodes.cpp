@@ -50,6 +50,7 @@ public:
 
         }
 
+        // join right child
         for(int i = 0; i < rightChild.size(); ++i){
 
             if(rightChild[i] == -1)
