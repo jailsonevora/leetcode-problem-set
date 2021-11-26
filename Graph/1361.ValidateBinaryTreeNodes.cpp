@@ -94,7 +94,7 @@ int main(){
     // };
 
     // ex4
-    int n = 4;
+    int n = 6;
     vector<int> leftChild = {
         1,-1,-1,4,-1,-1
     },
