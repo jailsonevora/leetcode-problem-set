@@ -48,15 +48,17 @@ public:
         }
         
         int psbl=-1,count=0;
-        for(int i=0;i<n;i++){
+        for(int i=0; i<n; i++){
             if(node[i]==0){ 
                 psbl=i;
                 count++;
-                if(count>1) return false; // if root node is more then 1
+                if(count>1) 
+                    return false; // if root node is more then 1
             }
         }
         
-        if(psbl==-1) return false; //if no root found then false
+        //if no root found then false
+        if(psbl==-1) return false;
 
         // initialize leads
         vector<int> parent(n,0), rank(n,0);
