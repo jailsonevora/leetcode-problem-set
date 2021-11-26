@@ -32,13 +32,15 @@ public:
 
         vector<int> node(n,0);
 
+        // keep count of node if come more then 1 time
+        // like in any order traversal one node should come only one time
         for(int i=0;i<n;i++){
             
             if(leftChild[i]!=-1){
                 node[leftChild[i]]++;
                 if(node[leftChild[i]]>1) 
-                    return false; // keep count of node if come more then 1 time
-            }       //like in any order traversal one node should come only one time
+                    return false; 
+            }       
             
             if(rightChild[i]!=-1){
                 node[rightChild[i]]++;
@@ -47,12 +49,12 @@ public:
             }    
         }
         
+        // if root node is more then 1
         int root=-1,count=0;
         for(int i=0; i<n; i++){
             if(node[i]==0){ 
                 root=i;
                 count++;
-                // if root node is more then 1
                 if(count>1) 
                     return false;
             }
