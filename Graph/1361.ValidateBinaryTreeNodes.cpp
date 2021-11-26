@@ -38,7 +38,6 @@ public:
             parent[i] = i;
 
         //
-
         for(int i = 0; i < leftChild.size(); ++i){
 
             if(leftChild[i] == -1)
