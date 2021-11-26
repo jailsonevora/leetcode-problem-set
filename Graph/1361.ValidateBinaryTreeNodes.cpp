@@ -62,9 +62,7 @@ public:
             _union(absFrom, absTo, rank, parent);
 
         }
-
         return true;
-
         
     }
 };
