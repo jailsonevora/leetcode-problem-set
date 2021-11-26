@@ -11,3 +11,14 @@ public:
         
     }
 };
+
+int main(){
+
+    int n = 3;
+    vector<vector<int>> red_edges = {
+        {0,1},{1,2}
+    };
+
+    vector<vector<int>> blue_edges = {
+    };
+}
