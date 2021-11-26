@@ -31,17 +31,17 @@ public:
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
 
         vector<int> node(n,0);
-        
+
         for(int i=0;i<n;i++){
             
-            if(left[i]!=-1){
-                node[left[i]]++;
-                if(node[left[i]]>1) return false; // keep count of node if come more then 1 time
+            if(leftChild[i]!=-1){
+                node[leftChild[i]]++;
+                if(node[leftChild[i]]>1) return false; // keep count of node if come more then 1 time
             }       //like in any order traversal one node should come only one time
             
-            if(right[i]!=-1){
-                node[right[i]]++;
-                if(node[right[i]]>1) return false; //similarly with this
+            if(rightChild[i]!=-1){
+                node[rightChild[i]]++;
+                if(node[rightChild[i]]>1) return false; //similarly with this
             }    
         }
         
