@@ -67,13 +67,13 @@ public:
 int main(){
 
     // ex1
-    // int n = 4;
-    // vector<int> leftChild = {
-    //     1,-1,3,-1
-    // },
-    // rightChild = {
-    //     2,-1,-1,-1
-    // };
+    int n = 4;
+    vector<int> leftChild = {
+        1,-1,3,-1
+    },
+    rightChild = {
+        2,-1,-1,-1
+    };
 
     // ex2
     // int n = 4;
@@ -94,13 +94,13 @@ int main(){
     // };
 
     // ex4
-    int n = 6;
-    vector<int> leftChild = {
-        1,-1,-1,4,-1,-1
-    },
-    rightChild = {
-        2,-1,-1,5,-1,-1
-    };
+    // int n = 6;
+    // vector<int> leftChild = {
+    //     1,-1,-1,4,-1,-1
+    // },
+    // rightChild = {
+    //     2,-1,-1,5,-1,-1
+    // };
 
     Solution sl;
     cout << sl.validateBinaryTreeNodes(n, leftChild, rightChild);
