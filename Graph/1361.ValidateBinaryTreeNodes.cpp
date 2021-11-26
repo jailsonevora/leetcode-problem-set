@@ -60,7 +60,6 @@ public:
             int absTo = _find(rightChild[i], parent);
 
             _union(absFrom, absTo, rank, parent);
-
         }
         return true;        
     }
