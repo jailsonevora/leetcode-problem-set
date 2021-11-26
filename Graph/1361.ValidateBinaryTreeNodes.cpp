@@ -37,7 +37,7 @@ public:
         for(int i = 0; i < n; ++i)
             parent[i] = i;
 
-        //
+        // join left child
         for(int i = 0; i < leftChild.size(); ++i){
 
             if(leftChild[i] == -1)
