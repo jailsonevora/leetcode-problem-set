@@ -21,4 +21,7 @@ int main(){
 
     vector<vector<int>> blue_edges = {
     };
+
+    Solution sl;
+    sl.shortestAlternatingPaths(n, red_edges, blue_edges);
 }
