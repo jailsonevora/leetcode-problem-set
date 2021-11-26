@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution {
 
-    // find path compression
+    // find with path compression
     int _find(int v, vector<int>& parent){
 
         if(v == parent[v])
@@ -28,6 +28,8 @@ class Solution {
     }
 
 public:
+
+    // a combination of Union Find by rank and path compression  and Indegree/Outdegree
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
 
         vector<int> node(n,0);
