@@ -30,6 +30,32 @@ class Solution {
 public:
     bool validateBinaryTreeNodes(int n, vector<int>& leftChild, vector<int>& rightChild) {
 
+        vector<int> node(n,0);
+        
+        for(int i=0;i<n;i++){
+            
+            if(left[i]!=-1){
+                node[left[i]]++;
+                if(node[left[i]]>1) return false; // keep count of node if come more then 1 time
+            }       //like in any order traversal one node should come only one time
+            
+            if(right[i]!=-1){
+                node[right[i]]++;
+                if(node[right[i]]>1) return false; //similarly with this
+            }    
+        }
+        
+        int psbl=-1,count=0;
+        for(int i=0;i<n;i++){
+            if(node[i]==0){ 
+                psbl=i;
+                count++;
+                if(count>1) return false; // if root node is more then 1
+            }
+        }
+        
+        if(psbl==-1) return false; //if no root found then false
+
         // initialize leads
         vector<int> parent(n,0), rank(n,0);
 
@@ -60,6 +86,15 @@ public:
 
             _union(absFrom, absTo, rank, parent);
         }
+
+        int count=0;
+        for(int i=0;i<n;i++){
+            if(parent[i]==i){
+                count++;
+                if(count>1) 
+                    return false;
+            }
+        }
         return true;        
     }
 };
@@ -67,22 +102,22 @@ public:
 int main(){
 
     // ex1
-    int n = 4;
-    vector<int> leftChild = {
-        1,-1,3,-1
-    },
-    rightChild = {
-        2,-1,-1,-1
-    };
-
-    // ex2
     // int n = 4;
     // vector<int> leftChild = {
     //     1,-1,3,-1
     // },
     // rightChild = {
-    //     2,3,-1,-1
+    //     2,-1,-1,-1
     // };
+
+    // ex2
+    int n = 4;
+    vector<int> leftChild = {
+        1,-1,3,-1
+    },
+    rightChild = {
+        2,3,-1,-1
+    };
 
     // ex3
     // int n = 2;
