@@ -82,6 +82,7 @@ int main(){
     //     2,3,-1,-1
     // };
 
+    // ex3
     // int n = 2;
     // vector<int> leftChild = {
     //     1,0
