@@ -36,12 +36,14 @@ public:
             
             if(leftChild[i]!=-1){
                 node[leftChild[i]]++;
-                if(node[leftChild[i]]>1) return false; // keep count of node if come more then 1 time
+                if(node[leftChild[i]]>1) 
+                    return false; // keep count of node if come more then 1 time
             }       //like in any order traversal one node should come only one time
             
             if(rightChild[i]!=-1){
                 node[rightChild[i]]++;
-                if(node[rightChild[i]]>1) return false; //similarly with this
+                if(node[rightChild[i]]>1) 
+                    return false;
             }    
         }
         
