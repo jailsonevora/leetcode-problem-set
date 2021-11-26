@@ -90,6 +90,7 @@ int main(){
     //     -1,-1
     // };
 
+    // ex4
     int n = 4;
     vector<int> leftChild = {
         1,-1,-1,4,-1,-1
