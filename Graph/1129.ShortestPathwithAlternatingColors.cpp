@@ -38,7 +38,7 @@ class Solution {
                 }
             }
 
-            for(auto a: distance){
+            for(auto& a: distance){
                 if(a == INT_MAX)
                     a = -1;
             }
