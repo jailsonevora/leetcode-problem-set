@@ -21,7 +21,14 @@ class Solution {
             int u = queue.front().second;
             queue.pop();
 
+            for(auto it: graph[u]){
+                int v = it.first;
+                char color = it.second;
 
+                if(distance[v] < distance[u] + 1){
+                    distance
+                }
+            }
 
         }
 
