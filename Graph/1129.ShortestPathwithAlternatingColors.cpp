@@ -12,7 +12,7 @@ class Solution {
         queue<pair<int,int>> queue;
         distance[start] = 1;
 
-        queue.push({1,start});
+        queue.push({0,start});
 
         while(!queue.empty()){
 
