@@ -27,14 +27,14 @@ class Solution {
                 int v = it.first;
                 char vcolor = it.second;
 
-                if(uColor != vcolor && visited[v] <= n){
+                if(uColor != vcolor /*&& visited[v] <= n*/){
                     
                     if(distance[v] > distance[u] + 1){
                         distance[v] = distance[u] + 1;
                     }
                     
                     queue.push({distance[v], {v,vcolor}});
-                    visited[v] += 1;
+                    //visited[v] += 1;
                 }
             }
 
@@ -98,12 +98,30 @@ public:
 
 int main(){
 
+    // int n = 3;
+    // vector<vector<int>> red_edges = {
+    //     {0,1},{1,2}
+    // };
+
+    // vector<vector<int>> blue_edges = {
+    // };
+
+    // int n = 3;
+    // vector<vector<int>> red_edges = {
+    //     {0,1}
+    // };
+
+    // vector<vector<int>> blue_edges = {
+    //     {2,1}
+    // };
+
     int n = 3;
     vector<vector<int>> red_edges = {
-        {0,1},{1,2}
+        {1,0}
     };
 
     vector<vector<int>> blue_edges = {
+        {2,1}
     };
 
     Solution sl;
