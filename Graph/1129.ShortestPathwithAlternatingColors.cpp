@@ -7,8 +7,8 @@ using namespace std;
 
 class Solution {
 
-    void bfs(){
-        
+    void bfs(vector<pair<int, char>> graph[], int start, int end, int n){
+
     }
 public:
     vector<int> shortestAlternatingPaths(int n, vector<vector<int>>& red_edges, vector<vector<int>>& blue_edges) {
