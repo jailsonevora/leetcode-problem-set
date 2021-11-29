@@ -9,6 +9,8 @@ class Solution {
 
     void bfs(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
 
+        vector<int> visited(n,0);
+
         queue<pair<int, pair<int,char>> > queue;
         distance[start] = 0;
 
