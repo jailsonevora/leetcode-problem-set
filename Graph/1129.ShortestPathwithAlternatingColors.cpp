@@ -13,6 +13,7 @@ class Solution {
 
         queue<pair<int, pair<int,char>> > queue;
         distance[start] = 0;
+        visited[0] += 1;
 
         queue.push({0,{start,'n'}});
 
@@ -34,16 +35,14 @@ class Solution {
                     }
                     
                     queue.push({distance[v], {v,vcolor}});
-                    //visited[v] += 1;
+                    visited[v] += 1;
                 }
             }
-
-            for(auto& a: distance){
-                if(a == INT_MAX)
-                    a = -1;
-            }
-
         }
+
+        for(auto& a: distance)
+            if(a == INT_MAX)
+                a = -1;
 
     }
 public:
@@ -115,13 +114,22 @@ int main(){
     //     {2,1}
     // };
 
+    // int n = 3;
+    // vector<vector<int>> red_edges = {
+    //     {1,0}
+    // };
+
+    // vector<vector<int>> blue_edges = {
+    //     {2,1}
+    // };
+
     int n = 3;
     vector<vector<int>> red_edges = {
-        {1,0}
+        {0,1}
     };
 
     vector<vector<int>> blue_edges = {
-        {2,1}
+        {1,2}
     };
 
     Solution sl;
