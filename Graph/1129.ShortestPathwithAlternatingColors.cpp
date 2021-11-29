@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 
-    void bfs(vector<pair<int, char>> graph[], int start, int end, int n){
+    void bfs(vector<pair<int, char>> graph[], int start, int end, int n, vector<int>& ans){
 
     }
 public:
