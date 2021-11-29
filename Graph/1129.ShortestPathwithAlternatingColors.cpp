@@ -9,10 +9,10 @@ class Solution {
 
     void bfs(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
 
-        queue<pair<int,int>> queue;
+        queue<pair<int, pair<int,char>> > queue;
         distance[start] = 1;
 
-        queue.push({0,start});
+        queue.push({0,{start,'n'}});
 
         while(!queue.empty()){
 
