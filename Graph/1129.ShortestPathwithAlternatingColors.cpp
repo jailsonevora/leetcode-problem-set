@@ -26,7 +26,8 @@ class Solution {
                 char color = it.second;
 
                 if(distance[v] < distance[u] + 1){
-                    distance
+                    distance[v] = distance[u] + 1;
+                    queue.push({distance[v], v});
                 }
             }
 
