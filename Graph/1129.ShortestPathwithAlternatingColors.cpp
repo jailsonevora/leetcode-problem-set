@@ -35,7 +35,7 @@ class Solution {
                     }
                     
                     queue.push({distance[v], {v,vcolor}});
-                    visited[v] += 1;
+                    //visited[v] += 1;
                 }
             }
         }
