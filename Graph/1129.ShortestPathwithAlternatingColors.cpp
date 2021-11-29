@@ -21,7 +21,7 @@ class Solution {
             int u = queue.front().second;
             queue.pop();
 
-            
+
 
         }
 
@@ -68,7 +68,12 @@ public:
         //     graph[u][v] = 'b';
         // }
 
-        return {};
+        vector<int> ans(n,-1);
+
+        for(int v = 1; v < n; ++v)
+            bfs(graph, 0, v, n, ans);
+
+        return ans;
     }
 };
 
