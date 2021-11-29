@@ -23,7 +23,7 @@ class Solution {
                 int v = it.first;
                 char color = it.second;
 
-                if(distance[v] < distance[u] + 1){
+                if(distance[v] > distance[u] + 1){
                     distance[v] = distance[u] + 1;
                     queue.push({distance[v], v});
                 }
@@ -74,7 +74,7 @@ public:
         //     graph[u][v] = 'b';
         // }
 
-        vector<int> ans(n,-1);
+        vector<int> ans(n, INT_MAX);
         
         bfs(graph, 0, n, ans);
 
