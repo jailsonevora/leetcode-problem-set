@@ -18,6 +18,11 @@ class Solution {
 
         while(!queue.empty()){
 
+            int u = queue.front().second;
+            queue.pop();
+
+            
+
         }
 
     }
