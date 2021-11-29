@@ -12,21 +12,32 @@ class Solution {
         queue<pair<int, pair<int,char>> > queue;
         distance[start] = 1;
 
-        queue.push({0,{start,'n'}});
+        queue.push({0,{start,'r'}});
 
         while(!queue.empty()){
 
-            int u = queue.front().second;
+            int u = queue.front().second.first;
+            char uColor = queue.front().second.second;
             queue.pop();
 
             for(auto it: graph[u]){
-                int v = it.first;
-                char color = it.second;
 
-                if(distance[v] > distance[u] + 1){
-                    distance[v] = distance[u] + 1;
-                    queue.push({distance[v], v});
+                int v = it.first;
+                char vcolor = it.second;
+
+                if(uColor != vcolor){
+                    
+                    if(distance[v] > distance[u] + 1){
+                        distance[v] = distance[u] + 1;
+                    }
+                    
+                    queue.push({distance[v], {v,vcolor}});
                 }
+            }
+
+            for(auto a: distance){
+                if(a == INT_MAX)
+                    a = -1;
             }
 
         }
