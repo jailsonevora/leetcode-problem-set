@@ -6,6 +6,10 @@
 using namespace std;
 
 class Solution {
+
+    void bfs(){
+        
+    }
 public:
     vector<int> shortestAlternatingPaths(int n, vector<vector<int>>& red_edges, vector<vector<int>>& blue_edges) {
 
