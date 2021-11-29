@@ -7,11 +7,9 @@ using namespace std;
 
 class Solution {
 
-    void bfs(vector<pair<int, char>> graph[], int start, int n, vector<int>& ans){
+    void bfs(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
 
         queue<pair<int,int>> queue;
-
-        vector<int> distance(n,0);
         distance[start] = 1;
 
         queue.push({1,start});
