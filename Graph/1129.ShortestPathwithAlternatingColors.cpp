@@ -9,7 +9,7 @@ class Solution {
 
     void bfs(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
 
-        vector<bool> visited(n,0);
+        vector<int> visited(n,0);
 
         queue<pair<int, pair<int,char>> > queue;
         distance[start] = 0;
@@ -28,14 +28,14 @@ class Solution {
                 int v = it.first;
                 char vcolor = it.second;
 
-                if(uColor != vcolor && !visited[v]){
+                if(uColor != vcolor && visited[v] <= n){
                     
                     if(distance[v] > distance[u] + 1){
                         distance[v] = distance[u] + 1;
                     }
                     
                     queue.push({distance[v], {v,vcolor}});
-                    visited[v] = 1;
+                    visited[v] += 1;
                 }
             }
         }
