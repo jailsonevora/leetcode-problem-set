@@ -77,7 +77,7 @@ class Solution {
                     if(distance[v] == -1)
                         distance[v] = uDist+1;
                     
-                    queue.push({distance[v], {v,vcolor}});
+                    queue.push({uDist+1, {v,vcolor}});
                     visited[v] = 1;
                 }
             }
