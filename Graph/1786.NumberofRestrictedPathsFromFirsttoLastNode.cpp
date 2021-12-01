@@ -22,7 +22,20 @@ class Solution {
         {
             int u = p_queue.top().second;
             int dis = p_queue.top().first;
-            p_queue.pop(); 
+            p_queue.pop();
+
+            if(u == dst)
+                break;
+
+            for(auto it: graph[u]){
+                
+                int v = it.first;
+                int w = it.second;
+
+                if(distance[v] > dis + w)
+                    distance[v] = dis + w,
+                        p_queue.push({distance[v], v});
+            }
         }
         
 
