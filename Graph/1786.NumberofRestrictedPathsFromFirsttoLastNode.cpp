@@ -10,6 +10,9 @@ class Solution {
 
 
     // using dijkstra shortest path with adjLis + minHeap
+    void dijkstra(vector<pair<int, int>> graph[], int n, int src, int dst, vector<int> ans){
+
+    }
 
 public:
     int countRestrictedPaths(int n, vector<vector<int>>& edges) {
@@ -35,5 +38,7 @@ int main(){
     for(auto edge: edges)
         graph[edge[0]].push_back({edge[1],edge[2]}),
         graph[edge[1]].push_back({edge[0],edge[2]});
+
+    
 
 }
