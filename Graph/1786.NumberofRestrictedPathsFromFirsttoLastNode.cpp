@@ -30,5 +30,10 @@ int main(){
     };
     int n = 3;
 
-    vector<int, pair<int, int>> graph[n];
+    vector<pair<int, int>> graph[n];
+
+    for(auto edge: edges)
+        graph[edge[0]].push_back({edge[1],edge[2]}),
+        graph[edge[1]].push_back({edge[0],edge[2]});
+
 }
