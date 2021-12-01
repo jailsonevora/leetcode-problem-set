@@ -49,15 +49,17 @@ class Solution {
 
         vector<int> visited(n,0);
 
-        queue<pair<int, pair<int,char>> > queue;
+        //queue<pair<int, pair<int,char>> > queue;
+        priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<>> queue;
         distance[start] = 0;
-        visited[0] += 1;
+        //visited[0] += 1;
 
         queue.push({0,{start,'n'}});
 
         while(!queue.empty()){
 
-            int u = queue.front().second.first;
+            int dist = queue.top
+            int u = queue.top().second.first;
             char uColor = queue.front().second.second;
             queue.pop();
 
