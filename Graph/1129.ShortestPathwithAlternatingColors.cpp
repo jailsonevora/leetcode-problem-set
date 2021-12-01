@@ -58,9 +58,9 @@ class Solution {
 
         while(!queue.empty()){
 
-            int dist = queue.top
+            int dist = queue.top().first;
             int u = queue.top().second.first;
-            char uColor = queue.front().second.second;
+            char uColor = queue.top().second.second;
             queue.pop();
 
             for(auto it: graph[u]){
