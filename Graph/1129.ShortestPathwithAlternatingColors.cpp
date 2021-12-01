@@ -68,7 +68,7 @@ class Solution {
                 int v = it.first;
                 char vcolor = it.second;
 
-                if(uColor != vcolor && visited[v] != 0){
+                if(uColor != vcolor && visited[v] != 1){
                     
                     // if(distance[v] > distance[u] + 1){
                     //     distance[v] = distance[u] + 1;
