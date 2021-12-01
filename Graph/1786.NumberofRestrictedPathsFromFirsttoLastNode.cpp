@@ -16,7 +16,15 @@ class Solution {
 
         vector<int> distance(dst, INT_MAX);
 
-        p_queue.push({0,u});
+        p_queue.push({0,src});
+
+        while (!p_queue.empty())
+        {
+            int u = p_queue.top().second;
+            int dis = p_queue.top().first;
+            p_queue.pop(); 
+        }
+        
 
 
 
