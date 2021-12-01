@@ -17,3 +17,9 @@ public:
     }
 };
 
+int main(){
+
+    vector<pair<int,pair<int,int>>> edges = {
+        
+    }
+}
