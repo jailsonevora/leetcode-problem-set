@@ -28,7 +28,7 @@ class Solution {
                 int v = it.first;
                 char vcolor = it.second;
 
-                if(uColor != vcolor && !visited[v]){
+                if(uColor != vcolor && visited[v] != 1){
                     
                     if(distance[v] > distance[u] + 1){
                         distance[v] = distance[u] + 1;
@@ -121,12 +121,12 @@ public:
         // }
 
         // bfs
-        //vector<int> ans(n,INT_MAX);
-        //bfs(graph, 0, n, ans);
+        vector<int> ans(n,INT_MAX);
+        bfs(graph, 0, n, ans);
 
         // dijkstra
-        vector<int> ans(n,-1);
-        dijkstra(graph, 0, n, ans);
+        // vector<int> ans(n,-1);
+        // dijkstra(graph, 0, n, ans);
 
         return ans;
     }
