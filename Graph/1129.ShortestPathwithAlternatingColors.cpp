@@ -47,12 +47,12 @@ class Solution {
 
     void dijkstra(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
 
-        vector<int> visited(n,0);
+        vector<bool> visited(n,0);
 
         //queue<pair<int, pair<int,char>> > queue;
         priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<>> queue;
         distance[start] = 0;
-        //visited[0] += 1;
+        visited[start] = 1;
 
         queue.push({0,{start,'n'}});
 
@@ -68,14 +68,17 @@ class Solution {
                 int v = it.first;
                 char vcolor = it.second;
 
-                if(uColor != vcolor && visited[v] <= n){
+                if(uColor != vcolor && visited[v] != 0){
                     
-                    if(distance[v] > distance[u] + 1){
-                        distance[v] = distance[u] + 1;
-                    }
+                    // if(distance[v] > distance[u] + 1){
+                    //     distance[v] = distance[u] + 1;
+                    // }
+
+                    if(distance[v] == -1)
+                        distance[v]= uDist+1;
                     
                     queue.push({distance[v], {v,vcolor}});
-                    visited[v] += 1;
+                    visited[v] = 1;
                 }
             }
         }
