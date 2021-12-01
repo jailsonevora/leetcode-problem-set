@@ -126,11 +126,11 @@ public:
         // }
 
         // bfs
-        //vector<int> ans(n, INT_MAX);
+        //vector<int> ans(n,INT_MAX);
         //bfs(graph, 0, n, ans);
 
         // dijkstra
-        vector<int> ans(n, -1);
+        vector<int> ans(n,-1);
         dijkstra(graph, 0, n, ans);
 
         return ans;
