@@ -28,4 +28,7 @@ int main(){
         {3,5,1},
         {5,4,10}
     };
+    int n = 3;
+
+    vector<int, pair<int, int>> graph[n];
 }
