@@ -38,7 +38,7 @@ class Solution {
             }
         }
 
-        int s = 0;
+        ans[src] = distance[dst];
     }
 
 public:
