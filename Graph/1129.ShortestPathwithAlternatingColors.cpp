@@ -9,16 +9,14 @@ class Solution {
 
     void bfs(vector<pair<int, int>> graph[], int start, int n, vector<int>& distance){
 
-        vector<int> visited(n,0);
-
         queue<pair<int, pair<int,int>> > queue;
         distance[start] = 0;
-        visited[0] = 1;
 
         queue.push({0,{start,-1}});
 
         while(!queue.empty()){
 
+            int uDist = queue.front().first;
             int u = queue.front().second.first;
             char uColor = queue.front().second.second;
             queue.pop();
@@ -28,14 +26,13 @@ class Solution {
                 int v = it.first;
                 char vcolor = it.second;
 
-                if(uColor != vcolor && visited[v] != 1){
+                if(uColor != vcolor && vcolor != -1){
                     
-                    if(distance[v] > distance[u] + 1){
-                        distance[v] = distance[u] + 1;
-                    }
+                    if(distance[v] > uDist + 1)
+                        distance[v] = uDist + 1;
                     
-                    queue.push({distance[v], {v,vcolor}});
-                    visited[v] = 1;
+                    queue.push({uDist+1, {v,vcolor}});
+                    vcolor = -1;
                 }
             }
         }
@@ -47,11 +44,8 @@ class Solution {
 
     void dijkstra(vector<pair<int, int>> graph[], int start, int n, vector<int>& distance){
 
-        vector<bool> visited(n,0);
-
         priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<>> queue;
         distance[start] = 0;
-        visited[start] = 1;
 
         queue.push({0,{start,-1}});
 
@@ -106,8 +100,7 @@ public:
             int u = edge[0], v = edge[1];
             graph[u].push_back({v,0});
         }
-
-        int w = 0;
+        
         // vector<vector<char>> graph(n,vector<char>(n,'n'));
 
         // for(auto edge: red_edges){
