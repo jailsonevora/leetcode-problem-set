@@ -12,11 +12,13 @@ class Solution {
     // using dijkstra shortest path with adjLis + minHeap
     void dijkstra(vector<pair<int, int>> graph[], int src, int dst, vector<int>& ans){
 
-        priority_queue< pair<int,pair<int,int>>, vector<pair<int,pair<int,int>>> , greater<> > p_queue;
+        priority_queue< pair<int,int>, vector<pair<int,int>> , greater<> > p_queue;
 
         vector<int> distance(dst, INT_MAX);
 
-        p_queue.push(0,{u , })
+        p_queue.push(0,u);
+
+
 
     }
 
