@@ -16,7 +16,7 @@ class Solution {
 
         vector<int> distance(dst, INT_MAX);
 
-        p_queue.push(0,u);
+        p_queue.push({0,u});
 
 
 
