@@ -18,7 +18,7 @@ public:
     int countRestrictedPaths(int n, vector<vector<int>>& edges) {
         
         vector<pair<int, int>> graph[n];
-        vector<int> ans(n, 0);
+        vector<int> shortestPath(n, 0);
 
         for(auto edge: edges)
             graph[edge[0]].push_back({edge[1],edge[2]}),
@@ -26,7 +26,7 @@ public:
 
         // 1st step to calculate shortestpath from node 1 to last node
         for(int u = 1; u < n; ++u)
-            dijkstra(graph, u, n, ans);
+            dijkstra(graph, u, n, shortestPath);
 
         // remove unecessary edges to transform the graph as DAG
 
