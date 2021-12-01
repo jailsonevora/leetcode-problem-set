@@ -19,7 +19,7 @@ public:
 
 int main(){
 
-    vector<pair<int,pair<int,int>>> edges = {
+    vector<vector<int>> edges = {
         {1,2,3},
         {1,3,3},
         {2,3,1},
