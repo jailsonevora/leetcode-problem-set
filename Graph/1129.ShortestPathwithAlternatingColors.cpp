@@ -43,7 +43,6 @@ class Solution {
         for(auto& a: distance)
             if(a == INT_MAX)
                 a = -1;
-
     }
 public:
     vector<int> shortestAlternatingPaths(int n, vector<vector<int>>& red_edges, vector<vector<int>>& blue_edges) {
