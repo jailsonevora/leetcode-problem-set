@@ -7,15 +7,15 @@ using namespace std;
 
 class Solution {
 
-    void bfs(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
+    void bfs(vector<pair<int, int>> graph[], int start, int n, vector<int>& distance){
 
         vector<int> visited(n,0);
 
-        queue<pair<int, pair<int,char>> > queue;
+        queue<pair<int, pair<int,int>> > queue;
         distance[start] = 0;
-        visited[0] += 1;
+        visited[0] = 1;
 
-        queue.push({0,{start,'n'}});
+        queue.push({0,{start,-1}});
 
         while(!queue.empty()){
 
@@ -28,14 +28,14 @@ class Solution {
                 int v = it.first;
                 char vcolor = it.second;
 
-                if(uColor != vcolor && visited[v] <= n){
+                if(uColor != vcolor && !visited[v]){
                     
                     if(distance[v] > distance[u] + 1){
                         distance[v] = distance[u] + 1;
                     }
                     
                     queue.push({distance[v], {v,vcolor}});
-                    visited[v] += 1;
+                    visited[v] = 1;
                 }
             }
         }
