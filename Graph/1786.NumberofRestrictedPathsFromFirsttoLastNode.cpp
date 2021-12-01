@@ -10,11 +10,11 @@ class Solution {
 
 
     // using dijkstra shortest path with adjLis + minHeap
-    void dijkstra(vector<pair<int, int>> graph[], int src, int dst, vector<int>& ans){
+    void dijkstra(vector<pair<int, int>> graph[], int n, int src, int dst, vector<int>& ans){
 
         priority_queue< pair<int,int>, vector<pair<int,int>> , greater<> > p_queue;
 
-        vector<int> distance(dst, INT_MAX);
+        vector<int> distance(n, INT_MAX);
 
         p_queue.push({0,src});
 
@@ -37,25 +37,29 @@ class Solution {
                         p_queue.push({distance[v], v});
             }
         }
+
+        int s = 0;
     }
 
 public:
     int countRestrictedPaths(int n, vector<vector<int>>& edges) {
         
-        vector<pair<int, int>> graph[n];
+        vector<pair<int,int>> graph[n];
         vector<int> shortestPath(n, 0);
 
         for(auto edge: edges)
             graph[edge[0]].push_back({edge[1],edge[2]}),
-            graph[edge[1]].push_back({edge[0],edge[2]});
+                graph[edge[1]].push_back({edge[0],edge[2]});
 
         // 1st step to calculate shortestpath from node 1 to last node
         for(int u = 1; u < n; ++u)
-            dijkstra(graph, u, n, shortestPath);
+            dijkstra(graph, n, u, n-1, shortestPath);
 
         // remove unecessary edges to transform the graph as DAG
 
         // topologicalsort over DAG
+
+        return 1;
     }
 };
 
@@ -70,8 +74,8 @@ int main(){
         {3,5,1},
         {5,4,10}
     };
-    int n = 3;
+    int n = 5;
 
     Solution sl;
-    cout << sl.countRestrictedPaths(n, edges);
+    cout << sl.countRestrictedPaths(n+1, edges);
 }
