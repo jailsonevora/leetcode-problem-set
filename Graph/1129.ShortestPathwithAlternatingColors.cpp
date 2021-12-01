@@ -49,7 +49,6 @@ class Solution {
 
         vector<bool> visited(n,0);
 
-        //queue<pair<int, pair<int,char>> > queue;
         priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<>> queue;
         distance[start] = 0;
         visited[start] = 1;
@@ -69,10 +68,6 @@ class Solution {
                 char vcolor = it.second;
 
                 if(uColor != vcolor && visited[v] != 1){
-                    
-                    // if(distance[v] > distance[u] + 1){
-                    //     distance[v] = distance[u] + 1;
-                    // }
 
                     if(distance[v] == -1)
                         distance[v] = uDist+1;
@@ -165,13 +160,22 @@ int main(){
     //     {2,1}
     // };
 
-    int n = 3;
+    // int n = 3;
+    // vector<vector<int>> red_edges = {
+    //     {0,1}
+    // };
+
+    // vector<vector<int>> blue_edges = {
+    //     {1,2}
+    // };
+
+    int n = 5;
     vector<vector<int>> red_edges = {
-        {0,1}
+        {0,1},{1,2},{2,3},{3,4}
     };
 
     vector<vector<int>> blue_edges = {
-        {1,2}
+        {1,2},{2,3},{3,1}
     };
 
     Solution sl;
