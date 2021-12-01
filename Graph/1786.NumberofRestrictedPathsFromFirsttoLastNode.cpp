@@ -42,6 +42,6 @@ int main(){
     };
     int n = 3;
 
-    
-
+    Solution sl;
+    cout << sl.countRestrictedPaths(n, edges);
 }
