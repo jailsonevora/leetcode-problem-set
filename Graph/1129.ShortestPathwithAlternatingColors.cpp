@@ -21,7 +21,7 @@ class Solution {
             char uColor = queue.front().second.second;
             queue.pop();
 
-            for(auto it: graph[u]){
+            for(auto& it: graph[u]){
 
                 int v = it.first;
                 char vcolor = it.second;
@@ -32,7 +32,7 @@ class Solution {
                         distance[v] = uDist + 1;
                     
                     queue.push({uDist+1, {v,vcolor}});
-                    vcolor = -1;
+                    it.second = -1;
                 }
             }
         }
@@ -56,7 +56,7 @@ class Solution {
             int uColor = queue.top().second.second;
             queue.pop();
 
-            for(auto it: graph[u]){
+            for(auto& it: graph[u]){
 
                 int v = it.first;
                 int vcolor = it.second;
@@ -67,7 +67,7 @@ class Solution {
                         distance[v] = uDist+1;
                     
                     queue.push({uDist+1, {v,vcolor}});
-                    vcolor = -1;
+                    it.second = -1;
                 }
             }
         }
@@ -75,20 +75,6 @@ class Solution {
 public:
     vector<int> shortestAlternatingPaths(int n, vector<vector<int>>& red_edges, vector<vector<int>>& blue_edges) {
 
-        // pair with vector
-        // vector<vector<pair<int,char>>> graph[n];
-
-        // for(auto edge: red_edges){
-        //     int u = edge[0], v = edge[1];
-        //     graph[u].push_back({{v,'r'}});
-        // }
-
-        // for(auto edge: blue_edges){
-        //     int u = edge[0], v = edge[1];
-        //     graph[u].push_back({{v,'b'}});
-        // }
-
-        // pair without vector
         vector<pair<int,int>> graph[n];
 
         for(auto edge: red_edges){
@@ -100,18 +86,6 @@ public:
             int u = edge[0], v = edge[1];
             graph[u].push_back({v,0});
         }
-        
-        // vector<vector<char>> graph(n,vector<char>(n,'n'));
-
-        // for(auto edge: red_edges){
-        //     int u = edge[0], v = edge[1];
-        //     graph[u][v] = 'r';
-        // }
-
-        // for(auto edge: blue_edges){
-        //     int u = edge[0], v = edge[1];
-        //     graph[u][v] = 'b';
-        // }
 
         // bfs
         vector<int> ans(n,INT_MAX);
