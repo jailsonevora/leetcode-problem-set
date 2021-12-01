@@ -58,7 +58,7 @@ class Solution {
 
         while(!queue.empty()){
 
-            int dist = queue.top().first;
+            int uDist = queue.top().first;
             int u = queue.top().second.first;
             char uColor = queue.top().second.second;
             queue.pop();
