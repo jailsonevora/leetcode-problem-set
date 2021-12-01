@@ -37,10 +37,6 @@ class Solution {
                         p_queue.push({distance[v], v});
             }
         }
-        
-
-
-
     }
 
 public:
