@@ -45,7 +45,7 @@ class Solution {
                 a = -1;
     }
 
-    void dijkstra(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
+    void dijkstra(vector<pair<int, int>> graph[], int start, int n, vector<int>& distance){
 
         vector<bool> visited(n,0);
 
@@ -53,27 +53,27 @@ class Solution {
         distance[start] = 0;
         visited[start] = 1;
 
-        queue.push({0,{start,'n'}});
+        queue.push({0,{start,-1}});
 
         while(!queue.empty()){
 
             int uDist = queue.top().first;
             int u = queue.top().second.first;
-            char uColor = queue.top().second.second;
+            int uColor = queue.top().second.second;
             queue.pop();
 
             for(auto it: graph[u]){
 
                 int v = it.first;
-                char vcolor = it.second;
+                int vcolor = it.second;
 
-                if(uColor != vcolor && visited[v] != 1){
+                if(uColor != vcolor && vcolor != -1){
 
                     if(distance[v] == -1)
                         distance[v] = uDist+1;
                     
                     queue.push({uDist+1, {v,vcolor}});
-                    visited[v] = 1;
+                    vcolor = -1;
                 }
             }
         }
@@ -95,16 +95,16 @@ public:
         // }
 
         // pair without vector
-        vector<pair<int,char>> graph[n];
+        vector<pair<int,int>> graph[n];
 
         for(auto edge: red_edges){
             int u = edge[0], v = edge[1];
-            graph[u].push_back({v,'r'});
+            graph[u].push_back({v,1});
         }
 
         for(auto edge: blue_edges){
             int u = edge[0], v = edge[1];
-            graph[u].push_back({v,'b'});
+            graph[u].push_back({v,0});
         }
 
         int w = 0;
