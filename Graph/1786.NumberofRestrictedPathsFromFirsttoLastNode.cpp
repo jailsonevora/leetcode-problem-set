@@ -52,12 +52,13 @@ public:
                 graph[edge[1]].push_back({edge[0],edge[2]});
 
         // 1st step to calculate shortestpath from node 1 to last node
-        for(int u = 1; u < n; ++u)
+        for(int u = 1; u < n-1; ++u)
             dijkstra(graph, n, u, n-1, shortestPath);
 
         // remove unecessary edges to transform the graph as DAG
 
         // topologicalsort over DAG
+        int w = 1;
 
         return 1;
     }
