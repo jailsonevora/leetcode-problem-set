@@ -44,6 +44,40 @@ class Solution {
             if(a == INT_MAX)
                 a = -1;
     }
+
+    void dijkstra(vector<pair<int, char>> graph[], int start, int n, vector<int>& distance){
+
+        vector<int> visited(n,0);
+
+        queue<pair<int, pair<int,char>> > queue;
+        distance[start] = 0;
+        visited[0] += 1;
+
+        queue.push({0,{start,'n'}});
+
+        while(!queue.empty()){
+
+            int u = queue.front().second.first;
+            char uColor = queue.front().second.second;
+            queue.pop();
+
+            for(auto it: graph[u]){
+
+                int v = it.first;
+                char vcolor = it.second;
+
+                if(uColor != vcolor && visited[v] <= n){
+                    
+                    if(distance[v] > distance[u] + 1){
+                        distance[v] = distance[u] + 1;
+                    }
+                    
+                    queue.push({distance[v], {v,vcolor}});
+                    visited[v] += 1;
+                }
+            }
+        }
+    }
 public:
     vector<int> shortestAlternatingPaths(int n, vector<vector<int>>& red_edges, vector<vector<int>>& blue_edges) {
 
