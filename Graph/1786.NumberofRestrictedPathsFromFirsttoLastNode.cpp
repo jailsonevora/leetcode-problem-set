@@ -8,15 +8,15 @@ using namespace std;
 
 class Solution {
     // using topological sort
-    void dfs(int u, string path, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int>& visited){
+    void dfs(int u, int dst, string path, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int>& visited){
 
         //visited[u] = 1;
         for(auto it: graph[u]){
             int v = it.first;
-                //if(!visited[v])
-                    dfs(v, path + to_string(u) + "->", graph, topologicalsort, visited);
+                    dfs(v, dst, path + to_string(u) + "->", graph, topologicalsort, visited);
         }
-        topologicalsort.push(path + to_string(u));
+        if(u == dst)
+            topologicalsort.push(path + to_string(u));
     }
 
     // using dijkstra shortest path with adjLis + minHeap
@@ -80,9 +80,9 @@ public:
         vector<int> visited(n,0);
         stack<string> topologicalsort;
 
-        dfs(1, "", graph, topologicalsort, visited);
+        dfs(1, n-1, "", graph, topologicalsort, visited);
         
-        return topologicalsort.size() - 1;
+        return topologicalsort.size();
     }
 };
 
