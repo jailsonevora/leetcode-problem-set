@@ -10,7 +10,11 @@ class Solution {
     // using topological sort
     void dfs(int u, vector<pair<int, int>> graph[], stack<int>& topologicalsort, vector<int>& visited){
 
-        visited[u
+        visited[u] = 1;
+        for(int v: graph[u]){
+            if(!visited[v])
+                dfs(v, graph, topologicalsort, visited);
+        }
 
     }
 
