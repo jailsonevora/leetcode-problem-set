@@ -57,8 +57,8 @@ public:
 
         // remove unecessary edges to transform the graph as DAG
         for(auto edge: edges){
-            if(shortestPath[edge[0]] )
-                graph[].;
+            if(shortestPath[edge[0]] > shortestPath[edge[1]])
+                graph[edge[1]].clear();
         }
 
 
