@@ -56,7 +56,8 @@ public:
             dijkstra(graph, n, u, n-1, shortestPath);
 
         // remove unecessary edges to transform the graph as DAG
-        delete graph;
+        for(auto& v: graph)
+            v.clear();
 
         for(auto edge: edges){
             if(shortestPath[edge[0]] > shortestPath[edge[1]])
@@ -64,8 +65,7 @@ public:
             else if(shortestPath[edge[0]] < shortestPath[edge[1]])
                 graph[edge[1]].push_back({edge[0], edge[2]});
         }
-
-
+        
         // topologicalsort over DAG
         int w = 1;
 
