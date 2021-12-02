@@ -8,9 +8,9 @@ using namespace std;
 
 class Solution {
     // using topological sort
-    void dfs(vector<pair<int, int>> graph[], stack<int>& topologicalsort, vector<int>& visited){
+    void dfs(int u, vector<pair<int, int>> graph[], stack<int>& topologicalsort, vector<int>& visited){
 
-        visited[]
+        visited[u
 
     }
 
