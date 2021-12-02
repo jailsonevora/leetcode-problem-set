@@ -10,7 +10,6 @@ class Solution {
     // using topological sort
     void dfs(int u, int dst, string path, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int>& visited){
 
-        //visited[u] = 1;
         for(auto it: graph[u]){
             int v = it.first;
                     dfs(v, dst, path + to_string(u) + "->", graph, topologicalsort, visited);
