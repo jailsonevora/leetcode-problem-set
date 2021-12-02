@@ -2,11 +2,17 @@
 #include<algorithm>
 #include<queue>
 #include<vector>
+#include<stack>
 
 using namespace std;
 
 class Solution {
     // using topological sort
+    void dfs(vector<pair<int, int>> graph[], stack<int>& topologicalsort, vector<int>& visited){
+
+        visited[]
+
+    }
 
 
     // using dijkstra shortest path with adjLis + minHeap
@@ -65,9 +71,9 @@ public:
             else if(shortestPath[edge[0]] < shortestPath[edge[1]])
                 graph[edge[1]].push_back({edge[0], edge[2]});
         }
-        
+
         // topologicalsort over DAG
-        int w = 1;
+        
 
         return 1;
     }
