@@ -17,7 +17,7 @@ class Solution {
         if(u == dst)
             topologicalsort.push(path + to_string(u));
     }
-
+    // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap
     void dijkstra(vector<pair<int, int>> graph[], int n, int src, int dst, vector<int>& ans){
 
@@ -46,7 +46,6 @@ class Solution {
                         p_queue.push({distance[v], v});
             }
         }
-
         ans[src] = distance[dst];
     }
 
