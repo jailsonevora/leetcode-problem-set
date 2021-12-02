@@ -80,10 +80,9 @@ public:
         vector<int> visited(n,0);
         stack<int> topologicalsort;
 
+        dfs(1, graph, topologicalsort, visited);
         
-        
-
-        return 1;
+        return topologicalsort.size();
     }
 };
 
