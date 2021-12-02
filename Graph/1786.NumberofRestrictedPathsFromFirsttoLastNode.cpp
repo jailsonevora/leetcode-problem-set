@@ -77,6 +77,10 @@ public:
         }
 
         // topologicalsort over DAG
+        vector<int> visited(n,0);
+        stack<int> topologicalsort;
+
+        
         
 
         return 1;
