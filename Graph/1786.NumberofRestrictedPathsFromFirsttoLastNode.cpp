@@ -10,10 +10,11 @@ class Solution {
     // using topological sort
     void dfs(int u, string path, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int>& visited){
 
-        //visited[u] = 1;
+        visited[u] = 1;
         for(auto it: graph[u]){
             int v = it.first;
-                dfs(v, path + to_string(v) + "->", graph, topologicalsort, visited);
+                if(!visited[v])
+                    dfs(v, path + to_string(u) + "->", graph, topologicalsort, visited);
         }
         topologicalsort.push(path + to_string(u));
     }
@@ -81,7 +82,7 @@ public:
 
         dfs(1, "", graph, topologicalsort, visited);
         
-        return topologicalsort.size();
+        return topologicalsort.size() - 1;
     }
 };
 
