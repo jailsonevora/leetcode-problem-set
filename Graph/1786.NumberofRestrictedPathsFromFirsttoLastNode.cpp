@@ -7,7 +7,8 @@
 using namespace std;
 
 class Solution {
-    // using topologicalsort dfs+ stack + backtracking without the visited node
+    // using topologicalsort dfs + stack + backtracking without keeping the visited node
+    // also it is necessary Dynaminc programing
     void dfs(int u, int dst, string path, vector<pair<int, int>> graph[], stack<string>& topologicalsort){
 
         for(auto it: graph[u]){
@@ -19,7 +20,7 @@ class Solution {
             topologicalsort.push(path + to_string(u));
     }
     // Run a Dijkstra from node numbered n to compute distance from the last node.
-    // using dijkstra shortest path with adjLis + minHeap
+    // using dijkstra shortest path with adjLis + minHeap O(e logv)
     void dijkstra(vector<pair<int, int>> graph[], int n, int src, int dst, vector<int>& ans){
 
         priority_queue< pair<int,int>, vector<pair<int,int>> , greater<> > p_queue;
@@ -52,7 +53,7 @@ class Solution {
 
 public:
     int countRestrictedPaths(int n, vector<vector<int>>& edges) {
-        
+        n+=1;
         vector<pair<int,int>> graph[n];
         vector<int> shortestPath(n, 0);
 
@@ -115,5 +116,5 @@ int main(){
     int n = 7;
 
     Solution sl;
-    cout << sl.countRestrictedPaths(n+1, edges);
+    cout << sl.countRestrictedPaths(n, edges);
 }
