@@ -7,12 +7,12 @@
 using namespace std;
 
 class Solution {
-    // using topological sort
-    void dfs(int u, int dst, string path, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int>& visited){
+    // using topologicalsort dfs+ stack + backtracking without the visited node
+    void dfs(int u, int dst, string path, vector<pair<int, int>> graph[], stack<string>& topologicalsort){
 
         for(auto it: graph[u]){
             int v = it.first;
-                dfs(v, dst, path + to_string(u) + "->", graph, topologicalsort, visited);
+                dfs(v, dst, path + to_string(u) + "->", graph, topologicalsort);
         }
         // backtracking
         if(u == dst)
@@ -79,10 +79,9 @@ public:
 
         // topologicalsort over DAG
         // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
-        vector<int> visited(n,0);
         stack<string> topologicalsort;
 
-        dfs(1, n-1, "", graph, topologicalsort, visited);
+        dfs(1, n-1, "", graph, topologicalsort);
         
         return topologicalsort.size();
     }
