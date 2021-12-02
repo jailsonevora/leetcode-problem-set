@@ -56,9 +56,13 @@ public:
             dijkstra(graph, n, u, n-1, shortestPath);
 
         // remove unecessary edges to transform the graph as DAG
+        delete graph;
+
         for(auto edge: edges){
             if(shortestPath[edge[0]] > shortestPath[edge[1]])
-                graph[edge[1]].clear();
+                graph[edge[0]].push_back({edge[1], edge[2]});
+            else if(shortestPath[edge[0]] < shortestPath[edge[1]])
+                graph[edge[1]].push_back({edge[0], edge[2]});
         }
 
 
