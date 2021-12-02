@@ -11,11 +11,12 @@ class Solution {
     void dfs(int u, vector<pair<int, int>> graph[], stack<int>& topologicalsort, vector<int>& visited){
 
         visited[u] = 1;
-        for(int v: graph[u]){
+        for(auto it: graph[u]){
+            int v = it.first;
             if(!visited[v])
                 dfs(v, graph, topologicalsort, visited);
         }
-
+        topologicalsort.push(u);
     }
 
 
