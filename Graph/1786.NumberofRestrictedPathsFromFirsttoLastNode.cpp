@@ -14,6 +14,7 @@ class Solution {
             int v = it.first;
                     dfs(v, dst, path + to_string(u) + "->", graph, topologicalsort, visited);
         }
+        // backtracking
         if(u == dst)
             topologicalsort.push(path + to_string(u));
     }
@@ -64,6 +65,8 @@ public:
             dijkstra(graph, n, u, n-1, shortestPath);
 
         // remove unecessary edges to transform the graph as DAG
+        // Consider all edges [u, v] one by one and direct them such that distance of u to n > distance of v to n.
+        // If both u and v are at the same distance from n, discard this edge.
         for(auto& v: graph)
             v.clear();
 
@@ -75,6 +78,7 @@ public:
         }
 
         // topologicalsort over DAG
+        // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
         vector<int> visited(n,0);
         stack<string> topologicalsort;
 
