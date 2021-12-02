@@ -15,7 +15,7 @@ class Solution {
             int v = it.first;
                 dfs(v, path + to_string(v) + "->", graph, topologicalsort, visited);
         }
-        topologicalsort.push(path + to_string(v));
+        topologicalsort.push(path + to_string(u));
     }
 
     // using dijkstra shortest path with adjLis + minHeap
