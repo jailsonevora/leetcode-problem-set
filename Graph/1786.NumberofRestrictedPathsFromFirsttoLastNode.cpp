@@ -83,7 +83,7 @@ public:
         stack<string> topologicalsort;
         vector<int> memo(n,-1);
 
-        dfs(1, n-1, "", graph, topologicalsort, );
+        dfs(1, n-1, "", graph, topologicalsort, memo);
         
         return topologicalsort.size();
     }
