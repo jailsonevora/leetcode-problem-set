@@ -9,7 +9,7 @@ using namespace std;
 class Solution {
     // using topologicalsort dfs + stack + backtracking without keeping the visited node
     // also it is necessary Dynaminc programing
-    int dfs(int u, int dst, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int> memo, const int mode = 1e9 + 7){
+    int dfs(int u, int dst, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int> memo, const int mod = 1e9 + 7){
         
         if(u == dst) 
             return 1;
