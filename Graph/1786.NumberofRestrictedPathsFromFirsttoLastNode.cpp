@@ -9,7 +9,7 @@ using namespace std;
 class Solution {
     // using topologicalsort dfs + stack + backtracking without keeping the visited node
     // also it is necessary Dynaminc programing
-    int dfs(int u, int dst, vector<pair<int, int>> graph[], stack<string>& topologicalsort, vector<int> memo, const int mod = 1e9 + 7){
+    int dfs(int u, int dst, vector<pair<int, int>> graph[], vector<int> memo, const int mod = 1e9 + 7){
         
         if(u == dst) 
             return 1;
@@ -21,13 +21,10 @@ class Solution {
 
         for(auto it: graph[u]){
             int v = it.first;
-                paths = (paths + dfs(v, dst, graph, topologicalsort)) % mod;
+                paths = (paths + dfs(v, dst, graph, memo, mod)) % mod;
         }
 
         return memo[u] = paths;
-        // backtracking
-        // if(u == dst)
-        //     topologicalsort.push(path + to_string(u));
     }
     // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap O(e logv)
@@ -93,7 +90,7 @@ public:
         stack<string> topologicalsort;
         vector<int> memo(n,-1);
 
-        dfs(1, n-1, graph, topologicalsort, memo);
+        dfs(1, n-1, graph, memo, 1e9 + 7);
         
         return topologicalsort.size();
     }
