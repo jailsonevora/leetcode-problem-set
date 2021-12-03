@@ -23,6 +23,8 @@ class Solution {
             int v = it.first;
                 paths = (paths + dfs(v, dst, graph, topologicalsort)) % mod;
         }
+
+        return memo[u] = paths;
         // backtracking
         // if(u == dst)
         //     topologicalsort.push(path + to_string(u));
