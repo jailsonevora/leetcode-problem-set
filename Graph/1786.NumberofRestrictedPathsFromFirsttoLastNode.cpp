@@ -60,13 +60,11 @@ public:
             graph[edge[0]].push_back({edge[1],edge[2]}),
                 graph[edge[1]].push_back({edge[0],edge[2]});
 
-        // 1st step to calculate shortestpath from node 1 to last node
+        // 1st step to calculate shortestpath from node n to last node
         dijkstra(graph, n, distance);
 
-        // topologicalsort over DAG
-        // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
+        // 2nd Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
         vector<int> dp(n+1,-1);
-
         return dfs(n, graph, distance, dp, 1e9 + 7);
     }
 };
