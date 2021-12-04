@@ -8,22 +8,22 @@ using namespace std;
 
 class Solution {
     // using dfs + Dynaminc programing
-    int dfs(int u, int dst, vector<pair<int, int>> graph[], vector<int>& memo, const int mod = 1e9 + 7){
+    int dfs(int n, vector<pair<int, int>> graph[], vector<int>& distance, vector<int>& dp, const int mod = 1e9 + 7){
         
         if(u == dst) 
             return 1;
         
-        if(memo[u] != -1) 
-            return memo[u];
+        if(dp[u] != -1) 
+            return dp[u];
 
         int paths = 0;
 
         for(auto it: graph[u]){
             int v = it.first;
-                paths = (paths + dfs(v, dst, graph, memo, mod)) % mod;
+                paths = (paths + dfs(v, dst, graph, dp, mod)) % mod;
         }
 
-        return memo[u] = paths;
+        return dp[u] = paths;
     }
     // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap O(e logv)
@@ -62,7 +62,7 @@ public:
                 graph[edge[1]].push_back({edge[0],edge[2]});
 
         // 1st step to calculate shortestpath from node 1 to last node
-        dijkstra(graph, n, 1, n-1, distance);
+        dijkstra(graph, n, distance);
 
         // topologicalsort over DAG
         // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
