@@ -20,7 +20,7 @@ class Solution {
 
         for(auto it: graph[n]){
             int v = it.first;
-            if(distance[n] < distance[v])
+            if(distance[v] > distance[n])
                 paths = (paths + dfs(v, graph, distance, dp, mod)) % mod;
         }
 
