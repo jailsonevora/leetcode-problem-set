@@ -31,7 +31,6 @@ class Solution {
     void dijkstra(vector<pair<int, int>> graph[], int n, vector<int>& distance){
 
         priority_queue< pair<int,int>, vector<pair<int,int>> , greater<> > p_queue;
-
         p_queue.push({0,n});
 
         while (!p_queue.empty())
