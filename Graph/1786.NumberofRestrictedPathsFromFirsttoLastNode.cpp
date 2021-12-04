@@ -7,9 +7,8 @@
 using namespace std;
 
 class Solution {
-    // using topologicalsort dfs + stack + backtracking without keeping the visited node
-    // also it is necessary Dynaminc programing
-    int dfs(int u, int dst, vector<pair<int, int>> graph[], vector<int> memo, const int mod = 1e9 + 7){
+    // using dfs + Dynaminc programing
+    int dfs(int u, int dst, vector<pair<int, int>> graph[], vector<int>& memo, const int mod = 1e9 + 7){
         
         if(u == dst) 
             return 1;
@@ -28,7 +27,7 @@ class Solution {
     }
     // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap O(e logv)
-    void dijkstra(vector<pair<int, int>> graph[], int n, int src, int dst, vector<int>& ans){
+    void dijkstra(vector<pair<int, int>> graph[], int n, int src, int dst, vector<int>& distance){
 
         priority_queue< pair<int,int>, vector<pair<int,int>> , greater<> > p_queue;
 
@@ -55,14 +54,13 @@ class Solution {
                         p_queue.push({distance[v], v});
             }
         }
-        ans[src] = distance[dst];
     }
 
 public:
     int countRestrictedPaths(int n, vector<vector<int>>& edges) {
-        n+=1;
-        vector<pair<int,int>> graph[n];
-        vector<int> shortestPath(n, 0);
+        
+        vector<pair<int,int>> graph[n+1];
+        vector<int> distance(n, INT_MAX);
 
         for(auto edge: edges)
             graph[edge[0]].push_back({edge[1],edge[2]}),
