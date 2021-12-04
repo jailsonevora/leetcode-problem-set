@@ -10,20 +10,21 @@ class Solution {
     // using dfs + Dynaminc programing
     int dfs(int n, vector<pair<int, int>> graph[], vector<int>& distance, vector<int>& dp, const int mod = 1e9 + 7){
         
-        if(u == dst) 
+        if(n == 1) 
             return 1;
         
-        if(dp[u] != -1) 
-            return dp[u];
+        if(dp[n] != -1) 
+            return dp[n];
 
         int paths = 0;
 
-        for(auto it: graph[u]){
+        for(auto it: graph[n]){
             int v = it.first;
-                paths = (paths + dfs(v, dst, graph, dp, mod)) % mod;
+            if(distance[n] < distance[v])
+                paths = (paths + dfs(v, graph, distance, dp, mod)) % mod;
         }
 
-        return dp[u] = paths;
+        return dp[n] = paths%mod;
     }
     // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap O(e logv)
@@ -68,7 +69,7 @@ public:
         // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
         vector<int> memo(n+1,-1);
 
-        return dfs(1, n-1, graph, memo, 1e9 + 7);
+        return dfs(n, graph, distance, memo, 1e9 + 7);
     }
 };
 
