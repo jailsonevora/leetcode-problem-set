@@ -65,9 +65,9 @@ public:
 
         // topologicalsort over DAG
         // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
-        vector<int> memo(n+1,-1);
+        vector<int> dp(n+1,-1);
 
-        return dfs(n, graph, distance, memo, 1e9 + 7);
+        return dfs(n, graph, distance, dp, 1e9 + 7);
     }
 };
 
