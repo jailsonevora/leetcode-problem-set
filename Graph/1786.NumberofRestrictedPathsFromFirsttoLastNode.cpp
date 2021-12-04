@@ -27,22 +27,17 @@ class Solution {
     }
     // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap O(e logv)
-    void dijkstra(vector<pair<int, int>> graph[], int n, int src, int dst, vector<int>& distance){
+    void dijkstra(vector<pair<int, int>> graph[], int n, vector<int>& distance){
 
         priority_queue< pair<int,int>, vector<pair<int,int>> , greater<> > p_queue;
 
-        vector<int> distance(n, INT_MAX);
-
-        p_queue.push({0,src});
+        p_queue.push({0,n});
 
         while (!p_queue.empty())
         {
             int u = p_queue.top().second;
             int dis = p_queue.top().first;
             p_queue.pop();
-
-            if(u == dst)
-                break;
 
             for(auto it: graph[u]){
                 
@@ -67,7 +62,7 @@ public:
                 graph[edge[1]].push_back({edge[0],edge[2]});
 
         // 1st step to calculate shortestpath from node 1 to last node
-        dijkstra(graph, n, u, n-1, distance);
+        dijkstra(graph, n, 1, n-1, distance);
 
         // topologicalsort over DAG
         // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
