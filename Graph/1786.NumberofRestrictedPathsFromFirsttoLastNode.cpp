@@ -60,32 +60,18 @@ public:
     int countRestrictedPaths(int n, vector<vector<int>>& edges) {
         
         vector<pair<int,int>> graph[n+1];
-        vector<int> distance(n, INT_MAX);
+        vector<int> distance(n+1, INT_MAX);
 
         for(auto edge: edges)
             graph[edge[0]].push_back({edge[1],edge[2]}),
                 graph[edge[1]].push_back({edge[0],edge[2]});
 
         // 1st step to calculate shortestpath from node 1 to last node
-        for(int u = 1; u < n-1; ++u)
-            dijkstra(graph, n, u, n-1, shortestPath);
-
-        // remove unecessary edges to transform the graph as DAG
-        // Consider all edges [u, v] one by one and direct them such that distance of u to n > distance of v to n.
-        // If both u and v are at the same distance from n, discard this edge.
-        for(auto& v: graph)
-            v.clear();
-
-        for(auto edge: edges){
-            if(shortestPath[edge[0]] > shortestPath[edge[1]])
-                graph[edge[0]].push_back({edge[1], edge[2]});
-            else if(shortestPath[edge[0]] < shortestPath[edge[1]])
-                graph[edge[1]].push_back({edge[0], edge[2]});
-        }
+        dijkstra(graph, n, u, n-1, distance);
 
         // topologicalsort over DAG
         // Now this problem reduces to computing the number of paths from 1 to n in a DAG, a standard DP problem.
-        vector<int> memo(n,-1);
+        vector<int> memo(n+1,-1);
 
         return dfs(1, n-1, graph, memo, 1e9 + 7);
     }
