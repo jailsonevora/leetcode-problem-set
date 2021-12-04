@@ -19,9 +19,8 @@ class Solution {
         int paths = 0;
 
         for(auto it: graph[n]){
-            int v = it.first;
-            if(distance[v] > distance[n])
-                paths = (paths + dfs(v, graph, distance, dp, mod)) % mod;
+            if(distance[it.first] > distance[n])
+                paths += (dfs(it.first, graph, distance, dp, mod) % mod) % mod;
         }
 
         return dp[n] = paths%mod;
