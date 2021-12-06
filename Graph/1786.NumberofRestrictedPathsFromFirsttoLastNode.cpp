@@ -17,8 +17,6 @@ class Solution {
         if(dp[n] != -1) 
             return dp[n];
 
-        vector<int> dp;
-
         int paths = 0;
 
         for(auto it: graph[n]){
@@ -39,7 +37,9 @@ class Solution {
         if(dp[n] != -1) 
             return dp[n];
 
+        vector<int> dp;
         int paths = 0;
+        dp[0] = 1;
 
         for(auto it: graph[n]){
             if(distance[it.first] > distance[n]){
