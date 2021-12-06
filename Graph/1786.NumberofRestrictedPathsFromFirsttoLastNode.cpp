@@ -46,7 +46,6 @@ class Solution {
                 paths += (dfs(it.first, graph, distance, dp, mod) % mod) % mod;
             }
         }
-
         return dp[n] = paths%mod;
     }
 
