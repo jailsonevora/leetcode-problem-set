@@ -8,6 +8,7 @@ using namespace std;
 
 class Solution {
     // using dfs + Dynaminc programing A top-down approach that is more concretely known as Memoization
+    // top-down
     int dfs(int n, vector<pair<int, int>> graph[], vector<int>& distance, vector<int>& dp, const int mod = 1e9 + 7){
         
         if(n == 1) 
