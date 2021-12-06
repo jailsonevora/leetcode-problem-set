@@ -39,11 +39,11 @@ class Solution {
 
         vector<int> dp;
         int paths = 0;
-        dp[0] = 1;
+        dp[1] = 1;
 
         for(auto it: graph[n]){
             if(distance[it.first] > distance[n]){
-                paths += (dfs(it.first, graph, distance, dp, mod) % mod) % mod;
+                paths += (dp[it] % mod) % mod;
             }
         }
         return dp[n] = paths%mod;
