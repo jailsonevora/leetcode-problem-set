@@ -7,7 +7,8 @@
 using namespace std;
 
 class Solution {
-    // using dfs + Dynaminc programing
+    // using dfs + Dynaminc programing A top-down approach that is more concretely known as Memoization
+    // top-down
     int dfs(int n, vector<pair<int, int>> graph[], vector<int>& distance, vector<int>& dp, const int mod = 1e9 + 7){
         
         if(n == 1) 
@@ -26,6 +27,28 @@ class Solution {
 
         return dp[n] = paths%mod;
     }
+    // using dfs + Dynaminc programing A botton-up 
+    // botton-up
+    int dfs(int n, vector<pair<int, int>> graph[], vector<int>& distance, vector<int>& dp, const int mod = 1e9 + 7){
+        
+        if(n == 1) 
+            return 1;
+        
+        if(dp[n] != -1) 
+            return dp[n];
+
+        vector<int> dp;
+        int paths = 0;
+        dp[1] = 1;
+
+        for(auto it: graph[n]){
+            if(distance[it.first] > distance[n]){
+                paths += (dp[it.first] % mod) % mod;
+            }
+        }
+        return dp[n] = paths%mod;
+    }
+
     // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap O(e logv)
     void dijkstra(vector<pair<int, int>> graph[], int n, vector<int>& distance){
