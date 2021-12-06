@@ -17,7 +17,7 @@ class Solution {
         if(dp[n] != -1) 
             return dp[n];
 
-        vector<int>& dp;
+        vector<int> dp;
 
         int paths = 0;
 
