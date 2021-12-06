@@ -43,7 +43,7 @@ class Solution {
 
         for(auto it: graph[n]){
             if(distance[it.first] > distance[n]){
-                paths += (dp[it] % mod) % mod;
+                paths += (dp[it.first] % mod) % mod;
             }
         }
         return dp[n] = paths%mod;
