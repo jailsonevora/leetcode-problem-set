@@ -12,7 +12,7 @@ using namespace std;
 class Solution {
 public:
     vector<int> countBits(int n) {
-        
+        vector<int> dp(n+1);
     }
 };
 // @lc code=end
