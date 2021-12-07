@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 /*
  * @lc app=leetcode id=338 lang=cpp
  *
