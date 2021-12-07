@@ -18,6 +18,10 @@ public:
 // @lc code=end
 
 int main(){
+
+    // ex1
+    int n = 2;
+
     
 }
 
