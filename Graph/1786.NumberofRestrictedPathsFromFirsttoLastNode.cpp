@@ -56,6 +56,8 @@ class Solution {
         priority_queue< pair<int,int>, vector<pair<int,int>> , greater<> > p_queue;
         p_queue.push({0,n});
 
+        distance[n] = 0;
+
         while (!p_queue.empty())
         {
             int u = p_queue.top().second;
@@ -67,9 +69,10 @@ class Solution {
                 int v = it.first;
                 int w = it.second;
 
-                if(distance[v] > dis + w)
-                    distance[v] = dis + w,
-                        p_queue.push({distance[v], v});
+                if(distance[v] > dis + w){
+                    distance[v] = dis + w;
+                        p_queue.push({dis + w, v});
+                }
             }
         }
     }
