@@ -13,8 +13,10 @@ class Solution {
 public:
     vector<int> countBits(int n) {
         vector<int> dp(n+1);
-        for(int i = 1; i <= n; i++)
+        for(int i = 1; i <= n; i++){
+            int d = i - (i & -i);
             dp[i] = dp[i - (i & -i)] + 1;
+        }
         return dp;
     }
 };
