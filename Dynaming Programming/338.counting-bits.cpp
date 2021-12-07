@@ -22,6 +22,9 @@ int main(){
     // ex1
     int n = 2;
 
+    // ex2
+    //int n = 5;
+
     Solution sl;
     sl.countBits(n);
 }
