@@ -29,25 +29,25 @@ class Solution {
     }
     // using dfs + Dynaminc programing A botton-up 
     // botton-up
-    int dfs(int n, vector<pair<int, int>> graph[], vector<int>& distance, vector<int>& dp, const int mod = 1e9 + 7){
+    // int dfs(int n, vector<pair<int, int>> graph[], vector<int>& distance, vector<int>& dp, const int mod = 1e9 + 7){
         
-        if(n == 1) 
-            return 1;
+    //     if(n == 1) 
+    //         return 1;
         
-        if(dp[n] != -1) 
-            return dp[n];
+    //     if(dp[n] != -1) 
+    //         return dp[n];
 
-        vector<int> dp;
-        int paths = 0;
-        dp[1] = 1;
+    //     vector<int> dp;
+    //     int paths = 0;
+    //     dp[1] = 1;
 
-        for(auto it: graph[n]){
-            if(distance[it.first] > distance[n]){
-                paths += (dp[it.first] % mod) % mod;
-            }
-        }
-        return dp[n] = paths%mod;
-    }
+    //     for(auto it: graph[n]){
+    //         if(distance[it.first] > distance[n]){
+    //             paths += (dp[it.first] % mod) % mod;
+    //         }
+    //     }
+    //     return dp[n] = paths%mod;
+    // }
 
     // Run a Dijkstra from node numbered n to compute distance from the last node.
     // using dijkstra shortest path with adjLis + minHeap O(e logv)
