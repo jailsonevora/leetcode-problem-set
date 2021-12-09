@@ -8,7 +8,8 @@
 class Solution {
     // botton-up aproach Dynaming programming
 
-    // top-down aproach 
+    // top-down aproach memoization
+
 public:
     int tribonacci(int n) {
         
