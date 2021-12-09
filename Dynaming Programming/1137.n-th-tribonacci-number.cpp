@@ -11,10 +11,15 @@ using namespace std;
 
 // @lc code=start
 class Solution {
-    // botton-up aproach Dynaming programming
-    int bottonUP(int n){
+    // botton-up aproach Dynaming programming 1
+    int bottonUP1(int n){
 
-        vector<int> dp(n+1);
+        if (n == 0)
+            return 0;
+        if (n == 1 or n == 2)
+            return 1;
+
+        vector<long long> dp(n+1);
 
         dp[0] = 0;
         dp[1] = 1;
@@ -26,11 +31,18 @@ class Solution {
         return dp[n];
     }
 
+    int bottonUP2(int n) {
+        int dp[] = {0, 1, 1};
+        for (int i = 3; i <= n; ++i)
+            dp[i % 3] = dp[0] + dp[1] + dp[2];
+        return dp[n % 3];
+    }
+
     // top-down aproach memoization
 
 public:
     int tribonacci(int n) {
-        return bottonUP(n);        
+        return bottonUP1(n);        
     }
 };
 
