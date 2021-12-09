@@ -4,6 +4,9 @@
  * [1137] N-th Tribonacci Number
  */
 
+#include<iostream>
+#include<vector>
+
 // @lc code=start
 class Solution {
     // botton-up aproach Dynaming programming
