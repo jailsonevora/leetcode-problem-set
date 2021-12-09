@@ -20,7 +20,7 @@ class Solution {
         dp[1] = 1;
         dp[2] = 1;
 
-        for(int i = 3; i < n; ++i)
+        for(int i = 3; i <= n; ++i)
             dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
 
         return dp[n];
@@ -38,11 +38,11 @@ public:
 
 int main(){
     // ex1
-    int n = 4;
+    //int n = 4;
 
     // ex2
-    //int n = 25;
+    int n = 25;
 
     Solution sl;
-    sl.tribonacci(n);
+    cout << sl.tribonacci(n);
 }
