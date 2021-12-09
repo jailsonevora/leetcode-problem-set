@@ -7,11 +7,16 @@
 // @lc code=start
 class Solution {
     // botton-up aproach Dynaming programming
+    int bottonUP(int n){
+        
+    }
 
     // top-down aproach memoization
 
 public:
     int tribonacci(int n) {
+
+
         
     }
 };
