@@ -6,6 +6,9 @@
 
 // @lc code=start
 class Solution {
+    // botton-up aproach Dynaming programming
+
+    // top-down aproach 
 public:
     int tribonacci(int n) {
         
