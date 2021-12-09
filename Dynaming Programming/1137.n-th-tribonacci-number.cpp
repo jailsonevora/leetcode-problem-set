@@ -15,6 +15,13 @@ class Solution {
     int bottonUP(int n){
 
         vector<int> dp(n);
+
+        dp[0] = 0;
+        dp[1] = 1;
+        dp[2] = 1;
+
+        for
+
     }
 
     // top-down aproach memoization
