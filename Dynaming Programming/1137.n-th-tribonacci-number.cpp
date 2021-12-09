@@ -14,7 +14,7 @@ class Solution {
     // botton-up aproach Dynaming programming
     int bottonUP(int n){
 
-        vector<int> dp(n);
+        vector<int> dp(n+1);
 
         dp[0] = 0;
         dp[1] = 1;
