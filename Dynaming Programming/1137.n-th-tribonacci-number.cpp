@@ -8,7 +8,8 @@
 class Solution {
     // botton-up aproach Dynaming programming
     int bottonUP(int n){
-        
+
+        vector<int> dp(n);
     }
 
     // top-down aproach memoization
