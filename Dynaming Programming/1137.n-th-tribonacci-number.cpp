@@ -11,5 +11,10 @@ public:
         
     }
 };
+
+int main(){
+    
+}
+
 // @lc code=end
 
