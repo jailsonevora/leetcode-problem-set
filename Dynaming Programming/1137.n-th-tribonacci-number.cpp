@@ -34,6 +34,8 @@ public:
     }
 };
 
+// @lc code=end
+
 int main(){
     // ex1
     int n = 4;
@@ -44,6 +46,3 @@ int main(){
     Solution sl;
     sl.tribonacci(n);
 }
-
-// @lc code=end
-
