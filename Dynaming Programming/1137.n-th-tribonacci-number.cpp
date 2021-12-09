@@ -16,6 +16,8 @@ int main(){
     // ex1
     int n = 4;
 
+    // ex2
+    int n = 25;
 
     Solution sl;
     sl.tribonacci(n);
