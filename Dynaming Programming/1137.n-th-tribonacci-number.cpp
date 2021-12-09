@@ -13,7 +13,12 @@ public:
 };
 
 int main(){
-    
+    // ex1
+    int n = 4;
+
+
+    Solution sl;
+    sl.tribonacci(n);
 }
 
 // @lc code=end
