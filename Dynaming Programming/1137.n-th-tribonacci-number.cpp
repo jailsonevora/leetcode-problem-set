@@ -52,8 +52,7 @@ class Solution {
         if(dp[n] == -1)
             dp[n] = topDown(n - 1, dp) + topDown(n - 2, dp) + topDown(n - 3, dp);
 
-        return dp[n]         
-
+        return dp[n];
     }
 
 
