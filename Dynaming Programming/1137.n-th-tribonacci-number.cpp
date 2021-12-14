@@ -39,7 +39,7 @@ class Solution {
     }
 
     // top-down aproach memoization
-    int topDown(int n, vector<int> dp){
+    int topDown(int n, vector<int>& dp){
 
         if(n == 0)
             return 0;
