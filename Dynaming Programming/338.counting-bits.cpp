@@ -7,7 +7,6 @@ using namespace std;
  *
  * [338] Counting Bits
  */
-
 // @lc code=start
 class Solution {
 public:
