@@ -55,12 +55,12 @@ class Solution {
         return dp[n];
     }
 
-
 public:
     int tribonacci(int n) {
         vector<int> dp(n+1,-1);
-        //return bottonUP2(n);
         return topDown(n,dp);        
+        // or
+        //return bottonUP2(n);
     }
 };
 
@@ -68,10 +68,10 @@ public:
 
 int main(){
     // ex1
-    int n = 4;
+    //int n = 4;
 
     // ex2
-    //int n = 25;
+    int n = 25;
 
     Solution sl;
     cout << sl.tribonacci(n);
