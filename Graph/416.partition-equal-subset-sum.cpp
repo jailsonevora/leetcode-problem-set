@@ -19,6 +19,8 @@ public:
 // @lc code=end
 
 int main(){
-    
+
+    vector<int> nums = {1,5,11,5};
+
 }
 
