@@ -18,7 +18,7 @@ public:
 
         int n = nums.size();
         int w = 0; 
-        accumulate(nums.begin(), nums.end(), w);
+        std::accumulate(nums.begin(), nums.end(), w);
         w /=2; 
         
     }
