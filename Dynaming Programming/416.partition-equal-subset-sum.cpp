@@ -52,11 +52,14 @@ public:
     bool canPartition(vector<int>& nums) {
 
         int n = nums.size();
-        int w = 0; 
+        float w = 0; 
         w = std::accumulate(nums.begin(), nums.end(), w)/2;
 
+        if(abs(w-int(w))>0)
+            return 0;
+
         // dynamic programming aproach
-        return bottonUp(nums, w, n); 
+        return bottonUp(nums, int(w), n); 
     }
 };
 // @lc code=end
@@ -64,10 +67,10 @@ public:
 int main(){
 
     // ex1
-    vector<int> nums = {1,5,11,5};
+    //vector<int> nums = {1,5,11,5};
 
     // ex2
-    //vector<int> nums = {1,2,3,5};
+    vector<int> nums = {1,2,3,5};
 
     Solution sl;
     cout << sl.canPartition(nums);
