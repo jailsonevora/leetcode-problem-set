@@ -46,7 +46,10 @@ public:
         int n = nums.size();
         int w = 0; 
         std::accumulate(nums.begin(), nums.end(), w);
-        w /=2; 
+        w /=2;
+
+        // dynamic programming aproach
+        return bottonUp(nums, w, n); 
         
     }
 };
