@@ -7,6 +7,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<numeric>
 
 using namespace std;
 
@@ -16,7 +17,9 @@ public:
     bool canPartition(vector<int>& nums) {
 
         int n = nums.size();
-        int w =  std::accumulate(nums.begin(), nums.end()) /2;
+        int w = 0; 
+        accumulate(nums.begin(), nums.end(), w);
+        w /=2; 
         
     }
 };
