@@ -38,12 +38,12 @@ class Solution {
             }            
         }
         // print table
-        for (int i = 0; i <= n; i++) 
-        { 
-            for (int j = 0; j <= w; j++) 
-                printf ("%4d", dp[i][j]); 
-            printf("\n"); 
-        }
+        // for (int i = 0; i <= n; i++) 
+        // { 
+        //     for (int j = 0; j <= w; j++) 
+        //         printf ("%4d", dp[i][j]); 
+        //     printf("\n"); 
+        // }
 
         return dp[n][w];
     }
