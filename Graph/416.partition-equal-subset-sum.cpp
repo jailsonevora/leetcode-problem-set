@@ -19,20 +19,25 @@ class Solution {
 
         int dp[n+1][w+1];
 
-        for(int row = 0; row < n; ++row){
+        for(int row = 0; row < n; ++row)
             dp[row][0] = 1;
         for (int col = 0; col < w; col++)
             dp[0][col] = 0;
 
-        for(int row = 1; row < n; ++row){
+        for(int row = 1; row < n; ++row)
+        {
             for (int col = 1; col < w; col++)
-            {
-                /* code */
-            }
-            
+            {   
+                // exclude
+                if(col < nums[row-1])
+                    dp[row][col] = dp[row-1][col];
+                // include
+                if(col >= nums[row-1])
+                    // exclude num or include it
+                    dp[row][col] = dp[row-1][col] || dp[row-1][col-nums[row-1]];   
+            }            
         }
-
-        return dp[n+1][w+1];
+        return dp[n][w];
     }
 
 public:
