@@ -37,6 +37,14 @@ class Solution {
                     dp[row][col] = dp[row-1][col] || dp[row-1][col-nums[row-1]];   
             }            
         }
+
+        for (int i = 0; i <= n; i++) 
+        { 
+            for (int j = 0; j <= w; j++) 
+                printf ("%4d", dp[i][j]); 
+            printf("\n"); 
+        }
+
         return dp[n][w];
     }
 
