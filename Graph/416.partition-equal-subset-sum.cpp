@@ -17,7 +17,19 @@ class Solution {
     // botton_up aproach dynamic programming tabulation
     bool bottonUp(vector<int> nums, int w, int n){
 
+        int dp[n+1][w+1];
+
+        for(int row = 0; row < n+1; ++row){
+            for (int col = 0; col < w+1; col++)
+            {
+                /* code */
+            }
+            
+        }
+
+        return dp[n+1][w+1];
     }
+
 public:
     bool canPartition(vector<int>& nums) {
 
