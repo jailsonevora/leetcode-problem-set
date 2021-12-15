@@ -8,6 +8,7 @@
 #include<vector>
 #include<algorithm>
 #include<numeric>
+#include<bitset>
 
 using namespace std;
 
@@ -44,8 +45,24 @@ class Solution {
         //         printf ("%4d", dp[i][j]); 
         //     printf("\n"); 
         // }
-
         return dp[n][w];
+    }
+
+    // bit-manipulation
+    bool bitManipulation_DP(vector<int> nums, int w, int n){
+        
+        for(int i=0; i<n; i++)
+            w+= nums[i];
+        
+        if(w & 1)
+            return 0;
+        w = w/2;
+        
+        bitset<10001>dp;
+        dp[0] = 1;
+        for(int i =0; i<n; i++)
+            dp = dp| (dp << nums[i]);
+        return dp[w];
     }
 
 public:
