@@ -52,15 +52,17 @@ public:
     bool canPartition(vector<int>& nums) {
 
         int n = nums.size();
-        float w = 0; 
-        w = std::accumulate(nums.begin(), nums.end(), w)/2;
+        int w = 0;
+        w = std::accumulate(nums.begin(), nums.end(), w);
 
         // if w has decimal part it is not possible to form subset
-        if(abs(w-int(w))>0)
+        //if(w % 2 != 0)
+        if(w & 1)
             return 0;
+        w /= 2;
 
         // dynamic programming aproach
-        return bottonUp(nums, int(w), n); 
+        return bottonUp(nums, w, n); 
     }
 };
 // @lc code=end
