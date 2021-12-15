@@ -19,14 +19,14 @@ class Solution {
 
         int dp[n+1][w+1];
 
-        for(int row = 0; row < n; ++row)
+        for(int row = 0; row <= n; ++row)
             dp[row][0] = 1;
-        for (int col = 0; col < w; col++)
+        for (int col = 0; col <= w; col++)
             dp[0][col] = 0;
 
-        for(int row = 1; row < n; ++row)
+        for(int row = 1; row <= n; ++row)
         {
-            for (int col = 1; col < w; col++)
+            for (int col = 1; col <= w; col++)
             {   
                 // exclude
                 if(col < nums[row-1])
@@ -37,7 +37,7 @@ class Solution {
                     dp[row][col] = dp[row-1][col] || dp[row-1][col-nums[row-1]];   
             }            
         }
-
+        // print table
         for (int i = 0; i <= n; i++) 
         { 
             for (int j = 0; j <= w; j++) 
