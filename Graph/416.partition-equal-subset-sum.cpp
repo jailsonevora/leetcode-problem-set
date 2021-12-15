@@ -20,6 +20,7 @@ public:
 
 int main(){
 
+    // ex1
     vector<int> nums = {1,5,11,5};
 
 }
