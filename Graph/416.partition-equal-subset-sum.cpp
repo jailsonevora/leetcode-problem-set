@@ -13,6 +13,11 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+
+    // botton_up aproach dynamic programming tabulation
+    bool bottonUp(vector<int> nums, int w, int n){
+
+    }
 public:
     bool canPartition(vector<int>& nums) {
 
