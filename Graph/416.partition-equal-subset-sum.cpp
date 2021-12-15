@@ -23,6 +23,9 @@ int main(){
     // ex1
     vector<int> nums = {1,5,11,5};
 
+    // ex2
+    vector<int> nums = {1,5,11,5};
+
     Solution sl;
     cout << sl.canPartition(nums);
 
