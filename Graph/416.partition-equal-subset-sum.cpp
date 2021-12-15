@@ -28,6 +28,5 @@ int main(){
 
     Solution sl;
     cout << sl.canPartition(nums);
-
 }
 
