@@ -55,6 +55,7 @@ public:
         float w = 0; 
         w = std::accumulate(nums.begin(), nums.end(), w)/2;
 
+        // if w has decimal part it is not possible to form subset
         if(abs(w-int(w))>0)
             return 0;
 
