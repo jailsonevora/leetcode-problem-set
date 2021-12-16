@@ -66,7 +66,7 @@ class Solution {
     }
 
     // backtracking + memoization
-    bool topDown(vector<int> nums, int w, int n, int dp[][]){
+    bool topDown(vector<int> nums, int w, int n, int& dp[][]){
 
     }
 
