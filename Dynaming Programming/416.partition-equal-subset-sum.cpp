@@ -84,7 +84,11 @@ public:
         w /= 2;
 
         // dynamic programming aproach
-        return bottonUp(nums, w, n); 
+        // return bottonUp(nums, w, n);
+
+        // backtracking + memo aproach
+
+        return topDown(nums, w, n); 
     }
 };
 // @lc code=end
