@@ -65,6 +65,11 @@ class Solution {
         return dp[w];
     }
 
+    // backtracking + memoization
+    bool topDown(vector<int> nums, int w, int n, int dp[][]){
+
+    }
+
 public:
     bool canPartition(vector<int>& nums) {
 
