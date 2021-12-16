@@ -87,8 +87,8 @@ public:
         // return bottonUp(nums, w, n);
 
         // backtracking + memo aproach
-
-        return topDown(nums, w, n); 
+        int dp[n+1][w+1];
+        return topDown(nums, w, n, dp); 
     }
 };
 // @lc code=end
