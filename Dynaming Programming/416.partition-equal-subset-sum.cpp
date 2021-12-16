@@ -79,6 +79,14 @@ class Solution {
 
         if(dp[n][w] == -1){
 
+            // exclude
+            if(w < nums[n-1])
+                dp[n][w] = topDown(nums, w, n-1, dp);
+            // include
+            if(w >= nums[n-1])
+                // exclude num or include it
+                dp[n][w] = topDown(nums, w, n-1, dp) || topDown(nums, w - nums[n-1], n-1, dp);
+
         }
     }
 
