@@ -71,10 +71,13 @@ class Solution {
         if(w == 0)
             return 1;
 
-        if
+        if(n == 0 && w != 0)
+            return false;
 
         if(dp[n][w] != -1)
             return dp[n][w];
+
+        if
     }
 
 public:
