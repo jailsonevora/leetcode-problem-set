@@ -68,6 +68,8 @@ class Solution {
     // backtracking + memoization
     bool topDown(vector<int> nums, int w, int n, int& dp[][]){
 
+        if(dp[n][w] != -1)
+            return dp[n][w];
     }
 
 public:
