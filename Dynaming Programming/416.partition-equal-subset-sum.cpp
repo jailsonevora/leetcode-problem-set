@@ -67,26 +67,23 @@ class Solution {
 
     // backtracking + memoization
     bool topDown(vector<int> nums, int w, int n, vector<vector<int>>& dp){
-
+        
+        if (n == 0 && w != 0) 
+            return 0;
+        
         if(w == 0)
-            return 1;
+            return 1;       
 
-        if(n == 0 && w != 0)
-            return false;
+        if(dp[n-1][w] != -1)
+            return dp[n-1][w];
 
-        if(dp[n][w] != -1)
-            return dp[n][w];
-
-        if(dp[n][w] == -1){
-            // exclude
-            if(w < nums[n-1])
-                dp[n][w] = topDown(nums, w, n-1, dp);
-            // include
-            if(w >= nums[n-1])
-                // exclude num or include it
-                dp[n][w] = topDown(nums, w, n-1, dp) || topDown(nums, w - nums[n-1], n-1, dp);
-        }
-        return dp[n][w];
+        //include
+        if(w >= nums[n-1])
+            // include or exclude if there is a better num to come
+            return dp[n-1][w] = topDown(nums, w - nums[n-1], n-1, dp) || topDown(nums, w, n-1, dp);
+        // exclude
+        else
+            return dp[n-1][w] = topDown(nums, w, n-1, dp);
     }
 
 public:
@@ -115,10 +112,10 @@ public:
 int main(){
 
     // ex1
-    //vector<int> nums = {1,5,11,5};
+    vector<int> nums = {1,5,11,5};
 
     // ex2
-    vector<int> nums = {1,2,3,5};
+    //vector<int> nums = {1,2,3,5};
 
     Solution sl;
     cout << sl.canPartition(nums);
