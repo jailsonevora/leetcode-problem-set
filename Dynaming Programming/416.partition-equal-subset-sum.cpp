@@ -66,7 +66,7 @@ class Solution {
     }
 
     // backtracking + memoization
-    bool topDown(vector<int> nums, int w, int n, int& dp){
+    bool topDown(vector<int> nums, int w, int n, vector<vector<int>>& dp){
 
         if(w == 0)
             return 1;
@@ -106,7 +106,7 @@ public:
         // return bottonUp(nums, w, n);
 
         // backtracking + memo aproach
-        int dp[n+1][w+1] = {-1};
+        vector<vector<int>> dp(n,vector<int>(w,-1));
         return topDown(nums, w, n, dp); 
     }
 };
