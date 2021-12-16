@@ -106,7 +106,7 @@ public:
         // return bottonUp(nums, w, n);
 
         // backtracking + memo aproach
-        vector<vector<int>> dp(n,vector<int>(w,-1));
+        vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
         return topDown(nums, w, n, dp); 
     }
 };
