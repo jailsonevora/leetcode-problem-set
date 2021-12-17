@@ -27,7 +27,7 @@ class Solution {
 
         for(int row = 1; row <= n; ++row)
         {
-            for (int col = 1; col <= w; col++)
+            for (int col = 0; col <= w; col++)
             {   
                 // exclude
                 if(col < nums[row-1])
@@ -65,27 +65,6 @@ class Solution {
         return dp[w];
     }
 
-    // backtracking + memoization
-    bool topDown(vector<int> nums, int w, int n, vector<vector<int>>& dp){
-        
-        if (n == 0 && w != 0) 
-            return 0;
-        
-        if(w == 0)
-            return 1;       
-
-        if(dp[n-1][w] != -1)
-            return dp[n-1][w];
-
-        //include
-        if(w >= nums[n-1])
-            // include or exclude if there is a better num to come
-            return dp[n-1][w] = topDown(nums, w - nums[n-1], n-1, dp) || topDown(nums, w, n-1, dp);
-        // exclude
-        else
-            return dp[n-1][w] = topDown(nums, w, n-1, dp);
-    }
-
 public:
     bool canPartition(vector<int>& nums) {
 
@@ -100,11 +79,7 @@ public:
         w /= 2;
 
         // dynamic programming aproach
-        // return bottonUp(nums, w, n);
-
-        // backtracking + memo aproach
-        vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
-        return topDown(nums, w, n, dp); 
+        return bottonUp(nums, w, n); 
     }
 };
 // @lc code=end
@@ -112,10 +87,10 @@ public:
 int main(){
 
     // ex1
-    vector<int> nums = {1,5,11,5};
+    //vector<int> nums = {1,5,11,5};
 
     // ex2
-    //vector<int> nums = {1,2,3,5};
+    vector<int> nums = {1,2,3,5};
 
     Solution sl;
     cout << sl.canPartition(nums);

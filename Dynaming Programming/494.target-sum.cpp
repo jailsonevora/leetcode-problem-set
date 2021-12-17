@@ -23,7 +23,7 @@ class Solution {
             dp[0][col] = 0;
 
         for(int row = 1; row <= n; row++){
-            for (int col = 1; col <= w; col++)
+            for (int col = 0; col <= w; col++)
             {   
                 // exclude
                 if(col < nums[row-1])
