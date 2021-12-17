@@ -12,15 +12,17 @@ using namespace std;
 
 // @lc code=start
 class Solution {
-    int bottoUp(vector<int> nums, int w, int n){
+    //DP
+    int bottomUp(vector<int> nums, int w, int n){
 
     }
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
 
         int n = nums.size();
-        int w = std::accumulate(nums.begin(), nums.end(),0);
-        
+
+        // bottom up DP
+        return bottomUp(nums, target, n);        
     }
 };
 // @lc code=end
