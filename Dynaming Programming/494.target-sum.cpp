@@ -16,6 +16,8 @@ class Solution {
     }
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
+
+
         
     }
 };
@@ -26,6 +28,7 @@ int main(){
     vector<int> nums = {1,1,1,1,1};
     int target = 3;
 
-
+    Solution sl;
+    cout << sl.findTargetSumWays(nums, n);
 }
 
