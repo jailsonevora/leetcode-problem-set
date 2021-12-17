@@ -40,10 +40,10 @@ public:
     int findTargetSumWays(vector<int>& nums, int target) {
 
         int n = nums.size();
-        int sum = accumulate(nums.begin(), nums.end(),0);
+        int newtarget = accumulate(nums.begin(), nums.end(),0);
 
-        int w = (sum + target)/2;
-        if(sum < target || (sum + target) % 2 != 0)
+        int w = (newtarget + target) / 2;
+        if(newtarget < target || (newtarget + target) % 2 != 0)
             return 0;
 
         // bottom up DP
