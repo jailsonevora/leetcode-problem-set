@@ -22,7 +22,7 @@ class Solution {
 
         for(int row = 0; row <= n; ++row)
             dp[row][0] = 1;
-        for (int col = 0; col <= w; col++)
+        for (int col = 1; col <= w; col++)
             dp[0][col] = 0;
 
         for(int row = 1; row <= n; ++row)
