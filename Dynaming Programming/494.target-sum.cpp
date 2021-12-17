@@ -17,7 +17,8 @@ class Solution {
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
 
-
+        int n = nums.size();
+        int w = std::accumulate(nums.begin(), nums.end(),0);
         
     }
 };
