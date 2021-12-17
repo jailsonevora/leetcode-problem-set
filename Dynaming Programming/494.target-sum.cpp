@@ -17,9 +17,9 @@ class Solution {
 
         int dp[n+1][w+1];
 
-        for (int row = 0; row < n; row++)
+        for (int row = 0; row <= n; row++)
             dp[row][0] = 1;
-        for (int col = 0; col < n; col++)
+        for (int col = 0; col <= n; col++)
             dp[0][col] = 0;
 
         for(int row = 1; row <= n; ++row)
