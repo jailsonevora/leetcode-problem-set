@@ -21,3 +21,11 @@ public:
 };
 // @lc code=end
 
+int main(){
+
+    vector<int> nums = {1,1,1,1,1};
+    int target - 3;
+
+
+}
+
