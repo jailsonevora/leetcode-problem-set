@@ -29,6 +29,6 @@ int main(){
     int target = 3;
 
     Solution sl;
-    cout << sl.findTargetSumWays(nums, n);
+    cout << sl.findTargetSumWays(nums, target);
 }
 
