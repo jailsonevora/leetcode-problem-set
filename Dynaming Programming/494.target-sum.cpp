@@ -11,6 +11,9 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    int bottoUp(vector<int> nums, int w, int n){
+
+    }
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
         
