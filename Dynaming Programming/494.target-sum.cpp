@@ -15,6 +15,14 @@ class Solution {
     //DP
     int bottomUp(vector<int> nums, int w, int n){
 
+        int dp[n+1][w+1];
+
+        for (int row = 0; row < n; row++)
+            dp[row][0] = 1;
+        for (int col = 0; col < n; col++)
+            dp[0][col] = 1;
+        
+
     }
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
