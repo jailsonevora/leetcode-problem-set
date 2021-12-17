@@ -20,9 +20,20 @@ class Solution {
         for (int row = 0; row < n; row++)
             dp[row][0] = 1;
         for (int col = 0; col < n; col++)
-            dp[0][col] = 1;
-        
+            dp[0][col] = 0;
 
+        for(int row = 1; row <= n; ++row)
+            for (int col = 1; col <= w; col++)
+            {   
+                // exclude
+                if(col < nums[row-1])
+                    dp[row][col] = dp[row-1][col];
+                // include
+                if(col >= nums[row-1])
+                    // sum exclude num + include num
+                    dp[row][col] = dp[row-1][col] + dp[row-1][col-nums[row-1]];   
+            }
+        return dp[n][w];
     }
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
