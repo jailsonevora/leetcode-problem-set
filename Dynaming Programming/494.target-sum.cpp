@@ -19,10 +19,10 @@ class Solution {
 
         for (int row = 0; row <= n; row++)
             dp[row][0] = 1;
-        for (int col = 0; col <= n; col++)
+        for (int col = 1; col <= w; col++)
             dp[0][col] = 0;
 
-        for(int row = 1; row <= n; ++row)
+        for(int row = 1; row <= n; row++){
             for (int col = 1; col <= w; col++)
             {   
                 // exclude
@@ -30,18 +30,24 @@ class Solution {
                     dp[row][col] = dp[row-1][col];
                 // include
                 if(col >= nums[row-1])
-                    // sum exclude num + include num
-                    dp[row][col] = dp[row-1][col] + dp[row-1][col-nums[row-1]];   
+                    // exclude num or include it
+                    dp[row][col] = dp[row-1][col] + dp[row-1][col-nums[row-1]];
             }
+        }
         return dp[n][w];
     }
 public:
     int findTargetSumWays(vector<int>& nums, int target) {
 
         int n = nums.size();
+        int sum = accumulate(nums.begin(), nums.end(),0);
+
+        int w = (sum + target)/2;
+        if(sum < target || (sum + target) % 2 != 0)
+            return 0;
 
         // bottom up DP
-        return bottomUp(nums, target, n);        
+        return bottomUp(nums, abs(w), n);        
     }
 };
 // @lc code=end
