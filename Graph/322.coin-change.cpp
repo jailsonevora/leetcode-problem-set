@@ -22,7 +22,6 @@ class Solution {
 
         for (int row = 0; row <= n; row++)
             dp[row][0] = 0;
-
         for (int col = 1; col <= amount; col++)
             dp[0][col] = 1e5; 
 
