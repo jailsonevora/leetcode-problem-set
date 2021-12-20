@@ -28,9 +28,10 @@ class Solution {
         for (int row = 0; row <= n; row++)
             for (int col = 0; col <= amount; col++){                
                 // exclude
-                dp[row][col] = dp[row-1][col];
+                if(col < coins[row-1])
+                    dp[row][col] = dp[row-1][col];
                 // include or exclude
-                if(col >= coins[row-1])
+                else
                     dp[row][col] = min(1+dp[row][col-coins[row-1]], dp[row-1][col]);
             }
         return dp[n][amount] > 1e4 ? -1 : dp[n][amount];
@@ -50,6 +51,6 @@ int main(){
     int amount = 11;
 
     Solution sl;
-    return sl.coinChange(coins, amount);
+    cout << sl.coinChange(coins, amount);
 }
 
