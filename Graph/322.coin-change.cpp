@@ -28,10 +28,10 @@ class Solution {
         for (int row = 1; row <= n; row++)
             for (int col = 1; col <= amount; col++){                
                 // exclude
-                //if(col < coins[row-1])
+                if(col < coins[row-1])
                     dp[row][col] = dp[row-1][col];
                 // include or exclude
-                if(col < coins[row-1])
+                else
                     dp[row][col] = min(1+dp[row][col-coins[row-1]], dp[row-1][col]);
             }
         return dp[n][amount] > 1e4 ? -1 : dp[n][amount];
