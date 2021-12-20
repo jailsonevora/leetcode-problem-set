@@ -26,7 +26,7 @@ class Solution {
             dp[0][col] = 1e5; 
 
         for (int row = 0; row <= n; row++)
-            for (int col = 1; col <= amount; col++){                
+            for (int col = 0; col <= amount; col++){                
                 // exclude
                 dp[row][col] = dp[row-1][col];
                 // include or exclude
