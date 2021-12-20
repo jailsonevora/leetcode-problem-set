@@ -33,13 +33,8 @@ class Solution {
                 // include or exclude
                 if(col >= coins[row-1])
                     dp[row][col] = min(1+dp[row][col-coins[row-1]], dp[row-1][col]);
-
             }
-
-
-        
-        
-
+        return dp[n][amount] == 1e45 ? -1 : dp[n][amount];
     }
 public:
     int coinChange(vector<int>& coins, int amount) {
