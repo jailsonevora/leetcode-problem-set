@@ -25,6 +25,6 @@ int main(){
     int amount = 11;
 
     Solution sl;
-    sl.coinChange(coins, amount);
+    return sl.coinChange(coins, amount);
 }
 
