@@ -24,7 +24,7 @@ class Solution {
             dp[row][0] = 0;
 
         for (int col = 1; col <= n; col++)
-            dp[0][1] = 1e55; 
+            dp[0][1] = 1e5; 
 
         for (int row = 0; row <= n; row++)
             for (int col = 1; col <= n; col++){
@@ -35,8 +35,8 @@ class Solution {
                 if(col >= coins[row-1])
                     dp[row][col] = min(1+dp[row][col-coins[row-1]], dp[row-1][col]);
             }
-        return dp[n][amount] == 1e45 ? -1 : dp[n][amount];
-    }
+        return dp[n][amount] > 1e4 ? -1 : dp[n][amount];
+    } 
 public:
     int coinChange(vector<int>& coins, int amount) {
         
