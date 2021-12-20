@@ -40,6 +40,8 @@ class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
         
+        // dp tabulation
+        return bottomUP(coins,amount);
     }
 };
 // @lc code=end
