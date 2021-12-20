@@ -19,8 +19,13 @@ class Solution {
 
         int dp[n+1][amount+1];
 
-        for (int row = 1; row <= n; row++)
-            dp[row][0] = 1; 
+        for (int row = 0; row <= n; row++)
+            dp[row][0] = 0;
+
+        for (int col = 1; col <= n; col++)
+            dp[0][1] = 1e55; 
+
+        for
         
         
 
