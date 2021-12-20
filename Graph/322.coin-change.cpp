@@ -17,6 +17,7 @@ class Solution {
         
         int n = coins.size();
 
+        // dp table
         int dp[n+1][amount+1];
 
         for (int row = 0; row <= n; row++)
