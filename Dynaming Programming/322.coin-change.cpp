@@ -36,6 +36,9 @@ class Solution {
             }
         return dp[n][amount] > 1e4 ? -1 : dp[n][amount];
     } 
+
+    // backtracking + memoization
+
 public:
     int coinChange(vector<int>& coins, int amount) {
         
