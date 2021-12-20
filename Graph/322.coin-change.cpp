@@ -25,7 +25,15 @@ class Solution {
         for (int col = 1; col <= n; col++)
             dp[0][1] = 1e55; 
 
-        for
+        for (int row = 0; row <= n; row++)
+            for (int col = 1; col <= n; col++){
+
+                dp[row][col] = dp[row-1][col];
+                if
+
+            }
+
+
         
         
 
