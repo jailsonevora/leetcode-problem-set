@@ -14,6 +14,15 @@ using namespace std;
 class Solution {
     // DP bottom-UP tabulation
     int bottomUP(vector<int> coins, int amount){
+        
+        int n = coins.size();
+
+        int dp[n+1][amount+1];
+
+        for (int row = 1; row <= n; row++)
+            dp[row][0] = 1; 
+        
+        
 
     }
 public:
