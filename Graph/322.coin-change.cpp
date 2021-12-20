@@ -28,9 +28,9 @@ class Solution {
         for (int row = 0; row <= n; row++)
             for (int col = 1; col <= n; col++){
                 
-                // 
+                // exclude
                 dp[row][col] = dp[row-1][col];
-                
+                // include or exclude
                 if(col >= coins[row-1])
                     dp[row][col] = min(1+dp[row][col-coins[row-1]], dp[row-1][col]);
 
