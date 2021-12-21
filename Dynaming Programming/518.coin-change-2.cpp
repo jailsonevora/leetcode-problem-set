@@ -26,14 +26,12 @@ class Solution {
             for (int col = 1; col <= amount; col++){
                 // exclude
                 if(col < coins[row-1])
-                    dp[row][col] = + dp[row-1][col]
+                    dp[row][col] = dp[row-1][col];
                 // include + exclude
                 else
-                    dp[row][col] = + dp[row-1][col]
+                    dp[row][col] = dp[row-1][col - coins[row-1]] + dp[row-1][col];
             }
-
-        
-
+        return dp[n][amount];
     }
 public:
     int change(int amount, vector<int>& coins) {
