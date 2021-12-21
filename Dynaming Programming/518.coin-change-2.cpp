@@ -19,6 +19,11 @@ public:
 // @lc code=end
 
 int main(){
+    
     vector<int> coins = {1,2,5};
+    int amount = 5;
+
+    Solution sl;
+    sl.change(amount,coins);
 }
 
