@@ -35,7 +35,9 @@ class Solution {
     }
 public:
     int change(int amount, vector<int>& coins) {
-        
+
+        // bottom-Up
+        return bottomUp(coins,amount);        
     }
 };
 // @lc code=end
