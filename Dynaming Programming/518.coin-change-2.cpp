@@ -17,6 +17,12 @@ class Solution {
 
         int dp[n+1][amount+1];
 
+        for (int row = 0; row <= n; row++)
+            dp[row][0] = 1; 
+        for (int col = 1; col <= amount; col++)
+            dp[0][col] = 1; 
+        
+
     }
 public:
     int change(int amount, vector<int>& coins) {
