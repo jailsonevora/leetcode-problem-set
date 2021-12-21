@@ -24,6 +24,6 @@ int main(){
     int amount = 5;
 
     Solution sl;
-    sl.change(amount,coins);
+    cout << sl.change(amount,coins);
 }
 
