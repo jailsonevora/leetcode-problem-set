@@ -13,6 +13,10 @@ using namespace std;
 class Solution {
     int bottomUp(vector<int> coins, int amount){
 
+        int n = coins.size();
+
+        int dp[n+1][amount+1];
+
     }
 public:
     int change(int amount, vector<int>& coins) {
