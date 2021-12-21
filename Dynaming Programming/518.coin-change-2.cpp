@@ -3,6 +3,9 @@
  *
  * [518] Coin Change 2
  */
+#include<iostream>
+#include<algorithm>
+#include<vector>
 
 // @lc code=start
 class Solution {
