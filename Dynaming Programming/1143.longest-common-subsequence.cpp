@@ -6,6 +6,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include <string.h>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ class Solution {
         return dp[s1][s2];
     }
     // top-down recursion + memo
-    int topDown(string text1, string text2, int s1, int s2, vector<vector<int>>& dp){
+    int topDown(string& text1, string& text2, int s1, int s2, vector<vector<int>>& dp){
 
         if(s1 == 0 || s2 == 0)
             return 0;
@@ -57,6 +58,8 @@ public:
 
         // recursion + memo
         vector<vector<int>> dp(text1.size()+1, vector<int>(text2.size()+1,-1));
+        // int dp[1001][1001];
+        // memset(dp,-1,sizeof dp);
         return topDown(text1,text2, text1.size(), text2.size(), dp);
     }
 };
