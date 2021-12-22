@@ -21,7 +21,20 @@ class Solution {
         for (int row = 0; row <= s1; row++)
             dp[row][0] = 0;
         for (int col = 1; col <= s2; col++)
-            dp[0][col]
+            dp[0][col] = 0;
+
+        for (int row = 0; row <= s1; row++)
+            for (int col = 0; col <= s2; col++){
+                // diogonal cel + 1
+                if(text1[row] == text2[col])
+                    dp[row][col] = 1 + dp[row-1][col-1];
+                // else it is max of left or above cell
+                else
+                    dp[row][col] =
+            }
+
+
+        
         
 
     }
