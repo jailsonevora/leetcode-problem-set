@@ -11,6 +11,10 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    // bottom up DP tabulation
+
+    // top-down recursion + memo
+    
 public:
     int longestCommonSubsequence(string text1, string text2) {
         
