@@ -18,3 +18,11 @@ public:
 };
 // @lc code=end
 
+int main(){
+
+    string text1 = "abcde", text2 = "ace";
+
+    Solution sl;
+    cout << sl.  
+}
+
