@@ -14,6 +14,13 @@ class Solution {
     // bottom up DP tabulation
     int bottomUp(string text1, string text2){
 
+        int s1 = text1.size(), s2 = text2.size();
+        
+
+        for (int row = 0; row < s1; row++)
+
+        
+
     }
     // top-down recursion + memo
     int topDown(string text1, string text2){
