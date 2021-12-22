@@ -46,6 +46,7 @@ public:
         return bottomUp(text1,text2);
 
         // recursion + memo
+        vector<vector<int>> dp(text1.size(), vector<int>(text2.size(),-1));
         return topDown(text1,text2, s1, s2, dp);
     }
 };
