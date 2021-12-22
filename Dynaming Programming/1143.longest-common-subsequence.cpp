@@ -12,12 +12,12 @@ using namespace std;
 // @lc code=start
 class Solution {
     // bottom up DP tabulation
-    int bottomUp(){
+    int bottomUp(string text1, string text2){
 
     }
     // top-down recursion + memo
-    int topDown(){
-        
+    int topDown(string text1, string text2){
+
     }
 
 public:
