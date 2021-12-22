@@ -46,14 +46,14 @@ class Solution {
         if(text1[s1-1] == text2[s2-1])
             return dp[s1][s2] = 1 + topDown(text1, text2, s1-1, s2-1, dp);
         else
-            return dp[s1][s2] = max(topDown(text1, text2))
+            return dp[s1][s2] = max(topDown(text1, text2, s1,s2-1, dp), topDown(text1, text2, s1-1, s2, dp));
     }
 
 public:
     int longestCommonSubsequence(string text1, string text2) {
         
         // DP tabulation
-        return bottomUp(text1,text2);
+        //return bottomUp(text1,text2);
 
         // recursion + memo
         vector<vector<int>> dp(text1.size()+1, vector<int>(text2.size()+1,-1));
