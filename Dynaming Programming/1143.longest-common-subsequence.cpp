@@ -15,10 +15,13 @@ class Solution {
     int bottomUp(string text1, string text2){
 
         int s1 = text1.size(), s2 = text2.size();
-        
+
+        int dp[s1+1][s2+1];
 
         for (int row = 0; row < s1; row++)
-
+            dp[row][0] = 0;
+        for (int row = 0; row < s1; row++)
+        
         
 
     }
