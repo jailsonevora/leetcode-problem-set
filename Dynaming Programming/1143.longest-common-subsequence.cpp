@@ -46,7 +46,7 @@ public:
         return bottomUp(text1,text2);
 
         // recursion + memo
-        // return topDown(text1,text2);
+        return topDown(text1,text2, s1, s2, dp);
     }
 };
 // @lc code=end
