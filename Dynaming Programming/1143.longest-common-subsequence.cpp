@@ -12,9 +12,14 @@ using namespace std;
 // @lc code=start
 class Solution {
     // bottom up DP tabulation
+    int bottomUp(){
 
+    }
     // top-down recursion + memo
-    
+    int topDown(){
+        
+    }
+
 public:
     int longestCommonSubsequence(string text1, string text2) {
         
