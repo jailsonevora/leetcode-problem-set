@@ -44,9 +44,9 @@ class Solution {
             return dp[s1][s2];
 
         if(text1[s1-1] == text2[s2-1])
-            return dp[s1][s2] = 1 + dp[s1-1][s2-1];
+            return dp[s1][s2] = 1 + topDown(text1, text2, s1-1, s2-1, dp);
         else
-            return dp[s1][s2] =
+            return dp[s1][s2] = max(topDown(text1, text2))
     }
 
 public:
