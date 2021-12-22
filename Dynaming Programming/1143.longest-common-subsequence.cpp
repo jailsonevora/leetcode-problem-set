@@ -36,7 +36,17 @@ class Solution {
     }
     // top-down recursion + memo
     int topDown(string text1, string text2, int s1, int s2, vector<vector<int>> dp){
-        return 0;
+
+        if(s1 == 0 || s2 == 0)
+            return 0;
+
+        if(dp[s1][s2] != -1)
+            return dp[s1][s2];
+
+        if(text1[s1-1] == text2[s2-1])
+            return dp[s1][s2] = 1 + dp[s1-1][s2-1];
+        else
+            return dp[s1][s2] =
     }
 
 public:
@@ -46,7 +56,7 @@ public:
         return bottomUp(text1,text2);
 
         // recursion + memo
-        vector<vector<int>> dp(text1.size(), vector<int>(text2.size(),-1));
+        vector<vector<int>> dp(text1.size()+1, vector<int>(text2.size()+1,-1));
         return topDown(text1,text2, text1.size(), text2.size(), dp);
     }
 };
