@@ -47,7 +47,7 @@ public:
 
         // recursion + memo
         vector<vector<int>> dp(text1.size(), vector<int>(text2.size(),-1));
-        return topDown(text1,text2, s1, s2, dp);
+        return topDown(text1,text2, text1.size(), text2.size(), dp);
     }
 };
 // @lc code=end
