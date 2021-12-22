@@ -3,6 +3,9 @@
  *
  * [1143] Longest Common Subsequence
  */
+#include<iostream>
+#include<vector>
+#include<algorithm>
 
 // @lc code=start
 class Solution {
