@@ -26,11 +26,11 @@ class Solution {
         for (int row = 1; row <= s1; row++)
             for (int col = 1; col <= s2; col++){
                 // diogonal cel + 1
-                if(text1[row] == text2[col])
+                if(text1[row-1] == text2[col-1])
                     dp[row][col] = 1 + dp[row-1][col-1];
                 // else it is max of left or above cell
                 else
-                    dp[row][col] = max(dp[row][col-1], dp[row-1][col]);
+                    dp[row][col] = max(dp[row-1][col],dp[row][col-1]);
             }
         return dp[s1][s2];
     }
