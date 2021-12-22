@@ -18,10 +18,10 @@ class Solution {
 
         int dp[s1+1][s2+1];
 
-        for (int row = 0; row < s1; row++)
+        for (int row = 0; row <= s1; row++)
             dp[row][0] = 0;
-        for (int row = 0; row < s1; row++)
-        
+        for (int col = 1; col <= s2; col++)
+            dp[0][col]
         
 
     }
