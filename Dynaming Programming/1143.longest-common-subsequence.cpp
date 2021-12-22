@@ -30,9 +30,9 @@ class Solution {
                     dp[row][col] = 1 + dp[row-1][col-1];
                 // else it is max of left or above cell
                 else
-                    dp[row][col] =
+                    dp[row][col] = max(dp[row][col-1], dp[row-1][col]);
             }
-
+        
 
         
         
