@@ -23,8 +23,8 @@ class Solution {
         for (int col = 1; col <= s2; col++)
             dp[0][col] = 0;
 
-        for (int row = 0; row <= s1; row++)
-            for (int col = 0; col <= s2; col++){
+        for (int row = 1; row <= s1; row++)
+            for (int col = 1; col <= s2; col++){
                 // diogonal cel + 1
                 if(text1[row] == text2[col])
                     dp[row][col] = 1 + dp[row-1][col-1];
@@ -32,11 +32,7 @@ class Solution {
                 else
                     dp[row][col] = max(dp[row][col-1], dp[row-1][col]);
             }
-        
-
-        
-        
-
+        return dp[s1][s2];
     }
     // top-down recursion + memo
     int topDown(string text1, string text2){
