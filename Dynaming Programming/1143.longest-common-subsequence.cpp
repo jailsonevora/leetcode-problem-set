@@ -35,7 +35,7 @@ class Solution {
         return dp[s1][s2];
     }
     // top-down recursion + memo
-    int topDown(string text1, string text2, int s1, int s2, vector<vector<int>> dp){
+    int topDown(string text1, string text2, int s1, int s2, vector<vector<int>>& dp){
 
         if(s1 == 0 || s2 == 0)
             return 0;
