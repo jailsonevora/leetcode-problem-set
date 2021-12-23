@@ -16,7 +16,7 @@ using namespace std;
 class Solution {
 
     bool topDown(){
-        
+
     }
 
     // botton_up aproach dynamic programming tabulation
@@ -83,7 +83,10 @@ public:
         w /= 2;
 
         // dynamic programming aproach
-        return bottonUp(nums, w, n); 
+        //return bottonUp(nums, w, n); 
+
+        // recursion + memo
+        vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
     }
 };
 // @lc code=end
