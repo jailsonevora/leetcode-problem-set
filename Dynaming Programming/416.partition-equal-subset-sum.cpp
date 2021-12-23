@@ -22,6 +22,7 @@ class Solution {
             return dp[n][w];
 
         if(w < nums[n-1])
+            return dp[n][w] =topDown();
         
 
     }
