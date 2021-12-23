@@ -15,7 +15,7 @@ using namespace std;
 // @lc code=start
 class Solution {
 
-    bool topDown(vector<int> nums, int w, int n, vector<vector<int>>& dp){
+    bool topDown(vector<int> nums, int w, int n, vector<vector<bool>>& dp){
 
         if(n==0)
             return 0;
@@ -27,7 +27,7 @@ class Solution {
             return dp[n][w];
 
         if(w < nums[n-1])
-            return dp[n][w] =topDown(nums, w, n-1, dp);
+            return dp[n][w] = topDown(nums, w, n-1, dp);
         else
             return dp[n][w] = topDown(nums, w, n-1, dp) || topDown(nums, w-nums[n-1], n-1, dp);
     }
@@ -99,7 +99,7 @@ public:
         //return bottonUp(nums, w, n); 
 
         // recursion + memo
-        vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
+        vector<vector<bool>> dp(n+1,vector<bool>(w+1,-1));
         return topDown(nums,w,n,dp);
     }
 };
