@@ -44,13 +44,13 @@ class Solution {
 
         for(int row = 1; row <= n; ++row)
         {
-            for (int col = 0; col <= w; col++)
+            for (int col = 1; col <= w; col++)
             {   
                 // exclude
                 if(col < nums[row-1])
                     dp[row][col] = dp[row-1][col];
                 // include
-                if(col >= nums[row-1])
+                else
                     // exclude num or include it
                     dp[row][col] = dp[row-1][col] || dp[row-1][col-nums[row-1]];   
             }            
@@ -95,12 +95,12 @@ public:
             return 0;
 
         // recursion + memo
-        vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
+        //vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
         w /= 2;
-        return topDown(nums,w,n,dp);
+        //return topDown(nums,w,n,dp);
 
         // dynamic programming tabulation aproach
-        //return bottonUp(nums, w, n); 
+        return bottonUp(nums, w, n); 
 
         
     }
