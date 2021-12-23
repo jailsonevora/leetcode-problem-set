@@ -15,21 +15,21 @@ using namespace std;
 // @lc code=start
 class Solution {
 
-    bool topDown(vector<int> nums, int w, int n, vector<vector<bool>>& dp){
+    bool topDown(vector<int>& nums, int w, int n, vector<vector<bool>>& dp){
 
-        if(n==0)
+        if(n<=0)
             return 0;
         
-        if(w == 1)
-            return 0;
+        if(w == 0)
+            return 1;
 
-        if(dp[n][w] != -1)
-            return dp[n][w];
+        if(dp[n-1][w] != -1)
+            return dp[n-1][w];
 
-        if(w < nums[n-1])
-            return dp[n][w] = topDown(nums, w, n-1, dp);
+        if(w >= nums[n-1])
+            return dp[n-1][w] = (topDown(nums, w-nums[n-1], n-1, dp) || topDown(nums, w, n-1, dp));
         else
-            return dp[n][w] = topDown(nums, w, n-1, dp) || topDown(nums, w-nums[n-1], n-1, dp);
+            return dp[n-1][w] = topDown(nums, w, n-1, dp);
     }
 
     // botton_up aproach dynamic programming tabulation
@@ -93,14 +93,16 @@ public:
         //if(w % 2 != 0)
         if(w & 1)
             return 0;
+
+        // recursion + memo
+        vector<vector<bool>> dp(n+1,vector<bool>(w+1,-1));
         w /= 2;
+        return topDown(nums,w,n,dp);
 
         // dynamic programming aproach
         //return bottonUp(nums, w, n); 
 
-        // recursion + memo
-        vector<vector<bool>> dp(n+1,vector<bool>(w+1,-1));
-        return topDown(nums,w,n,dp);
+        
     }
 };
 // @lc code=end
