@@ -17,12 +17,19 @@ class Solution {
 
     bool topDown(vector<int> nums, int w, int n, vector<vector<int>>& dp){
 
+        if(n==0)
+            return 0;
+        
+        if(w == 1)
+            return 0;
 
         if(dp[n][w] != -1)
             return dp[n][w];
 
         if(w < nums[n-1])
-            return dp[n][w] =topDown();
+            return dp[n][w] =topDown(nums, w, n-1, dp);
+        else
+            return dp[n][w] = topDown(nums, w, n-1, dp) || ;
         
 
     }
