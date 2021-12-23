@@ -99,7 +99,7 @@ public:
         w /= 2;
         return topDown(nums,w,n,dp);
 
-        // dynamic programming aproach
+        // dynamic programming tabulation aproach
         //return bottonUp(nums, w, n); 
 
         
