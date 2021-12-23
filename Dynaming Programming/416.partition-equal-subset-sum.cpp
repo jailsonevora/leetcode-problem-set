@@ -17,7 +17,7 @@ class Solution {
 
     bool topDown(vector<int>& nums, int w, int n, vector<vector<int>>& dp){
 
-        if(n<=0)
+        if(n==0)
             return 0;
         
         if(w == 0)
