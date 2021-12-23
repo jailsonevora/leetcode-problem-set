@@ -17,6 +17,13 @@ class Solution {
 
     bool topDown(vector<int> nums, int w, int n, vector<vector<int>>& dp){
 
+
+        if(dp[n][w] != -1)
+            return dp[n][w];
+
+        if(w < nums[n-1])
+        
+
     }
 
     // botton_up aproach dynamic programming tabulation
