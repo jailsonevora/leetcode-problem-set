@@ -100,7 +100,7 @@ public:
 
         // recursion + memo
         vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
-        return topDown()
+        return topDown(nums,w,n,dp);
     }
 };
 // @lc code=end
