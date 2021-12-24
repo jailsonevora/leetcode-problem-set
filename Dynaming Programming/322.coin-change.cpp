@@ -47,6 +47,9 @@ class Solution {
         if(amount == 0)
             return 1e5;
 
+        if(dp[n][amount] != -1)
+            return dp[n][amount];
+
 
         
     }
