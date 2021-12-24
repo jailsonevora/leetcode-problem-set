@@ -7,7 +7,7 @@
 #include<algorithm>
 #include<numeric>
 #include<vector>
-#include<string>
+#include<string.h>
 
 using namespace std;
 
@@ -43,6 +43,7 @@ class Solution {
 
         int n = coins.size();
 
+
         
     }
 
@@ -53,8 +54,9 @@ public:
         //return bottomUP(coins,amount);
 
         // memo + recursion
-        int dp[coins+1][amount+1];
-        return topDown();
+        int dp[coins.size()+1][amount+1];
+        memset(dp,-1, sizeof dp);
+        return topDown(coins, amount, dp);
     }
 };
 // @lc code=end
