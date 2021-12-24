@@ -53,8 +53,7 @@ class Solution {
         if(amount < coins[n-1])
             dp[n][amount] = topDown(coins, n-1, amount, dp); 
         else
-            dp[n][amount] = min(1+topDown(coins, n, amount-coins[n-1], dp), topDown(coins, n-1, amount, dp));
-        
+            dp[n][amount] = min(1+topDown(coins, n, amount-coins[n-1], dp), topDown(coins, n-1, amount, dp));  
     }
 
 public:
@@ -64,9 +63,9 @@ public:
         //return bottomUP(coins,amount);
 
         // memo + recursion
-        int dp[coins.size()+1][amount+1];
+        int dp[1001][1001];
         memset(dp,-1, sizeof dp);
-        return topDown(coins, amount, dp);
+        return topDown(coins, coins.size(), amount, dp);
     }
 };
 // @lc code=end
