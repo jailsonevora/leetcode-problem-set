@@ -51,9 +51,9 @@ class Solution {
             return dp[n][amount];
 
         if(amount < coins[n-1])
-            dp[n][amount] = topDown(coins, n, amount-1, dp); 
-
-
+            dp[n][amount] = topDown(coins, n-1, amount, dp); 
+        else
+            dp[n][amount] = min(1+topDown(coins, n, amount-coins[n-1], dp), topDown(coins, n-1, amount, dp));
         
     }
 
