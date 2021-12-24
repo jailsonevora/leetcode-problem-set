@@ -41,6 +41,7 @@ class Solution {
     int topDown(vector<int>& coins, int amount, int dp[][1001]){
 
         int n = coins.size();
+
         
     }
 
@@ -48,7 +49,10 @@ public:
     int coinChange(vector<int>& coins, int amount) {
         
         // dp tabulation
-        return bottomUP(coins,amount);
+        //return bottomUP(coins,amount);
+
+        // memo + recursion
+
     }
 };
 // @lc code=end
