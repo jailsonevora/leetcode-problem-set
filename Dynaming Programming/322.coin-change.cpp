@@ -52,7 +52,8 @@ public:
         //return bottomUP(coins,amount);
 
         // memo + recursion
-
+        int dp[coins+1][amount+1];
+        return topDown();
     }
 };
 // @lc code=end
