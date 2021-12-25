@@ -39,13 +39,13 @@ class Solution {
     } 
 
     // backtracking + memoization
-    int topDown(vector<int>& coins, int n, int amount, int dp[][10001]){
+    int topDown(vector<int>& coins, int n, int amount, /*int dp[][1001]*/vector<vector<int>>& dp){
 
         if(amount==0)
             return 0;
 
-        if(amount < 0 || n < 0)
-            return 1e5;
+        //if(amount < 0 || n < 0)
+          //  return 1e5;
 
         if(dp[n][amount] != -1)
             return dp[n][amount];
@@ -63,9 +63,13 @@ public:
         //return bottomUP(coins,amount);
 
         // memo + recursion
-        int dp[10001][10001];
-        memset(dp,-1, sizeof dp);
-        return topDown(coins, coins.size(), amount, dp);
+        //int dp[1001][1001];
+        //memset(dp,-1, sizeof dp);
+        vector<vector<int>> dp(coins.size()+1,vector<int>(amount+1,-1));
+        //return topDown(coins, coins.size(), amount, dp);
+        int ans = topDown(coins, coins.size(), amount, dp);
+;
+        return ans>= 1e6 ? -1 : ans;
     }
 };
 // @lc code=end
