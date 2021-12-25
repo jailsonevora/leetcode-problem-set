@@ -63,7 +63,7 @@ public:
         //return bottomUP(coins,amount);
 
         // memo + recursion
-        int dp[1001][1001];
+        int dp[10001][10001];
         memset(dp,-1, sizeof dp);
         return topDown(coins, coins.size(), amount, dp);
     }
