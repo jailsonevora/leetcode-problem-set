@@ -41,7 +41,7 @@ class Solution {
     // backtracking + memoization
     int topDown(vector<int>& coins, int n, int amount, int dp[][1001]){
 
-        if(n<=0)
+        if(n==0)
             return 0;
 
         if(amount == 0)
@@ -65,7 +65,7 @@ public:
         // memo + recursion
         int dp[1001][1001];
         memset(dp,-1, sizeof dp);
-        return topDown(coins, coins.size(), amount, dp);
+        return topDown(coins, coins.size()+1, amount+1, dp);
     }
 };
 // @lc code=end
