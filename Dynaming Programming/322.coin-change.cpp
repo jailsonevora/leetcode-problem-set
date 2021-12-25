@@ -39,7 +39,7 @@ class Solution {
     } 
 
     // backtracking + memoization
-    int topDown(vector<int>& coins, int n, int amount, int& dp[][1001]){
+    int topDown(vector<int>& coins, int n, int amount, int dp[][10001]){
 
         if(amount==0)
             return 0;
