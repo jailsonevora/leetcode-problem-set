@@ -24,6 +24,6 @@ int main(){
     string str1 = "abac", str2 = "cab";
 
     Solution sl;
-    sl.shortestCommonSupersequence();
+    cout << sl.shortestCommonSupersequence(str1,str2);
 }
 
