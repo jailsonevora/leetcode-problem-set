@@ -21,6 +21,9 @@ public:
 
 int main(){
 
-    string str1
+    string str1 = "abac", str2 = "cab";
+
+    Solution sl;
+    sl.shortestCommonSupersequence();
 }
 
