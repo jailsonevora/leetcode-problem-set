@@ -33,7 +33,6 @@ class Solution {
                     dp[row][col] = dp[row][col-1].size() > dp[row-1][col].size() ? dp[row][col-1] : dp[row-1][col];
             }
         return dp[lenght1][lenght2];
-
     }
 public:
     string shortestCommonSupersequence(string str1, string str2) {
