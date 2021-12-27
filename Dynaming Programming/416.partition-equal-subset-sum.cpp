@@ -13,6 +13,7 @@
 using namespace std;
 
 // @lc code=start
+// longest common subsequence dp problem
 class Solution {
 
     bool topDown(vector<int>& nums, int w, int n, vector<vector<int>>& dp){

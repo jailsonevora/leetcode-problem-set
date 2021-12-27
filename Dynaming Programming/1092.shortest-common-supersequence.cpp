@@ -12,6 +12,7 @@
 using namespace std;
 
 // @lc code=start
+// longest common subsequence dp problem
 class Solution {
     string longestCommonSubsequence(string str1, string str2){
         int lenght1 = str1.size();
