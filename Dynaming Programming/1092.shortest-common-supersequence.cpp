@@ -23,8 +23,8 @@ class Solution {
         for (int col = 1; col <= lenght2; col++)
             dp[0][col] = "";
 
-        for (int row = 1; row <= s1; row++)
-            for (int col = 1; col <= s2; col++){
+        for (int row = 1; row <= lenght1; row++)
+            for (int col = 1; col <= lenght2; col++){
                 // diogonal cel + 1
                 if(str1[row-1] == str2[col-1])
                     dp[row][col] = dp[row-1][col-1] + str1[row-1];
@@ -36,7 +36,7 @@ class Solution {
     }
 public:
     string shortestCommonSupersequence(string str1, string str2) {
-        
+        return longestCommonSubsequence(str1,str2);
     }
 };
 // @lc code=end
