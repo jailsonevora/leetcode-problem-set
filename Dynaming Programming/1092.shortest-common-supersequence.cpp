@@ -36,7 +36,10 @@ class Solution {
     }
 public:
     string shortestCommonSupersequence(string str1, string str2) {
-        return longestCommonSubsequence(str1,str2);
+        string ans = "";
+        string lCSubsequence = longestCommonSubsequence(str1,str2);
+
+        int ptr1 = 0, ptr2 = 0;
     }
 };
 // @lc code=end
