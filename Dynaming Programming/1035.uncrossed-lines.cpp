@@ -17,6 +17,10 @@ class Solution {
 
         int n = nums1.size(), w = nums2.size();
 
+        int dp[n+1][m+1];
+
+        for(int row = 0; row <=)
+
     }
 public:
     int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
