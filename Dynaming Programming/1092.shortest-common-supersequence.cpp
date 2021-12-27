@@ -12,6 +12,9 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    string longestCommonSubsequence(){
+        
+    }
 public:
     string shortestCommonSupersequence(string str1, string str2) {
         
