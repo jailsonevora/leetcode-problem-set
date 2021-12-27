@@ -19,7 +19,21 @@ class Solution {
 
         int dp[n+1][m+1];
 
-        for(int row = 0; row <=)
+        for(int row = 0; row <= n; ++row)
+            dp[row][0] = 0;
+        for(int col = 0; col <= w; ++col)
+            dp[0][col] = 0;
+        
+        for(int row = 0; row <= n; ++row)
+            for(int col = 0; col <= w; ++col){
+
+                if(col < nums1[row-1])
+                    dp[row][col] = 
+
+            }
+
+
+        
 
     }
 public:
