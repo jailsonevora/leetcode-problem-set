@@ -16,6 +16,10 @@ class Solution {
         int lenght1 = str1.size();
         int lenght2 = str2.size();
 
+        string dp[lenght1+1][lenght2+1];
+
+        for
+
     }
 public:
     string shortestCommonSupersequence(string str1, string str2) {
