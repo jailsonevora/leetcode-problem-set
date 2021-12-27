@@ -40,6 +40,14 @@ public:
         string lCSubsequence = longestCommonSubsequence(str1,str2);
 
         int ptr1 = 0, ptr2 = 0;
+        for(char ch: lCSubsequence){
+
+            while (/* condition */)
+            {
+                /* code */
+            }
+            
+        }
     }
 };
 // @lc code=end
