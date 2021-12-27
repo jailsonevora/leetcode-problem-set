@@ -7,6 +7,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<string>
 
 using namespace std;
 
@@ -49,10 +50,9 @@ public:
                 ans += str2[ptr2++];
 
             ans += ch;
-            ++ptr1, ptr2;
-            
-            
+            ++ptr1, ptr2;            
         }
+        return ans += str1.substr(ptr1) + str2.substr(ptr2);
     }
 };
 // @lc code=end
