@@ -19,3 +19,6 @@ public:
 };
 // @lc code=end
 
+int main(){
+    vector<int> nums1 = {2,5,1,2,5}, nums2 = {10,5,2,1,5,2};
+}
