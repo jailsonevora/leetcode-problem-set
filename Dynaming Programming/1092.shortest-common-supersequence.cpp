@@ -18,6 +18,11 @@ class Solution {
 
         string dp[lenght1+1][lenght2+1];
 
+        for (int row = 0; row <= lenght1; row++)
+            dp[row][0] = "";
+        for (int col = 1; col <= lenght2; col++)
+            dp[0][col] = "";
+
         for
 
     }
