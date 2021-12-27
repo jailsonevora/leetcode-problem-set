@@ -15,7 +15,7 @@ class Solution {
     // bottom-Up aproach
     int bottomUp(vector<int>& nums1, vector<int>& nums2){
 
-        
+        int n = nums1.size(), w = nums2.size();
 
     }
 public:
