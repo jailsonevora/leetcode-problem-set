@@ -11,6 +11,7 @@
 using namespace std;
 
 // @lc code=start
+// longest common subsequence dp problem
 class Solution {
     // bottom-Up aproach
     int bottomUp(vector<int>& nums1, vector<int>& nums2){
