@@ -44,6 +44,13 @@ public:
 
             while (str1[ptr1] != ch)
                 ans += str1[ptr1++];
+
+            while (str2[ptr2] != ch)
+                ans += str2[ptr2++];
+
+            ans += ch;
+            ++ptr1, ptr2;
+            
             
         }
     }
