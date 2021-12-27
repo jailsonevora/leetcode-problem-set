@@ -19,3 +19,8 @@ public:
 };
 // @lc code=end
 
+int main(){
+
+    string str1
+}
+
