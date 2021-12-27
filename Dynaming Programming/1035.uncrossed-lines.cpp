@@ -12,6 +12,12 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    // bottom-Up aproach
+    int bottomUp(vector<int>& nums1, vector<int>& nums2){
+
+        
+
+    }
 public:
     int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
         
