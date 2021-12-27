@@ -24,8 +24,8 @@ class Solution {
         for(int col = 0; col <= w; ++col)
             dp[0][col] = 0;
         
-        for(int row = 0; row <= n; ++row)
-            for(int col = 0; col <= w; ++col){
+        for(int row = 1; row <= n; ++row)
+            for(int col = 1; col <= w; ++col){
 
                 if(nums1[row-1] == nums2[col-1])
                     dp[row][col] = 1 + dp[row-1][col-1];
