@@ -30,7 +30,7 @@ class Solution {
                     dp[row][col] = dp[row-1][col-1] + str1[row-1];
                 // else it is max of left or above cell
                 else
-                    dp[row][col] = dp[row-1][col],dp[row][col-1].size();
+                    dp[row][col] = dp[row][col-1].size() > dp[row-1][col].size() ? dp[row][col-1] : dp[row-1][col];
             }
         return dp[lenght1][lenght2];
 
