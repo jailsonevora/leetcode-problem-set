@@ -42,10 +42,8 @@ public:
         int ptr1 = 0, ptr2 = 0;
         for(char ch: lCSubsequence){
 
-            while (/* condition */)
-            {
-                /* code */
-            }
+            while (str1[ptr1] != ch)
+                ans += str1[ptr1++];
             
         }
     }
