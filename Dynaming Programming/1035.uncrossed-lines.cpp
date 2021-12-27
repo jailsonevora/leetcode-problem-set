@@ -27,14 +27,12 @@ class Solution {
         for(int row = 0; row <= n; ++row)
             for(int col = 0; col <= w; ++col){
 
-                if(col < nums1[row-1])
-                    dp[row][col] = 
-
+                if(nums1[row-1] == nums2[col-1])
+                    dp[row][col] = 1 + dp[row-1][col-1];
+                else
+                    dp[row][col] = max(dp[row-1][col], dp[row][col-1]);
             }
-
-
-        
-
+        return dp[n][w];
     }
 public:
     int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
