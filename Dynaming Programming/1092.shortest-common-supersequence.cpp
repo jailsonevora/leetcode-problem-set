@@ -50,7 +50,7 @@ public:
                 ans += str2[ptr2++];
 
             ans += ch;
-            ++ptr1, ptr2;            
+            ++ptr1, ++ptr2;            
         }
         return ans += str1.substr(ptr1) + str2.substr(ptr2);
     }
