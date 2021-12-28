@@ -22,9 +22,10 @@ class Solution {
 
         dp[n][w] = 0;
 
-        for(int row = 0; row <= n; ++row)
-            dp[row][0]
+        for(int col = 2; col <= w; ++col)
+            dp[0][col] = dp[0][col-2] && p[col-1] == '*';
 
+        
     }
 
     // top-down aproach memoization
