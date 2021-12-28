@@ -25,7 +25,19 @@ class Solution {
         for(int col = 2; col <= w; ++col)
             dp[0][col] = dp[0][col-2] && p[col-1] == '*';
 
-        
+        for(int row = 1; row <= n; ++row)
+            for(int col = 1; col <= w; ++col){
+                if(p[col-1] == '.' || (p[col-1] >= 'a' && p[col-1] <= 'z' && s[row-1]==p[col-1]) )
+                    dp[row][col] = dp[row-1][col-1];
+                else if(col > 1)
+                {
+                    if(s[row-1]==p[col-2] || p[col-2]=='.') 
+                        dp[row][col] = dp[row-1][col] | dp[row][col-2];
+                    else 
+                        dp[row][col] = dp[row][col-2];
+                }  
+            }
+        return dp[n][w];
     }
 
     // top-down aproach memoization
