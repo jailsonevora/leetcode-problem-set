@@ -12,7 +12,7 @@ using namespace std;
 // @lc code=start
 class Solution {
     // bottom-Up aproach dp tabulation
-    bool bottomUp(){
+    bool bottomUp(string s, string p){
 
     }
 
@@ -21,6 +21,8 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
         
+        
+        return bottomUp(s,p);
     }
 };
 // @lc code=end
