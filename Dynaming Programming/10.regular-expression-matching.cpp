@@ -18,20 +18,22 @@ class Solution {
         int n = s.size(), w = p.size();
 
         int dp[n+1][w+1];
-        memset(dp,-1,sizeof dp);
+        memset(dp,false,sizeof dp);
 
-        dp[n][w] = 0;
+        dp[0][0] = true;
 
         for(int col = 2; col <= w; ++col)
             dp[0][col] = dp[0][col-2] && p[col-1] == '*';
 
         for(int row = 1; row <= n; ++row)
             for(int col = 1; col <= w; ++col){
-                if(p[col-1] == '.' || (p[col-1] >= 'a' && p[col-1] <= 'z' && s[row-1]==p[col-1]) )
+                // if( p[col-1] >= 'a' && p[col-1] <= 'z')
+                //     dp[row][col] = dp[row-1][col-1] && (bool) s[row-1] == p[col-1];
+                if( p[col-1] == '.' || s[row-1] == p[col-1])
                     dp[row][col] = dp[row-1][col-1];
                 else if(col > 1)
                 {
-                    if(s[row-1]==p[col-2] || p[col-2]=='.') 
+                    if(s[row-1] == p[col-2] || p[col-2] == '.') 
                         dp[row][col] = dp[row-1][col] | dp[row][col-2];
                     else 
                         dp[row][col] = dp[row][col-2];
@@ -55,7 +57,7 @@ int main(){
     
     string s = "aa", p = "a";
 
-
-
+    Solution sl;
+    cout << sl.isMatch(s,p);
 }
 
