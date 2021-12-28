@@ -11,6 +11,7 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    // bottom-Up aproach
 public:
     bool isMatch(string s, string p) {
         
@@ -19,6 +20,10 @@ public:
 // @lc code=end
 
 int main(){
+    
     string s = "aa", p = "a";
+
+
+
 }
 
