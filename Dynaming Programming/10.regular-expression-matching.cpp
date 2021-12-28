@@ -6,6 +6,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<numeric>
 
 using namespace std;
 
@@ -14,6 +15,14 @@ class Solution {
     // bottom-Up aproach dp tabulation
     bool bottomUp(string s, string p){
 
+        int n = s.size(), w = p.size();
+
+        int dp[n+1][w+1];
+        memse
+
+        for(int row = 0; row <= n; ++row)
+            dp[row][0]
+
     }
 
     // top-down aproach memoization
@@ -21,7 +30,7 @@ class Solution {
 public:
     bool isMatch(string s, string p) {
         
-        
+        // bottom-Up aproach dp tabulation
         return bottomUp(s,p);
     }
 };
