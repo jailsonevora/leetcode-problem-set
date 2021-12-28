@@ -3,6 +3,7 @@
  *
  * [10] Regular Expression Matching
  */
+#include<iostream>
 
 // @lc code=start
 class Solution {
