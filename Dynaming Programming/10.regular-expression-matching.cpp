@@ -4,6 +4,7 @@
  * [10] Regular Expression Matching
  */
 #include<iostream>
+#include<algorithm>
 
 // @lc code=start
 class Solution {
