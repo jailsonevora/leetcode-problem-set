@@ -11,10 +11,13 @@ using namespace std;
 
 // @lc code=start
 class Solution {
-    // bottom-Up aproach
+    // bottom-Up aproach dp tabulation
     bool bottomUp(){
-        
+
     }
+
+    // top-down aproach memoization
+    
 public:
     bool isMatch(string s, string p) {
         
