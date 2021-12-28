@@ -27,11 +27,9 @@ class Solution {
 
         for(int row = 1; row <= n; ++row)
             for(int col = 1; col <= w; ++col){
-                // if( p[col-1] >= 'a' && p[col-1] <= 'z')
-                //     dp[row][col] = dp[row-1][col-1] && (bool) s[row-1] == p[col-1];
                 if( p[col-1] == '.' || s[row-1] == p[col-1])
                     dp[row][col] = dp[row-1][col-1];
-                else if(col > 1)
+                else if(p[col-1] == '*' && col > 1)
                 {
                     if(s[row-1] == p[col-2] || p[col-2] == '.') 
                         dp[row][col] = dp[row-1][col] | dp[row][col-2];
