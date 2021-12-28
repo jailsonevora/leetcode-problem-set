@@ -6,7 +6,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-#include<numeric>
+#include<string.h>
 
 using namespace std;
 
@@ -18,7 +18,9 @@ class Solution {
         int n = s.size(), w = p.size();
 
         int dp[n+1][w+1];
-        memse
+        memset(dp,-1,sizeof dp);
+
+        dp[n][w] = 0;
 
         for(int row = 0; row <= n; ++row)
             dp[row][0]
