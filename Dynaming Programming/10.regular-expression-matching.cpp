@@ -53,7 +53,7 @@ public:
 
 int main(){
     
-    string s = "aa", p = "a";
+    string s = "aa", p = "a*";
 
     Solution sl;
     cout << sl.isMatch(s,p);
