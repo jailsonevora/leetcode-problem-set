@@ -6,6 +6,9 @@
 
 #include<iostream>
 #include<algorithm>
+#include<vector>
+
+
 
 // @lc code=start
 // longest increasing subsequence
