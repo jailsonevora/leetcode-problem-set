@@ -22,14 +22,14 @@ public:
         if(n == 0)
             return 0;
         
-        int dp[n+1];
-        std::fill(dp, dp+n+1, 1);
-        //memset(dp, 1, sizeof(dp));
+        // int dp[n+1];
+        // std::fill(dp, dp+n+1, 1);
+        // //memset(dp, 1, sizeof(dp));
 
-        //vector<int> dp(n+1,1);
+        vector<int> dp(n+1,1);
 
         sort(envelopes.begin(), envelopes.end());
-        int max = 1;
+        //int max = 1;
         for (int i = 1; i < n; i++){
             for (int j = 0; j < i; j++){
                 if(envelopes[i][0] > envelopes[j][0] && envelopes[i][1] > envelopes[j][1]
@@ -42,9 +42,9 @@ public:
         // for max atribute
             //return max;
         // for vector    
-            //return *std::max_element(dp.begin(), dp.end());
+            return *std::max_element(dp.begin(), dp.end());
         // for array
-            return *std::max_element(dp, dp+n+1);
+            //return *std::max_element(dp, dp+n+1);
     }
 };
 // @lc code=end
