@@ -37,8 +37,6 @@ public:
         // for vector    
             //return *std::max_element(dp.begin(), dp.end());
         // for array
-
-        int i = 0;
         return *std::max_element(dp, dp+n);
     }
 };
