@@ -24,20 +24,20 @@ public:
         
         int dp [n+1];
         memset(dp, 1, sizeof dp);
+        //vector<int> dp(n+1,1);
 
         sort(envelopes.begin(), envelopes.end());
 
         for (int i = 1; i < n; i++)
             for (int j = 0; j < i; j++){
-
                 if(envelopes[i][0] > envelopes[j][0] && envelopes[i][1] > envelopes[j][1]
                     && 1 + dp[j] > dp[i])
                         dp[i] = 1 + dp[j];
-
             }
-
-        
-        
+        // for vector    
+            //return *std::max_element(dp.begin(), dp.end());
+        // for array
+        return *std::max_element(dp, dp+n+1);
     }
 };
 // @lc code=end
