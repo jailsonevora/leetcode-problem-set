@@ -24,6 +24,10 @@ public:
         
         int dp [n+1];
         memset(dp, 1, sizeof dp);
+
+        sort(envelopes.begin(), envelopes.end());
+
+        
         
     }
 };
