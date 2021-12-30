@@ -15,6 +15,11 @@ using namespace std;
 class Solution {
 public:
     int maxEnvelopes(vector<vector<int>>& envelopes) {
+
+        int n = envelopes.size();
+
+        if(n == 0)
+            return 0;
         
     }
 };
