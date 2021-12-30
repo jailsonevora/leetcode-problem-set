@@ -7,6 +7,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<string.h>
 
 using namespace std;
 
@@ -20,6 +21,9 @@ public:
 
         if(n == 0)
             return 0;
+        
+        int dp [n+1];
+        memset(dp, 1, sizeof dp);
         
     }
 };
