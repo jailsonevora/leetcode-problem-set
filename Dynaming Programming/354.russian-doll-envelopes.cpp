@@ -31,7 +31,8 @@ public:
             for (int j = 0; j < i; j++){
 
                 if(envelopes[i][0] > envelopes[j][0] && envelopes[i][1] > envelopes[j][1]
-                    && 1 + dp[j]  )
+                    && 1 + dp[j] > dp[i])
+                        dp[i] = 1 + dp[j];
 
             }
 
