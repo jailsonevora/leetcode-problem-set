@@ -4,6 +4,10 @@
  * [918] Maximum Sum Circular Subarray
  */
 
+#include<iostream>
+#include<vector>
+#include<numeric>
+
 // @lc code=start
 class Solution {
 public:
