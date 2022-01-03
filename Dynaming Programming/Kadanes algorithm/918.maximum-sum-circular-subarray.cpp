@@ -23,11 +23,14 @@ class Solution {
 
         int maxnd = 0, maxsfar = INT_MIN;
         for(int i = 0; i < nums.size(); ++i){
-            
+            maxnd = maxnd + nums[i];
+            if(maxnd < nums[i])
+                maxnd = nums[i];
+            if(maxsfar < maxnd)
+                maxsfar = maxnd;
         }
 
-        return - (arr_sum) - (-);
-
+        return - (arr_sum) - (-maxsfar);
     }
     // kadanes algorithm
 public:
