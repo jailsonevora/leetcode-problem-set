@@ -14,12 +14,13 @@ using namespace std;
 // @lc code=start
 class Solution {
     // kadanes algorithm
-    int kadanesAlgorithm(vector<int>& nums){
+    int kadanesAlgorithm1(vector<int>& nums){
 
         int max_straight_SUM = INT_MIN, min_straight_SUM = INT_MAX, array_SUM = 0;
         
         int temp_maxSUM = 0, temp_minSUM = 0;
-        for(int i = 0; i < nums.size(); ++i){
+        for(int i = 0; i < nums.size(); ++i){            
+            
             array_SUM +=nums[i];
             
             temp_maxSUM += nums[i];
@@ -35,10 +36,21 @@ class Solution {
         return max(max_straight_SUM,(array_SUM-min_straight_SUM));
     }
 
+    int kadanesAlgorithm2(vector<int>& A) {
+        int total = 0, maxSum = A[0], curMax = 0, minSum = A[0], curMin = 0;
+        for (int& a : A) {
+            curMax = max(curMax + a, a);
+            maxSum = max(maxSum, curMax);
+            curMin = min(curMin + a, a);
+            minSum = min(minSum, curMin);
+            total += a;
+        }
+        return maxSum > 0 ? max(maxSum, total - minSum) : maxSum;
+    }
+
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
-
-        //return invertingVector(nums);        
+        return kadanesAlgorithm2(nums);        
     }
 };
 // @lc code=end
