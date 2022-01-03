@@ -7,6 +7,7 @@
 #include<iostream>
 #include<vector>
 #include<numeric>
+#include<algorithm>
 
 // @lc code=start
 class Solution {
