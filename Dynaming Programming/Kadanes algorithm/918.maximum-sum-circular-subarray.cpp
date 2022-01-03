@@ -13,8 +13,13 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    // inverting the vector aproach
+    int invertingVector()
+    // kadanes algorithm
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
+
+
         
     }
 };
