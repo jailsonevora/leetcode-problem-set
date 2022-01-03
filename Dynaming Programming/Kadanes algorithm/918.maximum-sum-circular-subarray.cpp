@@ -19,9 +19,14 @@ class Solution {
         for (int i = 0; i < nums.size(); i++)
             nums[i]*=-1;
 
-        
+        int arr_sum = accumulate(nums.begin(), nums.end(),0);
 
-        
+        int maxnd = 0, maxsfar = INT_MIN;
+        for(int i = 0; i < nums.size(); ++i){
+            
+        }
+
+        return - (arr_sum) - (-);
 
     }
     // kadanes algorithm
