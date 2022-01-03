@@ -9,6 +9,8 @@
 #include<numeric>
 #include<algorithm>
 
+using namespace std;
+
 // @lc code=start
 class Solution {
 public:
@@ -20,5 +22,8 @@ public:
 
 int main(){
     vector<int> nums = {1,-2,3,-2};
+
+    Solution sl;
+    cout << sl.maxSubarraySumCircular(nums);
 }
 
