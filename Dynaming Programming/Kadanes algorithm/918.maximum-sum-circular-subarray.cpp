@@ -13,7 +13,7 @@ using namespace std;
 
 // @lc code=start
 class Solution {
-    // inverting the vector aproach
+    // kadanes algorithm + inverting the vector aproach
     int invertingVector(vector<int>& nums){
 
         for (int i = 0; i < nums.size(); i++)
@@ -29,8 +29,7 @@ class Solution {
             if(maxsfar < maxnd)
                 maxsfar = maxnd;
         }
-
-        return -((arr_sum) - (maxsfar));
+        return max(arr_sum,maxsfar);
     }
     // kadanes algorithm
 public:
