@@ -30,15 +30,13 @@ class Solution {
                 maxsfar = maxnd;
         }
 
-        return - (arr_sum) - (-maxsfar);
+        return -((arr_sum) - (maxsfar));
     }
     // kadanes algorithm
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
 
-
-
-        
+        return invertingVector(nums);        
     }
 };
 // @lc code=end
