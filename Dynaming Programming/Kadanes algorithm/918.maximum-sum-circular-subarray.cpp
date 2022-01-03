@@ -14,10 +14,20 @@ using namespace std;
 // @lc code=start
 class Solution {
     // inverting the vector aproach
-    int invertingVector()
+    int invertingVector(vector<int>& nums){
+
+        for (int i = 0; i < nums.size(); i++)
+            nums[i]*=-1;
+
+        
+
+        
+
+    }
     // kadanes algorithm
 public:
     int maxSubarraySumCircular(vector<int>& nums) {
+
 
 
         
