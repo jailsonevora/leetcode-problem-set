@@ -13,7 +13,13 @@ using namespace std;
 // @lc code=start
 class Solution {
     // bottom-Up
-    int bottomUp(){
+    int bottomUp(int m, int n){
+
+        int dp[m][n];
+
+        for (int row = 0; row < m; row++)
+            dp[row][0] = 1;
+        
 
     }
     // memoization
