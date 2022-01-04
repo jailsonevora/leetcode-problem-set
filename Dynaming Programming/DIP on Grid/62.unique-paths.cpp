@@ -23,5 +23,5 @@ int main(){
     int m = 3, n = 7;
 
     Solution sl;
-    sl.uniquePaths(m,n);
+    cout << sl.uniquePaths(m,n);
 }
