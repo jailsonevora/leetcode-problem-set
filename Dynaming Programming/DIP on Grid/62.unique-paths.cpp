@@ -12,7 +12,7 @@ using namespace std;
 
 // @lc code=start
 class Solution {
-    // bottom-Up
+    // bottom-Up star to robot
     int bottomUp(int m, int n){
 
         int dp[m][n];
@@ -29,12 +29,30 @@ class Solution {
 
         return dp[m-1][n-1];
     }
+
+    // bottom-Up robot to star
+    int bottomUp2(int m, int n){
+
+        int dp[m][n];
+
+        for (int row = m-1; row >= 0; row--)
+            dp[row][n-1] = 1;
+
+        for (int col = n-1; col >= 0; --col)
+            dp[m-1][col] = 1;
+
+        for (int row = m-2; row >= 0; row--)
+            for (int col = n-2; col >= 0; --col)
+                dp[row][col] = dp[row+1][col] + dp[row][col+1];
+
+        return dp[0][0];
+    }
     // memoization
 public:
     int uniquePaths(int m, int n) {
         
         // bottom-up
-        return bottomUp(m,n);
+        return bottomUp2(m,n);
     }
 };
 // @lc code=end
