@@ -18,7 +18,7 @@ class Solution {
         n = obstacleGrid[0].size();
         int dp[m][n];
 
-        for (int row = 0; row < m; row++)
+        for (int row = 0; row < m; row++){
             if(obstacleGrid[row][0] == 1){
                 for(int r = row; r < m; r++)
                     dp[r][0] = 0;
@@ -26,8 +26,9 @@ class Solution {
             }
             else
                 dp[row][0] = 1;
+        }
 
-        for (int col = 1; col < n; col++)
+        for (int col = 1; col < n; col++){
             if(obstacleGrid[0][col] == 1){
                 for(int c = col; c < n; c++)
                     dp[0][c] = 0;
@@ -35,6 +36,7 @@ class Solution {
             }
             else
                 dp[0][col] = 1;
+        }
 
         for (int row = 1; row < m; row++)
             for (int col = 1; col < n; col++)
