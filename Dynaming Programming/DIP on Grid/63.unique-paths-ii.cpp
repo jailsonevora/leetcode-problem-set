@@ -28,7 +28,7 @@ class Solution {
                 dp[row][0] = 1;
         }
 
-        for (int col = 1; col < n; col++){
+        for (int col = 0; col < n; col++){
             if(obstacleGrid[0][col] == 1){
                 for(int c = col; c < n; c++)
                     dp[0][c] = 0;
@@ -39,14 +39,18 @@ class Solution {
         }
 
         for (int row = 1; row < m; row++)
-            for (int col = 1; col < n; col++)
-                dp[row][col] = dp[row][col-1] + dp[row-1][col];
+            for (int col = 1; col < n; col++){
+                if(obstacleGrid[row][col] == 1)
+                    dp[row][col] = 0;
+                else
+                    dp[row][col] = dp[row][col-1] + dp[row-1][col];
+            }
 
         return dp[m-1][n-1];
     }
 public:
     int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-        
+        return bottomUp(obstacleGrid);
     }
 };
 // @lc code=end
