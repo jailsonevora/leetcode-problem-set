@@ -19,6 +19,11 @@ class Solution {
 
         for (int row = 0; row < m; row++)
             dp[row][0] = 1;
+
+        for (int col = 1; col < n; col++)
+            dp[0][col] = 1;
+
+        
         
 
     }
