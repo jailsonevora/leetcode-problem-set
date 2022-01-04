@@ -14,12 +14,14 @@ using namespace std;
 class Solution {
     // bottom-Up
     int bottomUp(){
-        
+
     }
     // memoization
 public:
     int uniquePaths(int m, int n) {
         
+        // bottom-up
+        return bottomUp(m,n);
     }
 };
 // @lc code=end
