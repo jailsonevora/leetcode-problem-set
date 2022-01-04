@@ -12,6 +12,11 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    // bottom-Up
+    int bottomUp(){
+        
+    }
+    // memoization
 public:
     int uniquePaths(int m, int n) {
         
