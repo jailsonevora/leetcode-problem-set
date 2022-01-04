@@ -4,6 +4,10 @@
  * [64] Minimum Path Sum
  */
 
+#include<algorithm>
+#include<iostream>
+#include<vector>
+
 // @lc code=start
 class Solution {
 public:
