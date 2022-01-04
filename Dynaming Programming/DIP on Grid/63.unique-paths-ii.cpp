@@ -19,4 +19,9 @@ public:
 };
 // @lc code=end
 
+int main(){
+    vector<vector<int>> obstacleGrid = {{0,0,0},{0,1,0},{0,0,0}};
 
+    Solution sl;
+    cout << sl.uniquePathsWithObstacles(obstacleGrid);
+}
