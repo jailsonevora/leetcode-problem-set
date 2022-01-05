@@ -19,6 +19,17 @@ class Solution {
         int n = matrix[0].size();
 
         vector<vector<int>> dp(m+1, vector<int>(n+1, 0));
+        int maxelement = 0;
+
+        for (int row = 1; row <= m; row++)
+            for (int col = 1; col <= n; col++){
+                dp[row][col] = 
+                    1 + min(dp[row-1][col],
+                            min(dp[row][col-1], dp[row-1][col-1]));
+                if(maxelement < dp[row][col])
+                    maxelement = dp[row][col];
+            }
+        return maxelement*maxelement;
     }
 public:
     int maximalSquare(vector<vector<char>>& matrix) {
