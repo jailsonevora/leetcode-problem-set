@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=85 lang=cpp
+ * @lc app=leetcode id=312 lang=cpp
  *
- * [85] Maximal Rectangle
+ * [312] Burst Balloons
  */
 #include<iostream>
 #include<vector>
@@ -11,7 +11,7 @@ using namespace std;
 // @lc code=start
 class Solution {
 public:
-    int maximalRectangle(vector<vector<char>>& matrix) {
+    int maxCoins(vector<int>& nums) {
         
     }
 };
