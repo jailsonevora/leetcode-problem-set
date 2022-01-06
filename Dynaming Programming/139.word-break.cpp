@@ -21,5 +21,8 @@ public:
 int main(){
     string s = "leetcode";
     vector<string> wordDict = {"leet","code"};
+
+    Solution sl;
+    cout << sl.wordBreak(s, wordDict);
 }
 
