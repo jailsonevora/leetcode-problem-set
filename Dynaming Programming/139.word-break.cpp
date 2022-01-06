@@ -13,12 +13,12 @@ using namespace std;
 // @lc code=start
 class Solution {
     // DP tabulation
-    bool bottomUp(string s, vector<string>& wordBreak){
+    bool bottomUp(string s, vector<string>& wordDict){
 
     }
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
-        return bottomUp(s, wordBreak);
+        return bottomUp(s, wordDict);
     }
 };
 // @lc code=end
