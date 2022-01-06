@@ -12,6 +12,10 @@ using namespace std;
 
 // @lc code=start
 class Solution {
+    // DP tabulation
+    bool bottomUp(string s, vector<string>& wordBreak){
+
+    }
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
         
