@@ -20,6 +20,6 @@ public:
 // @lc code=end
 int main(){
     string s = "leetcode";
-    vector<s
+    vector<string> wordDict = {"leet","code"};
 }
 
