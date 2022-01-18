@@ -44,8 +44,8 @@ class Solution {
         if(amount==0)
             return 0;
 
-        //if(amount < 0 || n < 0)
-          //  return 1e5;
+        if(n == 0)
+            return INT_MAX - 1;
 
         if(dp[n][amount] != -1)
             return dp[n][amount];
