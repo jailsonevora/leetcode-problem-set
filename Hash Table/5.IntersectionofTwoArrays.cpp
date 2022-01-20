@@ -6,6 +6,7 @@ using namespace std;
 
 class Solution {
 public:
+    //wrong
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
         
         unordered_set<int> intersection, intersection2;
