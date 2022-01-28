@@ -41,7 +41,7 @@ class Solution {
         }
 
     }
-    // usin dijkstra with set instead MinHeap
+    // using dijkstra with set instead MinHeap
     int shortestPath(vector<pair<int,int>>gr[],int k,int n, vector<int>& distance) {
         
         set<pair<int,int>> set;
