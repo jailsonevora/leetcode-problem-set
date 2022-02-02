@@ -12,7 +12,7 @@ using namespace std;
 
 class Solution {
 public:
-    //with memoization
+    //with dp bottom up approach
     int climbStairs(int n) {       
         int memo[3] = {1,2};
         for(int i=2; i < n; ++i)    
