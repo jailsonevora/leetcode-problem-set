@@ -44,11 +44,17 @@ public:
         }
         halfHead = prev;
         
+        int maxTwin = INT_MIN;
 
-
-
-        return 0;
-        
+        curr = head;
+        ListNode* currHalf = halfHead;
+        while (curr && currHalf)
+        {
+            maxTwin = max(maxTwin, curr->val + currHalf->val);
+            curr = curr->next;
+            currHalf = currHalf->next;
+        }
+        return maxTwin;
     }
 };
 int main(){
@@ -58,7 +64,7 @@ int main(){
 
     BuildLinkedList bl;
 
-    vector<int> data = {5,4,2,1};
+    vector<int> data = {4,2,2,3};
     for(auto it: data)
         bl.pushBack(it, head);
 
