@@ -48,7 +48,7 @@ public:
             return 1 + right; //left=0 means there is no left subtree,so we cannot compare its height to right subtree
         else if(right==0) 
             return 1 + left; //right=0 means there is no right subtree
-        else return 1+ min(left,right);
+        else return 1 + min(left,right);
     }
 };
 // @lc code=end
