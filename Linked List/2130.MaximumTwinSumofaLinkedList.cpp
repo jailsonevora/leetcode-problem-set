@@ -9,28 +9,45 @@ class Solution {
 public:
     int pairSum(ListNode* head) {
 
-        int n = 0;
-
-        ListNode* curr = head, *half;
+        // find n
+        int n = 0;        
+        ListNode* curr = head;
         while (curr){
             n++;
             curr = curr->next;
         }
 
-        int half = n/2;
-        
+        // split linkedlist in two half
+        int half = (n/2);
         ListNode* dummy = new ListNode(0) ;
         dummy->next = head;
 
-        curr = head;
+        ListNode* halfHead = head;
         ListNode* currPrev = dummy;
         while (half--)
         {
-            curr = curr->next;
+            halfHead = halfHead->next;
             currPrev = currPrev->next;
         }
-        currPrev = nullptr;
+        currPrev->next = nullptr;
+
+        // reverse the second half
+        ListNode* prev = nullptr, *next = nullptr;
+        curr = halfHead;
+
+        while (curr)
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        halfHead = prev;
         
+
+
+
+        return 0;
         
     }
 };
