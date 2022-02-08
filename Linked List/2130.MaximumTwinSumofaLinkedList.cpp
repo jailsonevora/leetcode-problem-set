@@ -9,7 +9,14 @@ class Solution {
 public:
     int pairSum(ListNode* head) {
 
-        // find n
+        // Get middle of linked list
+        // while(fast && fast -> next)
+        // {
+        //     fast = fast -> next -> next;
+        //     slow = slow -> next;
+        // }
+
+        // or find n to use for middle
         int n = 0;        
         ListNode* curr = head;
         while (curr){
