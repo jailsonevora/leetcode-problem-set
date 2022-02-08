@@ -8,6 +8,29 @@ using namespace std;
 class Solution {
 public:
     int pairSum(ListNode* head) {
+
+        int n = 0;
+
+        ListNode* curr = head, *half;
+        while (curr){
+            n++;
+            curr = curr->next;
+        }
+
+        int half = n/2;
+        
+        ListNode* dummy = new ListNode(0) ;
+        dummy->next = head;
+
+        curr = head;
+        ListNode* currPrev = dummy;
+        while (half--)
+        {
+            curr = curr->next;
+            currPrev = currPrev->next;
+        }
+        currPrev = nullptr;
+        
         
     }
 };
