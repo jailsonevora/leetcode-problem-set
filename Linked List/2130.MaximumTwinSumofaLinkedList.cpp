@@ -5,11 +5,12 @@
 
 using namespace std;
 
-class olution{
-    public:
-
+class Solution {
+public:
+    int pairSum(ListNode* head) {
+        
+    }
 };
-
 int main(){
 
     Solution sl;
@@ -17,9 +18,9 @@ int main(){
 
     BuildLinkedList bl;
 
-    vector<int> data = {2,1,3,5,6,4,7};
+    vector<int> data = {5,4,2,1};
     for(auto it: data)
         bl.pushBack(it, head);
 
-    sl.oddEvenList(head);
+    sl.pairSum(head);
 }
