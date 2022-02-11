@@ -33,25 +33,25 @@ class Solution {
         int right = 1 + maxDeph(root->right);
 
         return max(left,right);
-
     }
 
-    void dfs(TreeNode* root, int& ans){
+    void dfs(TreeNode* root, int maxdeph, int& ans){
 
         if(!root)
             return;
 
-        if(!root->left && !root->right)
+        if(!root->left && !root->right && maxdeph == 1)
             ans += root->val;
 
-        dfs(root->left,ans);
-        dfs(root->right,ans);
+        dfs(root->left,maxdeph-1,ans);
+        dfs(root->right,maxdeph-1,ans);
     }
 
 public:
     int deepestLeavesSum(TreeNode* root) {
-        int ans = 0;
-        dfs(root,ans);
+        
+        int ans = 0, maxdeph = maxDeph(root);
+        dfs(root,maxdeph,ans);
         return ans;
     }
 };
@@ -65,5 +65,5 @@ int main(){
     BuildTreeFromPreOrderArray bl;
     TreeNode* root = bl.buildTree(preOrder,inOrder);
     
-    sl.deepestLeavesSum(root);
+    cout << sl.deepestLeavesSum(root);
 }
