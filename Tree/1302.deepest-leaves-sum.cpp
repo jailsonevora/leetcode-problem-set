@@ -16,6 +16,13 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<Util\Include\BuildTreeFromPreOrderArray.h>
+
+using namespace std;
+
 class Solution {
 public:
     int deepestLeavesSum(TreeNode* root) {
@@ -23,4 +30,14 @@ public:
     }
 };
 // @lc code=end
+int main(){
+    vector<int> inOrder = {1,3,2},
+                preOrder = {1,2,3};
 
+    Solution sl;
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder,inOrder);
+    
+    sl.deepestLeavesSum(root);
+}
