@@ -19,6 +19,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<queue>
 #include<Util\Include\BuildTreeFromPreOrderArray.h>
 
 using namespace std;
@@ -45,6 +46,11 @@ class Solution {
 
         dfs(root->left,maxdeph-1,ans);
         dfs(root->right,maxdeph-1,ans);
+    }
+
+    void bfs(TreeNode* root, int maxdeph, int& ans){
+
+        
     }
 
 public:
