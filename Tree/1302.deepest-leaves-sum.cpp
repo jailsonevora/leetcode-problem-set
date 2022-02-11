@@ -50,14 +50,36 @@ class Solution {
 
     void bfs(TreeNode* root, int maxdeph, int& ans){
 
-        
+        queue<TreeNode*> queue;
+
+        queue.push(root);
+
+        while (!queue.empty())
+        {
+            for (int i = queue.size(); i > 0; i--)
+            {
+                TreeNode* temp = queue.front();
+                queue.pop();
+
+                if(temp->left)
+                    queue.push(temp->left);
+
+                if(temp->right)
+                    queue.push(temp->right);
+
+                if(maxdeph == 1)
+                    ans += temp->val;
+            }
+            maxdeph--;
+        }        
     }
 
 public:
     int deepestLeavesSum(TreeNode* root) {
         
         int ans = 0, maxdeph = maxDeph(root);
-        dfs(root,maxdeph,ans);
+        //dfs(root,maxdeph,ans);
+        bfs(root,maxdeph,ans);
         return ans;
     }
 };
