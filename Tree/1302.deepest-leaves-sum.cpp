@@ -25,7 +25,18 @@ using namespace std;
 
 class Solution {
 
-    void dfs(TreeNode* root, int ans){
+    int maxDeph(TreeNode* root){
+
+        if(!root)
+            return 0;
+        int left = 1 + maxDeph(root->left);
+        int right = 1 + maxDeph(root->right);
+
+        return max(left,right);
+
+    }
+
+    void dfs(TreeNode* root, int& ans){
 
         if(!root)
             return;
