@@ -30,7 +30,7 @@ public:
     }
 
     bool divisorGame(int n) {
-        //return divisorGame(n);
+        //return divisorGameEven(n);
         return divisorGameTabulation(n);    
     }
 };
