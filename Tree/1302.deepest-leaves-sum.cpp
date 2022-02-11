@@ -24,15 +24,30 @@
 using namespace std;
 
 class Solution {
+
+    void dfs(TreeNode* root, int ans){
+
+        if(!root)
+            return;
+
+        if(!root->left && !root->right)
+            ans += root->val;
+
+        dfs(root->left,ans);
+        dfs(root->right,ans);
+    }
+
 public:
     int deepestLeavesSum(TreeNode* root) {
-        
+        int ans = 0;
+        dfs(root,ans);
+        return ans;
     }
 };
 // @lc code=end
 int main(){
-    vector<int> inOrder = {1,3,2},
-                preOrder = {1,2,3};
+    vector<int> inOrder = {7,4,2,5,1,3,6,8},
+                preOrder = {1,2,4,7,5,3,6,8};
 
     Solution sl;
 
