@@ -44,6 +44,5 @@ int main(){
             bl.pushBack(i, head);
         lists.push_back(head);
     }
-
     sl.mergeKLists(lists);
 }
