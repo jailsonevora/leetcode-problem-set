@@ -19,13 +19,43 @@
 #include<algorithm>
 #include<vector>
 #include<Util\Include\BuildLinkedList.h>
+#include<queue>
 
 using namespace std;
 
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        return nullptr;
+        
+        priority_queue<int,vector<int>, greater<>> pq;
+
+        for(auto it: lists){
+            ListNode* c = it;
+            while (c)
+            {                
+                pq.push(c->val);
+                c = c->next;
+            }           
+        }
+
+        ListNode* head = nullptr, *curr = head;
+        while (!pq.empty())
+        {
+            int val = pq.top();
+            pq.pop();
+
+            ListNode* tmp = new ListNode(val);
+
+            if(!head){
+                head = tmp;
+                curr = head;
+            }
+            else{
+                curr->next = tmp;
+                curr = curr->next;
+            }
+        }
+        return head;        
     }
 };
 // @lc code=end
