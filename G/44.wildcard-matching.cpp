@@ -11,6 +11,7 @@
 
 using namespace std;
 
+// DP problem longest common subsequence lcs
 class Solution {
 public:
     bool isMatch(string s, string p) {
