@@ -21,20 +21,25 @@ class Solution {
             return v;
         return parent[v] = _find(parent,parent[v]);
     }
-    void _union(unordered_map<int,int>& parent, int u, int v){
+    void _union(unordered_map<int,int>& parent, unordered_map<int,int>& size, int u, int v){
         
         u = _find(parent,u);
         v = _find(parent,v);
         
-        if(v != u)
-            parent[u] = v;
+        if(v != u){
+            if(size[u]<size[v])
+                swap(u,v);
+            parent[v] = u;
+            size[u]+=size[v];            
+        }
     }
 public:
     int longestConsecutive(vector<int>& nums) {
 
-        unordered_map<int,int> parent;
+        unordered_map<int,int> parent,size;
         for (int i = 0; i < nums.size(); i++)
-            parent[nums[i]] = nums[i];
+            parent[nums[i]] = nums[i],
+            size[nums[i]]=1;
 
         unordered_set<int> set;
         for(auto i:nums)
@@ -43,17 +48,14 @@ public:
         // checking if the exists a element consecutive inferior than i in the set
         for(auto i:nums)
             if(set.count(i-1))
-                _union(parent,i,i-1);
+                _union(parent,size,i,i-1);
 
         // checking which DSU is having maximum elements
-        unordered_map<int,int>mp;
-        int ans = 0;
-        for(int i=0; i < nums.size(); i++) {
-            int u = _find(parent,i);
-            mp[u]++;
-            ans = max(ans,mp[u]);
-        }
-        return ans;
+        pair<int,int> max = *max_element(size.begin(), size.end(), 
+            [](pair<int,int> s1, pair<int,int> s2) {
+            return s1.second < s2.second;    
+        });
+        return max.second;
     }
 };
 // @lc code=end
