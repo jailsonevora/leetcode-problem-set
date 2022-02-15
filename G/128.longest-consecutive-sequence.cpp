@@ -9,6 +9,7 @@
 #include<algorithm>
 #include<vector>
 #include<unordered_set>
+#include<map>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ class Solution {
     int _find(vector<int>& parent, int v){
         if(v == parent[v])
             return v;
-        return _find(parent,parent[v]);
+        return parent[v] = _find(parent,parent[v]);
     }
 
     void _union(vector<int>& parent, int u, int v){
@@ -43,6 +44,7 @@ public:
             if(set.count(i-1))
                 _union(parent,i,i-1);
         
+        return 0;
     }
 };
 // @lc code=end
