@@ -36,6 +36,9 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
 
+        if(!nums.size())
+            return 0;
+
         unordered_map<int,int> parent,size;
         for (int i = 0; i < nums.size(); i++)
             parent[nums[i]] = nums[i],
