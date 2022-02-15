@@ -12,8 +12,23 @@
 using namespace std;
 
 class Solution {
+    // find path compression
+    int _find(vector<int>& parent, int v){
+        if(v == parent[v])
+            return v;
+        return _find(parent,parent[v]);
+    }
+
+    void _uni
 public:
     int longestConsecutive(vector<int>& nums) {
+
+        vector<int> parent(nums.size(),0);
+        for (int i = 0; i < nums.size(); i++)
+            parent[i] = i;
+
+        
+        
         
     }
 };
