@@ -8,6 +8,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include<unordered_set>
 
 using namespace std;
 
@@ -34,8 +35,13 @@ public:
         for (int i = 0; i < nums.size(); i++)
             parent[i] = i;
 
-        
-        
+        unordered_set<int> set;
+        for(auto i:nums)
+            set.insert(i);
+
+        for(auto i:nums)
+            if(set.count(i-1))
+                _union(parent,i,i-1);
         
     }
 };
