@@ -19,7 +19,14 @@ class Solution {
         return _find(parent,parent[v]);
     }
 
-    void _uni
+    void _union(vector<int>& parent, int u, int v){
+        
+        u = _find(parent,u);
+        v = _find(parent,v);
+        
+        if(v != u)
+            parent[u] = v;
+    }
 public:
     int longestConsecutive(vector<int>& nums) {
 
