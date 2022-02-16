@@ -47,17 +47,24 @@ int main(){
         {2,4},
         {1,3}
     };
-    
-    vector<Node*> graph[adjList.size()];
-    for(int i = 0; i < adjList.size(); i++){
+
+    vector<Node*> visited(1000,NULL);
+    for (int i = 0; i < adjList.size(); i++)
+    {
+        Node* node = new Node(i+1);
+        visited[i+1] = node;    
         for(int edge: adjList[i]){
-                graph[i+1].push_back(new Node(edge));
+            if(!visited[edge]){
+                Node* newNode = new Node(edge);
+                (node->neighbors).push_back(newNode);
+            }
+            else
+                (node->neighbors).push_back(visited[edge]);
         }
     }
-    int w = 0;
+
     Solution sl;
-    auto s = graph[1];
-    sl.cloneGraph(s);
+    sl.cloneGraph(visited[1]);
     
 }
 
