@@ -31,11 +31,23 @@ public:
 };
 
 class Solution {
+    void dfs(Node*){
+
+    }
 public:
     Node* cloneGraph(Node* node) {
 
-        Node* t = new Node();
-        return t;
+        vector<Node*> visited(1000,NULL);
+        Node* cp = new Node(node->val);
+        visited[node->val] = cp;
+        
+        for(auto child: node->neighbors){
+            if(!visited[child->val]){
+                Node* temp = new Node(child->val); 
+                cp->neighbors.push_back(temp);
+
+            }
+        }
         
     }
 };
