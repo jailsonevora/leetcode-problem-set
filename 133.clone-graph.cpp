@@ -30,12 +30,34 @@ public:
     }
 };
 
-
 class Solution {
 public:
     Node* cloneGraph(Node* node) {
+
+        Node* t = new Node();
+        return t;
         
     }
 };
 // @lc code=end
+int main(){
+    vector<vector<int>> adjList = {
+        {2,4},
+        {1,3},
+        {2,4},
+        {1,3}
+    };
+    
+    vector<Node*> graph[adjList.size()];
+    for(int i = 0; i < adjList.size(); i++){
+        for(int edge: adjList[i]){
+                graph[i+1].push_back(new Node(edge));
+        }
+    }
+    int w = 0;
+    Solution sl;
+    auto s = graph[1];
+    sl.cloneGraph(s);
+    
+}
 
