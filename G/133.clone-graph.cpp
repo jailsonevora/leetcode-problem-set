@@ -31,24 +31,36 @@ public:
 };
 
 class Solution {
-    void dfs(Node*){
+    void dfs(Node* u, Node* v, vector<Node*>& visited){
 
+        visited[v->val] = v;
+        for(Node* child: u->neighbors){
+            if(!visited[child->val]){
+                Node* tmp = new Node(child->val);
+                v->neighbors.push_back(tmp);
+                dfs(child,tmp,visited);
+            }
+            else
+                v->neighbors.push_back(visited[child->val]);
+        }
     }
 public:
     Node* cloneGraph(Node* node) {
 
         vector<Node*> visited(1000,NULL);
         Node* cp = new Node(node->val);
+
         visited[node->val] = cp;
-        
-        for(auto child: node->neighbors){
+        for(Node* child: node->neighbors){
             if(!visited[child->val]){
                 Node* temp = new Node(child->val); 
                 cp->neighbors.push_back(temp);
-
+                dfs(child, temp, visited);
             }
+            else
+                cp->neighbors.push_back(visited[child->val]);
         }
-        
+        return cp;
     }
 };
 // @lc code=end
