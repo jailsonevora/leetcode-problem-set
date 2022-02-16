@@ -47,7 +47,10 @@ class Solution {
 public:
     Node* cloneGraph(Node* node) {
 
-        vector<Node*> visited(1000,NULL);
+        if(!node)
+            return nullptr;
+
+        vector<Node*> visited(1000,nullptr);
         Node* cp = new Node(node->val);
 
         visited[node->val] = cp;
@@ -88,7 +91,6 @@ int main(){
     }
 
     Solution sl;
-    sl.cloneGraph(visited[1]);
-    
+    cout << sl.cloneGraph(visited[1])->val;
 }
 
