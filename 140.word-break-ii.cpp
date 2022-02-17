@@ -14,33 +14,53 @@ using namespace std;
 
 class Solution {
 public:
-    // backtracking + memo 
-    bool backtracking(vector<int>& dp, int i, string s, vector<string>& ans, string sentence, unordered_set<string> set){
+    // backtracking 
+    void backtracking(int i, string& s, vector<string>& ans, string sentence, unordered_set<string> set){
 
-        if(i == s.size())
+        if(i == s.size()){
             ans.push_back(sentence);
-                return true;
-
-        if(dp[i] == -1)
-            return dp[i];
-
-        for (int j = i+1; i < s.size(); j++){
-            string str = s.substr(i,j-i);
-            if(set.count(str)) 
-                if(backtracking(dp,j+1,s,ans,""+str,set))
-                    return dp[i] = true;
+            return;
         }
-        return dp[i] = false;
-
-    }
+        else{
+            if(!sentence.empty())
+                sentence += " ";
+            for (int j = i; j < s.size(); j++){
+                if(set.count(s.substr(i,j+1-i)))
+                    backtracking(j+1,s,ans,sentence+s.substr(i,j+1-i),set);
+            }
+        }
+    }  
     vector<string> wordBreak(string s, vector<string>& wordDict) {
         
         unordered_set<string> set(wordDict.begin(),wordDict.end());
-        vector<int> dp(s.size(),-1);
         vector<string> ans;
-        backtracking(dp,0,s,ans,"",set);
+        backtracking(0,s,ans,"",set);
         return ans;
     }
+
+    //one dimension DP problem
+    // bool wordBreak(string s, vector<string>& wd) {
+        
+    //     int n=s.size();
+    //     vector<bool>dp(n,false);
+    //     vector<string> ans;
+    //     string sentence = "";
+        
+    //     dp[0]=true;
+        
+    //     for(int i=0; i<n; i++){
+    //         for(auto str:wd){
+    //             if(dp[i]){
+    //                 if(s.substr(i,str.size()).compare(str)==0){
+    //                     dp[i+str.size()]=true;
+    //                     sentence+=str;
+    //                 }
+    //             }
+    //             ans.push_back(sentence);
+    //         }
+    //     }
+    //     return dp[n];
+    // }
 };
 // @lc code=end
 int main(){
