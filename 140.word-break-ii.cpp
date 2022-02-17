@@ -17,18 +17,19 @@ public:
     // backtracking + memo 
     bool backtracking(vector<int>& dp, int i, string s, vector<string>& ans, string sentence, unordered_set<string> set){
 
-        if(i == s.size()){
+        if(i == s.size())
             ans.push_back(sentence);
-            return true;
-        }
+                return true;
 
         if(dp[i] == -1)
             return dp[i];
 
-        for (int j = i+1; i < s.size(); j++)
-            if(set.count(s.substr(i,j-i))) 
-                if(backtracking(dp,j+1,s,ans,""+s.substr(i,j-i),set))
+        for (int j = i+1; i < s.size(); j++){
+            string str = s.substr(i,j-i);
+            if(set.count(str)) 
+                if(backtracking(dp,j+1,s,ans,""+str,set))
                     return dp[i] = true;
+        }
         return dp[i] = false;
 
     }
