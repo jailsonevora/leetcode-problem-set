@@ -52,23 +52,48 @@ public:
     // }
 
     // one dimension DP problem
+    // bool wordBreak(string s, vector<string>& wd) {
+        
+    //     int n=s.size();
+    //     vector<bool>dp(n,false);
+        
+    //     dp[0]=true;
+        
+    //     for(int i=0; i<n; i++){
+    //         for(auto str:wd){
+    //             if(dp[i]){
+    //                 if(s.substr(i,str.size()).compare(str)==0){
+    //                     dp[i+str.size()]=true;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return dp[n];
+    // }
+
+    // backtracking && memoization
+    bool backtrackingMemo(string s, vector<string>& wd, int i, vector<bool>& dp, unordered_set<string> set){
+
+        if(i == s.size())
+            return true;
+        
+        if(dp[i])
+            return dp[i];
+
+        for (int j = i; j < s.size(); j++)
+            if(set.count(s.substr(i,j-i+1)) && backtrackingMemo(s,wd,j+1,dp,set))
+                return dp[i] = true;
+        return dp[i] = false;
+    }
+
     bool wordBreak(string s, vector<string>& wd) {
         
-        int n=s.size();
-        vector<bool>dp(n,false);
+        unordered_set<string> set;
+        for(auto str: wd)
+            set.insert(str);
         
-        dp[0]=true;
-        
-        for(int i=0; i<n; i++){
-            for(auto str:wd){
-                if(dp[i]){
-                    if(s.substr(i,str.size()).compare(str)==0){
-                        dp[i+str.size()]=true;
-                    }
-                }
-            }
-        }
-        return dp[n];
+        vector<bool> dp(s.size(),false);
+        return backtrackingMemo(s,wd,0,dp,set);
     }
 };
 // @lc code=end
