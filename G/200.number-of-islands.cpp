@@ -15,7 +15,7 @@ class Solution {
     // dfs on grid
     void dfsOnGrid(int m, int n, int r, int c, vector<vector<char>>& grid){
 
-        if(r > m || c > n || r < 0 || c < 0 || grid[r][c] != '1')
+        if(r >= m || c >= n || r < 0 || c < 0 || grid[r][c] != '1')
             return;
 
         grid[r][c] = '2';
