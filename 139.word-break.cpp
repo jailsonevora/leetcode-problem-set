@@ -16,73 +16,73 @@ using namespace std;
 class Solution {
 public:
     // two dimension
-    // bool wordBreak(string s, vector<string>& wordDict) {
+    bool wordBreak(string s, vector<string>& wordDict) {
 
-    //     int n = s.size();
+        int n = s.size();
 
-    //     unordered_set<string> set;
-    //     for(string s: wordDict)
-    //         set.insert(s);
+        unordered_set<string> set;
+        for(string s: wordDict)
+            set.insert(s);
 
-    //     bool dp[n+1][n+1];
-    //     int len = 1;
+        bool dp[n+1][n+1];
+        int len = 1;
 
-    //     while(len <= n)
-    //     {   
-    //         int left = 1, right = len;
-    //         while(right <= n)
-    //         {
-    //             if(set.count(s.substr(left-1,len)))
-    //                 dp[left][right] = true;
-    //             else{
-    //                     bool flag = false;
-    //                     for(int i=left; i<right; ++i)
-    //                         if(dp[left][i] && dp[i+1][right]){
-    //                             flag = true;
-    //                             break;
-    //                         }                    
-    //                     dp[left][right] = flag;
-    //                 }
-    //             left++;
-    //             right++;
-    //         }
-    //         len++;
-    //     }
-    //     return dp[1][n];        
-    // }
+        while(len <= n)
+        {   
+            int left = 1, right = len;
+            while(right <= n)
+            {
+                if(set.count(s.substr(left-1,len)))
+                    dp[left][right] = true;
+                else{
+                        bool flag = false;
+                        for(int i=left; i<right; ++i)
+                            if(dp[left][i] && dp[i+1][right]){
+                                flag = true;
+                                break;
+                            }                    
+                        dp[left][right] = flag;
+                    }
+                left++;
+                right++;
+            }
+            len++;
+        }
+        return dp[1][n];        
+    }
 
-    // one dimension DP problem
-    // bool wordBreak(string s, vector<string>& wd) {
+    //one dimension DP problem
+    bool wordBreak(string s, vector<string>& wd) {
         
-    //     int n=s.size();
-    //     vector<bool>dp(n,false);
+        int n=s.size();
+        vector<bool>dp(n,false);
         
-    //     dp[0]=true;
+        dp[0]=true;
         
-    //     for(int i=0; i<n; i++){
-    //         for(auto str:wd){
-    //             if(dp[i]){
-    //                 if(s.substr(i,str.size()).compare(str)==0){
-    //                     dp[i+str.size()]=true;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     return dp[n];
-    // }
+        for(int i=0; i<n; i++){
+            for(auto str:wd){
+                if(dp[i]){
+                    if(s.substr(i,str.size()).compare(str)==0){
+                        dp[i+str.size()]=true;
+                    }
+                }
+            }
+        }
+        return dp[n];
+    }
 
     // backtracking && memoization
-    bool backtrackingMemo(string s, vector<string>& wd, int i, vector<bool>& dp, unordered_set<string> set){
+    bool backtrackingMemo(string& s, int i, vector<int>& dp, unordered_set<string>& set){
 
         if(i == s.size())
             return true;
         
-        if(dp[i])
+        if(dp[i] != -1)
             return dp[i];
 
-        for (int j = i; j < s.size(); j++)
-            if(set.count(s.substr(i,j-i+1)) && backtrackingMemo(s,wd,j+1,dp,set))
-                return dp[i] = true;
+        for (int j = i+1; j <= s.size(); j++)
+            if(set.count(s.substr(i,j-i)) && backtrackingMemo(s,j,dp,set))
+                    return dp[i] = true;
         return dp[i] = false;
     }
 
@@ -92,8 +92,8 @@ public:
         for(auto str: wd)
             set.insert(str);
         
-        vector<bool> dp(s.size(),false);
-        return backtrackingMemo(s,wd,0,dp,set);
+        vector<int> dp(s.size(),-1);
+        return backtrackingMemo(s,0,dp,set);
     }
 };
 // @lc code=end
