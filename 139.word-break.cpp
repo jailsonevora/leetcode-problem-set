@@ -50,6 +50,26 @@ public:
         }
         return dp[1][n];        
     }
+
+    // one dimension DP problem
+    bool wordBreak(string s, vector<string>& wd) {
+        
+        int n=s.size();
+        vector<bool>dp(n,false);
+        
+        dp[0]=true;
+        
+        for(int i=0; i<n; i++){
+            for(auto str:wd){
+                if(dp[i]){
+                    if(s.substr(i,str.size()).compare(str)==0){
+                        dp[i+str.size()]=true;
+                    }
+                }
+            }
+        }
+        return dp[n];
+    }
 };
 // @lc code=end
 int main(){
