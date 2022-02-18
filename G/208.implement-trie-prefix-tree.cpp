@@ -50,6 +50,7 @@ public:
                 curr->children[index] = createNode(index);
             curr->children[index]->count += 1;
 
+            // increment
             curr = curr->children[index];
         }
         curr->endsWord += 1;
@@ -86,8 +87,7 @@ public:
             // increment 
             curr = curr->children[index];            
         }
-        return curr->endsWord > 0;
-        
+        return curr->endsWord > 0;        
     }
 };
 
