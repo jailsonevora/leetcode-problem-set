@@ -40,7 +40,19 @@ public:
     
     void insert(string word) {
         
-        
+        TrieNode *curr = root;
+        int index;
+
+        for (int i = 0; word[i] != '\0'; i++)
+        {
+            index = word[i]-'a';
+            if(curr->children[index] == nullptr)
+                curr->children[index] = createNode(index);
+            curr->children[index]->count += 1;
+
+            curr = curr->children[index];
+        }
+        curr->endsWord += 1;
     }
     
     bool search(string word) {
