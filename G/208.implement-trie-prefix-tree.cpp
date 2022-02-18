@@ -41,8 +41,8 @@ public:
     void insert(string word) {
         
         TrieNode *curr = root;
-        int index;
 
+        int index;
         for (int i = 0; word[i] != '\0'; i++)
         {
             index = word[i]-'a';
@@ -56,10 +56,37 @@ public:
     }
     
     bool search(string word) {
-        
+
+        TrieNode *curr = root;
+
+        int index;
+        for (int i = 0; word[i] != '\0'; i++)
+        {
+            index = word[i]-'a';
+            if(curr->children[index] == nullptr)
+                return false;
+            
+            // increment
+            curr = curr->children[index];            
+        }
+        return curr->endsWord > 0;
     }
     
     bool startsWith(string prefix) {
+
+        TrieNode *curr = root;
+
+        int index;
+        for (int i = 0; prefix[i] != '\0'; i++)
+        {
+            index = prefix[i]-'a';
+            if(curr->children[index] == nullptr)
+                return false;
+            
+            // increment 
+            curr = curr->children[index];            
+        }
+        return curr->endsWord > 0;
         
     }
 };
