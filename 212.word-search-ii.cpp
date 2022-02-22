@@ -12,6 +12,7 @@
 using namespace std;
 
 class Solution {
+    
     struct TrieNode
     {
         char c;
@@ -47,7 +48,7 @@ class Solution {
         }
         curr->endsWord += 1;
     }
-    
+
     void dfsOnGrid(int m,int n,int r,int c,vector<vector<char>>& board,TrieNode* T,vector<string>& ans,string s)
     {
         if(r >= m || c >= n || r < 0 || c < 0 || board[r][c] == '/' || !(T->children[board[r][c]-'a']) )
