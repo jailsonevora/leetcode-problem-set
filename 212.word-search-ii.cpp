@@ -20,6 +20,8 @@ class Solution {
         TrieNode* children[26];
     };
 
+    TrieNode* root = createNode('*'-'a');
+
     TrieNode* createNode(int index){
 
         TrieNode* newNode = new TrieNode;
@@ -30,9 +32,7 @@ class Solution {
             newNode->children[i] = nullptr;
         return newNode;
     }
-
-    TrieNode* root = createNode('*'-'a');
-
+    
     void insert(string word){
         
         TrieNode *curr = root;
