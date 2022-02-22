@@ -11,7 +11,7 @@
 
 using namespace std;
 
-class Trie{
+class Solution {
     struct TrieNode
     {
         char c;
@@ -29,12 +29,8 @@ class Trie{
             newNode->children[i] = nullptr;
         return newNode;
     }
-public:
-    TrieNode* root;
 
-    Trie(){
-        root = createNode('*'-'a');
-    }
+    TrieNode* root = createNode('*'-'a');
 
     void insert(string word){
         
@@ -50,46 +46,43 @@ public:
             curr = curr->children[index];
         }
         curr->endsWord += 1;
-    } 
-};
-
-class Solution {
-    void dfsOnGrid(int m, int n, int r, int c, vector<vector<char>>& grid, Trie* T, vector<string>& ans, string s){
-
-        if(r >= m || c >= n || r < 0 || c < 0 || grid[r][c] == '*' || !(T->root->children[grid[r][c]-'a']) )
+    }
+    
+    void dfsOnGrid(int m,int n,int r,int c,vector<vector<char>>& board,TrieNode* T,vector<string>& ans,string s)
+    {
+        if(r >= m || c >= n || r < 0 || c < 0 || board[r][c] == '/' || !(T->children[board[r][c]-'a']) )
             return;
 
-        T->root = T->root->children[grid[r][c]-'a'];
+        T = T->children[board[r][c]-'a'];
 
-        s.push_back(grid[r][c]);
-        if(T->root->endsWord > 0){
+        s.push_back(board[r][c]);
+        if(T->endsWord >0)
             ans.push_back(s);
-            T->root->endsWord-=1;
-        }
+                root->endsWord-=1;
+        
+        char ch = board[r][c];
+        board[r][c]='/';        
 
-        char ch = grid[r][c];
-        grid[r][c] = '*';
+        dfsOnGrid(m,n,r-1,c,board,T,ans,s); // up 
+        dfsOnGrid(m,n,r+1,c,board,T,ans,s); // down
+        dfsOnGrid(m,n,r,c-1,board,T,ans,s); // left
+        dfsOnGrid(m,n,r,c+1,board,T,ans,s); // right
 
-        dfsOnGrid(m,n,r-1,c,grid,T,ans,s); // up 
-        dfsOnGrid(m,n,r+1,c,grid,T,ans,s); // down
-        dfsOnGrid(m,n,r,c-1,grid,T,ans,s); // left
-        dfsOnGrid(m,n,r,c+1,grid,T,ans,s); // right
-
-        grid[r][c] = ch;
-
+        board[r][c] = ch;
     }
 public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         
         // create a trie with those words
-        Trie* T = new Trie();
         for(string w: words)
-            T->insert(w);
+            insert(w);
+
+        TrieNode* temp=root;
 
         vector<string> ans;
         for (int r = 0; r < board.size(); r++)
             for (int c = 0; c < board[0].size(); c++)
-                dfsOnGrid(board.size(),board[0].size(),r,c,board,T,ans,"");
+                dfsOnGrid(board.size(),board[0].size(),r,c,board,temp,ans,"");
         return ans;
     }
 };
