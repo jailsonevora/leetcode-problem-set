@@ -1,7 +1,7 @@
 /*
  * @lc app=leetcode id=212 lang=cpp
  *
- * [212] Word Search II
+ * {212} Word Search II
  */
 
 // @lc code=start
@@ -18,4 +18,16 @@ public:
     }
 };
 // @lc code=end
+int main(){
 
+    vector<vector<char>> board = {
+        {'o','a','a','n'},
+        {'e','t','a','e'},
+        {'i','h','k','r'},
+        {'i','f','l','v'}
+    }; 
+    vector<string> words = {"oath","pea","eat","rain"};
+
+    Solution sl;
+    sl.findWords(board,words);
+}
