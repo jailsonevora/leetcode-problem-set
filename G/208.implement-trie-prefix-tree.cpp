@@ -12,7 +12,7 @@
 using namespace std;
 
 class Trie {
-    struct  TrieNode
+    struct TrieNode
     {
         char c;
         int count;

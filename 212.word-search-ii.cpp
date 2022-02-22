@@ -11,6 +11,36 @@
 
 using namespace std;
 
+class Trie{
+    struct TrieNode
+    {
+        char c;
+        int endsWord;
+        TrieNode* children[26];
+    };
+
+    TrieNode* root;
+
+    TrieNode* createNode(int index){
+
+        TrieNode* newNode = new TrieNode;
+        newNode->c = 'a'+index;
+        newNode->endsWord = 0;
+
+        for (int i = 0; i < 26; i++)
+            newNode->children[i] = nullptr;
+        return newNode;
+    }
+public:
+
+    Trie(){
+        root = createNode('*'-'a');
+    }
+
+    
+    
+}
+
 class Solution {
 public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
