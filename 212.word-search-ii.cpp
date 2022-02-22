@@ -16,7 +16,7 @@ class Solution {
     struct TrieNode
     {
         char c;
-        int endsWord;
+        bool endsWord = false;
         TrieNode* children[26];
     };
 
@@ -32,7 +32,7 @@ class Solution {
             newNode->children[i] = nullptr;
         return newNode;
     }
-    
+
     void insert(string word){
         
         TrieNode *curr = root;
@@ -46,7 +46,7 @@ class Solution {
 
             curr = curr->children[index];
         }
-        curr->endsWord += 1;
+        curr->endsWord = true;
     }
 
     void dfsOnGrid(int m,int n,int r,int c,vector<vector<char>>& board,TrieNode* T,vector<string>& ans,string s)
@@ -57,9 +57,9 @@ class Solution {
         T = T->children[board[r][c]-'a'];
 
         s.push_back(board[r][c]);
-        if(T->endsWord >0)
+        if(T->endsWord){
             ans.push_back(s);
-                root->endsWord-=1;
+                root->endsWord = false;}
         
         char ch = board[r][c];
         board[r][c]='/';        
@@ -70,6 +70,7 @@ class Solution {
         dfsOnGrid(m,n,r,c+1,board,T,ans,s); // right
 
         board[r][c] = ch;
+        return;
     }
 public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
@@ -98,9 +99,20 @@ int main(){
     // }; 
     // vector<string> words = {"oath","pea","eat","rain"};
 
-    vector<vector<char>> board = {{'a','b'},{'c','d'}};
-    vector<string> words = {"abcb"};
+    // vector<vector<char>> board = {{'a','b'},{'c','d'}};
+    // vector<string> words = {"abcb"};
+
+     vector<vector<char>> board = {
+        {'o','a','b','n'},
+        {'o','t','a','e'},
+        {'a','h','k','r'},
+        {'a','f','l','v'}
+     };
+     vector<string> words = {"oa","oaa"};
 
     Solution sl;
     sl.findWords(board,words);
 }
+//https://leetcode.com/problems/word-search-ii/discuss/1782086/Trie-Solution-C%2B%2B
+// https://leetcode.com/problems/word-search-ii/discuss/1512202/C%2B%2B-or-TRIE%2BDFS-or-O(MN4(length_of_largest_word))-TIME-COMPLEXITY
+//https://leetcode.com/problems/word-search-ii/discuss/1242807/C%2B%2B-easy-Trie-solution-oror-commented
