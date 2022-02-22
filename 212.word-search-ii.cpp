@@ -10,13 +10,12 @@
 #include<vector>
 
 using namespace std;
-
 class Solution {
 
     struct TrieNode
     {
         char c;
-        bool endsWord = false;
+        bool endsWord;
         TrieNode* children[26];
     };
 
@@ -46,7 +45,7 @@ class Solution {
 
             curr = curr->children[index];
         }
-        curr->endsWord = true;
+        curr->endsWord = 1;
     }
 
     void dfsOnGrid(int m,int n,int r,int c,vector<vector<char>>& board,TrieNode* T,vector<string>& ans,string s)
@@ -57,9 +56,9 @@ class Solution {
         T = T->children[board[r][c]-'a'];
 
         s.push_back(board[r][c]);
-        if(T->endsWord){
+        if(T->endsWord >0)
             ans.push_back(s);
-                root->endsWord = false;}
+                T->endsWord = 0;
         
         char ch = board[r][c];
         board[r][c]='/';        
@@ -113,6 +112,3 @@ int main(){
     Solution sl;
     sl.findWords(board,words);
 }
-//https://leetcode.com/problems/word-search-ii/discuss/1782086/Trie-Solution-C%2B%2B
-// https://leetcode.com/problems/word-search-ii/discuss/1512202/C%2B%2B-or-TRIE%2BDFS-or-O(MN4(length_of_largest_word))-TIME-COMPLEXITY
-//https://leetcode.com/problems/word-search-ii/discuss/1242807/C%2B%2B-easy-Trie-solution-oror-commented
