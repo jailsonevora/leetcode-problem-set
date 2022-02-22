@@ -15,24 +15,22 @@ class Trie{
     struct TrieNode
     {
         char c;
-        int count;
         int endsWord;
         TrieNode* children[26];
     };
-
-    TrieNode* root;
 
     TrieNode* createNode(int index){
 
         TrieNode* newNode = new TrieNode;
         newNode->c = 'a'+index;
-        newNode->count = newNode->endsWord = 0;
+        newNode->endsWord = 0;
 
         for (int i = 0; i < 26; i++)
             newNode->children[i] = nullptr;
         return newNode;
     }
 public:
+    TrieNode* root;
 
     Trie(){
         root = createNode('*'-'a');
@@ -48,38 +46,51 @@ public:
             index = word[i]-'a';
             if(!curr->children[index])
                 curr->children[index] = createNode(index);
-            curr->children[index]->count += 1;
 
             curr = curr->children[index];
         }
         curr->endsWord += 1;
-    }
-
-    bool startsWith(string prefix){
-        
-        TrieNode *curr = root;
-
-        int index;
-        for (int i = 0; prefix[i] != '\0'; i++)
-        {
-            index = prefix[i]-'a';
-            if(!curr->children[index])
-                return true;
-
-            curr = curr->children[index];
-        }
-        return curr->count > 0;
-    }  
+    } 
 };
 
 class Solution {
+    void dfsOnGrid(int m, int n, int r, int c, vector<vector<char>>& grid, Trie* T, vector<string>& ans, string s){
+
+        if(r >= m || c >= n || r < 0 || c < 0 || grid[r][c] == '*' || !(T->root->children[grid[r][c]-'a']) )
+            return;
+
+        T->root = T->root->children[grid[r][c]-'a'];
+
+        s.push_back(grid[r][c]);
+        if(T->root->endsWord > 0){
+            ans.push_back(s);
+            T->root->endsWord-=1;
+        }
+
+        char ch = grid[r][c];
+        grid[r][c] = '*';
+
+        dfsOnGrid(m,n,r-1,c,grid,T,ans,s); // up 
+        dfsOnGrid(m,n,r+1,c,grid,T,ans,s); // down
+        dfsOnGrid(m,n,r,c-1,grid,T,ans,s); // left
+        dfsOnGrid(m,n,r,c+1,grid,T,ans,s); // right
+
+        grid[r][c] = ch;
+
+    }
 public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         
         // create a trie with those words
-        Trie* newT = new Trie();
+        Trie* T = new Trie();
+        for(string w: words)
+            T->insert(w);
 
-
+        vector<string> ans;
+        for (int r = 0; r < board.size(); r++)
+            for (int c = 0; c < board[0].size(); c++)
+                dfsOnGrid(board.size(),board[0].size(),r,c,board,T,ans,"");
+        return ans;
     }
 };
 // @lc code=end
