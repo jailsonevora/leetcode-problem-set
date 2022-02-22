@@ -12,7 +12,7 @@
 using namespace std;
 
 class Solution {
-    
+
     struct TrieNode
     {
         char c;
@@ -90,13 +90,16 @@ public:
 // @lc code=end
 int main(){
 
-    vector<vector<char>> board = {
-        {'o','a','a','n'},
-        {'e','t','a','e'},
-        {'i','h','k','r'},
-        {'i','f','l','v'}
-    }; 
-    vector<string> words = {"oath","pea","eat","rain"};
+    // vector<vector<char>> board = {
+    //     {'o','a','a','n'},
+    //     {'e','t','a','e'},
+    //     {'i','h','k','r'},
+    //     {'i','f','l','v'}
+    // }; 
+    // vector<string> words = {"oath","pea","eat","rain"};
+
+    vector<vector<char>> board = {{'a','b'},{'c','d'}};
+    vector<string> words = {"abcb"};
 
     Solution sl;
     sl.findWords(board,words);
