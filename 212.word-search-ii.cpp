@@ -15,6 +15,7 @@ class Trie{
     struct TrieNode
     {
         char c;
+        int count;
         int endsWord;
         TrieNode* children[26];
     };
@@ -25,7 +26,7 @@ class Trie{
 
         TrieNode* newNode = new TrieNode;
         newNode->c = 'a'+index;
-        newNode->endsWord = 0;
+        newNode->count = newNode->endsWord = 0;
 
         for (int i = 0; i < 26; i++)
             newNode->children[i] = nullptr;
@@ -37,14 +38,48 @@ public:
         root = createNode('*'-'a');
     }
 
-    
-    
-}
+    void insert(string word){
+        
+        TrieNode *curr = root;
+
+        int index;
+        for (int i = 0; word[i] != '\0'; i++)
+        {
+            index = word[i]-'a';
+            if(!curr->children[index])
+                curr->children[index] = createNode(index);
+            curr->children[index]->count += 1;
+
+            curr = curr->children[index];
+        }
+        curr->endsWord += 1;
+    }
+
+    bool startsWith(string prefix){
+        
+        TrieNode *curr = root;
+
+        int index;
+        for (int i = 0; prefix[i] != '\0'; i++)
+        {
+            index = prefix[i]-'a';
+            if(!curr->children[index])
+                return true;
+
+            curr = curr->children[index];
+        }
+        return curr->count > 0;
+    }  
+};
 
 class Solution {
 public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         
+        // create a trie with those words
+        Trie* newT = new Trie();
+
+
     }
 };
 // @lc code=end
