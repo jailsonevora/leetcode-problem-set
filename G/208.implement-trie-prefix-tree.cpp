@@ -87,7 +87,7 @@ public:
             // increment 
             curr = curr->children[index];            
         }
-        return curr->endsWord > 0;        
+        return curr->count > 0;        
     }
 };
 
