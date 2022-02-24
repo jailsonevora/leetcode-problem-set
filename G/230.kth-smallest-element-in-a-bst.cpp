@@ -16,6 +16,12 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+#include<iostream>
+#include<algorithm>
+#include<vector>
+
+using namespace std;
+
 class Solution {
 public:
     int kthSmallest(TreeNode* root, int k) {
