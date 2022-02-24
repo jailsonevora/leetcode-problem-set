@@ -24,22 +24,25 @@
 using namespace std;
 
 class Solution {
-    void kth(TreeNode* root, vector<int>& ans){
+    void kth(TreeNode* root, int& k, int& n, int& ans){
 
         if(!root)
             return;
         
-        kth(root->left,ans);
+        kth(root->left,k,n,ans);
 
-        ans.push_back(root->val);
+        if (k == ++n){
+            ans = root->val;
+            return;    
+        }
         
-        kth(root->right,ans);
+        kth(root->right,k,n,ans);
     }
 public:
     int kthSmallest(TreeNode* root, int k) {
-        vector<int> ans;
-        kth(root,ans);
-        return ans[k-1];
+        int ans = 0, n = 0;
+        kth(root,k,n,ans);
+        return ans;
     }
 };
 // @lc code=end
