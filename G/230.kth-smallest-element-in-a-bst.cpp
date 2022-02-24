@@ -19,7 +19,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-#include<Util/Include/TreeNode.h>
+#include<Util/Include/BuildTreeFromPreOrderArray.h>
 
 using namespace std;
 
@@ -32,6 +32,14 @@ public:
 // @lc code=end
 int main(){
 
-    
+    vector<int> inOrder = {1,3,2},
+                preOrder = {1,2,3};
+
+    Solution sl;
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder,inOrder);
+
+    cout << sl.kthSmallest(root,1);
 
 }
