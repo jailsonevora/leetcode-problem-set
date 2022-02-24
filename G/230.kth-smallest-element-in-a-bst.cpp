@@ -41,5 +41,4 @@ int main(){
     TreeNode* root = bl.buildTree(preOrder,inOrder);
 
     cout << sl.kthSmallest(root,1);
-
 }
