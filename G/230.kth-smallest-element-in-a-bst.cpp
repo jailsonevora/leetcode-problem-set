@@ -24,16 +24,29 @@
 using namespace std;
 
 class Solution {
+    void kth(TreeNode* root, vector<int>& ans){
+
+        if(!root)
+            return;
+        
+        kth(root->left,ans);
+
+        ans.push_back(root->val);
+        
+        kth(root->right,ans);
+    }
 public:
     int kthSmallest(TreeNode* root, int k) {
-        
+        vector<int> ans;
+        kth(root,ans);
+        return ans[k-1];
     }
 };
 // @lc code=end
 int main(){
 
-    vector<int> inOrder = {1,3,2},
-                preOrder = {1,2,3};
+    vector<int> inOrder = {1,2,3,4},
+                preOrder = {3,1,2,4};
 
     Solution sl;
 
