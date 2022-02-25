@@ -16,7 +16,22 @@ class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         
-        int left = 0, right = 2;
+        int left = 0, right = k-1;
+        vector<int> ans;
+
+        while (right < nums.size())
+        {
+            /* code */
+            int curr = left;
+            priority_queue<int,vector<int>,less<int>> pq;
+            while (curr <= right)
+            {
+                pq.push(nums[curr]);
+            }
+            ans.push_back(pq.top());
+            left++, right++;
+        }
+        return ans;
     }
 };
 // @lc code=end
