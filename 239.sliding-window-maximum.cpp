@@ -16,6 +16,7 @@ class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         
+        int left = 0, right = 2;
     }
 };
 // @lc code=end
