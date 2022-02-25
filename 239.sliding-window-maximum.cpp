@@ -14,23 +14,45 @@ using namespace std;
 
 class Solution {
 public:
+    // O(n*k) TLE
+    // vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        
+    //     int left = 0, right = k-1;
+    //     vector<int> ans;
+
+    //     while (right < nums.size())
+    //     {
+    //         int curr = left;
+    //         priority_queue<int,vector<int>,less<int>> pq;
+    //         while (curr <= right)
+    //         {
+    //             pq.push(nums[curr]);
+    //             curr++;
+    //         }
+    //         ans.push_back(pq.top());
+    //         left++, right++;
+    //     }
+    //     return ans;
+    // }
+
+    // O(n*logk) 
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         
-        int left = 0, right = k-1;
-        vector<int> ans;
+        priority_queue<pair<int,int>> pq;
+        vector<int>ans;
+        
+        int left = 0;
+        for(left=0; left < k; left++)
+            pq.push({nums[left],left});
 
-        while (right < nums.size())
-        {
-            /* code */
-            int curr = left;
-            priority_queue<int,vector<int>,less<int>> pq;
-            while (curr <= right)
-            {
-                pq.push(nums[curr]);
-                curr++;
-            }
-            ans.push_back(pq.top());
-            left++, right++;
+        ans.push_back(pq.top().first);
+        for(int curr=left; curr < nums.size(); curr++){
+            
+            pq.push({nums[curr],curr});
+            while(pq.top().second <= curr-k) 
+                pq.pop();
+
+            ans.push_back(pq.top().first);
         }
         return ans;
     }
@@ -40,8 +62,11 @@ int main(){
 
     Solution sl;
 
-    vector<int> nums = {1,3,-1,-3,5,3,6,7};
-    int k = 3;
+    // vector<int> nums = {1,3,-1,-3,5,3,6,7};
+    // int k = 3;
+
+    vector<int> nums = {1};
+    int k = 1;
 
     sl.maxSlidingWindow(nums,k);
 }
