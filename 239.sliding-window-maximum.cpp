@@ -19,4 +19,12 @@ public:
     }
 };
 // @lc code=end
+int main(){
 
+    Solution sl;
+
+    vector<int> nums = {1,3,-1,-3,5,3,6,7};
+    int k = 3;
+
+    sl.maxSlidingWindow(nums,k);
+}
