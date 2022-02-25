@@ -27,6 +27,7 @@ public:
             while (curr <= right)
             {
                 pq.push(nums[curr]);
+                curr++;
             }
             ans.push_back(pq.top());
             left++, right++;
