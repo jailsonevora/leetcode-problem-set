@@ -69,7 +69,7 @@ public:
                 dq.pop_back();
             
             dq.push_back({nums[i],i});
-            if(i>=k-1){
+            if(i >= k-1){
                 if(dq.front().second==i-k) 
                     dq.pop_front();
                 ans.push_back(dq.front().first);
