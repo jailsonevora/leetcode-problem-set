@@ -36,23 +36,44 @@ public:
     // }
 
     // O(n*logk) 
+    // vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        
+    //     priority_queue<pair<int,int>> pq;
+    //     vector<int>ans;
+        
+    //     int left = 0;
+    //     for(left=0; left < k; left++)
+    //         pq.push({nums[left],left});
+
+    //     ans.push_back(pq.top().first);
+    //     for(int curr=left; curr < nums.size(); curr++){
+            
+    //         pq.push({nums[curr],curr});
+    //         while(pq.top().second <= curr-k) 
+    //             pq.pop();
+
+    //         ans.push_back(pq.top().first);
+    //     }
+    //     return ans;
+    // }
+
+    // O(n)
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         
-        priority_queue<pair<int,int>> pq;
+        deque<pair<int,int>>dq;
         vector<int>ans;
         
-        int left = 0;
-        for(left=0; left < k; left++)
-            pq.push({nums[left],left});
+        for(int i=0;i<nums.size();i++){
 
-        ans.push_back(pq.top().first);
-        for(int curr=left; curr < nums.size(); curr++){
+            while(!dq.empty() && dq.back().first<nums[i])
+                dq.pop_back();
             
-            pq.push({nums[curr],curr});
-            while(pq.top().second <= curr-k) 
-                pq.pop();
-
-            ans.push_back(pq.top().first);
+            dq.push_back({nums[i],i});
+            if(i>=k-1){
+                if(dq.front().second==i-k) 
+                    dq.pop_front();
+                ans.push_back(dq.front().first);
+            }
         }
         return ans;
     }
