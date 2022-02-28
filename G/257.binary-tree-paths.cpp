@@ -30,7 +30,6 @@ class Solution {
             return "";
         
         path += to_string(root->val);
-
         if(!root->left && !root->right)
             ans.push_back(path);
 
