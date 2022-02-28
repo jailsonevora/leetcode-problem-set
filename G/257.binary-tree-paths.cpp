@@ -30,4 +30,15 @@ public:
     }
 };
 // @lc code=end
+int main(){
 
+    vector<int> inOrder = {1,2,3,4},
+                preOrder = {3,1,2,4};
+
+    Solution sl;
+
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder,inOrder);
+
+    sl.binaryTreePaths(root);
+}
