@@ -19,6 +19,7 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
+#include"Util/Include/BuildTreeFromPreOrderArray.h"
 
 using namespace std;
 
