@@ -19,23 +19,23 @@
 #include<iostream>
 #include<algorithm>
 #include<vector>
-//#include"Util/Include/BuildTreeFromPreOrderArray.h"
+#include"Util/Include/BuildTreeFromPreOrderArray.h"
 
 using namespace std;
 
 class Solution {
-    // string preOrder(TreeNode* root, string path, vector<string>& ans){
+    string preOrder(TreeNode* root, string path, vector<string>& ans){
 
-    //     if(!root)
-    //         return "";
+        if(!root)
+            return "";
         
-    //     path += to_string(root->val);
+        path += to_string(root->val);
 
-    //     if(!root->left && !root->right)
-    //         ans.push_back(path);
+        if(!root->left && !root->right)
+            ans.push_back(path);
 
-    //     return preOrder(root->left,path+"->",ans) + preOrder(root->right,path+"->",ans);
-    // }
+        return preOrder(root->left,path+"->",ans) + preOrder(root->right,path+"->",ans);
+    }
     void preOrder(TreeNode* root, string path, vector<string>& ans){
 
         if(!root)
