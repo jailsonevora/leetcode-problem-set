@@ -29,6 +29,15 @@ public:
 };
 // @lc code=end
 int main(){
-    
+
+    Solution sl;
+    ListNode* head = nullptr;
+
+    BuildLinkedList bl;
+
+    vector<int> data = {1,2,3,4};
+    for(auto it: data)
+        bl.pushBack(it,head);
+    sl.reorderList(head);
 }
 
