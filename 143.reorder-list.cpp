@@ -17,6 +17,7 @@
  */
 #include<iostream>
 #include<vector>
+#include<Util\Include\BuildLinkedList.h>
 
 using namespace std;
 
@@ -27,4 +28,7 @@ public:
     }
 };
 // @lc code=end
+int main(){
+    
+}
 
