@@ -26,6 +26,13 @@ public:
     void reorderList(ListNode* head) {
 
         ListNode* fast, *slow = head;
+
+        while (fast)
+        {
+            fast = fast->next;
+            slow = slow->next->next;
+        }
+        
         
     }
 };
