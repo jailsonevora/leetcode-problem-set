@@ -25,7 +25,7 @@ class Solution {
 public:
     void reorderList(ListNode* head) {
 
-        
+        ListNode* dummy = new ListNode(0);
         ListNode* fast = head, *slow = head;
 
         while (fast && fast->next)
