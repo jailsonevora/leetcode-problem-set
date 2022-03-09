@@ -27,10 +27,10 @@ public:
 
         ListNode* fast, *slow = head;
 
-        while (fast)
+        while (fast && fast->next)
         {
-            fast = fast->next;
-            slow = slow->next->next;
+            slow = slow->next;
+            fast = fast->next->next;
         }
         
         
