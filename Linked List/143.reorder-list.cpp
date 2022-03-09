@@ -38,8 +38,15 @@ public:
         ListNode* middle = slow->next;
         slow->next = nullptr;
 
-        ListNode* prev = nullptr, *next = middle->next, curr = middle;
+        ListNode* prev = nullptr, *next = nullptr, *curr = middle;
 
+        while (curr)
+        {
+            next = curr->next;
+            curr->next = prev;
+            next->next = curr;
+            curr = next;
+        }
         
 
         
