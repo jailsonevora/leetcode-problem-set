@@ -36,6 +36,12 @@ public:
         }
 
         ListNode* middle = slow->next;
+        slow->next = nullptr;
+
+        ListNode* prev = nullptr, *next = middle->next, curr = middle;
+
+        
+
         
         
     }
