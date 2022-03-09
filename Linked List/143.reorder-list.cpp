@@ -26,7 +26,8 @@ public:
     void reorderList(ListNode* head) {
 
         ListNode* dummy = new ListNode(0);
-        ListNode* fast = head, *slow = head;
+        dummy->next = head;
+        ListNode* fast = dummy, *slow = dummy;
 
         while (fast && fast->next)
         {
