@@ -48,6 +48,11 @@ public:
             curr = next;
         }
 
+        ListNode* curr1 = head, curr2 = middle;
+        while (/* condition */)
+        {
+            /* code */
+        }
         
         
 
