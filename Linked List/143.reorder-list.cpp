@@ -48,7 +48,7 @@ public:
             curr = next;
         }
 
-        ListNode* curr1 = head, *curr2 = middle;
+        ListNode* curr1 = head, *curr2 = prev;
         ListNode* newHead = nullptr, *last = nullptr;
         while (curr1 && curr2)
         {
