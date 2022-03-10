@@ -65,6 +65,9 @@ public:
                 tmp1->next = tmp2;
                 last = tmp2;
             }
+
+            curr1 = curr1->next;
+            curr2 = curr2->next;
         }
         
     }
