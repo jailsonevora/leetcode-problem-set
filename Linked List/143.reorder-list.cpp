@@ -52,7 +52,14 @@ public:
         ListNode* newHead = nullptr;
         while (curr1 && curr2)
         {
-            /* code */
+            ListNode* tmp1 = new ListNode(curr1->val);
+            ListNode* tmp2 = new ListNode(curr2->val);
+
+            if(!newHead)
+                newHead = tmp1;
+            else{
+                
+            }
         }
         
         
