@@ -49,6 +49,7 @@ public:
         }
 
         ListNode* curr1 = head, *curr2 = middle;
+        ListNode* newHead = nullptr;
         while (curr1 && curr2)
         {
             /* code */
