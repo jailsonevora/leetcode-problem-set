@@ -49,22 +49,23 @@ public:
         }
 
         ListNode* curr1 = head, *curr2 = middle;
-        ListNode* newHead = nullptr;
+        ListNode* newHead = nullptr, *last = nullptr;
         while (curr1 && curr2)
         {
             ListNode* tmp1 = new ListNode(curr1->val);
             ListNode* tmp2 = new ListNode(curr2->val);
 
-            if(!newHead)
+            if(!newHead){
                 newHead = tmp1;
+                newHead->next = tmp2;
+                last = newHead->next;
+            }
             else{
-                
+                last->next = tmp1;
+                tmp1->next = tmp2;
+                last = tmp2;
             }
         }
-        
-        
-
-        
         
     }
 };
