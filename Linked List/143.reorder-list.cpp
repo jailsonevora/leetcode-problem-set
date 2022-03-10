@@ -17,7 +17,7 @@
  */
 #include<iostream>
 #include<vector>
-#include<Util\Include\BuildLinkedList.h>
+//#include<Util\Include\BuildLinkedList.h>
 
 using namespace std;
 
@@ -69,7 +69,7 @@ public:
             curr1 = curr1->next;
             curr2 = curr2->next;
         }
-        
+        head = newHead;        
     }
 };
 // @lc code=end
