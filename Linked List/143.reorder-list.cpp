@@ -23,6 +23,7 @@ using namespace std;
 
 class Solution {
 public:
+    // O(N) and extra space
     void reorderList(ListNode* head) {
 
         ListNode* dummy = new ListNode(0);
