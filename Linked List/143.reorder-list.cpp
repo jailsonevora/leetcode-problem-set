@@ -90,6 +90,7 @@ public:
         ListNode* middle = slow->next;
         slow->next = nullptr;
 
+        // reverse middle list
         ListNode* prev = nullptr, *next = nullptr, *curr = middle;
         while (curr)
         {
