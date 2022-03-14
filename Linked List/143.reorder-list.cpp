@@ -72,6 +72,56 @@ public:
         }
         head = newHead;        
     }
+
+    // O(1) space
+    void reorderList(ListNode* head) {
+
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* fast = dummy, *slow = dummy;
+
+        while (fast && fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        ListNode* middle = slow->next;
+        slow->next = nullptr;
+
+        ListNode* prev = nullptr, *next = nullptr, *curr = middle;
+
+        while (curr)
+        {
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+
+        ListNode* curr1 = head, *curr2 = prev;
+        ListNode* newHead = nullptr, *last = nullptr;
+        while (curr1 && curr2)
+        {
+            ListNode* tmp1 = new ListNode(curr1->val);
+            ListNode* tmp2 = new ListNode(curr2->val);
+
+            if(!newHead){
+                newHead = tmp1;
+                newHead->next = tmp2;
+                last = newHead->next;
+            }
+            else{
+                last->next = tmp1;
+                tmp1->next = tmp2;
+                last = tmp2;
+            }
+
+            curr1 = curr1->next;
+            curr2 = curr2->next;
+        }
+        head = newHead;        
+    }
 };
 // @lc code=end
 int main(){
