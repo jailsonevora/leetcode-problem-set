@@ -100,6 +100,7 @@ public:
             curr = next;
         }
 
+        // iterate over two list
         ListNode* curr1 = head, *curr2 = prev;
         while (curr1 && curr2)
         {
