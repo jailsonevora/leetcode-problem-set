@@ -111,7 +111,7 @@ public:
             curr2->next = tempNext;
 
             curr1 = tempNext;
-            curr2 = tempprev;
+            curr2 = tempPrev;
         }       
     }
 };
