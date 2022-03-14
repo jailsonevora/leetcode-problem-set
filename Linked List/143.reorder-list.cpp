@@ -103,21 +103,12 @@ public:
         ListNode* newHead = nullptr, *last = nullptr;
         while (curr1 && curr2)
         {
-            ListNode* tmp1 = new ListNode(curr1->val);
-            ListNode* tmp2 = new ListNode(curr2->val);
+            ListNode* tempNext = curr1->next;
+            ListNode* tempprev = curr1->next;
 
-            if(!newHead){
-                newHead = tmp1;
-                newHead->next = tmp2;
-                last = newHead->next;
-            }
-            else{
-                last->next = tmp1;
-                tmp1->next = tmp2;
-                last = tmp2;
-            }
+            curr1->next = curr2;
 
-            curr1 = curr1->next;
+            curr1 = tempNext;
             curr2 = curr2->next;
         }
         head = newHead;        
