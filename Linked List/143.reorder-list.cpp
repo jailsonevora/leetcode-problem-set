@@ -105,7 +105,7 @@ public:
         while (curr1 && curr2)
         {
             ListNode* tempNext = curr1->next;
-            ListNode* tempprev = curr2->next;
+            ListNode* tempPrev = curr2->next;
 
             curr1->next = curr2;
             curr2->next = tempNext;
