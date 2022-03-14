@@ -106,7 +106,7 @@ public:
             ListNode* tempprev = curr2->next;
 
             curr1->next = curr2;
-            curr2->next = nullptr;
+            curr2->next = tempNext;
 
             curr1 = tempNext;
             curr2 = tempprev;
