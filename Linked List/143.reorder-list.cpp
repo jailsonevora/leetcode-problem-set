@@ -76,6 +76,7 @@ public:
     // O(1) space
     void reorderList(ListNode* head) {
 
+        // find middle
         ListNode* dummy = new ListNode(0);
         dummy->next = head;
         ListNode* fast = dummy, *slow = dummy;
@@ -90,7 +91,6 @@ public:
         slow->next = nullptr;
 
         ListNode* prev = nullptr, *next = nullptr, *curr = middle;
-
         while (curr)
         {
             next = curr->next;
