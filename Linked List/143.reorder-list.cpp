@@ -100,7 +100,6 @@ public:
         }
 
         ListNode* curr1 = head, *curr2 = prev;
-        ListNode* newHead = nullptr, *last = nullptr;
         while (curr1 && curr2)
         {
             ListNode* tempNext = curr1->next;
@@ -111,8 +110,7 @@ public:
 
             curr1 = tempNext;
             curr2 = tempprev;
-        }
-        head = newHead;        
+        }       
     }
 };
 // @lc code=end
