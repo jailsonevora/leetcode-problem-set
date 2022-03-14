@@ -104,12 +104,13 @@ public:
         while (curr1 && curr2)
         {
             ListNode* tempNext = curr1->next;
-            ListNode* tempprev = curr1->next;
+            ListNode* tempprev = curr2->next;
 
             curr1->next = curr2;
+            curr2->next = nullptr;
 
             curr1 = tempNext;
-            curr2 = curr2->next;
+            curr2 = tempprev;
         }
         head = newHead;        
     }
