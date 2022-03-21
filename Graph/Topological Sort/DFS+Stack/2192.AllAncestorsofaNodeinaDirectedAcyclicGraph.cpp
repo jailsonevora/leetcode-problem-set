@@ -7,6 +7,15 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
+
+        vector<int> graph[n], indegree[n];
+
+        for(auto edge: edges){
+            //graph[edge[0]].push_back(edge[1]);
+            indegree[edge[1]].push_back(edge[0]);
+        }
+
+        
         
     }
 };
