@@ -25,4 +25,8 @@ int main(){
         {3,7},
         {4,6}
     };
+
+    Solution sl;
+
+    sl.getAncestors(n, edgeList);
 }
