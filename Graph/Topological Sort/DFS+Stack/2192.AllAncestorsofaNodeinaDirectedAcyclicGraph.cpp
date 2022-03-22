@@ -16,7 +16,7 @@ public:
             //indegree[edge[1]].push_back(edge[0]);
         }
 
-        return indegree;
+        //return indegree;
         
     }
 };
