@@ -14,7 +14,7 @@ public:
         for(auto edge: edges){
             graph[edge[1]].push_back(edge[0]);
 
-        //return indegree;
+        //now apply dfs on each node to find all node that connect to it
         
     }
 };
