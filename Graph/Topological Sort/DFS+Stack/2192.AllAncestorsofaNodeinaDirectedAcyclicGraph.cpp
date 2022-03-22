@@ -9,6 +9,7 @@ public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
 
         vector<int> graph[n];
+        vector<vector<int>> ans;
 
         // reverse each edge 
         for(auto edge: edges){
@@ -19,9 +20,9 @@ public:
 
         for (int i = 0; i < n; i++)
             if(!visted[i])
-                dfs();
+                dfs(ans, graph, i, visted);
         
-        
+        re
     }
 };
 
