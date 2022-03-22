@@ -9,6 +9,10 @@ class Solution {
 
         visited[u] = 1;
         for(int v: graph[u])
+            if(!visited[v]){
+                ans[u].push_back(v);
+                dfs(ans,graph,v,visited);
+            }
 
     }
 public:
