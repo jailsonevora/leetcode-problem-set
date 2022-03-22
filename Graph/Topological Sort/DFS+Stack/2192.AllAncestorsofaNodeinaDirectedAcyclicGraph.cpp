@@ -5,7 +5,7 @@
 using namespace std;
 
 class Solution {
-    void dfs(vector<vector<int>>& ans, int u, vector<int> visited){
+    void dfs(vector<vector<int>>& ans, vector<int> graph[], int u, vector<int> visited){
 
     }
 public:
