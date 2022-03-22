@@ -10,8 +10,9 @@ public:
 
         vector<int> graph[n], indegree[n];
 
+        // reverse each edge 
         for(auto edge: edges){
-            graph[edge[0]].push_back(edge[1]);
+            graph[edge[1]].push_back(edge[0]);
 
         //return indegree;
         
