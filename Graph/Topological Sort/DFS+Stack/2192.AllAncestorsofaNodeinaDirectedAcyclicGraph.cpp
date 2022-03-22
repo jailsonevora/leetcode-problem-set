@@ -7,6 +7,9 @@ using namespace std;
 class Solution {
     void dfs(vector<vector<int>>& ans, vector<int> graph[], int u, vector<int> visited){
 
+        visited[u] = 1;
+        for(int v: graph[u])
+
     }
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
