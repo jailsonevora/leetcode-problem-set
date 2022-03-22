@@ -5,6 +5,9 @@
 using namespace std;
 
 class Solution {
+    void dfs(vector<vector<int>>& ans, int u, vector<int> visited){
+
+    }
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
 
