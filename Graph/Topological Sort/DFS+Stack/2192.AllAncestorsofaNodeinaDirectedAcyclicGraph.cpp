@@ -8,7 +8,7 @@ class Solution {
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
 
-        vector<int> graph[n], indegree[n];
+        vector<int> graph[n];
 
         // reverse each edge 
         for(auto edge: edges){
