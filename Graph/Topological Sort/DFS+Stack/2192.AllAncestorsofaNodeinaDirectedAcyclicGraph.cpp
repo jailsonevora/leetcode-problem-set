@@ -16,6 +16,12 @@ public:
 
         //now apply dfs on each node to find all node that connect to it
         vector<int> visted(n,0);
+
+        for (int i = 0; i < n; i++)
+        {
+            /* code */
+        }
+        
         
     }
 };
