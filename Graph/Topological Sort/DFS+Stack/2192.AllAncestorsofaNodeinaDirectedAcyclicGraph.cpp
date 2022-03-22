@@ -15,6 +15,7 @@ public:
             graph[edge[1]].push_back(edge[0]);
 
         //now apply dfs on each node to find all node that connect to it
+        vector<int> visted(n,0);
         
     }
 };
