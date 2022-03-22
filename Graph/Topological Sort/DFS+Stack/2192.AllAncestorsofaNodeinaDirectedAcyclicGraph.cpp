@@ -21,8 +21,7 @@ public:
         for (int i = 0; i < n; i++)
             if(!visted[i])
                 dfs(ans, graph, i, visted);
-        
-        re
+        return ans;
     }
 };
 
