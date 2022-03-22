@@ -18,9 +18,8 @@ public:
         vector<int> visted(n,0);
 
         for (int i = 0; i < n; i++)
-        {
-            /* code */
-        }
+            if(!visted[i])
+                dfs();
         
         
     }
