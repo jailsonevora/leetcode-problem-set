@@ -13,7 +13,6 @@ class Solution {
                 ans[u].push_back(v);
                 dfs(ans,graph,v,visited);
             }
-
     }
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
@@ -29,8 +28,7 @@ public:
         vector<int> visted(n,0);
 
         for (int i = 0; i < n; i++)
-            if(!visted[i])
-                dfs(ans, graph, i, visted);
+            dfs(ans, graph, i, visted);
         return ans;
     }
 };
