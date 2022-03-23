@@ -18,7 +18,7 @@ public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
 
         vector<int> graph[n];
-        vector<vector<int>> ans;
+        vector<vector<int>> ans(n);
 
         // reverse each edge 
         for(auto edge: edges)
