@@ -10,8 +10,8 @@ class Solution {
         visited[u] = 1;
         for(int v: graph[u])
             if(!visited[v]){
-                dfs(ans,graph,v,visited);
                 ans[u].push_back(v);
+                dfs(ans,graph,v,visited);
             }
     }
 public:
