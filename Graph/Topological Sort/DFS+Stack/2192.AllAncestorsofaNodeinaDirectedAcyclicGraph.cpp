@@ -10,8 +10,8 @@ class Solution {
         visited[u] = 1;
         for(int v: graph[u])
             if(!visited[v]){
-                ans[u].push_back(v);
                 dfs(ans,graph,v,visited);
+                ans[u].push_back(v);
             }
     }
 public:
@@ -21,7 +21,7 @@ public:
         vector<vector<int>> ans;
 
         // reverse each edge 
-        for(auto edge: edges){
+        for(auto edge: edges)
             graph[edge[1]].push_back(edge[0]);
 
         //now apply dfs on each node to find all node that connect to it
