@@ -8,10 +8,9 @@ class Solution {
     void dfs(vector<int>& ans, vector<int> graph[], int u, vector<int>& visited){
 
         visited[u] = 1;
-        for(int v: graph[u]){
+        for(int v: graph[u])
             if(!visited[v])
                 dfs(ans,graph,v,visited);
-        }
         ans.push_back(u);
     }
 public:
