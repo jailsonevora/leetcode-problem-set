@@ -5,7 +5,7 @@
 using namespace std;
 
 class Solution {
-    void dfs(vector<int>& ans, vector<int> graph[], int u, vector<int> visited){
+    void dfs(vector<int>& ans, vector<int> graph[], int u, vector<int>& visited){
 
         visited[u] = 1;
         for(int v: graph[u])
@@ -25,12 +25,13 @@ public:
             graph[edge[1]].push_back(edge[0]);
 
         //now apply dfs on each node to find all node that connect to it
-        vector<int> visted(n,0);
+        vector<int> visited(n,0);
 
         for (int i = 0; i < n; i++){
             vector<int> ans;
-            dfs(ans, graph, i, visted);
+            dfs(ans, graph, i, visited);
             ancestors[i] = ans;
+            visited.clear();
         }
         return ancestors;
     }
