@@ -18,7 +18,7 @@ public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
 
         vector<int> graph[n];
-        vector<vector<int>> ans(n);
+        vector<vector<int>> ancestors(n);
 
         // reverse each edge 
         for(auto edge: edges)
@@ -28,11 +28,11 @@ public:
         vector<int> visted(n,0);
 
         for (int i = 0; i < n; i++){
-            vector<int> ans(n);
+            vector<int> ans;
             dfs(ans, graph, i, visted);
-
+            ancestors[i] = ans;
         }
-        return ans;
+        return ancestors;
     }
 };
 
