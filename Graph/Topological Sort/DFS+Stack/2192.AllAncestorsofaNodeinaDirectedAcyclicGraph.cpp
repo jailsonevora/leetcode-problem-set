@@ -30,6 +30,7 @@ public:
         for (int i = 0; i < n; i++){
             vector<int> ans;
             dfs(ans, graph, i, visited);
+            sort(ans.begin(),ans.end());
             ancestors[i] = ans;
             visited.clear();
         }
