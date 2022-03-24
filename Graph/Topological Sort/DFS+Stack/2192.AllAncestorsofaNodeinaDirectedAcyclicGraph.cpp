@@ -10,8 +10,8 @@ class Solution {
         visited[u] = 1; 
         for(int v: graph[u])
             if(!visited[v])
-                dfs(ans,graph,v,visited);
-        ans.push_back(u);
+                ans.push_back(v),
+                    dfs(ans,graph,v,visited);
     }
 public:
     vector<vector<int>> getAncestors(int n, vector<vector<int>>& edges) {
