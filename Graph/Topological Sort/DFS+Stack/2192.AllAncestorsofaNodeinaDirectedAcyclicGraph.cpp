@@ -23,8 +23,7 @@ public:
         for(auto edge: edges)
             graph[edge[1]].push_back(edge[0]);
 
-        //now apply dfs on each node to find all node that connect to it     
-
+        //now apply dfs on each node to find all node that connect to it  
         for (int i = 0; i < n; i++){
             vector<int> visited(n,0);
             vector<int> ans;
