@@ -5,12 +5,12 @@
 using namespace std;
 
 class Solution {
-    void dfs(vector<vector<int>>& ans, vector<int> graph[], int u, vector<int> visited){
+    void dfs(vector<int>& ans, vector<int> graph[], int u, vector<int> visited){
 
         visited[u] = 1;
         for(int v: graph[u])
             if(!visited[v]){
-                ans[u].push_back(v);
+                ans.push_back(v);
                 dfs(ans,graph,v,visited);
             }
     }
