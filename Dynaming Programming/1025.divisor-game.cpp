@@ -39,6 +39,5 @@ int main(){
 
     int n = 2;
     Solution sl;
-    
     cout << sl.divisorGame(n);
 }
