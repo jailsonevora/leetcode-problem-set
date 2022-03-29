@@ -4,6 +4,8 @@
  * [1976] Number of Ways to Arrive at Destination
  */
 
+#include<iostream>
+
 // @lc code=start
 class Solution {
 public:
