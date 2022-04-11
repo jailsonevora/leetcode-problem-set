@@ -16,7 +16,10 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 #include<bits/stl_heap.h>
+
+using namespace std;
 
 
 class Solution {
