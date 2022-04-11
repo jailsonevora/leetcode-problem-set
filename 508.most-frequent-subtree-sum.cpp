@@ -16,6 +16,9 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+#include<bits/stl_heap.h>
+
+
 class Solution {
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
