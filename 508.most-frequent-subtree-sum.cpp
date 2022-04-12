@@ -24,7 +24,7 @@ using namespace std;
 class Solution {
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
-        
+
         
     }
 };
@@ -36,9 +36,6 @@ int main(){
     cout.tie();
 
     vector<int> preOrder1 = {1,2,5,3};
-    //         1
-    //     2       3
-    //       5          
     vector<int> inOrder1 = {5,2,1,3};
 
     BuildTreeFromPreOrderArray bl;
