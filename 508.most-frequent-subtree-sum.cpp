@@ -17,6 +17,7 @@
  * };
  */
 #include<bits/stdc++.h>
+#include "Util\Include\BuildTreeFromPreOrderArray.h"
 
 using namespace std;
 
@@ -28,5 +29,7 @@ public:
 };
 // @lc code=end
 int main(){
-    
+
+    ios
+
 }
