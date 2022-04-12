@@ -28,8 +28,21 @@ public:
     }
 };
 // @lc code=end
+
 int main(){
+    ios_base::sync_with_stdio();
+    cin.tie();
+    cout.tie();
 
-    ios
+    vector<int> preOrder1 = {1,2,5,3};
+    //         1
+    //     2       3
+    //       5          
+    vector<int> inOrder1 = {5,2,1,3};
 
+    BuildTreeFromPreOrderArray bl;
+    TreeNode* root = bl.buildTree(preOrder1, inOrder1);
+
+    Solution sl;
+    sl.findFrequentTreeSum(root);
 }
