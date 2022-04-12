@@ -29,7 +29,6 @@ public:
     }
 };
 // @lc code=end
-
 int main(){
 
     ios_base::sync_with_stdio();
