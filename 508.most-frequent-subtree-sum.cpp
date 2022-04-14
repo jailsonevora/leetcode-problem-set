@@ -27,6 +27,8 @@ public:
 
         if(!root)
 
+        if(root->left)
+
         
     }
 };
