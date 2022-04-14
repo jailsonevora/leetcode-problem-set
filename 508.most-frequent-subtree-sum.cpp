@@ -35,10 +35,9 @@ public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
 
         vector<int> ans;
-
         dfs(root, ans);
 
-        
+        return ans;        
     }
 };
 // @lc code=end
