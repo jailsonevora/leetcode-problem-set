@@ -35,6 +35,8 @@ public:
 
         vector<int> ans;
 
+        dfs(root, ans);
+
         
     }
 };
