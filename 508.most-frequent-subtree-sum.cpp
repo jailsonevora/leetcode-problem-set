@@ -22,7 +22,7 @@
 using namespace std;
 
 class Solution {
-    void dfs(TreeNode* root){
+    void dfs(TreeNode* root, vector<int>& ans){
 
         if(!root)
 
