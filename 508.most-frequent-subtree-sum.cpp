@@ -31,6 +31,7 @@ class Solution {
             dfs(root, ans);
 
         if(root->right)
+            dfs(root, ans);
     }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
