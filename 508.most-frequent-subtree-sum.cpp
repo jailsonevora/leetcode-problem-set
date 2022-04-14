@@ -25,6 +25,8 @@ class Solution {
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
 
+        if(!root)
+
         
     }
 };
