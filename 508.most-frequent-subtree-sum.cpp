@@ -28,6 +28,7 @@ class Solution {
             return;
 
         if(root->left)
+            dfs(root, ans);
 
         if(root->right)
     }
@@ -35,8 +36,8 @@ public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
 
         vector<int> ans;
-        dfs(root, ans);
 
+        dfs(root, ans);
         return ans;        
     }
 };
