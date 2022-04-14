@@ -25,6 +25,7 @@ class Solution {
     void dfs(TreeNode* root, vector<int>& ans){
 
         if(!root)
+            return;
 
         if(root->left)
 
