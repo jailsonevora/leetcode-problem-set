@@ -22,14 +22,13 @@
 using namespace std;
 
 class Solution {
+    void dfs(){
+        
+    }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
 
-        if(!root)
-
-        if(root->left)
-
-        if(root->right)
+        
 
         
     }
