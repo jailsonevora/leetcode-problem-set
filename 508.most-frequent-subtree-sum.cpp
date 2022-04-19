@@ -23,12 +23,12 @@ using namespace std;
 
 class Solution {
     
-    int dfs(TreeNode* root, vector<int>& ans, unordered_map<int, int>& mp, int& maxF){
+    int dfs(TreeNode* root, unordered_map<int, int>& mp, int& maxF){
 
         if(!root)
             return 0;
 
-        int sum = root->val + dfs(root->left, ans, mp, maxF) + dfs(root->right, ans, mp, maxF);
+        int sum = root->val + dfs(root->left, mp, maxF) + dfs(root->right, mp, maxF);
 
         maxF = std::max(maxF, ++mp[sum]);
         return sum;
@@ -38,7 +38,7 @@ public:
 
         vector<int> ans;
         unordered_map<int, int> mp;
-        int maxF
+        int maxF = 0;
 
         dfs(root, ans, mp, maxF);
         return ans;        
