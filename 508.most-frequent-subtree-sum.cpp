@@ -31,6 +31,7 @@ class Solution {
         int sum = root->val + dfs(root->left, ans, mp, maxF) + dfs(root->right, ans, mp, maxF);
 
         maxF = std::max(maxF, ++mp[sum]);
+        return sum;
     }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
