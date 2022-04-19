@@ -40,8 +40,12 @@ public:
         unordered_map<int, int> mp;
         int maxF = 0;
 
-        dfs(root, ans, mp, maxF);
-        return ans;        
+        dfs(root, mp, maxF);
+        
+        for(auto& [node, frequent] : map) 
+			if(frequent == maxF) 
+                ans.push_back(node);
+		return ans;
     }
 };
 // @lc code=end
