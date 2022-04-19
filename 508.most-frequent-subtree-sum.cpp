@@ -23,7 +23,7 @@ using namespace std;
 
 class Solution {
     
-    void dfs(TreeNode* root, vector<int>& ans){
+    void dfs(TreeNode* root, vector<int>& ans, unordered_map<int, int> mp){
 
         if(!root)
             return;
