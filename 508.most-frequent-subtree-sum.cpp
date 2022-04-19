@@ -26,13 +26,9 @@ class Solution {
     int dfs(TreeNode* root, vector<int>& ans, unordered_map<int, int> mp){
 
         if(!root)
-            return;
+            return 0;
 
-        if(root->left)
-            dfs(root, ans);
-
-        if(root->right)
-            dfs(root, ans);
+        int sum = dfs(root->left, ans) + dfs(root->right, ans);
     }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
