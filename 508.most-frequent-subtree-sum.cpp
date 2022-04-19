@@ -23,13 +23,14 @@ using namespace std;
 
 class Solution {
     
-    int dfs(TreeNode* root, vector<int>& ans, unordered_map<int, int>& mp){
+    int dfs(TreeNode* root, vector<int>& ans, unordered_map<int, int>& mp, int& maxF){
 
         if(!root)
             return 0;
 
         int sum = root->val + dfs(root->left, ans, mp) + dfs(root->right, ans, mp);
-    
+
+        maxF = std::max(maxF, ++map[sum]);
     }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
