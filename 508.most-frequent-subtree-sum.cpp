@@ -17,7 +17,7 @@
  * };
  */
 #include<bits/stdc++.h>
-#include "Util\Include\BuildTreeFromPreOrderArray.h"
+//#include "Util\Include\BuildTreeFromPreOrderArray.h"
 
 using namespace std;
 
@@ -42,7 +42,7 @@ public:
 
         dfs(root, mp, maxF);
         
-        for(auto& [node, frequent] : map) 
+        for(auto& [node, frequent] : mp) 
 			if(frequent == maxF) 
                 ans.push_back(node);
 		return ans;
