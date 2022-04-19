@@ -28,7 +28,8 @@ class Solution {
         if(!root)
             return 0;
 
-        int sum = dfs(root->left, ans, mp) + dfs(root->right, ans, mp);
+        int sum = root->val + dfs(root->left, ans, mp) + dfs(root->right, ans, mp);
+    
     }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
