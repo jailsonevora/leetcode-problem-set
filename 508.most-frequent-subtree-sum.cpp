@@ -28,9 +28,9 @@ class Solution {
         if(!root)
             return 0;
 
-        int sum = root->val + dfs(root->left, ans, mp) + dfs(root->right, ans, mp);
+        int sum = root->val + dfs(root->left, ans, mp, maxF) + dfs(root->right, ans, mp, maxF);
 
-        maxF = std::max(maxF, ++map[sum]);
+        maxF = std::max(maxF, ++mp[sum]);
     }
 public:
     vector<int> findFrequentTreeSum(TreeNode* root) {
