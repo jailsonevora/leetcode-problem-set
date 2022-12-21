@@ -32,5 +32,5 @@ int main(){
     vector<int> v = {-1,0,3,5,9,12};
 
     Solution sl;
-    sl.search(v,9);
+    cout << sl.search(v,9);
 }
