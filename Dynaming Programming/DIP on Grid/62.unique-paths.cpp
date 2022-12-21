@@ -29,7 +29,6 @@ class Solution {
 
         return dp[m-1][n-1];
     }
-
     // bottom-Up robot to star
     int bottomUp2(int m, int n){
 

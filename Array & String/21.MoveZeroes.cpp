@@ -14,7 +14,9 @@ public:
         int next = 0, i = 0;
         while (next < nums.size()){
             if(nums[next] != 0)
-                swap(nums[i++],nums[next]);
+                swap(nums[i++],nums[next++]);
+            else
+                next++;
         }
     }
 

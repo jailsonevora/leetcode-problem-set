@@ -10,13 +10,13 @@ public:
 
     ListNode* middleNode(ListNode* head) {
         
-        ListNode* fast = head, *slow = head;
+        ListNode* slow = head, *fast = head;
         
-        while(slow && slow->next){
-            fast = fast->next;
-            slow = slow->next->next;
+        while(fast && fast->next){
+            slow = slow->next;
+            fast = fast->next->next;
         }
-        return fast;        
+        return slow;        
     }
 
     void pushBack(int data)
